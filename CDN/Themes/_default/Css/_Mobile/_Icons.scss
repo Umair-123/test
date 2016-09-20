@@ -1,0 +1,121 @@
+@import "_Images.scss";
+
+
+/* ICONS */
+
+
+@mixin icon-set-5-sizes($icon-name, $base-icon-size-px) {
+
+    $icon-image-path: "../../Images/Mobile/Icons";
+    $base-icon-size: $base-icon-size-px / 1px; // strip off the "px" to make this variable just a number
+    
+    background-size: $base-icon-size-px;
+    
+    @include background-image($icon-image-path, "Icon_" + $icon-name, "png", 1, $base-icon-size);
+    @include background-image($icon-image-path, "Icon_" + $icon-name, "png", 1.5, $base-icon-size);
+    @include background-image($icon-image-path, "Icon_" + $icon-name, "png", 2, $base-icon-size);
+    @include background-image($icon-image-path, "Icon_" + $icon-name, "png", 2.5, $base-icon-size);
+    @include background-image($icon-image-path, "Icon_" + $icon-name, "png", 3, $base-icon-size);
+}
+
+%icon {
+    display: inline-block;
+    background: no-repeat center transparent; 
+}
+
+%icon-home {
+    @include icon-set-5-sizes("Home", 30px);
+}
+
+%icon-home-selected {
+    @include icon-set-5-sizes("Selected_Home", 30px);
+}
+
+%icon-movies {
+    @include icon-set-5-sizes("Film", 30px);
+}
+
+%icon-movies-selected {
+    @include icon-set-5-sizes("Selected_Film", 30px);
+}
+
+%icon-cinemas {
+    @include icon-set-5-sizes("Cinema", 30px);
+}
+
+%icon-cinemas-selected {
+    @include icon-set-5-sizes("Selected_Cinema", 30px);
+}
+
+%icon-events {
+    @include icon-set-5-sizes("Events", 30px);
+}
+
+%icon-events-selected {
+    @include icon-set-5-sizes("Events_Selected", 30px);
+}
+
+%icon-loyalty {
+    @include icon-set-5-sizes("Loyalty", 30px);
+}
+
+%icon-loyalty-selected {
+    @include icon-set-5-sizes("Selected_Loyalty", 30px);
+}
+
+%icon-trailer {
+    background-image: url("../../../Images/Mobile/Icons/Icons_Play_30.png");
+}
+
+@mixin icon-arrow($background-position) {
+    background-position: $background-position;
+    background-size: 24px;
+    background-repeat: no-repeat;
+}
+
+%icon-arrow-expand {
+    // TODO: get image range from kathy
+    background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Expand_37.png");
+}
+
+%icon-arrow-collapse {
+    // TODO: get image range from kathy
+    background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Collapse_37.png");
+}
+    
+%icon-arrow-right {
+    // TODO: get image range from kathy
+    background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Right_37.png");
+}
+
+%icon-clear-light-small {
+    // TODO: get image range from kathy
+    background-image: url("../../../Images/Icon_Minus_Light.png");
+}
+
+%icon-notification-blue-small {
+    // TODO: get image range from kathy
+    background-image: url("../../../Images/Notification_Blue.png");
+}
+
+%icon-star-blue-small {
+	background-image: url("../../../Images/Icon_Star_Blue.png");
+}
+
+%icon-car {
+	background-image: url("../../../Images/Mobile/Icons/Icons_Car.png");
+    height: 30px;
+    width: 30px;
+}
+
+%icon-bus {
+	background-image: url("../../../Images/Mobile/Icons/Icons_Bus.png");
+    height: 30px;
+    width: 30px;
+}
+
+%icon-map {
+	background-image: url("../../../Images/Mobile/Icons/Icons_Map.png");
+    height: 30px;
+    width: 30px;
+}

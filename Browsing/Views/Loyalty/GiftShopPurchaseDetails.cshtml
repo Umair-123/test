@@ -1,0 +1,61 @@
+﻿@using System.Activities.Expressions
+@using InternetTicketing.Browsing.ViewModels.Loyalty.Member
+@using InternetTicketing.Infrastructure.Localisation
+@using Vista.Connect.Loyalty
+@model GiftShopPurchase
+    
+@{
+    var uniqueIdentifier = string.Format("{0}-{1}", Model.TransactionId, Model.CinemaId);
+}
+
+<div class="gift-shop-purchase i-@uniqueIdentifier">
+<div class="order-details-modal modal-dialog-container">
+    <h3 class="title">
+        @GiftShopPurchaseDetails.OrderDetails
+    </h3>
+
+    <table>
+        <thead>
+            <tr class="gift-header">
+                <td>&nbsp;</td>
+                <td>@GiftShopPurchaseDetails.Quantity</td>
+                <td>@GiftShopPurchaseDetails.Each</td>
+                <td>@GiftShopPurchaseDetails.Subtotal</td>
+                <td>@GiftShopPurchaseDetails.Recipient</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var purchaseItem in Model.PurchaseItems)
+            {
+                <tr class="purchase-item">
+                    <td>@(ViewBag.IsAltLang && !String.IsNullOrWhiteSpace(purchaseItem.DescriptionAlt) ? purchaseItem.DescriptionAlt : purchaseItem.Description)</td>
+                    <td>@purchaseItem.Quantity</td>
+                    <td>@ViewBag.FormatCurrency(purchaseItem.ItemCost)</td>
+                    <td>@ViewBag.FormatCurrency(purchaseItem.SubTotal)</td>
+                    <td>@(purchaseItem.IsGift ? purchaseItem.Recipient : "")</td>
+                    <td>@DownloadLink(purchaseItem)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div id="order-total">
+        @GiftShopPurchaseDetails.OrderTotal:
+        <span>@ViewBag.FormatCurrency(Model.OrderTotal)</span>
+    </div>
+</div>
+</div>
+@helper DownloadLink(GiftShopPurchaseItem item) {
+    if (item.CanDownload)
+    {   
+        //TODO: Put an appropriate link to retrieve the pdf of the voucher
+        var routeValues = new RouteValueDictionary {{"cinemaId", Model.CinemaId}, 
+                                                    {"vistaTransId", Model.TransactionId}, 
+                                                    {"itemId", item.ItemId}, 
+                                                    {"sequenceNumber", item.SequenceNumber}};
+        var htmlAttributes = new Dictionary<string, object> {{"target", "_blank"}};
+        //TODO: localise
+        @Html.ActionLink(item.Quantity > 1 ? GiftShopPurchaseDetails.DownloadAsZip : GiftShopPurchaseDetails.Download, "GetConcessionReprint", "Loyalty", routeValues, htmlAttributes)
+    }
+}

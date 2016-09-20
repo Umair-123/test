@@ -1,0 +1,141 @@
+.form-line.save-card-to-wallet-container:before, .form-line.save-card-to-wallet-container:after {
+  content: " ";
+  display: table;
+}
+.form-line.save-card-to-wallet-container:after {
+  clear: both;
+}
+.form-line.save-card-to-wallet-container {
+  *zoom: 1;
+}
+
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+.formContent {
+  padding: 0 0.8rem 0 0.8rem;
+}
+.formContent .countdown {
+  padding-top: 0;
+  padding-right: 0;
+}
+
+.amount {
+  float: right;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+h2 {
+  font-size: 1rem;
+}
+h2 em {
+  font-size: 1rem;
+  margin-left: 0.3rem;
+}
+
+.form-line {
+  margin: 5px 0 5px 0;
+}
+.form-line label {
+  width: 40%;
+  display: inline-block;
+}
+.form-line input {
+  display: inline-block;
+  width: 55%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.form-line select {
+  display: inline-block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.form-line #card-type {
+  width: 30%;
+}
+.form-line #card-expiry-month, .form-line #card-expiry-year {
+  width: 20%;
+}
+.form-line #card-expiry-month {
+  margin-left: -4px;
+}
+.form-line #card-cvc {
+  width: 30%;
+}
+.form-line.save-card-to-wallet-container label {
+  width: 80%;
+}
+.form-line.save-card-to-wallet-container input {
+  margin: 0;
+  width: 20px;
+  float: left;
+}
+
+#cancelOrder {
+  float: left;
+}
+
+#pay {
+  float: right;
+}
+
+.button-list {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  background-color: #35a0a8;
+}
+.button-list button {
+  width: 100%;
+  flex-grow: 1;
+  -ms-flex: 1;
+}

@@ -1,0 +1,207 @@
+/* IMAGE HELPERS */
+/* ICONS */
+.showtimes-list.expanded .showtimes .showtime-link-container {
+  background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Right_37.png");
+}
+
+/* HORIZONTAL AND VERTICAL RULES */
+/* LINK/ANCHOR TAG STYLES */
+.showtimes .showtime-link-container .showtime-link {
+  text-decoration: none;
+}
+
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* SHOWTIMES LIST */
+/*
+<div class="film-for-day showtimes-list collapsed">
+    <img class="rating-image" src="http://localhost/CDN/Image/Entity/MovieRatings/M?width=22&amp;height=22" alt="" width="20" height="20">
+    <div class="film-title">District 9</div>
+                        
+	<div class="showtimes has-attributes">
+		<div class="showtime-link-container">                      
+			<a class="session-attributes has-attributes">
+				<img class="attribute-image" src="http://vdt092/CDN/Image/Entity/SessionAttribute/HFR?width=10&amp;height=10" alt="HFR">
+			</a>
+			<a class="showtime-link" href="http://vdt092/Ticketing/visSelectTickets.aspx?cinemacode=0000000001&amp;txtSessionId=307361&amp;visLang=1">
+				<time class="showtime" datetime="2014-05-20T20:05:00.0000000">08:05 p.m.</time>
+			</a>              
+		</div>
+	</div>
+</div>
+*/
+.showtimes-list:before {
+  content: '';
+  display: block;
+  border-top: 1px solid #93908f;
+  margin-bottom: 0.5rem;
+}
+.showtimes-list:before {
+  border-color: transparent;
+}
+
+.showtimes-list ~ .showtimes-list:before {
+  border-color: #dadada;
+}
+
+.showtimes.has-attributes .session-attributes {
+  width: 25%;
+  overflow: hidden;
+  padding: 0 0.5rem;
+}
+.showtimes.has-attributes .session-attributes.has-attributes {
+  background-color: #443e3b;
+}
+.showtimes.has-attributes .session-attributes.no-attributes {
+  background-color: #ffffff;
+  height: 100%;
+}
+.showtimes.has-attributes .session-attributes.no-attributes:before {
+  content: '.';
+  color: #ffffff;
+}
+
+.showtimes.no-attributes .session-attributes {
+  width: 0%;
+}
+
+/*
+.showtimes-list {
+    @include icon-arrow($background-position: 97% 10px);
+}
+
+.showtimes-list.collapsed {
+    @extend %icon-arrow-expand;
+}
+*/
+.showtimes {
+  background-color: #ffffff;
+}
+.showtimes .showtime-link-container {
+  color: #666666;
+}
+.showtimes .showtime-link-container .showtime-link {
+  color: inherit;
+}
+.showtimes-list.collapsed .showtimes .showtime-link-container .session-attributes {
+  display: none;
+}
+.showtimes-list.expanded .showtimes .showtime-link-container .session-attributes {
+  display: inline-block;
+  vertical-align: top;
+}
+.showtimes-list.collapsed .showtimes .showtime-link-container {
+  display: none;
+}
+.showtimes-list.collapsed .showtimes .showtime-link-container:not(:last-of-type) .showtime:after {
+  content: ", ";
+}
+.showtimes-list.expanded .showtimes .showtime-link-container {
+  background-position: 99% 50%;
+  background-size: 24px;
+  background-repeat: no-repeat;
+  display: block;
+  color: #443e3b;
+  background-color: #93908f;
+  font-size: 1.2rem;
+  line-height: 3.5rem;
+  margin-bottom: 0.2rem;
+}
+.showtimes-list.expanded .showtimes .showtime-link-container .showtime-link {
+  display: inline-block;
+  width: 66%;
+  float: right;
+  color: inherit;
+}
+
+.showtimes.has-attributes .session-attributes.has-attributes {
+  text-align: center;
+}
+.showtimes.has-attributes .session-attributes.has-attributes img {
+  width: 25%;
+  max-width: 100px;
+  vertical-align: middle;
+}
+
+.showtime-link {
+  display: block;
+  text-decoration: none;
+  color: #666666;
+  padding-left: 2rem;
+  line-height: 3.5rem;
+  border-top: 1px solid #dadada;
+}
+.showtime-link:hover, .showtime-link:hover span {
+  color: #35a0a8;
+}
+.showtime-link .showtime {
+  margin-right: 1.5rem;
+}
+
+.showtimes-list.collapsed .showtime-link {
+  display: none;
+}
+
+/* Date selector, shared by MovieDetails and CinemaDetails */
+.date-selector {
+  text-align: center;
+  border-bottom: 1px solid #dadada;
+  padding: 0.8rem 0;
+  color: #443e3b;
+}
+.date-selector .prev, .date-selector .next {
+  width: 40px;
+  height: 15px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.date-selector .prev {
+  background-image: url("../../../Images/Mobile/Arrow_Left_20.png");
+  float: left;
+}
+.date-selector .next {
+  background-image: url("../../../Images/Mobile/Arrow_Right_20.png");
+  float: right;
+}
+
+.films-for-day:first-child .prev {
+  visibility: hidden;
+}
+
+.films-for-day:last-child .next {
+  visibility: hidden;
+}
+
+.cinemas-for-day:first-child .prev {
+  visibility: hidden;
+}
+
+.cinemas-for-day:last-child .next {
+  visibility: hidden;
+}
+
+.no-showtimes-msg {
+  margin: 7%;
+}

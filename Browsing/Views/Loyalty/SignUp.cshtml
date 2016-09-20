@@ -1,0 +1,86 @@
+﻿@* TODO: move out scripts, fix IE7 float right bug *@
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@model InternetTicketing.Browsing.ViewModels.Loyalty.Member.SignUpViewModel
+
+@section Css {
+    @ContentDelivery.Css("Loyalty/LoyaltyMember.css")
+    @ContentDelivery.Css("AddressModal.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("CheckboxList.css")
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Models/Address.js")  
+    @ContentDelivery.Script("Vista/CheckBoxList.js")  
+    @ContentDelivery.Script("Vista/AddressModalDialog.js")
+    @ContentDelivery.Script("Vista/LoyaltyMember/Page.js")
+}
+
+@{
+    IDictionary<string, object> passwordLimits = Html.GetLengthValidationAttributes(Model.MinPasswordLength, Model.MaxPasswordLength);
+}
+
+@using (Html.BeginForm("SignUp", "Loyalty", new { id = Model.ClubId, membershipId=Model.MembershipProgramId}, FormMethod.Post, new { @class = "loyalty-member" }))
+{
+    
+    if (Model.IsProgramSignUp)
+    {
+        string programPriceDisplayText = Model.IsPaidActivation ? Model.MembershipProgramDisplayPrice : Shared.Free;
+        
+        <h3 class="program-title">
+            <span class="program-name">@Model.MembershipProgramName</span><span class="separator">-</span><span class="program-price">@programPriceDisplayText</span>
+        </h3>         
+    }
+    
+    @Html.EditorFor(m => m.Member)
+
+    <hr />
+
+    <div id="loyalty-member-password" class="row">
+        <h2>@LoyaltySignUp.CreateLoginTitle</h2>    
+
+        <ul>
+            @if (Model.DisplayUsername)
+            {
+                <li>
+                    @Html.LabelFor(m => m.Username)@*
+                  *@@Html.TextBoxFor(m => m.Username)@*
+                  *@@Html.ValidationMessageFor(m => m.Username, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+            <li>
+                @Html.LabelFor(m => m.Password)@*
+              *@@Html.PasswordFor(m => m.Password, passwordLimits)@*
+              *@@Html.ValidationMessageFor(m => m.Password, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.PasswordConfirm)@*
+              *@@Html.PasswordFor(m => m.PasswordConfirm, passwordLimits)@*
+              *@@Html.ValidationMessageFor(m => m.PasswordConfirm, string.Empty, new { @class = "icon icon-small" })
+            </li>
+        </ul>
+    </div>
+
+    <p> @* Need significant whitespace after label *@
+        @Html.CheckBoxFor(m => m.Agree, new { id = "loyalty-signup-agree" })@*
+      *@@Html.LabelFor(m => m.Agree, htmlAttributes: new { @for = "loyalty-signup-agree", @class = "checkbox-label" })
+        <a href="@Model.SignUpTermsAndConditionsUrl" target="_blank">@LoyaltyMember.Terms</a>@*
+      *@@Html.ValidationMessageFor(m => m.Agree, string.Empty, new { @class = "icon icon-small" })
+    </p>
+
+    @Html.HiddenFor(m => m.ClubId)
+    @Html.HiddenFor(m => m.MembershipProgramId)
+
+    string createAccountButtonText = Model.IsPaidActivation ? LoyaltyMember.PayNow : LoyaltyMember.ActivateAccount;
+    
+    <div class="button-container"> @* IE<=8 centering fix *@
+        <button type="submit" class="page-action submit" disabled="disabled"><span>@createAccountButtonText</span></button>
+    </div>
+}
+
+@{ Html.RenderPartial("AddressModal"); }
+

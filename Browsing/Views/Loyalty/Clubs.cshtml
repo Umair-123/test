@@ -1,0 +1,208 @@
+﻿@using InternetTicketing.Browsing.ViewModels.Loyalty
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+
+@model SelectClubViewModel
+
+@*
+    Three types of club:
+    
+    Club the user is not a member of: links to club details page
+    Club the user is a member of, but not logged into: clicking on these will switch the user to the clicked club
+    Club the user is a member of, and is logged into: clicking on this will lead to the Loyalty home page
+*@
+
+
+
+<div id="loyalty-clubs">
+    
+    <div class="ad-content">
+        <section class="loading main-ad generic-image-carousel"></section>
+    </div>
+    
+    <div class="clubs">
+        
+        @if (Model.UserSignedIn) 
+        {
+            System.Diagnostics.Debug.Assert(Model.MemberClubs.Count > 0, "If the user is logged in there should be at least 1 club.");
+            <h2>@LoyaltyClubs.UserClubsTitle1<em>@LoyaltyClubs.UserClubsTitle2</em></h2>
+            <div class="loyalty-clubs-list">
+                @for (int i = 0; i < Model.MemberClubs.Count; i++)
+                {
+                    if (Model.MemberClubs[i].IsActive)
+                    {
+                        @RenderClub(Model.MemberClubs[i], LoyaltyClubs.UserClubOverview, isMemberClub: true, isLast: i == Model.MemberClubs.Count - 1)
+                
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("Switch", "Loyalty", new { id = Model.MemberClubs[i].Id }))
+                        {
+                            @RenderClub(Model.MemberClubs[i], LoyaltyClubs.UserClubOverview, isMemberClub: true, isLast: i == Model.MemberClubs.Count - 1, canSwitchToClub: Model.AllowSignInToMultipleMemberships)
+                        }
+                    }
+                }
+            </div>
+
+            if (Model.OtherClubs.Any())
+            {
+                <h2>@LoyaltyClubs.OtherClubsTitle1<em>@LoyaltyClubs.OtherClubsTitle2</em></h2>
+                <div class="loyalty-clubs-list">
+                    @for (int i = 0; i < Model.OtherClubs.Count; i++)
+                    {
+                        @RenderClub(Model.OtherClubs[i], isLast: i == Model.OtherClubs.Count - 1)
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <h2>@Shared.SiteTitle <em>@LoyaltyClubs.AllClubsTitle2</em></h2>
+            <a href="@BrowsingUrls.GetActivateCardUrl()" type="submit" class="page-action activate-card-link"><span>@LoyaltyActivateCard.ActivateCard</span></a>
+            <div class="loyalty-clubs-list">
+                @for (int i = 0; i < Model.OtherClubs.Count; i++)
+                {
+                    @RenderClub(Model.OtherClubs[i], isLast: i == Model.OtherClubs.Count - 1)
+                }
+            </div>
+
+            Html.RenderAction("SignInAsync"); // Used as modal dialog
+        }        
+    </div>
+
+</div>
+
+@using (Html.BeginForm("Unsubscribe", "Loyalty", FormMethod.Post, new { id = "loyalty-delete-membership" }))
+{
+    <h2>@LoyaltyClubs.UnsubscribeTitle1<em>@LoyaltyClubs.UnsubscribeTitle2</em></h2>
+    <p>@LoyaltyClubs.UnsubscribeMessage</p>
+
+    <div class="footer">
+        <button type="button" class="page-action cancel"><span>@LoyaltyClubs.UnsubscribeCancel</span></button>
+        <button type="submit" class="page-action"><span>@LoyaltyClubs.UnsubscribeConfirm</span></button>
+    </div>
+}
+
+@helper RenderClub(ClubViewModel club, string text = null, bool isMemberClub = false, bool isLast = false, bool canSwitchToClub = false)
+{
+<div class="list-item@(isLast ? " last" : "")">
+    <div class="image-outer">
+        @RenderClubImage(club.Id, club.Name, isMemberClub, club.IsActive, canSwitchToClub)
+    </div>
+    <div class="item-details">
+        <div class="item-details-inner">
+            <div class="title-wrapper">
+                @RenderClubHeading(club.Id, club.Name, isMemberClub, club.IsActive, canSwitchToClub)
+            </div>
+            <p class="subtext">@(text ?? LoyaltyClubs.ClubDescription(club.Id))</p>
+        </div>
+    </div>
+    <div class="movie-actions">
+        
+            @RenderClubButtons(club.Name, club.Id, isMemberClub, club.HasMultipleMemberships, canSwitchToClub)
+        
+    </div>
+</div>
+}
+
+@helper RenderClubImage(string id, string name, bool isMemberClub, bool isActive, bool canSwitchToClub)
+{
+    if (canSwitchToClub)
+    {
+        <a href="@BrowsingUrls.GetLoyaltySwitchClubUrl(id)" style="background-image: url(@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)')">
+            <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)" alt="@name"/>
+        </a>
+    }
+    else if (isActive)
+    {
+        <a href="@BrowsingUrls.GetLoyaltyHomePageUrl()" style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)')">
+            <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)" alt="@name" />
+        </a>
+    }
+    else if (isMemberClub)
+    {
+        <button type="submit">
+            <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)" alt="@name" />
+        </button>
+    }
+    else
+    {
+        <a href="@BrowsingUrls.GetLoyaltyClubUrl(id)" style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)')">
+            <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubs, id, CommonImageSizes.LoyaltyClubs)" alt="@name" />
+        </a>
+    }
+}
+
+@helper RenderClubHeading(string id, string name, bool isMemberClub, bool isActive, bool canSwitchToClub)
+{
+    if (canSwitchToClub)
+    {
+        <a href="@BrowsingUrls.GetLoyaltySwitchClubUrl(id)"><h3 class="item-title">@name</h3></a>
+    }
+    else if (isActive)
+    {
+        <a href="@BrowsingUrls.GetLoyaltyHomePageUrl()"><h3 class="item-title">@name</h3></a>
+    }
+    else if (isMemberClub)
+    {
+        <button type="submit">@name</button>
+    }
+    else 
+    {
+        <a href="@BrowsingUrls.GetLoyaltyClubUrl(id)"><h3 class="item-title">@name</h3></a>
+    }
+}
+
+@helper RenderClubButtons(string clubName, string clubId, bool isMemberClub, bool hasMultipleMemberships, bool canSwitchToClub)
+{
+    if(isMemberClub)
+    {
+        
+        if (canSwitchToClub)
+        {
+            <button class="user-action loyalty-switch-club" type="submit" value="@clubId"><span>@LoyaltyClubs.SwitchToClub(clubName)</span></button>            
+        }
+        
+        if (Model.DisplayUnsubscribe)
+        {
+            <button class="user-action loyalty-unsubscribe" type="button" value="@clubId"><span>@LoyaltyClubs.UnsubscribeButton</span></button>
+        }
+    }
+    else 
+    {
+        if (!Model.UserSignedIn)
+        {
+            <div class="main-action"><a href="javascript:void(0);" class="loyalty-signin" data-id="@clubId">@LoyaltyClubs.SignInButton</a></div>
+        }
+        if (!Model.UserSignedIn)
+        {
+            var signupUrl = String.Empty;
+            if (hasMultipleMemberships)
+            {
+                signupUrl = BrowsingUrls.GetLoyaltyClubMembershipProgramsUrl(clubId);                
+            }
+            else
+            {
+                signupUrl = BrowsingUrls.GetLoyaltyClubSignupUrl(clubId);
+            }
+            <div class="main-action"><a class="loyalty-register" href="@signupUrl">@LoyaltyClubs.SignUpButton</a> </div>           
+        }
+        <div class="main-action"><a href="@BrowsingUrls.GetLoyaltyClubUrl(clubId)">@LoyaltyClubs.MoreButton</a></div>
+    }
+}
+
+
+@section Css
+{
+    @ContentDelivery.CssBundle(CssBundles.LoyaltyClubs);
+}
+
+@section Scripts
+{
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/Clubs.js")
+}
+

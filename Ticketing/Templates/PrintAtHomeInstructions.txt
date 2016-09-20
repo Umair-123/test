@@ -1,0 +1,22 @@
+Print at home tickets are generated from a number of components.
+1. Print template from Sales Server.
+   This generally contains a set of fields in a Header/Detail/Footer layout that will have dynamic data input by Sales Server. The contents of this print template after having dynamic data entered is stored in the database.
+
+2. PrintAtHome.xml template in this folder.
+   Using the field names in the print template, the XML document lists fields and positions of items as displayed on the Print At Home PDF file.
+
+3. Images specified in xml template.
+   Image paths listed in the xml template will be looked up and added to the PDF while processing the xml template for PDF generation.
+   We recommend using .png or .jpg image types as these are the most reliable. If using .gifs ensure that they have the 'A' file attribute, and not 'N' as these will not work with the PDF generator.
+   If you do have any issues rendering an image try converting it to another format or changing its output settings as a first step.
+
+
+A different set of components can be used for each cinema participating in Print At Home.
+Each cinema can have a different Print Template for Sales Server. This allows different dynamic data to be used for each cinema if required.
+
+Each cinema can also use a separate xml template with its own image paths specified.
+Make a copy of PrintAtHome.xml (and the Alt version if required) and append the VISTAIT cinema code onto the name to make this the template for that cinema.
+
+For example, if a cinema code was 1001, the names of the template files become PrintAtHome1001.xml and PrintAtHomeAlt1001.xml. 
+
+If no file is found with the cinema code appended, the default print at home template will be used.

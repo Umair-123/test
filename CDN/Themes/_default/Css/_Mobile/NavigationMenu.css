@@ -1,0 +1,404 @@
+/* IMAGE HELPERS */
+/* ICONS */
+.nav-menu .nav-menu-item.home .nav-menu-item-link .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.home .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Home_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.home .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Home_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.home .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Home_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.home .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Home_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.home .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Home_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.home.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.home .nav-menu-item-link:hover .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.home.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.home .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Home_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.home.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.home .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Home_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.home.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.home .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Home_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.home.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.home .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Home_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.home.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.home .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Home_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.movies .nav-menu-item-link .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.movies .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Film_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.movies .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Film_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.movies .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Film_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.movies .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Film_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.movies .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Film_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.movies.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.movies .nav-menu-item-link:hover .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.movies.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.movies .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Film_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.movies.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.movies .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Film_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.movies.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.movies .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Film_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.movies.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.movies .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Film_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.movies.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.movies .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Film_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.cinemas .nav-menu-item-link .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.cinemas .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Cinema_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.cinemas .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Cinema_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.cinemas .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Cinema_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.cinemas .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Cinema_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.cinemas .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Cinema_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.cinemas.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.cinemas.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Cinema_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.cinemas.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Cinema_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.cinemas.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Cinema_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.cinemas.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Cinema_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.cinemas.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Cinema_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.events .nav-menu-item-link .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.events .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.events .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.events .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.events .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.events .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.events.selected .nav-menu-item-link .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.events.selected .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_Selected_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.events.selected .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_Selected_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.events.selected .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_Selected_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.events.selected .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_Selected_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.events.selected .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Events_Selected_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.loyalty .nav-menu-item-link .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.loyalty .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Loyalty_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.loyalty .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Loyalty_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.loyalty .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Loyalty_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.loyalty .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Loyalty_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.loyalty .nav-menu-item-link .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Loyalty_90.png");
+  }
+}
+
+.nav-menu .nav-menu-item.loyalty.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+  background-size: 30px;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .nav-menu .nav-menu-item.loyalty.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Loyalty_30.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .nav-menu .nav-menu-item.loyalty.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Loyalty_45.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .nav-menu .nav-menu-item.loyalty.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Loyalty_60.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .nav-menu .nav-menu-item.loyalty.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Loyalty_75.png");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .nav-menu .nav-menu-item.loyalty.selected .nav-menu-item-link .nav-menu-item-img, .nav-menu .nav-menu-item.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+    background-image: url("../../Images/Mobile/Icons/Icon_Selected_Loyalty_90.png");
+  }
+}
+
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* LINK/ANCHOR TAG STYLES */
+.nav-menu .nav-menu-item .nav-menu-item-link {
+  text-decoration: none;
+}
+
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* NAVIGATION MENU */
+/*
+<nav class="nav-menu">
+    <ul class="nav-menu-list">
+        <li class="nav-menu-item home selected"><a href="http://localhost/Browsing/" target="_self" class="nav-menu-item-link">Home</a></li>
+        <li class="nav-menu-item movies "><a href="http://localhost/Browsing/Movies/NowShowing" target="_self" class="nav-menu-item-link">Movies</a></li>
+        <li class="nav-menu-item cinemas "><a href="http://localhost/Browsing/Cinemas" target="_self" class="nav-menu-item-link">Cinemas</a></li>
+        <li class="nav-menu-item events "><a href="http://localhost/Browsing/EventsAndExperiences" target="_self" class="nav-menu-item-link">Events &amp; Experiences</a></li>
+        <li class="nav-menu-item loyalty "><a href="http://localhost/Browsing/Loyalty/Clubs" target="_self" class="nav-menu-item-link">Loyalty</a></li>
+    </ul>
+</nav>
+*/
+.nav-menu {
+  background-color: #2b2725;
+  padding: 0.5rem 0;
+}
+.nav-menu .nav-menu-list {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+}
+.nav-menu .nav-menu-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  		/*
+          &.selected:before {
+              content: ' ';
+              position: absolute;
+              
+              border-color: $color-transparent $color-transparent $color-ffffff $color-transparent;
+              border-style: solid;
+              border-width: 0 8px 8px 8px;
+              left: 50%;
+              top: 100%;
+              margin-left: -8px; 
+          }
+  		*/
+}
+.nav-menu .nav-menu-item.selected {
+  position: relative;
+}
+.nav-menu .nav-menu-item .nav-menu-item-link {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  font-size: 1rem;
+  background: no-repeat top transparent;
+  min-height: 34px;
+  width: 100%;
+  text-align: center;
+}
+.nav-menu .nav-menu-item .nav-menu-item-link .nav-menu-item-label {
+  display: none;
+  /* default display is off, but allow this to be overriden */
+  color: #eaeaea;
+  padding-left: 5px;
+}
+.nav-menu .nav-menu-item .nav-menu-item-link .nav-menu-item-img {
+  background: no-repeat top transparent;
+  height: 30px;
+  width: 34px;
+  display: block;
+}
+.nav-menu .nav-menu-item .nav-menu-item-link:hover span {
+  color: #35a0a8;
+}

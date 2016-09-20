@@ -1,0 +1,86 @@
+.gift-card-balance-inquiry {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: #eaeaea;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+  height: 334px;
+  width: 260px;
+  background-color: #2b2725;
+}
+.gift-card-balance-inquiry .not-applicable {
+  display: none;
+}
+.gift-card-balance-inquiry .error-container {
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.gift-card-balance-inquiry-presentational-state {
+  height: 100%;
+  background-color: #eaeaea;
+}
+.gift-card-balance-inquiry-presentational-state:hover {
+  cursor: pointer;
+}
+.gift-card-balance-inquiry-presentational-state .gift-card-advert {
+  width: 260px;
+  height: 258px;
+  background-image: url("../../Images/Card.png");
+  background-repeat: no-repeat;
+}
+.gift-card-balance-inquiry-presentational-state .gift-card-balance-inquiry-header {
+  padding: 10px;
+}
+
+.gift-card-balance-inquiry-inquiry-state {
+  padding: 15px;
+  height: 304px;
+}
+.gift-card-balance-inquiry-inquiry-state label {
+  display: block;
+  margin-bottom: 5px;
+}
+.gift-card-balance-inquiry-inquiry-state label:after {
+  content: ':';
+}
+.gift-card-balance-inquiry-inquiry-state input {
+  width: 196px;
+}
+.gift-card-balance-inquiry-inquiry-state .gift-card-balance-inquiry-button {
+  margin-top: 20px;
+}
+
+.gift-card-balance-inquiry-result-state {
+  padding: 15px;
+  height: 304px;
+}
+.gift-card-balance-inquiry-result-state .result-line {
+  padding-bottom: 20px;
+}
+.gift-card-balance-inquiry-result-state .result-line .result-label {
+  margin-right: 5px;
+}
+.gift-card-balance-inquiry-result-state .result-line .result-label:after {
+  content: ':';
+}
+.gift-card-balance-inquiry-result-state .result-line .result {
+  font-size: 12px;
+  color: #93908f;
+}
+.gift-card-balance-inquiry-result-state .button-list-single {
+  position: absolute;
+  bottom: 15px;
+}
+.gift-card-balance-inquiry-result-state .page-action span {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.gift-card-balance-inquiry-loading-state {
+  height: 100%;
+  background-image: url("../../Images/Icon_Loading_Dark.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+}

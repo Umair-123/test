@@ -1,0 +1,130 @@
+﻿@import "../Colours";
+@import "../Fonts";
+
+$cardImageHeight: 258px;
+$statePadding: 15px;
+$giftCardBalanceInquiryHeaderHeight: 76px;
+$containerWidth: 260px;
+$containerHeight: $cardImageHeight + $giftCardBalanceInquiryHeaderHeight; // set root element height equal to height of first container;
+
+@mixin state-container-height-with-padding {
+    padding: $statePadding;
+    // deduct padding as this added to height for the box's total height (content-box), cant use border-box due to IE<8 support
+    height: $containerHeight - 2*$statePadding;
+}
+
+@mixin state-container-height {
+    height: 100%;
+}
+
+.gift-card-balance-inquiry {
+    font-family: $font-segoe;
+    font-size: 13px;
+    color: $color-eaeaea;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 15px;
+    height: $containerHeight;
+    width: $containerWidth;
+    background-color: $color-2b2725;
+
+    
+    .not-applicable {
+        display: none;
+    }
+
+    .error-container {
+        margin-top: 15px;
+        font-size: 12px;
+    }
+}
+
+
+
+// PRESENTATIONAL STATE
+.gift-card-balance-inquiry-presentational-state {
+    @include state-container-height;
+    background-color: $color-eaeaea;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .gift-card-advert {
+        width: $containerWidth;
+        height: $cardImageHeight;
+        background-image: url('../../Images/Card.png');
+        background-repeat: no-repeat;
+    }
+
+    .gift-card-balance-inquiry-header {
+        padding: 10px;
+    }
+}
+
+
+
+// INQUIRY FORM STATE
+.gift-card-balance-inquiry-inquiry-state {
+    @include state-container-height-with-padding;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+
+        &:after {
+            content: ':';
+        }
+    }
+
+    input {
+        width: $containerWidth - 2 * $statePadding - 34px; // 34 cos it lines up nicely with the centered button below it
+    }
+
+    .gift-card-balance-inquiry-button {
+        margin-top: 20px;
+    }
+}
+
+
+// RESULT STATE
+.gift-card-balance-inquiry-result-state {
+    @include state-container-height-with-padding;
+
+    .result-line {
+        padding-bottom: 20px;
+
+        .result-label {
+            margin-right: 5px;
+        }
+
+        .result-label:after {
+            content: ':';
+        }
+
+        .result {
+            font-size: 12px;
+            color: $color-93908f;
+        }
+    }   
+
+    .button-list-single {
+        position: absolute;
+        bottom: 15px;
+    }
+
+    .page-action span {
+        // reduce padding inside button by 20px to ensure button fits within its container
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+// LOADING STATE
+.gift-card-balance-inquiry-loading-state {
+    @include state-container-height;
+    background-image: url('../../Images/Icon_Loading_Dark.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+}

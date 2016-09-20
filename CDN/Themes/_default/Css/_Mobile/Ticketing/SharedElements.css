@@ -1,0 +1,108 @@
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* IMAGE HELPERS */
+/* ICONS */
+body {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.875rem;
+}
+
+@media screen and (orientation: portrait) {
+  button.page-action {
+    width: 100%;
+    display: block;
+  }
+}
+@media screen and (orientation: landscape) {
+  button.page-action {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}
+button.page-action {
+  border: none;
+  height: 45px;
+  background-color: #35a0a8;
+  color: #fff;
+  font-family: inherit;
+  padding: 0 1rem;
+  font-size: 1rem;
+  -moz-border-radius: 5px;
+}
+
+button.disabled {
+  background-color: #bee8eb;
+}
+
+.formContent {
+  min-height: 84.4vh;
+}
+
+.countdown {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: right;
+}
+.countdown em {
+  margin-left: 5px;
+}
+.countdown .time {
+  color: #35a0a8;
+  font-size: 12px;
+}
+
+.horizontal-separator {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #93908f;
+}
+
+.hidden, .not-applicable {
+  display: none;
+}
+
+.error-text {
+  margin: 10px 0;
+  color: #EA6565;
+}
+
+.field-validation-error {
+  display: inline-block;
+  background-repeat: no-repeat;
+  height: 20px;
+  color: #EA6565;
+  font-style: italic;
+}
+
+.button-list .button-separator {
+  border: 1px solid #3eb7ba;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}

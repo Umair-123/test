@@ -1,0 +1,102 @@
+@import "../../_Colours.scss";
+@import "../../_Styles";
+@import "../_Flexbox.scss";
+@import "../_FontsMobile.scss";
+@import "../_Headings.scss";
+
+#paymentForm {
+
+    
+}
+
+.formContent {
+    padding: 0 0.8rem 0 0.8rem;
+
+    .countdown {
+        padding-top:0;
+        padding-right:0;
+    }
+}
+
+
+.amount {
+	float: right;
+	margin-top: 10px;
+	font-size: $font-size-big;
+}
+
+h2 {
+    font-size: $font-size-big;
+
+	em {
+        font-size: $font-size-big;
+        margin-left: 0.3rem;
+	}	
+}
+
+.form-line {
+	margin: 5px 0 5px 0;
+	label {
+		width: 40%;
+		display: inline-block;
+	}
+
+	input {
+		display: inline-block;
+		width: 55%;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+
+	select {
+		display: inline-block;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+
+	#card-type {
+		width: 30%;
+	}
+
+	#card-expiry-month, #card-expiry-year {
+		width: 20%;
+	}
+
+	#card-expiry-month {
+		margin-left: -4px;
+	}
+
+	#card-cvc {
+		width: 30%;
+	}
+
+    &.save-card-to-wallet-container {
+        @extend %clearfix;
+        label {
+            width:80%;            
+        }
+        input {
+            margin:0;
+            width:20px;
+            float:left;
+        }
+    }
+}
+
+#cancelOrder {
+	float: left;
+}
+
+#pay {
+	float: right;
+}
+
+.button-list {
+    @include display-box;
+    background-color: $color-35a0a8;
+    button {
+        width:100%;
+        flex-grow:1;
+        -ms-flex:1
+    }
+}

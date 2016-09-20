@@ -1,0 +1,93 @@
+﻿@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Connect.Services
+
+@helper SessionList(IEnumerable<Session> sessions, IFormattingService formattingService)
+{
+
+    var hasAnySessionAttributesClass = sessions.SelectMany(s => s.SessionAttributesNames).Any() ? "has-attributes" : "no-attributes";
+
+    <div class="showtimes @hasAnySessionAttributesClass">
+        @foreach (var session in sessions)
+        {
+            //TODO: disabled advance sale sessions that arent allowed                               
+
+                @* TODO: keep time tag datetime format consistent with SessionList.cshtml *@
+                @* TODO: the formatting of the session time is inconsistent with SessionList.cshtml *@
+                <a class="showtime-link" href="@TicketingUrls.GetTicketingEntryPointUrl(session.CinemaId, session.SessionId)">
+                    <time class="showtime" datetime="@session.Showtime.ToString("o")">@formattingService.FormatTime(session.Showtime)</time>
+                    @SessionAttributesList(session.SessionAttributesNames, session.Attributes)
+                </a>   
+        }
+    </div>
+    
+       
+}
+
+@helper SessionAttributesList(IEnumerable<string> sessionAttributesNames, IEnumerable<Vista.Connect.Attribute> sessionAttributes)
+{                  
+    
+    @*To prevent too many attribute icons messing up the layout, only show the first 3 icons.*@ 
+    foreach (var attributeShortName in sessionAttributesNames.Take(3))
+    {                 
+        @*<img class="attribute-image" src="@ContentDelivery.EntityImage(CdnMediaType.AttributeIconGraphic, attributeShortName, CommonImageSizes.SessionAttribute)" alt="@attributeShortName" />*@
+        <span>@attributeShortName</span>
+    }     
+}
+
+@helper SessionDaySelector(IEnumerable<DateTime> daysToDisplay, DateTime currentDate, ILookup<DateTime, IEnumerable<string>> dateRelatedContentLookup)
+{
+    <div class="session-day-selector">
+        @foreach (var day in daysToDisplay)
+        {
+            var isCurrentDay = day.Equals(currentDate);
+            bool hasSessionsForThisDay = dateRelatedContentLookup[day].Any();
+                           
+            @SessionDayForSelector(day, hasSessionsForThisDay, isCurrentDay)
+        }
+	</div>
+}
+
+@* slight duplication with overload above, this is a workaround for the lack of generic method parameters for MVC helpers *@
+@helper SessionDaySelector(IEnumerable<DateTime> daysToDisplay, DateTime currentDate, ILookup<DateTime, IEnumerable<ScheduledFilm>> dateRelatedContentLookup)
+{
+    <div class="session-day-selector">
+        @foreach (var day in daysToDisplay)
+        {
+            var isCurrentDay = day.Equals(currentDate);
+            bool hasSessionsForThisDay = dateRelatedContentLookup[day].Any();
+                           
+            @SessionDayForSelector(day, hasSessionsForThisDay, isCurrentDay)
+        }
+	</div>
+}
+
+@helper SessionDayForSelector(DateTime day, bool hasSessionsForThisDay, bool isCurrentDay)
+{
+    string selectedClass = isCurrentDay ? "selected" : null;
+    string sessionAvailabilityClass = hasSessionsForThisDay ? "sessions-available" : "no-sessions-available";
+
+    //TODO: this date format possibly only works for western cultures
+    <a class="session-day @sessionAvailabilityClass @selectedClass" data-day="@day.ToString("yyyy-MM-dd")">@day.ToString("ddd").First()</a>
+}
+
+@functions
+{
+    public static IEnumerable<DateTime> GetDaysToDisplay(DateTime currentDate, int numberOfDaysToDisplay)
+    {
+        var daysToDisplay = new List<DateTime>();
+        for (int i = 0; i < numberOfDaysToDisplay; i++)
+        {
+            daysToDisplay.Add(currentDate.AddDays(i));
+        }
+
+        return daysToDisplay;
+    }
+
+    public static IEnumerable<Session> FilterSessionsForDay(IEnumerable<Session> sessions, DateTime dayToFilterBy)
+    {
+        return sessions.Where(s => s.Showtime.Date.Equals(dayToFilterBy));
+    } 
+}

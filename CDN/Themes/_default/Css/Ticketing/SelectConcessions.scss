@@ -1,0 +1,67 @@
+﻿@import "../_Colours";
+
+$section-spacing-vertical: 30px;
+
+#frmSelectConcessions {
+    overflow: hidden;
+
+    .order-details {
+        float: right;
+    }
+
+    .countdown {
+        margin-bottom: 30px;
+    }
+
+    .blurb {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .signin-widget
+    {
+        margin-bottom:$section-spacing-vertical;
+    }
+
+    .concession-tabs .promotion-header {
+        background: $color-eaeaea;
+        line-height: 34px;
+        margin: 2px 0 0 2px;
+        padding-left: 13px;
+    }
+
+    .concession-tabs .promotion-header input {
+        width: 205px;
+        margin: 0 5px;
+    }
+
+    .concession-tabs .item .discount {
+        color: $color-35a0a8;
+    }
+
+    .concession-tabs .item .promotion-details {
+        clear: right;
+        float: right;
+        font-style: italic;
+        margin-top: 3px;
+        margin-right: 3px;
+    }
+
+    .promotion-error {
+        display: none;
+    }
+
+    .promotion-error .icon {
+        vertical-align: text-bottom;
+    }
+
+    .promotion-error p {
+        display: inline;
+    }
+
+    #btnConcessionsNext {
+        float: right;
+        margin-right: 7px;
+        margin-top: 10px;
+    }
+}

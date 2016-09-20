@@ -1,0 +1,34 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@model InternetTicketing.Browsing.ViewModels.Loyalty.EmailVerificationRequiredViewModel
+
+@section Css {
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("Loyalty/AuthenticationForm.css")
+    @ContentDelivery.Css("Loyalty/ForgotDetails.css")    
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/ForgotPassword.js")
+}
+
+<div id="email-verification-required" class="loyalty-authentication-form-page">
+<h2>
+   @LoyaltyEmailVerification.EmailVerificationRequiredPageTitle
+    @if (!String.IsNullOrWhiteSpace(LoyaltyEmailVerification.EmailVerificationRequiredPageSubtitle))
+    {
+        <em>@LoyaltyEmailVerification.EmailVerificationRequiredPageSubtitle</em>
+    }
+</h2>
+<p class="blurb">
+    @LoyaltyEmailVerification.EmailVerificationRequiredPageBlurb
+</p>
+<div class="button-container">
+    <a  href="@BrowsingUrls.GetHomeUrl()" class="page-action submit"><span>@LoyaltyEmailVerification.EmailVerificationRequiredDoneButton</span>
+    </a>
+</div>    
+
+</div>           

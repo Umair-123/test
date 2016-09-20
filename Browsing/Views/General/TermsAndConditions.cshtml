@@ -1,0 +1,25 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@model InternetTicketing.Infrastructure.InternetTicketingViewModel
+           
+<div id="terms">
+	<h2>@TermsAndConditions.TermsAndConditionsHeader1
+        <em>@TermsAndConditions.TermsAndConditionsHeader2</em>
+	</h2>
+    
+    <h3>
+        @TermsAndConditions.SaleOfMovieTickets
+    </h3>
+    
+	<div>@Html.Raw(TermsAndConditions.TermsAndConditionsBody)</div>
+</div>
+
+@section Css
+{
+	@ContentDelivery.CssBundle(CssBundles.TermsAndConditions)
+}
+
+@section Scripts
+{
+}

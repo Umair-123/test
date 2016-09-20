@@ -1,0 +1,33 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+
+.session-overview {
+	//padding: 5% 10px;
+	//height: 184px;
+	padding: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	.movie-poster {
+		height: 184px;
+		width: 120px;
+		margin-right: 1rem;
+		float: left;
+		display: none;
+	}
+
+	.movie-title {
+		font-size: $font-size-big;
+	}
+
+	.session-time {
+		font-size: $font-size-normal;
+		margin-top: 0.6rem;
+	}
+
+	.cinema-screen-name {
+		font-size: $font-size-normal;
+		margin-top: 0.6rem;
+		color: $color-666666;
+	}
+}

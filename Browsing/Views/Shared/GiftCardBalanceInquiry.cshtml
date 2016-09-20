@@ -1,0 +1,49 @@
+﻿@using InternetTicketing.Browsing.ViewModels.Home
+@using InternetTicketing.Infrastructure.Localisation
+
+
+@model GiftCardBalanceViewModel
+                    
+<section class="gift-card-balance-inquiry">
+        
+    <div class="gift-card-balance-inquiry-presentational-state">
+        <div class="gift-card-advert"></div>
+        <h2 class="gift-card-balance-inquiry-header">@Home.CheckGiftCardText1<em>@Home.CheckGiftCardText2</em></h2>    
+    </div>
+
+    <div class="not-applicable gift-card-balance-inquiry-inquiry-state">
+        @using (Html.BeginForm("GetGiftCardBalance", "GiftCard", FormMethod.Get, new { @class = "gift-card-balance-inquiry-form", autocomplete = "off" }))
+        {
+            @Html.LabelFor(m => m.CardNumber)
+            @Html.EditorFor(m => m.CardNumber)
+            @Html.ValidationMessageFor(m => m.CardNumber, string.Empty, new { @class = "icon icon-small" })
+            
+            <div class="button-list-single">
+                <button type="submit" class="gift-card-balance-inquiry-button page-action"><span>@GiftCardBalanceInquiry.CheckCardBalanceButton</span></button>  
+            </div>
+            
+            <div class="not-applicable error-container">
+                <span class="notification"></span><p class="error-text"></p>                
+            </div>
+        }
+    </div>     
+    
+    <div class="not-applicable gift-card-balance-inquiry-loading-state"></div>    
+
+    <div class="not-applicable gift-card-balance-inquiry-result-state">
+            
+        <div class="result-line">
+            <label class="result-label">@GiftCardBalanceInquiry.CardNumberResultLabel</label><span class="gift-card-number result"></span>
+        </div>
+        <div class="result-line">
+            <label class="result-label">@GiftCardBalanceInquiry.CardBalanceResultLabel</label><span class="gift-card-balance result"></span>
+        </div>
+        <div class="gift-card-expiry-result-line result-line">
+            <label class="result-label">@GiftCardBalanceInquiry.CardExpiryResultLabel</label><span class="gift-card-expiry result"></span>
+        </div>
+            
+        <div class="button-list-single">
+            <button type="button" class="check-another-card-button page-action"><span>@GiftCardBalanceInquiry.CheckAnotherCardButton</span></button>            
+        </div>
+    </div>
+</section>

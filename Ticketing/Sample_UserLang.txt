@@ -1,0 +1,99 @@
+; *******************************************
+; CUSTOMER LANGUAGE CUSTOMISATION FILE
+; -------------------------------------------
+;
+; Copy text labels from each section in SystemLang.txt that you wish to customise
+; and paste into the matching section in this file.
+;
+; For example, to change the wording of the label on the browser window, the visCommon section
+; in this file will look like this:
+; [visCommon]
+; WebSiteTitle = "ABC Cinemas Online Ticketing"
+;
+; You can also copy SystemLang.txt and rename it UserLang.txt to use as a base copy.
+; Any text not found in this file will be taken from SystemLang.txt as a default.
+;
+
+[visCommon]
+
+[visUtilities]
+
+[visSelectTickets]
+
+[visSelectSeats]
+
+[visSelectConcessions]
+
+[visPayment]
+
+[visConfirmation]
+
+[visPrintAtHome]
+
+[visError]
+
+[visTimeOut]
+
+[visTerms]
+
+[visSelect]
+
+[visMovies]
+
+[visMovieInfo]
+
+[visShowtimes]
+
+[visEventInfo]
+
+[visComingSoonCtrl]
+
+[visNowShowingCtrl]
+
+[visPrintShowTimes]
+
+[visTicketContents]
+
+[visConcessionImage]
+
+[visHome]
+
+[visRatings]
+
+[visOrderInProgress]
+
+[visLtyLogin] 
+
+[visLtyCreateUserID]
+
+[visLtyCreateUser]
+
+[visLtyHome]
+
+[visLtyBenefits]
+
+[visLtyTrHistory]
+
+[visLtyTicketsLogin]
+
+[visLtyRedHistory]
+
+[visLtyForgotDetails]
+
+[visPaymentError]
+
+[visWebPaymentConfirm]
+
+[visWebPayment3DSecureWait]
+
+[visMbrLogin]
+
+[visMbrReminder]
+
+[visMbrRegister]
+
+[visMbrActivate]
+
+[visMbrBookings]
+
+

@@ -1,0 +1,35 @@
+﻿/*------------------------------------*\
+    ICONS
+\*------------------------------------*/
+
+@import "_Icons";
+
+// this file is a temp workaround to allow the elements that reference these classes directly instead of IconButtons
+
+.icon {
+    @extend %icon;
+}
+.icon-small {
+    @extend %icon-small;
+}
+
+.icon-add { background-image: url('../Images/Icon_Add.png'); }
+.icon-clear { background-image: url('../Images/Icon_Clear_Light.png'); }
+.icon-clear-dark {  background-image: url('../Images/Icon_Clear.png'); }
+.icon-clear-hover { background-image: url('../Images/QuickTickets/Icon_Clear_Hover.png'); } // TODO: move out of quicktickets subfolder 
+.icon-clear-666 { background-image: url('../Images/Icon_Clear_666.png'); }
+.icon-delete { background-image: url('../Images/Icon_Delete.png'); }
+.icon-edit { background-image: url('../Images/Icon_Edit.png'); }
+.icon-gift { background-image: url('../Images/Icon_Gift.png'); }
+.icon-gift-large { background-image: url('../Images/Icon_Gift_Large.png'); }
+.icon-minus { background-image: url('../Images/Icon_Minus.png'); }
+.icon-plus { background-image: url('../Images/Icon_Plus.png'); }
+.icon-print { background-image: url('../Images/Printer.png'); }
+.icon-remove { background-image: url('../Images/Icon_Remove.png'); }
+.icon-validation-error { background-image: url('../Images/Notification_Blue.png'); }
+.icon-notification { background-image: url('../Images/Notification.png'); }
+.icon-star-blue { background-image: url('../Images/Icon_Star_Blue.png'); }
+.icon-reply { background-image: url('../Images/Icon_Reply.png'); }
+.icon-send { background-image: url('../Images/Icon_Send.png'); }
+.icon-information { background-image: url('../Images/Icon_Information.png'); }
+.icon-arrow-right { background-image: url('../Images/Icon_Arrow_Right.png'); }

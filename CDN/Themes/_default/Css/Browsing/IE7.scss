@@ -1,0 +1,86 @@
+﻿
+
+/* IE<=7 creates new stacking context for positioned elements */
+#banner { z-index: 501; margin-top: 24px; } 
+/* make the more menu appear on top of #banner */
+header { z-index: 502; }
+
+#quick-tickets-overlay {
+    .close, .restart, .clear, .next {
+        font-size: 0; // Removes padding scaling with font-size 
+        line-height: 0; // Removes padding scaling with line height
+        overflow: visible; // Removes padding scaling with text
+    }
+
+    // Reset font size in the span
+    .next span {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .close span {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .restart span,
+    .clear span {
+        font-size: 12px;
+    }
+
+    .restart span {
+        line-height: 20px;
+    }
+
+    .clear span {
+        line-height: 33px;
+    }
+}
+
+// IE<=7 extra large font causing text to overflow
+#quick-tickets button {
+    font-size: 14px;
+	float: left;
+    em {
+        font-size: 21px;
+    }
+}
+
+// Appears wider on IE<=7 
+#quick-tickets-details {
+    dt {
+        width: 74px;
+    }
+
+    dd {
+        width: 170px;
+    }
+}
+
+#home-side-bar .loyalty-login li input { padding: 3px 0; }
+#home-side-bar .loyalty-login div input { overflow: visible; }
+
+/* IE<=7: Floating right on unbound container stretches it to max width */
+#loyalty-member-address { position: relative; }
+#loyalty-member-address button { position: absolute; right: 0; }
+
+
+#loyalty-clubs button { overflow: visible; }
+
+/* IE<=7 calculates padding incorrectly, but IE8+ does not */
+*:first-child + html .attributes-key {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.media-gallery.photos {
+	width: 400px;
+}
+
+.change-site-group.icon {
+	line-height: 12px;
+}
+
+#site-group-select {
+	top: 2px;
+}

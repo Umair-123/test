@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ImageGalleryData>
+	<AdSections>
+		<Section Name="Home">
+			<AdList Key="Gallery">
+				<Ad FileName="/IT-CDN/Themes/_default/Images/EventAd.png" Link="http://www.vista.co.nz" />
+				<Ad FileName="/IT-CDN/Themes/_default/Images/EventAd2.png" Link="http://www.vista.co.nz" />
+				<Ad FileName="/IT-CDN/Themes/_default/Images/EventAd3.png" Link="http://www.vista.co.nz" />
+			</AdList>
+			<AdList Key="CenterBanner">
+				<Ad FileName="/IT-CDN/Themes/_default/Images/CenterAd.png" Link="http://www.vista.co.nz" />
+			</AdList>
+		</Section>
+		<Section Name="MovieList">
+      <AdList Key="Main">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_BrooklynBagel.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_HorrorClub.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_KidSquad.png" Link="http://www.vista.co.nz" />
+      </AdList>
+      <AdList Key="Lower">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_SmallCombo.png" Link="http://www.vista.co.nz" />
+      </AdList>
+		</Section>
+		<Section Name="EventsAndExperiences">
+      <AdList Key="Main">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_LuxeClub.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_HorrorClub.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_KidSquad.png" Link="http://www.vista.co.nz" />
+      </AdList>
+      <AdList Key="Lower">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_BrooklynBagel.png" Link="http://www.vista.co.nz" />
+      </AdList>
+		</Section>
+		<Section Name="LoyaltyClubs">
+			<AdList Key="Main">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_HorrorClub.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_LuxeClub.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_KidSquad.png" Link="http://www.vista.co.nz" />
+      </AdList>
+		</Section>
+	  <Section Name="Compare">
+      <AdList Key="Main">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_LuxeClub.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_BrooklynBagel.png" Link="http://www.vista.co.nz" />
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_HorrorClub.png" Link="http://www.vista.co.nz" />
+      </AdList>
+      <AdList Key="Lower">
+        <Ad FileName="/IT-CDN/Themes/_default/Images/Ad_KidSquad.png" Link="http://www.vista.co.nz" />
+      </AdList>
+    </Section>
+  	<Section Name="All">
+    	<AdList Key="TopBanner">
+			  <Ad FileName="/IT-CDN/Themes/_default/Images/Banner.png" Link="http://www.vista.co.nz" />
+		</AdList>
+    </Section>
+	</AdSections>
+</ImageGalleryData>

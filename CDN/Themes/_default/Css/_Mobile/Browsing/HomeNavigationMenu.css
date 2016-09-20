@@ -1,0 +1,25 @@
+/* NAVIGATION MENU - HOME PAGE OVERRIDES */
+/*
+<nav class="nav-menu">
+    <ul class="nav-menu-list">
+        <li class="nav-menu-item home selected"><a href="http://localhost/Browsing/" target="_self" class="nav-menu-item-link">Home</a></li>
+        <li class="nav-menu-item movies "><a href="http://localhost/Browsing/Movies/NowShowing" target="_self" class="nav-menu-item-link">Movies</a></li>
+        <li class="nav-menu-item cinemas "><a href="http://localhost/Browsing/Cinemas" target="_self" class="nav-menu-item-link">Cinemas</a></li>
+        <li class="nav-menu-item events "><a href="http://localhost/Browsing/EventsAndExperiences" target="_self" class="nav-menu-item-link">Events &amp; Experiences</a></li>
+        <li class="nav-menu-item loyalty "><a href="http://localhost/Browsing/Loyalty/Clubs" target="_self" class="nav-menu-item-link">Loyalty</a></li>
+    </ul>
+</nav>
+*/
+.home-page .nav-menu {
+  background-color: #2B2725;
+}
+.home-page .nav-menu .nav-menu-item:nth-child(2) {
+  border: none;
+}
+.home-page .nav-menu .nav-menu-item .nav-menu-item-link .nav-menu-item-label {
+  display: inherit;
+  /* reset the default "none", i.e. we want to display nav item labels on this page */
+}
+.home-page .nav-menu .nav-menu-item.home {
+  display: none;
+}

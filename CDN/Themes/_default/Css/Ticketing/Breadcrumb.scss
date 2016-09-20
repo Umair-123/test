@@ -1,0 +1,43 @@
+﻿@import "../_Colours";
+
+$breadcrumb-height: 25px;
+
+#breadcrumb {
+    font-size: 13px;
+    height: $breadcrumb-height;
+    line-height: $breadcrumb-height;
+    margin-bottom: 20px;
+    text-align: justify;
+    overflow: hidden;
+    width: 994px;
+}
+
+#breadcrumb span {
+    cursor: default;
+    display: inline-block;
+}
+
+#breadcrumb .after {
+    display: inline-block;
+    height: 0;
+    width: 100%;
+}
+
+#breadcrumb a { border: none; }
+
+#breadcrumb input {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: $breadcrumb-height;
+    margin: 0;
+    padding: 0;
+}
+
+#breadcrumb .disabled {
+    color: $color-93908f;
+}
+#breadcrumb [disabled] {
+    cursor: default;
+}

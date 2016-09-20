@@ -1,0 +1,13 @@
+﻿You can use the following tags
+
+key				            will insert
+-----------------       	-------------------
+<CUSTOMER_NAME>			    the customer name entered on the confirm page
+<ORDER_NUMBER>			    the order number
+<ORDER_REFERENCE>			the order reference number
+<MBR_CARD_NUMBER>           the member card number for this membership
+<MEMBERSHIP_NAME>           the description of the item purchased for this membership
+<CLUB_NAME>                 the name of the club for this membership
+<MEMBERSHIP_LEVEL>          the membership level applied to this membership
+<MEMBERSHIP_EXPIRY_DATE>    the membership expiry date
+<ORDER_TOTAL>               the total cost of the membership purchase

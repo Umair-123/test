@@ -1,0 +1,66 @@
+button.page-action, a.page-action, button.user-action, a.user-action {
+  overflow: visible;
+  font-size: 1px;
+  line-height: 1px;
+  /* button width fix */
+}
+
+button.page-action span, a.page-action span {
+  line-height: 30px;
+  font-size: 24px;
+}
+
+button.user-action span, a.user-action span {
+  line-height: 24px;
+  font-size: 12px;
+}
+
+header, #banner, .content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  padding: 0px;
+  margin: 0px;
+  /*Floating content not working in IE7. Just fix it instead.*/
+}
+header .fixed-content-wrapper {
+  margin-bottom: 0px;
+}
+header .fixed-content-wrapper .fixed-content {
+  margin-bottom: 0px;
+}
+header .user-menu {
+  float: none;
+  text-align: right;
+}
+
+#banner {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+/* IE<=7: Click not triggered for display: none; elements */
+.checkbox-list li input {
+  display: inline;
+  float: left;
+  margin-left: -50px;
+}
+
+.select-grid .select-grid-selector {
+  cursor: pointer;
+}
+.select-grid .select-grid-footer {
+  right: auto;
+}
+.select-grid .select-grid-footer span {
+  float: right;
+}
+.select-grid .select-grid-footer .select-grid-total {
+  float: none;
+}
+
+#select-seats-container {
+  float: left;
+}

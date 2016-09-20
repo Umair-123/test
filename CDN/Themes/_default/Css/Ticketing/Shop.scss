@@ -1,0 +1,95 @@
+﻿@import "../_Colours";
+
+#btnShopCheckout {
+    float: right; 
+    margin: 10px 6px 0 0;
+}
+
+#visShop {
+
+    .page-title {
+        float: left;
+    }
+
+    .error-text {
+        margin-bottom: 20px;
+    }
+
+    .order-details {
+        float: right;
+    }
+
+    .order-errors, .category-tabs {
+        clear: left;
+    }
+
+    .not-applicable {
+        display: none;
+    } 
+
+    // double width design for the gift button
+    .concession-tabs {
+
+        $item-width: 282px;
+
+        // These should match the values in concession-tabs
+        $item-border: 1px;
+        $item-spacing: 3px;
+
+        .item,
+        .item-footer {
+            width: $item-width - 2 * $item-border;
+        }
+
+        .item {
+            height: 168px;
+        }
+
+        .item-footer {
+            height: 56px;
+            line-height: 28px;
+            overflow: hidden;
+        }
+
+        .item-footer-button,
+        .item-footer-quantity {
+            float: left; 
+            height: 100%;
+            width:  ($item-width - 2*$item-border) / 2 - 2px;
+        }
+
+        .item-footer-button {
+            border-right: 1px solid white;
+
+            button {
+                color: $color-666666;
+                display: inline-block;
+                font-size: 15px;
+                font-weight: bold;
+                height: 100%;
+                line-height: 15px;
+                text-align: left;
+                width: 100%;
+            }
+
+            span {
+                background-position: 15px center;
+                padding: 10px 0 10px 50px;
+                white-space: normal;
+            }
+        }
+
+        .item-footer-quantity {
+            border-left: 1px solid white;
+
+            span {
+                display: block;
+                font-size: 12px;
+                font-weight: bold;
+                margin-left: 5px;
+                text-align: left;
+            }
+        }
+
+    }
+}

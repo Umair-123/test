@@ -1,0 +1,190 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+@import "../_Headings.scss";
+@import "../_Flexbox.scss";
+
+.content {
+	padding: 0.5rem;
+    font-size: $font-size-normal;
+}
+
+#print-page,
+#print-tickets,
+#breadcrumb,
+.icon.icon-print {
+	display: none;
+}
+
+.confirmation-heading {
+    @include display-box;
+    align-items: center;
+    -webkit-align-items: center;
+
+    font-size: $font-size-big;
+    
+
+    .success-icon {
+        background-image: url(../../../Images/Mobile/Icons/Icons_Success_30.png);
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+    }
+
+    .success-text {
+        color: $color-40c199;
+    }
+
+    span {
+        margin-right: 0.25rem;
+    }
+}
+
+#order-confirmation,
+#pickup-info,
+#booking-details,
+#order-details,
+#loyalty-details {
+	margin: 1.25rem 0 1.25rem 0;
+    color: $color-666666;
+
+	h5 {
+		font-size: $font-size-big;
+        margin-bottom: 0.5rem;
+	}
+}
+
+#pickup-info > em {
+    color: $color-35a0a8;
+}
+
+#booking-details {
+
+    .booking-reference {
+        margin-bottom: 0.5rem;
+
+        span {
+            color: $color-35a0a8;
+        }
+    } 
+}
+
+#booking-details {
+	label:after {
+		content: ':';
+	}
+
+	span {
+		margin-left: 10px;
+		color: $color-666666;
+	}
+}
+
+#loyalty-details {
+	label:after {
+		content: ':';
+	}
+
+	span {
+		margin-left: 10px;
+		color: $color-666666;
+	}
+}
+
+#order-details {
+
+	hgroup {
+		display: none;
+	}
+
+	.screening-details {
+		margin-bottom: 3px;
+	}
+
+	.movie-name {
+		color: $color-35a0a8;
+	}
+
+	.session-time, .screen-name {
+		color: $color-666666;
+	}
+
+    .screen-name {
+        margin-left: 1rem;
+    }
+
+	.detail-line {
+        font-size: $font-size-normal;
+		line-height: 1.5rem;
+
+        span {
+            font-size: $font-size-normal;
+        }
+	}
+
+	.detail-line.ticket, 
+	.detail-line.concession {
+		.qty {
+			float: left;
+            font-size: $font-size-normal;
+		}
+
+		.qty:after {
+			content: 'x';
+            font-size: $font-size-normal;
+		}
+
+		.desc {
+			margin: 0 5px 0 5px;
+		}
+
+		.cost {
+			float: right;
+		}
+
+		.seat-info:before {
+			content: '(';
+            font-size: $font-size-normal;
+		}
+
+		.seat-info:after {
+			content: ')';
+            font-size: $font-size-normal;
+		}
+	}
+
+	.detail-line.concession > .seat-info {
+		display: none;
+	}
+
+	.order-totals {
+		margin-top: -1rem;
+	}
+
+	.amount {
+		margin-top: 1rem;
+
+		span {
+			float: right;
+		}
+	}
+
+    .amount.sub-total,
+    .amount.booking-fee,
+    .amount.total {
+        
+        //text-align: right;
+
+        label {
+            margin-left: 30%;
+            text-align: left;
+        }
+    }
+
+	.amount.total {
+		label, span {
+			font-size: $font-size-normal;
+			color: $color-35a0a8;
+		}
+	}
+}

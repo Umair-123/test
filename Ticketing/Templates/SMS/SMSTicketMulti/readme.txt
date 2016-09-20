@@ -1,0 +1,2 @@
+SMS ticketing (currently through Mobiqa connector) requires a minimum of 2 SMS messages to be sent out to accommodate a barcode and text. The maximum number of characters that can be used for 2 SMS messages is 108 standard characters or 48 Unicode characters. If a 3rd SMS message is required, costs increase by 50% and allow 236 standard characters and 112 Unicode characters. This should be kept in mind when creating the message template and costing SMS tickets.
+

@@ -1,0 +1,81 @@
+<%
+    'COMMON HTML FOOTER CUSTOMISATION FILE
+    'This file is complementary to visSkinBodyHeader.htm
+    '
+    'Use this file to complete any html structures that were created in the header file
+    'and to add any custom design elements to brand your site
+%>
+
+											</TD>
+										</TR>
+
+										<TR>
+											<TD colspan="3" height="5"></TD>
+										</TR>
+									</TABLE>
+								</TD>
+							</TR>
+						</TABLE>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+	<!--
+	function openWindow(page,winHeight,winWidth){
+		window.open (page, 'newwindow', config='height=' + winHeight +', width=' + winWidth + ', toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, directories=no, status=no')
+	}
+	-->
+</SCRIPT>
+
+<%
+    Dim xstrAnalysePages(34) as String
+    xstrAnalysePages(0) = "visconfirmation.aspx"
+    xstrAnalysePages(1) = "visconfirmationselect.aspx"
+    xstrAnalysePages(2) = "viserror.aspx"
+    xstrAnalysePages(3) = "viseventinfo.aspx"
+    xstrAnalysePages(4) = "vishome.aspx"
+    xstrAnalysePages(5) = "visltybenefits.aspx"
+    xstrAnalysePages(6) = "visltycreateuser.aspx"
+    xstrAnalysePages(7) = "visltycreateuserid.aspx"
+    xstrAnalysePages(8) = "visltyhome.aspx"
+    xstrAnalysePages(9) = "visltyredhistory.aspx"
+    xstrAnalysePages(10) = "visltyticketslogin.aspx"
+    xstrAnalysePages(11) = "visltytrhistory.aspx"
+    xstrAnalysePages(12) = "vismovieinfo.aspx"
+    xstrAnalysePages(13) = "vismovies.aspx"
+    xstrAnalysePages(14) = "vispayment.aspx"
+    xstrAnalysePages(15) = "visselect.aspx"
+    xstrAnalysePages(16) = "visselectconcessions.aspx"
+    xstrAnalysePages(17) = "visselectseats.aspx"
+    xstrAnalysePages(18) = "visselecttickets.aspx"
+    xstrAnalysePages(19) = "visshowtimes.aspx"
+    xstrAnalysePages(20) = "vistimeout.aspx"
+    xstrAnalysePages(21) = "viswebpayment3dsecurewait.aspx"
+
+    xstrAnalysePages(22) = "visltyforgotdetails.aspx"
+    xstrAnalysePages(23) = "visratings.aspx"
+    xstrAnalysePages(24) = "visterms.aspx"
+    xstrAnalysePages(25) = "visticketcontents.aspx"
+    xstrAnalysePages(26) = "visconcessionimage.aspx"
+    xstrAnalysePages(27) = "vischoosesession.aspx"
+    xstrAnalysePages(28) = "visltypurchaserewardconfirmation.aspx"
+    xstrAnalysePages(29) = "visltypurchaserewards.aspx"
+    xstrAnalysePages(30) = "visltyagreement.aspx"
+    xstrAnalysePages(31) = "vismembershipoption.aspx"
+    xstrAnalysePages(32) = "visordercart.aspx"
+    xstrAnalysePages(33) = "visselectfromcinema.aspx"
+    xstrAnalysePages(34) = "vispaywithpoints.aspx"    
+
+    For i as Integer = 0 to xstrAnalysePages.length - 1
+        If (LCase(xstrPageName) = xstrAnalysePages(i)) Then
+%>
+            <!--#INCLUDE FILE = "visAnalytics.htm" -->
+<%
+            Exit For
+        End If
+    Next
+%>

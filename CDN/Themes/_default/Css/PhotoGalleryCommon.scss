@@ -1,0 +1,118 @@
+﻿@import "_Styles";
+@import "_Colours";
+
+//Generic styles for the image carousel
+//Used by both ads and certain other pages displaying rotating images
+.generic-image-carousel
+{
+    overflow: hidden; 
+	margin-bottom: 45px;
+
+    .images 
+    { 
+        background-color: $color-ffffff; 
+        img {
+
+            &.gallery-image { 
+                display: block;
+                margin: 0 auto; 
+            }
+            &.other-image { 
+                display: none; 
+            }
+        }                
+        a {
+            border:none;
+            margin:0px;
+            padding:0px;
+            display:block;
+        }
+        
+    }
+
+    .image-select-container 
+    { 
+        overflow: hidden;
+        
+        .image-select-inner { 
+			text-align: center;
+			margin-top: 2px;
+		} 
+        .image-select { 
+			height: 10px;
+			width: 10px;
+			background-color: $color-d8d8d8;
+			border-radius: 5px;
+			display: inline-block;
+			margin: 3px;
+			cursor: pointer;
+
+            &.selected { 
+				background-color: $color-35a0a8;
+                
+            }
+        }
+    }    
+    .image-descriptions .image-description { display: none; float: right; margin-top: 5px; }
+    .image-descriptions .image-description.selected { display: inline; color: $color-666666; }
+    
+}
+
+//Used by the Cinema/Movie/Events details pages
+.media-info { 
+    @extend %clearfix;
+    .generic-image-carousel,.media-gallery { 
+        float: left; 
+        background-color: $color-ffffff; 
+        margin-right: 15px;
+        width:400px;
+        .images {
+            width:400px;
+            height:300px;
+
+            img 
+            {
+            }
+        }
+
+        &.loading {
+            background: url('../Images/Icon_Loading_Light.gif') no-repeat center center;
+            /* Hide the black background while loading */
+            .images {
+                background: none;
+            }
+        }
+    }
+
+    .description-box { 
+        overflow: hidden; 
+        background-color: $color-eaeaea; 
+        padding: 5px 10px; 
+        line-height: 14px;
+
+        h3 { 
+            line-height: 26px; 
+        }
+        .other-information {
+            float: left; width: 40%; 
+        }
+    }
+}
+
+#trailer {   
+	display: block;
+	height: 291px;
+	padding-bottom: 0;
+	border-bottom: 0; 
+}
+#trailer-wrapper { 
+	width: auto; 
+	height: 316px;
+	margin: -15px -15px 0 -15px;
+	background-color: $color-000000; 
+	overflow: hidden; 
+	z-index: 5;
+	position: relative;
+}
+#trailer-wrapper img { display: block; margin: 0 auto; }
+

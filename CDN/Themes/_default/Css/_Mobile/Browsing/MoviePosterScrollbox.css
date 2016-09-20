@@ -1,0 +1,119 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* IMAGE HELPERS */
+/* LOADING ANIMATIONS */
+.container-loading {
+  background-size: 96px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 96dpi) {
+  .container-loading {
+    background-image: url("../../../Images/Mobile/Loading/Loading_96.gif");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
+  .container-loading {
+    background-image: url("../../../Images/Mobile/Loading/Loading_144.gif");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .container-loading {
+    background-image: url("../../../Images/Mobile/Loading/Loading_192.gif");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi) {
+  .container-loading {
+    background-image: url("../../../Images/Mobile/Loading/Loading_240.gif");
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+  .container-loading {
+    background-image: url("../../../Images/Mobile/Loading/Loading_288.gif");
+  }
+}
+
+/* HOME PAGE NOW SHOWING MOVIE POSTER SCROLLBOX */
+/* 
+<div id="home-now-showing" class="home-movies scrollbox-container container-loading" tabindex="1">
+    <div class="scrollbox-viewport">
+        <div class="scrollbox-view">
+            <a href="/Browsing/Movies/Details/h-0000000009" class="movie">
+                <img class="movie-poster" src="http://s.vista.co.nz/CDN/Image/Entity/MovieBanner/h-0000000009?width=445&amp;height=301" alt="District 9" width="445" height="301"></a>
+            <a href="/Browsing/Movies/Details/h-HO00000327" class="movie">
+                <img class="movie-poster" src="http://s.vista.co.nz/CDN/Image/Entity/MovieBanner/h-HO00000327?width=445&amp;height=301" alt="Kill Bill" width="445" height="301">
+            </a>
+        </div>
+    </div>
+    <div class="scrollbox-right-button"></div><div class="scrollbox-left-button"></div>
+    <div class="scrollbox-scrollbar"><div class="scrollbox-scroll ui-draggable" style="width: 0px;"></div>
+</div>
+*/
+.home-movies {
+  width: 100%;
+  /* Scrollbox */
+}
+.home-movies .movie {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: none;
+  display: inline-block;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  padding: 15px 20px 15px 0;
+  text-decoration: none;
+  vertical-align: top;
+}
+.home-movies .movie:first-child {
+  padding-left: 20px;
+}
+.home-movies .movie:hover .movie-title {
+  color: #35a0a8;
+}
+.home-movies .movie:hover .movie-poster {
+  border: 1px solid #35a0a8;
+}
+.home-movies .movie-poster {
+  display: block;
+  position: absolute;
+  width: auto;
+  height: 65%;
+  top: 12%;
+}
+.home-movies .movie-title {
+  width: 90%;
+  margin: 1rem auto;
+  white-space: pre-wrap;
+  display: block;
+  font-size: 0.875rem;
+  color: #eaeaea;
+  position: relative;
+  top: 77%;
+}
+.home-movies .scrollbox-left-button {
+  display: none;
+}
+.home-movies .scrollbox-right-button {
+  display: none;
+}
+.home-movies .scrollbox-scroll {
+  display: none;
+}
+.home-movies .scrollbox-scrollbar {
+  width: 0;
+  height: 0;
+  border: 0;
+}
+.home-movies .scrollbox-viewport {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.home-movies .scrollbox-view {
+  height: 100%;
+  padding: 0;
+}

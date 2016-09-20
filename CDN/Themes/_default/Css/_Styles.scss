@@ -1,0 +1,78 @@
+@import "_Colours";
+@import "_Fonts";
+
+%header {
+    color: $color-443e3b;
+    font-family: $font-calibri;
+}
+
+%section-header { // h3
+    @extend %header;
+
+    font: {
+        size: 26px;
+        weight: bold;
+    }
+
+     text-transform: capitalize; 
+}
+
+%sub-header {
+    @extend %header;    
+    font-weight:bold;
+    font-size:26px;   
+    display:block; 
+    margin-bottom:10px;
+}
+
+%copy-header {
+    @extend %header;        
+    font-size:16px;   
+    display:block; 
+    margin-bottom:8px;
+}
+
+
+
+%body-text {
+    color: $color-666666;
+    font: {
+        family: $font-segoe;
+        size: 12px;
+    }
+}
+
+ %clearfix {
+    // For modern browsers
+    &:before,
+    &:after {
+    content:" ";
+    display:table;
+    }
+
+    &:after {
+    clear:both;
+    }
+
+    // For IE 6/7 (trigger hasLayout)
+    & {
+    *zoom:1;
+    }
+}
+
+// adds a border line for each child element (except the first)
+%vertical-separator-list {
+    li {
+        border-left: 1px solid $color-93908f;
+        &:first-child,&.first {
+            border-left:none;
+        }        
+        padding-left:3px;
+        padding-right:3px;
+    }
+}
+
+%disabled {
+	filter:Alpha(Opacity=50);
+	opacity: 0.5;
+}

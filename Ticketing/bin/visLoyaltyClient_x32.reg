@@ -1,0 +1,157 @@
+REGEDIT4
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.DataItem]
+@="Vista.Loyalty.Client.DataItem"
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.DataItem\CLSID]
+@="{543560C6-76B8-32C6-BF3F-5CD22EB22826}"
+
+[HKEY_CLASSES_ROOT\CLSID\{543560C6-76B8-32C6-BF3F-5CD22EB22826}]
+@="Vista.Loyalty.Client.DataItem"
+
+[HKEY_CLASSES_ROOT\CLSID\{543560C6-76B8-32C6-BF3F-5CD22EB22826}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Vista.Loyalty.Client.DataItem"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{543560C6-76B8-32C6-BF3F-5CD22EB22826}\InprocServer32\40.0.9292.0]
+"Class"="Vista.Loyalty.Client.DataItem"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{543560C6-76B8-32C6-BF3F-5CD22EB22826}\ProgId]
+@="visLoyaltyClient.DataItem"
+
+[HKEY_CLASSES_ROOT\CLSID\{543560C6-76B8-32C6-BF3F-5CD22EB22826}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.DataItems]
+@="Vista.Loyalty.Client.DataItems"
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.DataItems\CLSID]
+@="{278034A4-DFC6-3498-BC0E-D2B204035333}"
+
+[HKEY_CLASSES_ROOT\CLSID\{278034A4-DFC6-3498-BC0E-D2B204035333}]
+@="Vista.Loyalty.Client.DataItems"
+
+[HKEY_CLASSES_ROOT\CLSID\{278034A4-DFC6-3498-BC0E-D2B204035333}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Vista.Loyalty.Client.DataItems"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{278034A4-DFC6-3498-BC0E-D2B204035333}\InprocServer32\40.0.9292.0]
+"Class"="Vista.Loyalty.Client.DataItems"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{278034A4-DFC6-3498-BC0E-D2B204035333}\ProgId]
+@="visLoyaltyClient.DataItems"
+
+[HKEY_CLASSES_ROOT\CLSID\{278034A4-DFC6-3498-BC0E-D2B204035333}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.LoyaltyRequest]
+@="Vista.Loyalty.Client.LoyaltyRequest"
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.LoyaltyRequest\CLSID]
+@="{A8F37AFE-8571-3AF4-89A4-35B7E6D09E48}"
+
+[HKEY_CLASSES_ROOT\CLSID\{A8F37AFE-8571-3AF4-89A4-35B7E6D09E48}]
+@="Vista.Loyalty.Client.LoyaltyRequest"
+
+[HKEY_CLASSES_ROOT\CLSID\{A8F37AFE-8571-3AF4-89A4-35B7E6D09E48}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Vista.Loyalty.Client.LoyaltyRequest"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{A8F37AFE-8571-3AF4-89A4-35B7E6D09E48}\InprocServer32\40.0.9292.0]
+"Class"="Vista.Loyalty.Client.LoyaltyRequest"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{A8F37AFE-8571-3AF4-89A4-35B7E6D09E48}\ProgId]
+@="visLoyaltyClient.LoyaltyRequest"
+
+[HKEY_CLASSES_ROOT\CLSID\{A8F37AFE-8571-3AF4-89A4-35B7E6D09E48}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.Param]
+@="Vista.Loyalty.Client.Param"
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.Param\CLSID]
+@="{28208722-B68D-3AB3-A609-87C86084B24E}"
+
+[HKEY_CLASSES_ROOT\CLSID\{28208722-B68D-3AB3-A609-87C86084B24E}]
+@="Vista.Loyalty.Client.Param"
+
+[HKEY_CLASSES_ROOT\CLSID\{28208722-B68D-3AB3-A609-87C86084B24E}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Vista.Loyalty.Client.Param"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{28208722-B68D-3AB3-A609-87C86084B24E}\InprocServer32\40.0.9292.0]
+"Class"="Vista.Loyalty.Client.Param"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{28208722-B68D-3AB3-A609-87C86084B24E}\ProgId]
+@="visLoyaltyClient.Param"
+
+[HKEY_CLASSES_ROOT\CLSID\{28208722-B68D-3AB3-A609-87C86084B24E}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.Params]
+@="Vista.Loyalty.Client.Params"
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.Params\CLSID]
+@="{40B47331-E702-3E67-AA41-4E2C352F2C89}"
+
+[HKEY_CLASSES_ROOT\CLSID\{40B47331-E702-3E67-AA41-4E2C352F2C89}]
+@="Vista.Loyalty.Client.Params"
+
+[HKEY_CLASSES_ROOT\CLSID\{40B47331-E702-3E67-AA41-4E2C352F2C89}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Vista.Loyalty.Client.Params"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{40B47331-E702-3E67-AA41-4E2C352F2C89}\InprocServer32\40.0.9292.0]
+"Class"="Vista.Loyalty.Client.Params"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{40B47331-E702-3E67-AA41-4E2C352F2C89}\ProgId]
+@="visLoyaltyClient.Params"
+
+[HKEY_CLASSES_ROOT\CLSID\{40B47331-E702-3E67-AA41-4E2C352F2C89}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.PMServiceInterfaceV2]
+@="Vista.Loyalty.Client.PMServiceInterfaceV2"
+
+[HKEY_CLASSES_ROOT\visLoyaltyClient.PMServiceInterfaceV2\CLSID]
+@="{5C9254C5-ABB3-4030-886C-1CC4D6F079D1}"
+
+[HKEY_CLASSES_ROOT\CLSID\{5C9254C5-ABB3-4030-886C-1CC4D6F079D1}]
+@="Vista.Loyalty.Client.PMServiceInterfaceV2"
+
+[HKEY_CLASSES_ROOT\CLSID\{5C9254C5-ABB3-4030-886C-1CC4D6F079D1}\InprocServer32]
+@="mscoree.dll"
+"ThreadingModel"="Both"
+"Class"="Vista.Loyalty.Client.PMServiceInterfaceV2"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{5C9254C5-ABB3-4030-886C-1CC4D6F079D1}\InprocServer32\40.0.9292.0]
+"Class"="Vista.Loyalty.Client.PMServiceInterfaceV2"
+"Assembly"="visLoyaltyClient, Version=40.0.9292.0, Culture=neutral, PublicKeyToken=null"
+"RuntimeVersion"="v2.0.50727"
+
+[HKEY_CLASSES_ROOT\CLSID\{5C9254C5-ABB3-4030-886C-1CC4D6F079D1}\ProgId]
+@="visLoyaltyClient.PMServiceInterfaceV2"
+
+[HKEY_CLASSES_ROOT\CLSID\{5C9254C5-ABB3-4030-886C-1CC4D6F079D1}\Implemented Categories\{62C8FE65-4EBB-45E7-B440-6E39B2CDBF29}]

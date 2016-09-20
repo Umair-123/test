@@ -1,0 +1,66 @@
+#btnShopCheckout {
+  float: right;
+  margin: 10px 6px 0 0;
+}
+
+#visShop .page-title {
+  float: left;
+}
+#visShop .error-text {
+  margin-bottom: 20px;
+}
+#visShop .order-details {
+  float: right;
+}
+#visShop .order-errors, #visShop .category-tabs {
+  clear: left;
+}
+#visShop .not-applicable {
+  display: none;
+}
+#visShop .concession-tabs .item,
+#visShop .concession-tabs .item-footer {
+  width: 280px;
+}
+#visShop .concession-tabs .item {
+  height: 168px;
+}
+#visShop .concession-tabs .item-footer {
+  height: 56px;
+  line-height: 28px;
+  overflow: hidden;
+}
+#visShop .concession-tabs .item-footer-button,
+#visShop .concession-tabs .item-footer-quantity {
+  float: left;
+  height: 100%;
+  width: 138px;
+}
+#visShop .concession-tabs .item-footer-button {
+  border-right: 1px solid white;
+}
+#visShop .concession-tabs .item-footer-button button {
+  color: #666666;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  height: 100%;
+  line-height: 15px;
+  text-align: left;
+  width: 100%;
+}
+#visShop .concession-tabs .item-footer-button span {
+  background-position: 15px center;
+  padding: 10px 0 10px 50px;
+  white-space: normal;
+}
+#visShop .concession-tabs .item-footer-quantity {
+  border-left: 1px solid white;
+}
+#visShop .concession-tabs .item-footer-quantity span {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 5px;
+  text-align: left;
+}

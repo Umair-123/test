@@ -1,0 +1,129 @@
+﻿@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Connect.Services
+@using Vista.Web
+
+@model Cinema
+
+@{
+    bool showExpansion = ViewBag.ShowExpansion ?? false;
+    string attributeShortNameFilter = ViewBag.AttributeShortNameFilter;
+    bool isAltLang = ViewBag.IsAltLang ?? false;
+    var movies = Model.ScheduledFilms.ToArray();
+    IFormattingService formattingService = ViewBag.FormattingService;
+}
+
+<div class="film-list">
+    @for (int i = 0; i < movies.Length; i++)
+    {
+        var movie = movies[i];
+        var routeId = MovieIdHelper.GetRouteId(movie);
+        var isUsingFirstDaysSessions = movie.FirstDaysSessions != null && movie.FirstDaysSessions.Any();
+        var sessions = isUsingFirstDaysSessions ? movie.FirstDaysSessions : movie.Sessions;
+        var lastClass = i == movies.Length - 1 ? "last-item" : "";
+
+        <div class="film-item @lastClass" data-cinema-id="@movie.CinemaId" data-movie-id="@movie.ScheduledFilmId" data-attribute-short-name="@attributeShortNameFilter">
+            <div class="movie-image">
+                <div class="image-outer">
+                    <div style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.FilmPosterGraphic, @MovieIdHelper.GetRouteId(movie), CommonImageSizes.MovieList)')">
+                        <img src="@ContentDelivery.EntityImage(CdnMediaType.FilmPosterGraphic, @MovieIdHelper.GetRouteId(movie), CommonImageSizes.MovieList)" />
+                    </div>
+                    @if (!string.IsNullOrWhiteSpace(movie.TrailerUrl))
+                    {
+                        <a class="play" href="@movie.TrailerUrl" data-movie-id="@routeId"><div class="overlay">&nbsp;</div><span>@Movies.PlayTrailer</span></a>							
+                    }                        
+                </div>                
+                <img class="rating-image" src="@ContentDelivery.EntityImage(CdnMediaType.RatingIconGraphic, movie.Rating, CommonImageSizes.RatingImage)" alt="@movie.RatingDescription" width="22" height="22" />
+            </div>
+            <div class="film-showtimes">
+                <div class="film-header">
+                    <a href="@BrowsingUrls.GetMovieDetailsUrl(routeId)">
+                        <h3 class="film-title">@movie.GetPropertyInCorrectLang(isAltLang, m => m.Title, m => m.TitleAlt)</h3>
+                    </a>
+                    @if (showExpansion && movie.HasFutureSessions)
+                    {
+                        <button type="button" class="toggle-future-dates user-action">
+                            <span class="icon up-arrow">@Cinemas.HideFutureDates</span>
+                        </button>
+                        <button type="button" class="toggle-future-dates user-action" style="display: none;">
+                            <span class="icon down-arrow">@Cinemas.ShowFutureDates</span>
+                        </button>
+                    }
+                </div>
+                
+                @if (!sessions.Any())
+                {
+                    <span>@Cinemas.NoSessionsForThisMovie</span>
+                }
+                
+                @if (isUsingFirstDaysSessions)
+                {
+                    var sessionGrouping = sessions.GroupBy(s => new { Showtime = s.SessionBusinessDate, DisplayPriority = s.SessionDisplayPriority, Attr = s.SessionAttributeString() });
+                     <div class="session">
+                        @if (!movie.AllowTicketSales && movie.AdvertiseAdvanceBookingDate && movie.AdvanceBookingDate.HasValue)
+                        {
+                            var advanceBookingDateForCulture = formattingService.FormatDate(movie.AdvanceBookingDate.Value);
+                            var advanceBookingTime = formattingService.FormatTime(movie.AdvanceBookingDate.Value);
+                            <span class="advance-sale-date">@string.Format(Shared.TicketsAvailableFrom, advanceBookingDateForCulture, advanceBookingTime)</span>
+                        }
+ 
+                        <h4 class="session-date">@formattingService.FormatDate(sessions.First().Showtime.Date)</h4>
+
+                         @foreach (var group in sessionGrouping)
+                         {
+                             if (group.Key.Attr != null)
+                             {
+                                 @Html.Partial("SessionListByAttribute", group)
+                             }
+                             else
+                             {
+                                 @Html.Partial("SessionList", group)
+                             }
+                         }
+                             
+                    </div>
+                }
+                else
+                {
+                    var movieSessionsGrouped = movie.Sessions.GroupBy(s => new {Showtime = s.SessionBusinessDate, DisplayPriority = s.SessionDisplayPriority, Attr = s.SessionAttributeString()}).OrderBy(grp => grp.Key.Showtime).ThenBy(grp =>grp.Key.DisplayPriority).ThenBy(grp => grp.FirstOrDefault().Showtime).ToArray();
+                    bool shownAtLeastOne = false;
+                    DateTime currentSessionDate = DateTime.MinValue;
+                    for (int index = 0; index < movieSessionsGrouped.Length; index++)
+                    {
+                        var grp = movieSessionsGrouped[index];
+                        var lastClassInner = index == movieSessionsGrouped.Length - 1 ? "last" : "";
+                        var className = shownAtLeastOne && (grp.Key.Showtime.Date > DateTime.Today) ? "future" : "";
+                        shownAtLeastOne = true;
+                        <div class="@className session @lastClassInner">
+                            @if (!movie.AllowTicketSales && movie.AdvertiseAdvanceBookingDate && movie.AdvanceBookingDate.HasValue)
+                            {
+                                var advanceBookingDateForCulture = formattingService.FormatDate(movie.AdvanceBookingDate.Value);
+                                var advanceBookingTime = formattingService.FormatTime(movie.AdvanceBookingDate.Value);
+                                <span class="advance-sale-date">@string.Format(Shared.TicketsAvailableFrom, advanceBookingDateForCulture, advanceBookingTime)</span>
+                            }
+                            @if (currentSessionDate != grp.Key.Showtime.Date)
+                            {
+                                <h4 class="session-date">@formattingService.FormatDate(grp.Key.Showtime.Date)</h4>
+                                currentSessionDate = grp.Key.Showtime.Date;
+                            }
+
+                            @if (grp.Key.Attr != null)
+                            {
+                                @Html.Partial("SessionListByAttribute", grp)
+                            }
+                            else
+                            {
+                                @Html.Partial("SessionList", grp)
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    }
+</div>

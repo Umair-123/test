@@ -1,0 +1,75 @@
+.loyalty-login {
+  overflow: auto;
+  width: 100%;
+}
+.loyalty-login h3 {
+  margin: 10px 7px;
+  text-transform: uppercase;
+}
+.loyalty-login h3 em {
+  display: block;
+}
+.loyalty-login li {
+  line-height: 22px;
+  margin-top: 5px;
+  padding: 0 7px 0 9px;
+  overflow: hidden;
+}
+.loyalty-login label {
+  float: left;
+  overflow: hidden;
+  width: 60px;
+  text-align: left;
+}
+.loyalty-login .form-field {
+  padding: 3px;
+}
+.loyalty-login div.loyalty-login-detail {
+  padding: 2px 2px 2px 50px;
+}
+.loyalty-login .footer {
+  line-height: 25px;
+  text-align: right;
+}
+.loyalty-login .footer a, .loyalty-login .footer input {
+  background: none;
+  border: none;
+  margin: 0 7px 0 0;
+  padding: 0;
+}
+.loyalty-login span.button-separator {
+  border-left: solid 1px #666666;
+  padding-right: 7px;
+}
+.loyalty-login ul.signin-errors {
+  color: #35a0a8;
+}
+.loyalty-login ul.signin-errors li {
+  text-align: left;
+}
+.loyalty-login input[type=button] {
+  cursor: pointer;
+}
+.loyalty-login .right {
+  display: inline-block;
+}
+
+#sign-in-page .footer a {
+  border: none;
+}
+#sign-in-page .footer .footer-section {
+  margin-top: 15px;
+}
+#sign-in-page .footer .footer-section:first-child {
+  margin-top: 0px;
+}
+#sign-in-page .footer .footer-section h4 {
+  margin-bottom: 8px;
+}
+#sign-in-page .footer .footer-section ul {
+  list-style-type: circle;
+}
+#sign-in-page .footer .footer-section ul li {
+  margin-left: 20px;
+  line-height: 16px;
+}

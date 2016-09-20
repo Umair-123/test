@@ -1,0 +1,35 @@
+.attributes-wrapper {
+  text-align: center; }
+
+.attributes-key {
+  border: 1px solid #666666;
+  display: inline-block;
+  padding-bottom: 10px; }
+  .attributes-key .attributes-list {
+    padding: 0px 5px; }
+    .attributes-key .attributes-list .key {
+      padding-top: 10px;
+      font-weight: bold;
+      float: left;
+      width: 30px; }
+    .attributes-key .attributes-list .attribute {
+      margin: 10px 20px 0px 20px;
+      float: left; }
+    .attributes-key .attributes-list .dynamically-priced-ticket-key .highlight {
+      background-color: #AEE5E1;
+      display: inline-block;
+      height: 19px;
+      padding-left: 3px;
+      padding-right: 3px; }
+      .attributes-key .attributes-list .dynamically-priced-ticket-key .highlight .dynamically-priced-ticket-key-icon {
+        background-image: url("../images/Icon_DynamicallyPricedTickets.png");
+        background-size: contain;
+        height: 16px;
+        display: inline-block;
+        margin-top: 2px; }
+
+/*.attributes-key .attributes-list .attribute.GoldClass {
+    color: #ffa500;
+}*/
+
+/*# sourceMappingURL=AttributesKey.css.map */

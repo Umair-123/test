@@ -1,0 +1,204 @@
+@import "../../_Colours.scss";
+@import "../_Flexbox.scss";
+@import "../_Headings.scss";
+@import "../_Icons.scss";
+@import "../_FontsMobile.scss";
+
+.media-info
+{
+	padding: 0.8rem;
+}
+
+.loyalty-login {
+	h3, div {
+		display: none;
+	}
+
+	.footer {
+		display: block;
+
+		a, span {
+			display: none;
+		}
+
+		input[name="logout"] {
+			float: right;
+			border: none;
+			line-height: 3rem;
+			width: 100%;
+			color: $color-ffffff;
+			background-color: $color-35a0a8;
+			font-size: $font-size-big;
+			font-family: inherit;
+
+			/* Stop Safari from displaying its ugly buttons */
+			-webkit-appearance: none;
+			-webkit-border-radius: 0;
+		}
+	}
+}
+
+.top {
+	@include display-box;
+	@include box-direction(row);
+
+	margin-bottom: 10px;
+
+	.logo {
+		display: inline-block;
+		width: 75px;
+		height: 75px;
+		background-image: url("../../../Images/Mobile/Icons/Icons_Loyalty_75.png");
+		background-repeat: no-repeat;
+	}
+
+	.member-greeting {
+		display: inline-block;
+		margin-top: 5px;
+		margin-left: 10px;
+
+		.greeting {
+			padding: 0;
+		}
+
+		.value {
+			color: $color-35a0a8;
+			font-size: $font-size-biggest;
+		}
+	}
+}
+
+
+.club-name {
+	color: $color-443e3b;
+	font-size: $font-size-big;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.mid {
+	@include display-box;
+	@include box-direction(row);
+}
+
+.details {
+	width: 60%;
+    padding-right: 15px;
+
+	.tier-name {
+		color: $color-35a0a8;
+		display: block;
+        margin-bottom: 0.25rem;
+	}
+
+	.expiry-date-label {
+		color: $color-443e3b;
+	}
+
+    .expiry-date {
+        color: $color-666666;
+    }
+}
+
+.sign-out {
+	width: 40%;
+}
+
+ 
+
+.upcoming-bookings-rewards {
+	margin: 0.8rem 0;
+
+	& > div:last-child {
+		border-bottom: 1px solid $color-b2afaf;
+	}
+
+	.upcoming-bookings,
+	.rewards {
+        border-top: 1px solid $color-b2afaf;
+		line-height: 3.5rem;
+
+		//background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Collapse_37.png");
+		background-position: 97% 1rem;
+		background-size: 24px;
+		background-repeat: no-repeat;
+	}
+
+	.upcoming-bookings-title,
+	.rewards > h3 {
+		padding-left: 0.5rem;
+		//font-weight: bold;
+		color: $color-443e3b;
+		font-size: $font-size-big;
+	}
+
+	.reward-wrapper {
+		padding: 0.5rem;
+
+		.reward-text {
+			line-height: 1.5rem;
+			color: $color-666666;
+		}
+	}
+
+	.booking-detail-wrapper {
+		@include display-box;
+        @include box-direction(row);
+
+		color: $color-666666;
+		//padding: 0.5rem;
+
+		border-top: 1px solid #bfbfbf;
+
+		img {
+			@include box-flex(0 0 75px);
+            @include box-flex-legacy(0);
+			height: 115px;
+		}
+
+		a {
+			color: $color-666666;
+		}
+
+		.booking-detail {
+			@include box-flex(1 1 auto);
+            @include box-flex-legacy(1);
+			margin: 0.3rem 0 0 0.6rem;
+		}
+	}
+
+	.booking-detail-wrapper.last {
+		//border: none;
+	}
+
+	.no-upcoming-bookings-wrapper {
+		padding: 0.6rem;
+	}
+
+	.no-upcoming-bookings-wrapper {
+		padding: 0.6rem;
+	}
+}
+
+.upcoming-bookings.collapsed {
+	//background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Expand_37.png");
+
+	.booking-detail-wrapper,
+	.no-upcoming-bookings-wrapper {
+		display: none;
+	}
+}
+
+.rewards.collapsed {
+	//background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Expand_37.png");
+
+	.reward-wrapper {
+		display: none;
+	}
+}
+
+.recent-history-wrapper,
+.gift-shop-purchase {
+	display: none;
+}
+

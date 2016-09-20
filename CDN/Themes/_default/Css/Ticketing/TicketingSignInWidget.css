@@ -1,0 +1,102 @@
+.ticketing-signin-widget .widget-title, .ticketing-signedin-widget .widget-title, .ticketing-signin-required-widget .widget-title {
+  color: #443e3b;
+  font-family: "Calibri", sans-serif;
+}
+
+.ticketing-signin-widget .widget-title, .ticketing-signedin-widget .widget-title {
+  font-size: 16px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ticketing-signin-widget .form-actions button, .ticketing-signedin-widget .form-actions button, .ticketing-signin-required-widget .form-actions button {
+  color: #666666;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+}
+
+.ticketing-signin-widget .form-actions li, .ticketing-signedin-widget .form-actions li, .ticketing-signin-required-widget .form-actions li {
+  border-left: 1px solid #93908f;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.ticketing-signin-widget .form-actions li:first-child, .ticketing-signedin-widget .form-actions li:first-child, .ticketing-signin-required-widget .form-actions li:first-child, .ticketing-signin-widget .form-actions li.first, .ticketing-signedin-widget .form-actions li.first, .ticketing-signin-required-widget .form-actions li.first {
+  border-left: none;
+}
+
+.ticketing-signin-widget a, .ticketing-signedin-widget a, .ticketing-signin-required-widget a {
+  padding: 0px;
+  border: none;
+}
+.ticketing-signin-widget .widget-blurb, .ticketing-signedin-widget .widget-blurb, .ticketing-signin-required-widget .widget-blurb {
+  margin-bottom: 15px;
+  display: block;
+}
+.ticketing-signin-widget .form-error, .ticketing-signedin-widget .form-error, .ticketing-signin-required-widget .form-error {
+  margin-bottom: 5px;
+}
+.ticketing-signin-widget .form-actions, .ticketing-signedin-widget .form-actions, .ticketing-signin-required-widget .form-actions {
+  text-align: right;
+}
+.ticketing-signin-widget .form-actions li, .ticketing-signedin-widget .form-actions li, .ticketing-signin-required-widget .form-actions li {
+  display: inline;
+}
+.ticketing-signin-widget .webforms-form, .ticketing-signedin-widget .webforms-form, .ticketing-signin-required-widget .webforms-form {
+  margin-bottom: 5px;
+}
+.ticketing-signin-widget .webforms-form .form-line, .ticketing-signedin-widget .webforms-form .form-line, .ticketing-signin-required-widget .webforms-form .form-line {
+  height: auto;
+  line-height: normal;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+.ticketing-signin-widget .webforms-form .form-line label, .ticketing-signedin-widget .webforms-form .form-line label, .ticketing-signin-required-widget .webforms-form .form-line label {
+  width: 100px;
+  display: inline-block;
+}
+.ticketing-signin-widget .webforms-form .form-line input, .ticketing-signedin-widget .webforms-form .form-line input, .ticketing-signin-required-widget .webforms-form .form-line input {
+  width: 200px;
+  margin-right: 5px;
+}
+.ticketing-signin-widget .form-actions, .ticketing-signedin-widget .form-actions, .ticketing-signin-required-widget .form-actions {
+  padding-right: 80px;
+}
+.ticketing-signin-widget .form-actions, .ticketing-signedin-widget .form-actions, .ticketing-signin-required-widget .form-actions {
+  text-align: right;
+}
+
+.ticketing-signin-required-widget {
+  width: 385px;
+}
+
+.ticketing-signin-widget {
+  width: 385px;
+}
+.ticketing-signin-widget .widget-blurb {
+  margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+.ticketing-signin-widget .form-error {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.ticketing-signin-widget .sign-in-form-toggler {
+  text-decoration: underline;
+}
+.ticketing-signin-widget .sign-in-form-container {
+  margin-top: 15px;
+}
+
+.ticketing-signedin-widget {
+  width: 385px;
+}
+.ticketing-signedin-widget .widget-blurb {
+  margin-bottom: 5px;
+  margin-bottom: 5px;
+}
+.ticketing-signedin-widget .widget-blurb .member-name {
+  font-weight: bold;
+}
+.ticketing-signedin-widget .webforms-form .form-line {
+  height: auto;
+}

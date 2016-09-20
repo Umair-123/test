@@ -1,0 +1,10 @@
+﻿@using System.Globalization
+@model Vista.Connect.Cinema
+@{
+	var location = string.Format(CultureInfo.InvariantCulture, "{0},+{1}", Model.Latitude, Model.Longitude);
+    
+}
+
+<iframe class="google-map" width="300" height="175"
+ src="//maps.google.com/maps?hl=en&amp;q=loc:@location&amp;ie=UTF8&amp;hq=@location&amp;z=15&amp;output=embed&amp;iwloc=&amp;">
+</iframe>

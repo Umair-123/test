@@ -1,0 +1,22 @@
+#modal-error-container {
+  background: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+  width: 280px;
+}
+
+.modal-error {
+  display: none;
+  overflow: hidden;
+  padding: 15px;
+  width: 250px;
+}
+.modal-error h2 {
+  margin-bottom: 15px;
+}
+.modal-error p {
+  margin: 15px 0;
+}
+
+.modal-error-button-container {
+  text-align: center;
+}

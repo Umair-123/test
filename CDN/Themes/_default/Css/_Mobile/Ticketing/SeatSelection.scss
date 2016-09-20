@@ -1,0 +1,175 @@
+@import "../../_Colours";
+@import "../_Flexbox";
+@import "../_FontsMobile";
+
+@mixin cinema-screen-shape($color) {
+	border-left: 15px solid transparent;
+	border-top: 5px solid $color;
+	border-right: 15px solid transparent;
+}
+
+
+#divSeatMap {
+	padding-left: 0.4rem;
+	padding-right: 0.4rem;
+	min-height: calc(100vh - 187px);
+}
+
+.Seating-Container {
+	// Script sets explicit width for the container, which we don't want
+	width: 100% !important;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#divLegend {
+	@include display-box;
+	@include box-direction(row);
+	flex-wrap: wrap;
+	justify-content: center;
+
+	width: 100%;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.legend-container {
+	margin: 0.3rem;
+	img, span {
+        height:25px;
+		vertical-align: middle;
+        color: $color-666666;
+        font-size: 12px;
+	}
+}
+
+.Seating-AreaName
+{
+    font-size: 17px;
+    color: $color-000000;
+    font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-style: normal;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.Seating-Area{
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-collapse: collapse;
+    div{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    tr, td{
+        padding: 0px;
+        margin: 0px;
+        border: 0;
+    }
+    img{
+        vertical-align: top;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        cursor: pointer;
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+    p {
+        font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+        position: absolute;
+        z-index: 1;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        font-size: 11px;
+        color: $color-000000;
+        display: table-cell;
+        cursor: pointer;
+
+    }
+}
+
+.Seating-Screen {
+	padding-bottom: 10px;
+	width: 100% !important;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	box-sizing: border-box;
+
+	@include cinema-screen-shape($color-443e3b);
+
+	img {
+		display: none;
+	}
+}
+
+.Seating-Popup
+{
+    /* Required */
+    display: none;
+    z-index: 9999;
+    text-align: center;
+    vertical-align: middle;
+    /* Customisable */
+    color: $color-ffffff;
+    font-style: inherit;
+    cursor: pointer;
+    background-color: #960423; /* #FFD4A0 */
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";	
+    width: 100%;
+    height: 80px;
+    border-radius: 4px;
+}
+
+
+.Seating-PopupMessage
+{
+    /* Required */
+    color: white;
+    clear: both;
+    height: 80px;
+    position: relative;
+    padding: 10px;
+    vertical-align: middle;
+}
+
+div.Seating-Container{
+    position: relative;
+    .Seating-RowLabelContainer{
+        width:4.5%;
+        height: 100%;
+        position: absolute;
+        tr td{
+            width:12px;
+        }
+        &.Seating-RowLabelContainer-Left{
+            text-align:left;
+            left: 0;
+        }
+        &.Seating-RowLabelContainer-Right{
+            text-align:right;
+            right: 0;
+        }
+    }
+    .Seating-Theatre{
+        width:90%!important;
+        
+        margin-left: 5%;
+        position: absolute!important;
+        img{
+            vertical-align:sub;
+        }
+        p{
+            font-family:'Segoe UI';
+            font-weight:bold;
+        }
+    }
+}

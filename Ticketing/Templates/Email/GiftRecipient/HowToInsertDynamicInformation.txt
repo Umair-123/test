@@ -1,0 +1,8 @@
+You can use the following tags
+
+key						will insert
+-----------------       -------------------
+<ORDER_REFERENCE>		The booking id of the purchase
+<BOOKING_NUMBER>		The booking number of the purchase
+<GIFT_MESSAGE>			The gift message from the sender to the recipient
+<SENDER_NAME>			The name of the person sending the gift to the recipient

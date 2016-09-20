@@ -1,0 +1,238 @@
+﻿@import "../../_Colours.scss";
+@import "../_Icons.scss";
+@import "../_Lines.scss";
+@import "../_Links.scss";
+@import "../_FontsMobile.scss";
+
+/* SHOWTIMES LIST */
+
+/*
+<div class="film-for-day showtimes-list collapsed">
+    <img class="rating-image" src="http://localhost/CDN/Image/Entity/MovieRatings/M?width=22&amp;height=22" alt="" width="20" height="20">
+    <div class="film-title">District 9</div>
+                        
+	<div class="showtimes has-attributes">
+		<div class="showtime-link-container">                      
+			<a class="session-attributes has-attributes">
+				<img class="attribute-image" src="http://vdt092/CDN/Image/Entity/SessionAttribute/HFR?width=10&amp;height=10" alt="HFR">
+			</a>
+			<a class="showtime-link" href="http://vdt092/Ticketing/visSelectTickets.aspx?cinemacode=0000000001&amp;txtSessionId=307361&amp;visLang=1">
+				<time class="showtime" datetime="2014-05-20T20:05:00.0000000">08:05 p.m.</time>
+			</a>              
+		</div>
+	</div>
+</div>
+*/
+
+// TODO: these two set style of a list of a showtimes-list, should move out?? - Yes this should be part of a "Lists.scss" file and shared
+.showtimes-list {
+     @include horizontal-separator-line($margin-bottom: 0.5rem);
+     &:before {
+        // TODO: tidy up!
+        // set the first item's border line to transparent to ensure all heights are equal (overridden below)
+        border-color: $color-transparent;
+     }
+}
+
+// select all film-for-day elements except the first
+.showtimes-list ~ .showtimes-list {
+     &:before {
+        border-color: $color-dadada;
+     }
+}
+
+
+.showtimes.has-attributes .session-attributes {
+	width: 25%;
+    overflow: hidden;
+
+    //margin-right: 0.5rem;
+    padding: 0 0.5rem;
+
+    &.has-attributes {
+        background-color: $color-443e3b;
+    }
+
+    &.no-attributes {
+        background-color: $color-ffffff; // this relies on the page background color to be white
+        height: 100%;
+
+        &:before {
+            content: '.'; // hack to get inline-block element height to display (element requires content to set size)
+            color: $color-ffffff; // this relies on the page background color to be white
+        }
+    }
+}
+
+.showtimes.no-attributes .session-attributes {
+    width: 0%;
+}
+
+/*
+.showtimes-list {
+    @include icon-arrow($background-position: 97% 10px);
+}
+
+.showtimes-list.collapsed {
+    @extend %icon-arrow-expand;
+}
+*/
+
+.showtimes {
+	background-color: $color-ffffff;
+
+    .showtime-link-container {
+		color: $color-666666;
+		
+
+		.showtime-link {
+			@extend %link;
+			color: inherit;
+		}
+        
+        .showtimes-list.collapsed & .session-attributes {
+            display: none;
+        }
+        
+        .showtimes-list.expanded & .session-attributes {
+            display: inline-block;
+			vertical-align: top;
+        }
+
+        .showtimes-list.collapsed & {
+
+            display: none;
+            
+            &:not(:last-of-type) {
+                .showtime:after {
+                    content: ", ";
+                }
+            }
+        }
+
+        .showtimes-list.expanded & {
+            
+            @include icon-arrow($background-position: 99% 50%);
+            @extend %icon-arrow-right;
+
+            display: block;
+            color: $color-443e3b;
+            background-color: $color-93908f;
+            font-size: 1.2rem;
+            line-height: 3.5rem;
+            margin-bottom: 0.2rem;
+
+				.showtime-link {
+					display: inline-block;
+					width: 66%;
+					float: right;
+					color: inherit;
+				}
+        }
+    }
+}
+
+.showtimes.has-attributes {
+	.session-attributes.has-attributes {
+
+		text-align: center;
+
+		img {
+			width: 25%;
+			max-width: 100px;
+			vertical-align: middle;
+			
+		}
+	}
+}
+
+
+.showtime-link {
+	display: block;
+	text-decoration: none;
+	color: $color-666666;
+
+	padding-left: 2rem;
+	line-height: 3.5rem;
+
+	border-top: 1px solid $color-dadada;
+
+	//@include icon-arrow($background-position: 97% 50%);
+    //@extend %icon-arrow-right;
+	
+	&:hover,
+	&:hover span {
+		color: $color-35a0a8;
+	}
+        
+
+	.showtime {
+		margin-right: 1.5rem;
+	}
+
+	span {
+		//color: $color-443e3b;
+	}
+}
+
+.showtimes-list.collapsed {
+	.showtime-link {
+		display: none;
+	}
+}
+
+/* Date selector, shared by MovieDetails and CinemaDetails */
+.date-selector {
+	text-align: center;
+	border-bottom: 1px solid $color-dadada;
+	padding: 0.8rem 0;
+    color: $color-443e3b;
+
+	.prev, .next {
+		width: 40px;
+		height: 15px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.prev {
+		background-image: url("../../../Images/Mobile/Arrow_Left_20.png");
+		float: left;
+	}
+
+	.next {
+		background-image: url("../../../Images/Mobile/Arrow_Right_20.png");
+		float: right;
+	}
+}
+
+
+
+.films-for-day:first-child {
+	.prev {
+		visibility: hidden;
+	}
+}
+
+.films-for-day:last-child {
+	.next {
+		visibility: hidden;
+	}
+}
+
+.cinemas-for-day:first-child {
+	.prev {
+		visibility: hidden;
+	}
+}
+
+.cinemas-for-day:last-child {
+	.next {
+		visibility: hidden;
+	}
+}
+
+.no-showtimes-msg {
+    margin: 7%;
+}

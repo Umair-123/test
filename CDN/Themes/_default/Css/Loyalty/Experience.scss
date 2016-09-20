@@ -1,0 +1,151 @@
+@import "../_ItemList";
+@import "../StarRating";
+
+#experience { 
+	overflow: hidden; 
+	margin: -15px;
+	font-size: 0;
+
+	h2 {
+		margin: 15px 15px 20px 15px;
+	}
+
+	.ratings-list {
+		border-right: 1px solid $color-eaeaea;
+		width: 60%;
+		display: inline-block;
+
+		.rating {
+			margin: 0 15px 30px 15px;
+		
+			h3 {
+				font-family: 'Segoe UI', sans-serif;
+				font-size: 18px;
+				color: $color-443e3b;
+				font-weight: normal;
+			}
+
+			.comment {
+				margin-top: 10px;
+
+				textarea {
+					box-sizing:border-box;
+					width: 100%;
+					height: 60px;
+					border: 1px solid $color-eaeaea;
+					resize: none;
+					padding: 2px 2px 2px 6px;
+
+					font-family: 'Segoe UI', sans-serif;
+					font-size: 14px;
+					colour: $color-93908f;
+				}
+			}
+
+			.rating-wrapper {
+				margin: 15px 0 0 0;
+
+				@extend %star-rating;
+				width: 550px;
+				height: 26px;
+			}
+		}
+
+		.actions {
+
+			margin: 15px;
+			text-align: right;
+
+			button {
+				width: 138px;
+				height: 46px;
+				background-color: $color-35a0a8;
+				border-radius: 5px;
+				font-family: 'Calibri';
+				font-weight: bold;
+				font-size: 24px;
+				color: $color-eaeaea;
+			}
+		}
+	}
+}
+
+#sessions-list { 
+	@extend %item-list;	
+
+	.items-wrapper {
+		&:after {
+			content: ' ';
+			display: block;
+			font-size: 0;
+			clear: both;
+		}
+	}
+
+	.image-outer { 
+		@extend %image-outer;
+	}
+	
+	.list-item { 
+		@extend %list-item;
+		border: 0;
+
+		height: 180px; 
+		margin-top: 0;
+		margin-bottom: 0;
+
+		&.item-col {
+			float: left;
+			width: 50%;
+			margin-bottom: 8px;
+
+			&:last-child:nth-child(odd) {
+				width: 100%;
+			}
+
+			&:last-child,
+			&:nth-last-child(2):nth-child(odd) {
+				margin-bottom: 0;
+			}
+		}
+
+		.item-details { 
+			@extend %item-details;
+			height: 144px;
+
+			.item-details-inner {
+
+				> p {
+					margin-left: 34px;
+					font-family: 'Segoe UI', sans-serif;
+				}
+
+				.session-time {
+					font-size: 14px;
+					color: $color-666666;
+				}
+
+				.cinema-name {
+					font-size: 16px;
+					color: $color-666666;
+				}
+			}
+		}
+
+		.movie-actions {
+			@extend %movie-actions;
+			border-bottom: 1px solid $color-eaeaea;
+			.main-action {
+				@extend %main-action;
+
+				border-left: 0;
+			}
+		}
+	}
+}
+
+.loading {
+	width: 126px;
+	height: 126px;
+	background-image: url('../../Images/Icon_Loading_Dark.gif');
+}

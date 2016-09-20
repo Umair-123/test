@@ -1,0 +1,78 @@
+﻿@using InternetTicketing.Browsing.ViewModels.Loyalty
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@model ActivateCardViewModel
+           
+@section Css {
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Loyalty/ActivateCard.css")
+    @ContentDelivery.Css("Validation.css")
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/ActivateCard.js")
+}
+
+<h2>@LoyaltyActivateCard.Title1<em>@LoyaltyActivateCard.Title2</em></h2>
+
+@using (Html.BeginForm("ActivateCard", "Loyalty", FormMethod.Post, new { id = "loyalty-activate-card", autocomplete = "off" }))
+{
+
+    <p class="blurb">@LoyaltyActivateCard.Blurb</p>
+
+    <ul>
+        <li class="form-line">
+            @Html.LabelFor(m => m.CardNumber)
+            @Html.TextBoxFor(m => m.CardNumber)
+            @Html.ValidationMessageFor(m => m.CardNumber, string.Empty, new { @class = "icon icon-small" })
+        </li>
+        <li class="form-line email-address">
+            @Html.LabelFor(m => m.EmailAddress)
+            @Html.TextBoxFor(m => m.EmailAddress, new { @class = "email" })
+            @Html.ValidationMessageFor(m => m.EmailAddress, string.Empty, new { @class = "icon icon-small" })
+        </li>
+    @if (Model.DisplayPinNumber)
+    {
+        <li class="form-line">
+            @Html.LabelFor(m => m.PinNumber)
+            @Html.PasswordFor(m => m.PinNumber)
+            @Html.ValidationMessageFor(m => m.PinNumber, string.Empty, new { @class = "icon icon-small" })
+        </li>
+    }
+    </ul>
+
+    <h3>@LoyaltyActivateCard.CreateLogin</h3>
+
+    <ul>
+        @if (Model.UseEmailAsUsername)
+        {
+            <li class="form-line">
+                @Html.LabelFor(m => m.Username)@*
+                *@<input id="UsernameDisplay" type="text" disabled="disabled" value="@Model.EmailAddress"/>@*
+                *@@Html.HiddenFor(m => m.Username)
+            </li>                            
+        }
+        else
+        {
+            <li class="form-line">
+                @Html.LabelFor(m => m.Username)@*
+                *@@Html.TextBoxFor(m => m.Username, Model.UseEmailAsUsername ? new {disabled = "disabled"} : (object) new {@class = "required"})@*
+                *@@Html.ValidationMessageFor(m => m.Username, string.Empty, new {@class = "icon icon-small"})
+            </li>
+        }
+        <li class="form-line">
+            @Html.LabelFor(m => m.Password)@*
+            *@@Html.PasswordFor(m => m.Password)@*
+            *@@Html.ValidationMessageFor(m => m.Password, string.Empty, new { @class = "icon icon-small" })
+        </li>
+        <li class="form-line">
+            @Html.LabelFor(m => m.PasswordConfirm)@*
+            *@@Html.PasswordFor(m => m.PasswordConfirm)@*
+            *@@Html.ValidationMessageFor(m => m.PasswordConfirm, string.Empty, new { @class = "icon icon-small" })
+        </li>
+    </ul>
+
+    <button type="submit" class="page-action"><span>@LoyaltyActivateCard.ActivateCard</span></button>
+}

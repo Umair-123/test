@@ -1,0 +1,11 @@
+﻿@model Vista.Connect.Cinema
+@{
+	var location = string.Format("{0}~{1}", Model.Latitude, Model.Longitude);
+    // bing maps also requires this other format for the where1 parameter
+	var location2 = string.Format("{0}%2C%20{1}", Model.Latitude, Model.Longitude);
+	var guid = Guid.NewGuid();
+}
+
+<iframe scrolling="no" class="bing-map" width="300" height="175" frameborder="0"
+		src="http://bing.com/maps/embed/?v=2&amp;cp=@location&amp;lvl=15&amp;dir=0&amp;sty=r&amp;where1=@location2&amp;form=LMLTEW&amp;pp=@location&amp;emid=@guid&amp;w=300&amp;h=175">
+</iframe>

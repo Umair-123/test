@@ -1,0 +1,327 @@
+﻿@import "../_Styles";
+@import "../_Icons";
+@import "../_Images";
+
+$tab-content-width:830px;
+$item-width:382px;
+$item-spacing:3px;
+$button-width:134px;
+$button-height:48px;
+$loading-indicator-width:126px;
+$loading-indicator-height:126px;
+
+.loyalty-reward-shop {
+
+    h2 {
+        margin-bottom:20px;
+    }
+
+    .blurb {
+        margin-bottom:20px;
+    }
+
+    .hidden {
+        display:none;
+    }
+
+    .button {
+        width:$button-width;
+        height:$button-height;
+        background-color:#EAEAEA;
+        font-family:Calibri;
+        font-weight:bold;
+        color:#666666;
+        text-transform:uppercase;
+    }
+    
+    .account-summary {
+        .form-line {
+            min-height:20px;
+            @extend %clearfix;
+            label,.label {
+                width:120px;
+                margin-right:10px;
+            }
+        }
+        margin-bottom:30px;
+    }
+
+    #reward-grid {
+        .category-tabs-items {
+            width:$tab-content-width;
+            padding:0px;
+        }        
+    }
+
+    .recognition-type-category {                
+    }
+
+    .item-class-category {        
+        .separator {
+            margin-top:17px;
+            margin-bottom:0px;
+            padding:0px;
+            height:1px;
+            color:black;
+            margin-left:5px;
+            width:$tab-content-width - 10px;
+        }
+
+        .expander {      
+            cursor:pointer;
+            @extend %clearfix;            
+            .title {
+                float:left;                            
+                margin-top:10px;
+                margin-left:10px;
+                margin-bottom:20px;
+                font-size:14px;
+            }
+            .arrow {
+                float:right;
+                margin-right:10px;
+                margin-top:10px;
+                width:15px;
+                height:15px;
+                @include icon("Arrow_Up","../../");
+            }
+
+            &.no-expansion {
+                cursor:default;
+                .arrow {
+                    display:none;
+                }
+            }
+        }
+
+        .item-class-category-items {            
+            margin-bottom:20px;
+            margin-left:30px;
+            
+            .row {
+                @extend %clearfix;
+                margin-bottom:$item-spacing;
+                &:last-child {
+                    margin-bottom:0px;
+                }
+            }                       
+        }
+
+        &.collapsed {
+            padding-bottom:0px;
+            .item-class-category-items {
+                display:none;
+            }
+
+            .expander {
+                .title {
+                    margin-bottom:10px;
+                }
+                .arrow {
+                    @include icon("Arrow_Down","../../");
+                }
+            }
+
+            .separator {
+                margin-top:0px;
+            }
+        }                    
+
+        &:last-child {
+            .separator {
+                display:none;
+            }
+        }
+    }
+
+    .manual-recognition-item {
+        @extend %clearfix;
+        border:solid 1px #93908f;
+        width:$item-width;
+
+        margin-right:$item-spacing;
+        float:left;    
+
+        .display-mode {
+            position:relative;
+            height:158px;
+
+            .information {
+                font-family:Segoe UI;
+                float:left;
+                width:250px;
+                .title {                                    
+                    font-weight:bold;
+                    font-size:12px;
+                    margin:0px 0px 5px 0px;
+                }
+                .description {
+                    display:block;
+                    height:42px;
+                    overflow:hidden;
+                    font-size:10px;
+                }
+
+                .form-line {
+                    min-height:1.2em;                    
+                    label {
+                        font-size:11px;
+                        margin-right:5px;
+                    }
+                }
+
+                .redeem-button  {
+                    position:absolute;
+                    bottom:5px;
+                    right:5px;
+                }
+
+                margin-left:10px;
+                margin-top:5px;
+            }
+        }
+
+        .confirm-mode {
+            position:relative;
+            background-color:#35A0A8;            
+            color:#EAEAEA;
+            display:none;
+            padding-bottom:5px;
+            padding-right:5px;
+
+            label {
+                color:#fff;
+            }
+
+            .confirmation-header {
+                @extend %clearfix;
+                margin-bottom:20px;
+                .title {
+                    color:#fff;
+                }
+
+                .information {
+                    font-family:Segoe UI;
+                    float:left;
+                    width:250px;
+                    .title {                                    
+                        font-weight:bold;
+                        font-size:12px;
+                        margin:0px 0px 5px 0px;
+                    }
+                    .instructions {
+                        display:block;
+                        margin-bottom:10px;                    
+                        font-size:10px;
+                    }
+
+                    .form-line {
+                        min-height:1.2em;                    
+                        label {
+                            font-size:11px;
+                            margin-right:5px;
+                        }
+                    }
+
+                    margin-left:10px;
+                    margin-top:5px;
+                }
+            }
+
+            .pickup-details {
+                margin-left:10px;
+
+                .pickup-instructions {
+                    margin-bottom:10px;
+
+                }
+
+                .pickup-form {
+                    margin-bottom:10px;
+                }
+
+                .pickup-notes {
+                    li {
+                        margin-bottom:10px;                                    
+                    }
+                    font-style:italic;                        
+                }
+            }
+
+            .action-buttons {
+                text-align:right;
+                .cancel-button {
+                }
+
+                .confirm-button {
+                }
+            }
+           
+            .loading-mask {
+                display:none;
+                position:absolute;
+                top:0px;
+                left:0px;
+                width:100%;
+                height:100%;
+                background-color:#35A0A8;
+                z-index:100;
+
+                .loading {
+                    position:absolute;
+                    @include background-image("Icon_Loading_Blue.gif","../../");
+                    background-repeat:no-repeat;
+                    width:$loading-indicator-width;
+                    height:$loading-indicator-height;
+                    left:($item-width - $loading-indicator-width)/2;
+                } 
+            }
+
+            .complete-view {
+                display:none;
+                margin-left:10px;
+                .complete-message {
+                    margin-bottom:10px;
+                    &.form-error {
+                        margin-right:5px;
+                    }
+                }
+
+
+
+            }
+
+
+        }
+                                                                              
+        .image {
+            float:left;
+            width:100px;
+            height:100px;
+            margin-left:2px;
+            margin-top:2px;
+            border:solid 1px #93908f;
+            img {
+                width:100px;
+                height:100px;
+                border:none;
+                margin:0px;
+
+            }
+        }
+
+
+        &.unavailable,&.temp-unavailable {
+            .redeem-button {
+                opacity:0.5;
+                cursor:default;
+            }
+        }
+
+    }
+
+    
+    .ImageRecognitions {
+        width:150px;
+    }
+}

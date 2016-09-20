@@ -1,0 +1,13 @@
+$font-segoe: "Segoe UI", sans-serif !default;
+$font-calibri: "Calibri", sans-serif !default;
+
+$font-body: $font-segoe;
+$font-header: $font-calibri;
+
+@mixin calibri-woff-font-face($css-root) {
+    // custom font for the header text in case the Calibri font doesnt exist on the device (which is likely on non windows operating systems)
+    @font-face {
+      font-family: Calibri-Woff;
+      src: local(Calibri), url($css-root + "/Fonts/calibri-webfont.woff") format("woff");
+    }
+}

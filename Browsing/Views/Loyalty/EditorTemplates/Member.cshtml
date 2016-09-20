@@ -1,0 +1,241 @@
+﻿@using InternetTicketing.Browsing.ViewModels.Loyalty.Member
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@using Vista.Web
+@model MemberViewModel
+
+<div class="row">
+    <h2>@LoyaltyMember.PersonalDetailsTitle1<em>@LoyaltyMember.PersonalDetailsTitle2</em></h2>    
+    <div id="loyalty-member-details" class="left-column column">
+        <ul>
+            <li>
+                @Html.LabelFor(m => m.FirstName)@*
+              *@@Html.TextBoxFor(m => m.FirstName)@*
+              *@@Html.ValidationMessageFor(m => m.FirstName, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.LastName)@*
+              *@@Html.TextBoxFor(m => m.LastName)@*
+              *@@Html.ValidationMessageFor(m => m.LastName, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Initial)@*
+              *@@Html.TextBoxFor(m => m.Initial)@*
+              *@@Html.ValidationMessageFor(m => m.Initial, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Birthday, htmlAttributes: new { @for = "loyalty-member-birthday" })@*
+              *@@Html.DropDownListFor(m => m.BirthdayMonth, Model.Months, string.Format(Shared.Month, String.Empty), new { @class = "birthday" })@*
+                *@@Html.ValidationMessageFor(m => m.BirthdayMonth, string.Empty, new { @class = "icon icon-small" })@*
+              *@@Html.DropDownListFor(m => m.BirthdayDay, Model.Days, string.Format(Shared.Day, string.Empty), new { @class = "birthday" })@*
+              *@@Html.ValidationMessageFor(m => m.BirthdayDay, string.Empty, new { @class = "icon icon-small" })@*
+              *@@Html.DropDownListFor(m => m.BirthdayYear, Model.Years, string.Format(Shared.Year, string.Empty), new { @class = "birthday" })@*
+              *@@Html.ValidationMessageFor(m => m.BirthdayYear, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.FavouriteCinema, htmlAttributes:  new { @for = "loyalty-member-favourite"})@*
+              *@@Html.DropDownListFor(m => m.FavouriteCinema, Model.Cinemas, LoyaltyMember.CinemaEmpty, new { id = "loyalty-member-favourite" })@*
+              *@@Html.ValidationMessageFor(m => m.FavouriteCinema, string.Empty, new { @class = "icon icon-small" })
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="column">
+        <ul>
+            @if (Model.Genders.Any())
+            {
+                 <li>
+                    @Html.LabelFor(m => m.Gender)@*
+                  *@@Html.DropDownListFor(m => m.Gender, Model.Genders, LoyaltyMember.Gender.RemoveRequiredByLabelStar())@*
+                     *@@Html.ValidationMessageFor(m => m.Gender, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+            @if (Model.Occupations.Any())
+            {
+                <li>
+                    @Html.LabelFor(m => m.Occupation)@*
+                  *@@Html.DropDownListFor(m => m.Occupation, Model.Occupations, LoyaltyMember.Occupation.RemoveRequiredByLabelStar())@*
+                     *@@Html.ValidationMessageFor(m => m.Occupation, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+            @if(Model.EducationLevels.Any())
+            {
+                <li>
+                    @Html.LabelFor(m => m.EducationLevel)@*
+                  *@@Html.DropDownListFor(m => m.EducationLevel, Model.EducationLevels, LoyaltyMember.EducationLevel.RemoveRequiredByLabelStar())@*
+                     *@@Html.ValidationMessageFor(m => m.EducationLevel, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+            @if(Model.IncomeRanges.Any())
+            {
+                <li>
+                    @Html.LabelFor(m => m.IncomeRange)@*
+                  *@@Html.DropDownListFor(m => m.IncomeRange, Model.IncomeRanges, LoyaltyMember.IncomeRange.RemoveRequiredByLabelStar())@*
+                    *@@Html.ValidationMessageFor(m => m.IncomeRange, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+            @if (Model.HouseholdSizeRange.Any())
+            {
+                <li>
+                    @Html.LabelFor(m => m.HouseholdSize)@*
+                  *@@Html.DropDownListFor(m => m.HouseholdSize, Model.HouseholdSizeRange, LoyaltyMember.HouseholdSize.RemoveRequiredByLabelStar())@*
+                    *@@Html.ValidationMessageFor(m => m.HouseholdSize, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+            @if (Model.MaritalStatuses.Any())
+            {
+                <li>
+                    @Html.LabelFor(m => m.MaritalStatus)@*
+                  *@@Html.DropDownListFor(m => m.MaritalStatus, Model.MaritalStatuses, LoyaltyMember.MaritalStatus.RemoveRequiredByLabelStar())@*
+                    *@@Html.ValidationMessageFor(m => m.MaritalStatus, string.Empty, new { @class = "icon icon-small" })
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+<hr />
+
+<div class="row">
+    <h2>@LoyaltyMember.ContactDetailsTitle1<em>@LoyaltyMember.ContactDetailsTitle2</em></h2>    
+
+    <div class="left-column column">
+        <ul>
+             <li>
+                @Html.LabelFor(m => m.Email)@*
+              *@@Html.TextBoxFor(m => m.Email)@*
+              *@@Html.ValidationMessageFor(m => m.Email, string.Empty, new { @class = "icon icon-small" })
+            </li> 
+            <li>
+                <label>@(Model.EmailOptIn ? LoyaltyMember.EmailOptIn : LoyaltyMember.EmailOptOut)</label>@*
+              *@@Html.CheckBoxFor(m => m.EmailPreference, new Dictionary<string, object> { { "class", "checkbox"}, { "data-optin", Model.EmailOptIn.ToJson() }})@*
+              *@@Html.LabelFor(m => m.EmailPreference, Model.EmailOptIn ? LoyaltyMember.EmailOptInUs : LoyaltyMember.EmailOptOutUs, new { @class = "checkbox-label" })
+            </li>
+            <li>
+                <label></label>@*
+              *@@Html.CheckBoxFor(m => m.EmailThirdPartyPreference, new { @class="checkbox" })@*
+              *@@Html.LabelFor(m => m.EmailThirdPartyPreference, Model.EmailOptIn ? LoyaltyMember.EmailOptInThird : LoyaltyMember.EmailOptOutThird, new { @class = "checkbox-label" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.MailingFrequency)@*
+              *@@Html.DropDownListFor(m => m.MailingFrequency, Model.MailingFrequencies, "")@*
+              *@@Html.ValidationMessageFor(m => m.MailingFrequency, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Phone)@*
+              *@@Html.TextBoxFor(m => m.Phone)@*
+              *@@Html.ValidationMessageFor(m => m.Phone, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Mobile)@*
+              *@@Html.TextBoxFor(m => m.Mobile)@*
+              *@@Html.ValidationMessageFor(m => m.Mobile, string.Empty, new { @class = "icon icon-small" })
+            </li>
+        </ul>
+    </div>
+    <div id="loyalty-member-address" class="column">
+                <ul>
+            <li>
+                @Html.LabelFor(m => m.Address1)@*
+              *@@Html.TextBoxFor(m => m.Address1)@*
+              *@@Html.ValidationMessageFor(m => m.Address1, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Suburb)@*
+              *@@Html.TextBoxFor(m => m.Suburb)@*
+              *@@Html.ValidationMessageFor(m => m.Suburb, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.Postcode, htmlAttributes: new { @for = "loyalty-member-postcode" })@*
+              *@@Html.TextBoxFor(m => m.Postcode, new { id = "loyalty-member-postcode" })@*
+              *@@Html.ValidationMessageFor(m => m.Postcode, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.City)@*
+              *@@Html.TextBoxFor(m => m.City)@*
+              *@@Html.ValidationMessageFor(m => m.City, string.Empty, new { @class = "icon icon-small" })
+            </li>
+            @if (Model.DisplayFindAddress)
+            {
+            <li>
+                <button type="button" class="page-action"><span>@LoyaltyMember.FindAddress</span></button>
+            </li>
+            }
+            </ul>
+    </div>
+</div>
+
+<hr />
+
+@* Various IE<=8 issues requires a wrapper workaround *@
+<div class="toggle-wrapper">
+    <button type="button" class="user-action toggle-hide" id="loyalty-member-hide"><span>@LoyaltyMember.HidePreference</span></button>
+    <button type="button" class="user-action toggle-show" id="loyalty-member-show"><span>@LoyaltyMember.ShowPreference</span></button>
+</div>
+
+<div id="loyalty-member-preferences" class="row">
+    <h2>@LoyaltyMember.PreferenceTitle1<em>@LoyaltyMember.PreferenceTitle2</em></h2>    
+    
+    @{
+        // TODO: legacy logic for variable height containers--can now be simplified to a for loop rendering two items per row?
+        int index = 0;
+        const bool left = true;
+        bool side = !left;
+        var indices = Model.Preferences.ToLookup(p => side = !side, p => index++);
+
+        IEnumerable<int> leftIndices = indices[left];
+        IEnumerable<int> rightIndices = indices[!left];
+    }
+    
+    <div class="column left-column">
+        @if (Model.DisplaySites)
+        {
+            @Html.EditorFor(m => m.PreferredSites)
+            <dl id="loyalty-member-sites">
+                <dt>@LoyaltyMember.FavouriteCinema</dt> 
+                <dd id="loyalty-member-favourite-selection">@(Model.Cinemas.Any(c => c.Selected) ? Model.Cinemas.First(c => c.Selected).Text : "None")</dd>
+                @RenderSelection(Model.PreferredSites)
+            </dl>
+        }
+        @foreach (var i in leftIndices)
+        {
+            @Html.IndexFor(m => m.Preferences, i)
+            @Html.EditorFor(m => m.Preferences[i], "Preferences")
+            @RenderSelectionList(Model.Preferences[i])
+        }
+    </div>
+
+    <div class="column">
+        @Html.EditorFor(m => m.PreferredGenres)
+        <dl id="loyalty-member-genre">
+            @RenderSelection(Model.PreferredGenres)
+        </dl>
+        @foreach (var i in rightIndices)
+        {
+            @Html.IndexFor(m => m.Preferences, i)
+            @Html.EditorFor(m => m.Preferences[i], "Preferences")
+            @RenderSelectionList(Model.Preferences[i])
+        }
+    </div>
+</div>
+
+@helper RenderSelectionList(PreferencesViewModel preference)
+{
+    <dl>
+        @RenderSelection(preference)
+    </dl>
+}
+
+@helper RenderSelection(PreferencesViewModel preference)
+{
+    var text = string.Join(", ", preference.Values.Where(v => v.IsChecked).Select(v => v.Text));
+
+    if (string.IsNullOrWhiteSpace(text))
+    {
+        text = "None";
+    }
+
+    <dt>@preference.DisplayName</dt>
+    <dd class="checkboxlist-selection">@text</dd>
+}

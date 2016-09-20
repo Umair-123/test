@@ -1,0 +1,41 @@
+@import "../../_Colours.scss";
+@import "../../_Fonts.scss";
+@import "../_Headers.scss";
+
+h1, h2 {
+    //@extend %header;
+    color: $color-443e3b;
+    font-family: $font-calibri;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+}
+
+h1 em, h2 em {
+    color: $color-highlight;
+    display: block;
+    font-size: 1.25rem;
+    margin-top: -0.3rem;
+}
+
+h3 {
+    font-weight: normal;
+    color: $color-35a0a8;
+}
+
+.terms-page {
+    padding: 7%;
+
+    h2 {
+        margin-bottom: 0.6rem;
+    }
+
+    p {
+        margin-bottom: 0.6rem;
+        color: $color-666666;
+    }
+}

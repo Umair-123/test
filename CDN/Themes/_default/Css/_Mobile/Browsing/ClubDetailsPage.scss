@@ -1,0 +1,123 @@
+@import "../../_Colours.scss";
+@import "../_Flexbox.scss";
+@import "../_Headings.scss";
+@import "../_FontsMobile.scss";
+
+.club-header,
+.club-body,
+.club-footer {
+	padding: 0.8rem;
+}
+
+h2 {
+	font-size: $font-size-big;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+h3 {
+	font-size: $font-size-big;
+	line-height: 1.5rem;
+}
+
+hr {
+	margin: 0 0.5rem;
+	height: 1px;
+	border-width: 0;
+	background-color: $color-93908f;
+}
+
+.club-banner {
+	width: 100%;
+}
+
+.club-header {
+	p {
+		color: $color-666666;
+		line-height: 1.5rem;
+	}
+
+	ul {
+		padding-left: 2rem;
+		color: $color-666666;
+
+		li {
+			list-style: disc;
+			line-height: 1.5rem;
+		}
+	}
+}
+
+.club-login {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	label {   
+		display: none;
+	}
+
+	input {
+		width: 100%;
+		line-height: 1.5rem;
+		padding: 0 0.5rem;
+		margin: 0.2rem 0;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+        font-size: 1rem;
+        color: $color-626366;
+	}
+}
+
+.footer {
+	@include display-box;
+    @include box-direction(row);
+
+	margin-top: 1rem;
+
+	.sign-in-button {
+		width: 50%;
+		border: none;
+		background-color: $color-35a0a8;
+		color: $color-ffffff;
+		margin-left: 0.5rem;
+		font-size: $font-size-big;
+		font-family: inherit;
+
+		/* Stop Safari from displaying its ugly buttons */
+		-webkit-appearance: none;
+		-webkit-border-radius: 0;
+	}
+
+	.forgot-password {
+		color: #333;
+		width: 50%;
+		text-align: center;
+		line-height: 3.5rem;
+		padding: 0 0.5rem;
+	}
+}
+
+.signup {
+	display: none;
+
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	margin: 0 -0.8rem;
+	width: 100%;
+	background-color: $color-35a0a8;
+	
+
+	a {
+		text-decoration: none;
+		color: $color-ffffff;
+		font-size: 2rem;
+		line-height: 5rem;
+		width: 100%;
+		display: block;
+	}
+}
+
+.signin-errors {
+    color: red;
+}

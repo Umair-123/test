@@ -1,0 +1,194 @@
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+hr {
+  border: 0;
+  border-top: 1px solid #93908f;
+  margin: 10px 0 0 0;
+}
+
+.countdown {
+  float: right;
+}
+
+#assign-gift-modal {
+  display: none;
+}
+
+.cart-summary {
+  padding: 10px 0.5rem 0 0.5rem;
+  margin-bottom: 20px;
+}
+
+#confirmForm h2,
+.personal-details,
+.payment-method,
+.terms-conditions-line {
+  padding: 0.5rem;
+}
+#confirmForm h2 .form-line,
+.personal-details .form-line,
+.payment-method .form-line,
+.terms-conditions-line .form-line {
+  margin: 1rem 0.5rem;
+}
+
+.payment-method .payment-type {
+  display: inline-block;
+}
+
+.cart h2,
+#confirmForm h2 {
+  color: #443e3b;
+  font-size: 1rem;
+}
+.cart h2 em:before,
+#confirmForm h2 em:before {
+  content: ' ';
+}
+
+.cart-session {
+  margin-top: 1.5rem;
+}
+.cart-session .clear {
+  display: none !important;
+}
+.cart-session dl dd {
+  line-height: 1.1rem;
+}
+.cart-session dl .movie-name {
+  font-size: 1rem;
+}
+.cart-session dl .movie-name,
+.cart-session dl .location {
+  color: #443e3b;
+}
+.cart-session dl .showing-time {
+  color: #666666;
+}
+.cart-session table {
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+.cart-session table .name {
+  width: 30%;
+}
+.cart-session table .number.cost {
+  width: 15%;
+}
+.cart-session table .number {
+  text-align: right;
+  width: 15%;
+}
+.cart-session table .number:last-child {
+  width: 25%;
+}
+.cart-session table th:last-child, .cart-session table td:last-child {
+  display: none;
+}
+.cart-session table tr {
+  line-height: 1.2rem;
+}
+.cart-session table td {
+  color: #666666;
+}
+
+.booking-fee dt, .total dt {
+  display: inline;
+  margin-left: 50%;
+}
+
+.booking-fee {
+  color: #666666;
+}
+
+.total {
+  color: #443e3b;
+}
+
+.booking-fee .booking-fee-amount,
+.total .price {
+  float: right;
+  display: inline;
+}
+
+.personal-details label {
+  width: 30%;
+  display: inline-block;
+}
+.personal-details input,
+.personal-details #pickup-comments {
+  display: inline-block;
+  width: 100%;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: inherit;
+}
+.personal-details label[for='pickup-comments'] {
+  margin-top: 5px;
+  width: 50%;
+}
+
+#cancelOrder {
+  float: left;
+}
+
+.button-list {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  background-color: #35a0a8;
+  margin-top: 10px;
+}
+
+label[for="gift-card-number"] {
+  margin-right: 10px;
+}

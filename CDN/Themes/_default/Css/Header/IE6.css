@@ -1,0 +1,32 @@
+/* IE6 support for body >* */
+.first-child {
+  width: 1024px;
+  margin: auto;
+  clear: both;
+}
+
+.content {
+  width: 994px;
+}
+
+#main-menu li.selected {
+  background-image: url("../../Images/Navigation/lineIE6.png");
+}
+
+#main-menu li {
+  background-image: url("../../Images/Navigation/lineIE6.png");
+}
+
+#main-menu ul.sub-nav li {
+  margin-right: 20px;
+}
+
+header .user-menu #site-group {
+  position: static;
+}
+header .user-menu #site-group-select {
+  color: #eaeaea;
+  position: static;
+  width: 200px;
+  padding: 1px 0px 3px 0px;
+}

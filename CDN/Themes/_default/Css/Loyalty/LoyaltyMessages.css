@@ -1,0 +1,119 @@
+#reply-modal .form-container .form-line.checkboxlist:before, #reply-modal .form-container .form-line.checkboxlist:after {
+  content: " ";
+  display: table;
+}
+#reply-modal .form-container .form-line.checkboxlist:after {
+  clear: both;
+}
+#reply-modal .form-container .form-line.checkboxlist {
+  *zoom: 1;
+}
+
+.loyalty-messages {
+  width: 700px;
+}
+.loyalty-messages h2 {
+  margin-bottom: 30px;
+}
+.loyalty-messages table .message-header {
+  background-color: #eaeaea;
+  height: 25px;
+  font-size: 1.2em;
+}
+.loyalty-messages table .message-header td.message-title {
+  width: 700px;
+  vertical-align: middle;
+  padding: 5px;
+}
+.loyalty-messages table .message-header td.message-title .message-action-reply {
+  float: right;
+  font-size: 0.8em;
+}
+.loyalty-messages table .message-header td.message-title .message-action-delete {
+  float: right;
+  font-size: 0.8em;
+}
+.loyalty-messages table .message-header td.message-title .message-response-modal {
+  display: none;
+}
+.loyalty-messages table .message-text td {
+  padding: 5px;
+  padding-bottom: 30px;
+  vertical-align: top;
+}
+
+#loyalty-messages-sidebar {
+  float: right;
+  text-align: right;
+  width: 320px;
+}
+
+#reply-modal {
+  display: none;
+  background: #ffffff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+  padding: 15px;
+  width: 595px;
+  min-height: 100px;
+}
+#reply-modal .loading-container {
+  min-height: 100px;
+  background: url("../../Images/Icon_Loading_Light.gif") no-repeat center center;
+}
+#reply-modal .form-container {
+  display: none;
+}
+#reply-modal .form-container .send-button-wrapper {
+  float: right;
+}
+#reply-modal .form-container .send-button-wrapper input {
+  background: none;
+  border: none;
+  margin: 0 7px 0 0;
+  padding: 0;
+  text-decoration: underline;
+}
+#reply-modal .form-container .form-line.checkboxlist {
+  height: 120px;
+}
+#reply-modal .form-container .form-line.checkboxlist .title {
+  display: block;
+}
+#reply-modal .form-container .form-line.checkboxlist .checkbox-list {
+  display: block;
+  max-height: 100px;
+  float: left;
+}
+#reply-modal .form-container .form-line.checkboxlist .field-validation-error {
+  float: left;
+  display: block;
+}
+#reply-modal .form-container .form-line.text textarea {
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+}
+#reply-modal .form-container .form-line.text .field-validation-error {
+  margin-bottom: 43px;
+}
+#reply-modal .form-container .form-line.number textarea {
+  display: inline-block;
+  width: 300px;
+  height: 50px;
+}
+#reply-modal .form-container .form-line.number .field-validation-error {
+  margin-bottom: 43px;
+}
+#reply-modal .form-container .modal-message-detail {
+  margin-bottom: 15px;
+}
+#reply-modal.type-list {
+  min-height: 180px;
+}
+#reply-modal.type-list .loading-container {
+  min-height: 180px;
+}
+
+#reply-modal-container div.simplemodal-wrap {
+  overflow: visible !important;
+}

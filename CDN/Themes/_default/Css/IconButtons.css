@@ -1,0 +1,34 @@
+/*------------------------------------*\
+    ICON BUTTONS
+\*------------------------------------*/
+.icon-button-clear {
+  display: inline-block;
+  background: no-repeat center transparent; }
+
+.icon-button-clear {
+  height: 14px;
+  width: 14px; }
+
+.icon-button-clear {
+  background-image: url("../Images/Icon_Clear.png"); }
+
+.selected .icon-button-clear, .checkbox-list input:checked + label .icon-button-clear {
+  background-image: url("../Images/Icon_Clear_Light.png"); }
+
+.close-button {
+  background-image: url("../Images/Icon_Close.png"); }
+
+.close-button:hover {
+  background-image: url("../Images/Icon_Close_Hover.png"); }
+
+.close-button {
+  padding-right: 12px;
+  background-position: right;
+  background-repeat: no-repeat;
+  font-size: 12px;
+  color: #666666; }
+
+.close-button:hover {
+  color: #35a0a8; }
+
+/*# sourceMappingURL=IconButtons.css.map */

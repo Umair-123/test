@@ -1,0 +1,21 @@
+
+
+/* IMAGE HELPERS */
+
+@mixin background-image($image-virtual-path, $image-name, $image-format, $min-dots-per-pixel, $base-image-size) {
+
+    // webkit's dpi pixel-scale ratio is based on a a 96:1 scale, see: http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/
+    // could convert to use dppx unit once more browsers support it, in the meantime use both and just convert the pixel-ratio to dpi
+    $base-dpi: 96dpi; 
+    $min-resolution-dpi: $base-dpi * $min-dots-per-pixel;
+
+    // set the actual icon size to use to one that matches the dots per pixel of the device
+    // the background-size will take care of scaling the image to appropriate size
+    $image-size: $base-image-size * $min-dots-per-pixel;
+
+    @media
+    (-webkit-min-device-pixel-ratio: $min-dots-per-pixel), 
+    (min-resolution: $min-resolution-dpi) {
+        background-image: url($image-virtual-path + "/" + $image-name + "_" + $image-size + "." + $image-format);
+    }   
+}

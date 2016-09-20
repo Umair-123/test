@@ -1,0 +1,13 @@
+.smart-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  overflow: hidden;
+}
+.smart-image .fallback-image {
+  visibility: hidden;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+}

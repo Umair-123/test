@@ -1,0 +1,22 @@
+@import "_Images.scss";
+
+/* LOADING ANIMATIONS */
+
+// will need to be a mixin if this is re-used elsewhere to ensure correct relative image path
+%loading-container {
+
+    $image-virtual-path: "../../../Images/Mobile/Loading";
+    $image-name: "Loading";
+    $image-format: "gif";
+    $base-image-size: 96;
+
+    background-size: $base-image-size * 1px;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include background-image($image-virtual-path, $image-name, $image-format, 1, $base-image-size);
+    @include background-image($image-virtual-path, $image-name, $image-format, 1.5, $base-image-size);
+    @include background-image($image-virtual-path, $image-name, $image-format, 2, $base-image-size);
+    @include background-image($image-virtual-path, $image-name, $image-format, 2.5, $base-image-size);
+    @include background-image($image-virtual-path, $image-name, $image-format, 3, $base-image-size);
+}

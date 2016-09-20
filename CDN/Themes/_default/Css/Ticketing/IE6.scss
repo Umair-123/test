@@ -1,0 +1,37 @@
+﻿#breadcrumb .disabled { cursor: default; }
+
+.concession-tabs .tab { zoom: 1; /* height is ignored otherwise */ }
+
+/* spacing issue */
+.concession-tabs { padding: 0 1px 2px 0; }
+.concession-tabs .item { margin: 2px 0 0 1px; }
+
+/* IE6 min-height hack */
+#cart {
+    min-height: 470px;
+    height: auto !important;
+    height: 470px;
+
+    // position absolute fix
+    .cart-footer {
+        right: auto;
+        width: 242px; 
+    }
+}
+
+#cart-summary {
+    // must trigger layout for overflow: hidden to clear floats
+    // layout is also required so floated elements are not hidden behind the parent (...)
+    zoom: 1; 
+}
+
+
+.category-tabs-items { width: 567px; }
+
+#assign-gift-modal {
+    .form-line {
+        .plus-minus-numeric {
+            display: inline;
+        }
+    }
+}

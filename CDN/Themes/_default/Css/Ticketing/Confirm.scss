@@ -1,0 +1,61 @@
+﻿/* GENERAL SITE STYLE */
+.not-applicable { display: none; } 
+
+
+/* GENERAL FORM STYLES */
+$form-label-width: 80px;
+$form-input-width: 225px;
+
+input[type="checkbox"] { vertical-align: middle; }
+        
+.form-line { min-height: 25px; }
+.form-line label { width: $form-label-width; display: inline-block; }
+.form-line input+label { width: 420px; display: inline-block; } /* labels that appear after their input */
+.form-line input[type=text], .form-line input[type=email], .form-line select { width: $form-input-width; }
+
+        
+/* CONFIRM PAGE STYLES */
+$details-width: 495px;
+
+.signin-widget { float:left; margin-bottom:20px; }
+.countdown { margin-bottom: 10px; }
+#cart-summary { margin-bottom: 10px; }
+
+.form-line label[for=pickup-comments] { display: block; width: $details-width; margin: 10px 0 10px 0; } /* textarea label */
+.form-line label[for=pickup-comments]:after { content: ':'; }
+.form-line #pickup-comments { width: 302px; }
+
+.personal-details, .delivery-details, .billing-details { width: 495px; float: left; margin-bottom: 20px; }
+.personal-details + * { clear: both; }
+
+.payment-method .radio-button-group { margin-bottom: 20px; }
+
+.gift-card-payment.form-line label { margin-left: 20px; }
+
+.terms-conditions-line { margin-top: 30px; }
+
+.card-balance { margin-bottom: 20px; }
+
+.payment-method .has-single-payment-method { display: none; }
+
+#confirmForm {
+    textarea {
+        display: block;
+        resize: vertical;
+    }
+
+    #gift-message {
+        height: 120px;
+        margin-bottom: 10px;
+        width: $details-width + $form-input-width + $form-label-width; // right edge lines up
+    }
+
+    .shop-details {
+        overflow: hidden;
+    }
+
+    #billing-postcode, #delivery-postcode {
+        width: 85px;
+    }
+
+}

@@ -1,0 +1,40 @@
+header {
+
+    .logo 
+    {
+        width:28%;
+        overflow:hidden;
+    }
+    #main-menu {
+        width:72%;
+    }
+}
+
+
+.radio-button-group {
+    // TODO: we may want more than the default radio appearance
+
+    border-bottom: none;
+
+    label {
+        border: none;
+        padding-bottom: 0;
+    }
+
+    // Clicking a label does not trigger click on hidden inputs on older versions of IE, making these completely non-functional
+    input {
+        display: inline;
+    }
+}
+
+a.simplemodal-close {
+    // IE<=8 this gives the container a height equal to the line height, and screws up calculations for the initial container height
+    display: none;
+}
+
+.smart-image {
+    background-image:none !important;
+    .fallback-image {
+        visibility: visible !important;
+    }
+}

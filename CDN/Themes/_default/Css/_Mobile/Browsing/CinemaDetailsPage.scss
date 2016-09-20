@@ -1,0 +1,91 @@
+@import "../../_Colours.scss";
+@import "../_Flexbox.scss";
+@import "../_Headers.scss";
+@import "../_Lines.scss";
+@import "../_Links.scss";
+
+
+.nav-menu .nav-menu-item.selected:before {
+    border-color: transparent transparent $color-eaeaea transparent;
+}
+
+.description-box {
+    @include display-box;
+    @include box-direction(row);
+
+    //background-color: $color-eaeaea;
+    color: $color-666666;
+	border-bottom: 1px solid $color-dadada;
+
+    .cinema-list-image {
+        @include box-flex(0 0 120px);
+        @include box-flex-legacy(0);
+    }
+
+    .item-details {
+
+        @include box-flex(1 1 auto);
+        @include box-flex-legacy(1);
+
+        margin-left: 0.6rem;
+		margin-top: 0.3rem;
+
+        .cinema-name {
+            display: block;
+            font-size: $font-size-big;
+            vertical-align: top;
+            margin-bottom: 0.25rem;
+        }
+    }
+
+    .cinema-more-info-link {
+        @extend %link;
+        color: $color-666666;
+        display: block;
+    }
+}
+
+.session-day-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cinema-sessions {
+    margin-top: 0.5rem;
+}
+
+.films-for-day {
+
+    display: none;
+
+    &.selected {
+        display: block; // only show selected day's sessions
+    }
+
+	.film-for-day {
+		line-height: 3rem;
+	}
+}
+
+.rating-image {
+    width: 20px;
+    margin: 0 10px;
+	vertical-align: text-bottom;
+}
+
+.film-title { 
+    display: inline-block;
+    vertical-align: top;
+	width: 80%;
+	padding-bottom: 0.6rem;
+    overflow: hidden;
+    height: 3rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:after {
+        content: '';
+        display: block;
+    }
+}

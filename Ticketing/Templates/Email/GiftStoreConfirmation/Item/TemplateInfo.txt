@@ -1,0 +1,8 @@
+You can use the following tags
+
+key			            will insert
+-----------------       -------------------
+<ITEM_QUANTITY>         Quantity of items ordered
+<ITEM_PRICE>            Price of an individual item
+<ITEM_SUBTOTAL>         Total price for this item (i.e. quantity * price)
+

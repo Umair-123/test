@@ -1,0 +1,182 @@
+﻿@import "../_Styles";
+
+
+.program-title {
+	font-size: 20px;
+	margin-bottom: 20px;
+
+	.separator {
+		padding: 0 5px;
+	}
+}
+
+.loyalty-member .row {
+    overflow: hidden;    
+}
+
+.loyalty-member .column {
+    float: left;
+}
+
+.loyalty-member .left-column {
+    width: 512px;
+}
+
+.loyalty-member li {
+    margin: 8px 0;
+    overflow: hidden;
+}
+
+.loyalty-member label {
+    display: inline-block;
+    width: 110px;
+}
+
+.loyalty-member select {
+    width: 172px;
+}
+
+.loyalty-member select.birthday {
+    width: 80px;
+}
+
+.loyalty-member input[type=text],
+.loyalty-member input[type=password] {
+    width: 275px;
+}
+
+.loyalty-member .checkbox {
+    margin: 0;
+    width: auto;
+}
+
+.loyalty-member .checkbox-label {
+    margin-left: 5px;
+    width: auto;
+}
+
+.loyalty-member input[type=text] {
+    margin: 0;
+}
+
+#loyalty-member-details button {
+    margin-top: 10px;
+}
+
+input#loyalty-member-postcode {
+    width: 80px;
+}
+
+#loyalty-member-address button { 
+    float: right;
+}
+
+#loyalty-member-preferences {
+    clear: both;
+}
+
+#loyalty-member-preferences .column {
+    margin-top: -15px;
+}
+
+#loyalty-member-preferences .title {
+    color: $color-443e3b;
+    display: block;
+    font-family: calibri, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#loyalty-member-preferences ul,
+#loyalty-member-preferences dl {
+    clear: both;
+}
+
+#loyalty-member-preferences ul {
+    float: left;
+    height: 216px;
+}
+
+#loyalty-member-preferences li {
+    margin: 0; // overrides form line height
+}
+
+#loyalty-member-preferences dl {
+    height: 50px;
+    line-height: 15px;
+    margin-top: 5px;
+    overflow: hidden;
+    width: 275px;
+}
+
+#loyalty-member-preferences dt {
+    float: left;
+}
+
+#loyalty-member-preferences dt {
+    clear: left;
+}
+
+#loyalty-member-preferences dd {
+    display: block;
+    padding-left: 5px;
+    overflow: hidden;
+}
+
+#loyalty-member-preferences dt:after {
+    content: ':';
+}
+
+dl#loyalty-member-sites, 
+dl#loyalty-member-genre {
+    height: 65px;
+}
+
+#loyalty-member-sites dt {
+    width: 105px;
+}
+
+#loyalty-member-password {
+    margin-bottom: 20px;
+}
+
+#loyalty-member-password h2 {
+    text-transform: capitalize;
+}
+
+#loyalty-member-password label {
+    width: 120px;
+}
+
+.loyalty-member .submit {
+    display: block;
+    float: none;
+    margin: 30px auto 10px auto;
+}
+
+#loyalty-member-show {
+    display: none;
+}
+
+.loyalty-member .toggle-wrapper {
+    height: 20px;
+    line-height: 20px;
+    margin: -10px 0;
+    text-align: right;
+}
+
+.loyalty-member .toggle-show ,
+.loyalty-member .toggle-hide {
+    background-position: right center;
+    background-repeat: no-repeat;
+    padding-right: 20px;    
+}
+
+.loyalty-member .toggle-show {
+    background-image: url('../../Images/triangle-down.png');
+}
+
+.loyalty-member .toggle-hide {
+    background-image: url('../../Images/triangle-up.png');
+}

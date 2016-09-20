@@ -1,0 +1,19 @@
+/* LOGO */
+/*
+<h1 class="logo">
+    <em>ABC</em>Cinemas
+</h1>
+*/
+.logo {
+  font-size: 2.2rem;
+  font-family: "Calibri", sans-serif;
+  color: #35a0a8;
+  text-align: center;
+  word-break: break-all;
+}
+.logo em {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #eaeaea;
+  margin-right: 0.3rem;
+}

@@ -1,0 +1,38 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@model InternetTicketing.Browsing.ViewModels.QuickTickets.CompareByCinemaViewModel
+           
+@{
+    var cinemas = Model.Cinemas;
+}
+
+<article id="show-times">
+    <div id="print-preview">
+        <span>&nbsp;</span> <a href="#">@Shared.PrintPreview</a>
+    </div>
+    <h2>
+        @QuickTickets.Title<em>@Shared.ShowTimes</em>
+    </h2>
+	<article id="movies-list">
+		@foreach (var cinema in cinemas.Where(cinema => cinema.ScheduledFilms.Any()))
+		{
+			<h3>@Model.GetPropertyInCorrectLang(m => cinema.Name, m => cinema.NameAlt)</h3>
+			@Html.Partial("CinemaSessions", cinema, new ViewDataDictionary { {"IsAltLang", Model.IsAltLang}, { "FormatTime", ViewBag.FormatTime }, {"FormattingService", Model.FormattingService}, {"BusinessDayService", Model.BusinessDayService }})
+		}
+	</article>
+    <div class="ads">
+        <section class="loading lower-ad"></section>        
+    </div>
+</article>
+
+@section Css
+{
+    @ContentDelivery.CssBundle(CssBundles.QuickTicketsCompare)
+}
+
+@section Scripts
+{
+    @ContentDelivery.Script("QuickTicketsCompare/Compare.js")
+}

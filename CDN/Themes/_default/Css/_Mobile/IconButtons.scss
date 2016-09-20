@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    ICON BUTTONS
+\*------------------------------------*/
+
+@import "_Icons";
+@import "_Colours";
+
+.icon-button-clear {
+    @extend %icon;
+    @extend %icon-small;
+    @extend %icon-clear;
+}
+
+.selected .icon-button-clear {
+    @extend %icon-clear-light;
+}
+
+// temp workaround for concept of "selectedness" being defined
+// as a label adjacent to a checked input field for checkbox lists
+.checkbox-list input:checked + label .icon-button-clear {
+    @extend %icon-clear-light;
+}
+
+.close-button {
+    @extend %icon-close;
+
+    padding-right: 12px;
+    background-position: right;
+    background-repeat: no-repeat;
+    font-size: 12px;
+    color: $color-666666;
+
+}
+
+.close-button:hover {
+    @extend %icon-close-hover;
+    
+    color: $color-35a0a8;
+}

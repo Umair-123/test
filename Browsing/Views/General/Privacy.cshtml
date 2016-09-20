@@ -1,0 +1,22 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@model InternetTicketing.Infrastructure.InternetTicketingViewModel
+
+@{
+}
+
+<h2>@Privacy.PrivacyHeader1
+<em>@Privacy.PrivacyHeader2</em>
+</h2>
+
+<p>@Privacy.PrivacyBody</p>
+
+@section Css
+{
+	@ContentDelivery.CssBundle(CssBundles.Privacy)
+}
+
+@section Scripts
+{
+}

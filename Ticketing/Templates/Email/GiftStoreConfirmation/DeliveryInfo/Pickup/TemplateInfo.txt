@@ -1,0 +1,5 @@
+You can use the following tags
+
+key			will insert
+-----------------       -------------------
+

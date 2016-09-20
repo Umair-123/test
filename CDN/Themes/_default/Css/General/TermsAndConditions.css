@@ -1,0 +1,17 @@
+#terms h3 {
+  text-transform: uppercase;
+}
+
+#terms ul {
+  list-style: disc;
+  line-height: 14px;
+  margin-left: 15px;
+}
+
+#terms ul li {
+  margin-top: 10px;
+}
+
+#terms ul ul {
+  list-style: none;
+}

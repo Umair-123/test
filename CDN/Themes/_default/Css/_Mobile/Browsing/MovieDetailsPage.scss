@@ -1,0 +1,162 @@
+@import "../../_Colours.scss";
+@import "../_Flexbox.scss";
+@import "../_Headers.scss";
+@import "../_Lines.scss";
+@import "../_Links.scss";
+@import "../FontsMobile.scss";
+@import "../_Icons.scss";
+
+$image-height: 184px;
+
+.nav-menu .nav-menu-item.selected:before {
+    border-color: transparent transparent $color-eaeaea transparent;
+}
+
+.trailer-box {
+	display: none;
+	margin-bottom: -4px;
+}
+
+.description-box {
+    color: $color-666666;
+	min-height: $image-height;
+    .movie-list-image {
+		float: left;
+		height: $image-height;
+		clear: left;
+		margin-right: 0.6rem;
+
+		a {
+			display: block;
+			height: 0;
+		}
+
+		.trailer-icon {
+			display: block;
+			position: relative;
+			bottom: 35px;
+            left: 85px;
+            width: 30px;
+            height: 30px;
+			@extend %icon-trailer;
+			background-repeat: no-repeat;
+		}
+    }
+
+    .item-details {
+
+        margin: 0 0.6rem;
+
+		overflow: hidden;
+		height: 158px; //help align the expand-helper
+
+        .film-description-title {
+            font-size: $font-size-big;
+            display: block;
+            vertical-align: top;
+			padding-top: 0.5rem;
+        }
+		
+		&.expanded {
+			overflow: inherit;
+			height: auto;
+		}
+    }
+
+	/* This spacer helps with the text wrap for film sypnosis */
+	.spacer {
+		float: left;
+		width: 0;
+		height: calc(100% - 184px);
+	}
+
+	.expand-helper {
+		text-align: right;
+		line-height: 1rem;
+		height: 22px;
+
+		span {
+			margin-right: 10px;
+			text-decoration: underline;
+		}
+	}
+
+    .film-details {
+        
+		a {
+			color: #3a3a3a;
+		}
+
+        margin-top: 0.6rem;
+
+        div {
+            margin-bottom: 2px;
+        }
+
+        .cast-list {
+            margin-top: 0.75rem;
+        }
+
+        .desc-label {
+            color: $color-443e3b;
+        }
+    }
+
+    .film-synopsis {
+        margin-top: 0.6rem;
+		padding-bottom: 0.6rem;
+    }
+}
+
+
+.session-day-label {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cinema-sessions {
+    margin-top: 0.1rem;
+}
+
+.cinemas-for-day {
+    display: none;
+
+    &.selected {
+        display: block; // only show selected day's sessions
+    }
+}
+
+.cinema-name {
+    @extend %title;   
+	font-weight: normal;
+    vertical-align: top;
+	margin-left: 0.6rem;
+
+    &:after {
+        content: '';
+        display: block;
+    }
+}
+
+.cinema-session-times {
+	margin: 0.6rem 0 0 0.6rem;
+	color: $color-666666;
+	font-size: $font-size-small;
+
+	.cinema-showtime {
+		margin-right: 0.6rem;
+	}
+}
+
+.cinema-attributes {
+	margin: 0.6rem 0 0.6rem 0.6rem;
+    color: $color-35a0a8;
+}
+
+.movie-sessions {
+	border-top: 1px solid $color-dadada;
+	padding-top: 10px;
+}
+
+

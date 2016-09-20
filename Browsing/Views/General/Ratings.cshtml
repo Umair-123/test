@@ -1,0 +1,34 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@model InternetTicketing.Infrastructure.InternetTicketingViewModel
+@{
+    var ratings = new[] {"G", "PG", "M", "R16", "TBC"};
+}
+<div id="ratings">
+    <h2>@Ratings.RatingsHeader1
+        <em>@Ratings.RatingsHeader2</em>
+    </h2>
+    
+    @foreach (var rating in ratings)
+    {
+        <div class="rating">
+            <img src="@ContentDelivery.EntityImage(CdnMediaType.RatingIconGraphic, rating, CommonImageSizes.RatingImage)"/>
+		    <h3>@Ratings.GetRatingHeader(rating)</h3>
+		    <div class="rating-body">
+			    @Ratings.GetRatingBody(rating)
+		    </div>
+        </div>
+    }
+</div>
+
+
+@section Css {
+	@ContentDelivery.CssBundle(CssBundles.Ratings)
+}
+
+@section Scripts
+{
+}

@@ -1,0 +1,13 @@
+.session-overview {
+    margin-bottom: 30px;
+    overflow: hidden; /* ensures the height of the container is the same as the floated image it contains */
+
+    .movie-poster {
+        float: left;
+        margin-right: 15px;
+    }
+
+    .session-overview-line {
+         line-height: 20px;
+    }
+}

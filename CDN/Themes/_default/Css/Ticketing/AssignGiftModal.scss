@@ -1,0 +1,122 @@
+// TODO: share common styles with the default modal stylesheet
+#assign-gift-modal {
+    $column: 350px;
+    $container-width: 2 * $column + 30px /* padding between columns */;
+
+    background: white;
+    display: none;
+    position: relative;
+    width: $container-width;
+
+    &.assign-modal-edit {
+        width: $column;
+
+        .assign-gift-quantity-line,
+        .assign-gift-recipients {
+            display: none;
+        }
+
+        .gift-name {
+            display: inline-block;
+            width: 80%;
+        }
+    }
+
+    .assign-gift-close {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+
+    .form-line {
+        $line-height: 25px;
+
+        width: $column; 
+
+        label, .assign-gift-label {
+            display: inline-block;
+            line-height: $line-height;
+            vertical-align: top;
+            width: 130px;
+        }
+
+        .assign-gift-value {
+            display: inline-block;
+            line-height: $line-height;
+        }
+
+        $input: 205px;
+        input {
+            margin-left: 0;
+            margin-right: 0;
+            width: $input - 4px /* border + padding */;
+        }
+
+        .plus-minus-numeric, .assign-gift-value {
+            width: $input;
+        }
+
+        .plus-minus-numeric {
+            display: inline-block;
+            height: auto;
+            line-height: $line-height;
+        }
+
+        .field-validation-error,
+        .field-validation-valid {
+            height: $line-height;
+            position: absolute;
+        }
+
+        .quantity {
+            float: none;
+            width: 34px;
+        }
+    }
+
+    textarea {
+        box-sizing: border-box;
+        display: block;
+        height: 66px;
+        margin: 0;
+        resize: none;
+        width: $column - 15px;
+    }
+
+    .assign-gift-wrapper {
+        position: relative;
+    }
+
+    .assign-gift-recipients {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: $column;
+
+        ul {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            top: 30px;
+        }
+
+        .checkbox-list {
+            width: auto;
+        }
+
+        .recipient-name,
+        .recipient-email {
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 50%;
+        }
+    }
+
+    .button-list-single {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+}

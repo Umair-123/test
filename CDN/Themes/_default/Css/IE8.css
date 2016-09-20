@@ -1,0 +1,29 @@
+header .logo {
+  width: 28%;
+  overflow: hidden;
+}
+header #main-menu {
+  width: 72%;
+}
+
+.radio-button-group {
+  border-bottom: none;
+}
+.radio-button-group label {
+  border: none;
+  padding-bottom: 0;
+}
+.radio-button-group input {
+  display: inline;
+}
+
+a.simplemodal-close {
+  display: none;
+}
+
+.smart-image {
+  background-image: none !important;
+}
+.smart-image .fallback-image {
+  visibility: visible !important;
+}

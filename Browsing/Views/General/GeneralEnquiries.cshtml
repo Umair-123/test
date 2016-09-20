@@ -1,0 +1,80 @@
+﻿@model InternetTicketing.Browsing.ViewModels.GeneralEnquiriesViewModel
+
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Connect
+@using InternetTicketing.Infrastructure.Html
+@using Vista.Connect.Localisation
+@{
+    ViewBag.Title = "General Enquiries";
+    var cinemas = Model.Cinemas;
+}
+
+<h2>@Shared.SiteTitle
+    @if (Model.Type == "Head Office")
+    {
+        <em>@GeneralEnquiries.HeadOffice</em>
+    }
+    
+    else if (Model.Type == "Call Centre")
+    {
+         <em>@GeneralEnquiries.CallCentre</em>
+    }
+
+    else
+    {
+        <em>@GeneralEnquiries.ContactUs</em>
+    }
+</h2>
+
+
+@if (Model.HasHeadOfficeOrCallCentre)
+{
+    <div class="head-office">
+        <div class="head-office-inner">
+            <div class="address">
+                <p>@Model.Address1</p>
+                <p>@Model.Address2</p>
+                <p>@Model.Address3</p>
+                <p>@Model.Address4</p>
+            </div>
+            <div class="phone-email">
+                @if (!string.IsNullOrWhiteSpace(Model.Phone))
+                {
+                    <p>@Cinemas.Phone: @Model.Phone</p>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.Email))
+                {
+                    <p>@Cinemas.Email: <a href="mailto:@Model.Email">@Shared.ClickHere</a></p>
+                }
+            </div>
+            <div class="postal">
+                <p>@Model.Postal1</p>
+                <p>@Model.Postal2</p>
+                <p>@Model.Postal3</p>
+                <p>@Model.Postal4</p>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="cinemas-contact">
+    @foreach (var cinema in cinemas)
+    {
+        <div class="cinema">
+          <a class="cinema-link" href="@BrowsingUrls.GetCinemasDetailsUrl(cinema.ID)">
+            <h3 class="cinema-name">@Model.GetPropertyInCorrectLang(m => cinema.Name, m => cinema.NameAlt)</h3>
+         </a>
+         @Html.Partial("CinemaContact", cinema, new ViewDataDictionary() { new KeyValuePair<string, object>("ShowViewMap", true) })
+        </div>
+    }
+</div>
+
+@section Css {
+	@ContentDelivery.CssBundle(CssBundles.GeneralEnquiries)
+}
+
+@section Scripts
+{
+}

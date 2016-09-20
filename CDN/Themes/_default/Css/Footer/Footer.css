@@ -1,0 +1,235 @@
+#footer {
+  background-color: #666666;
+  height: 100%;
+  width: 100%;
+  border-top: 1px solid #eaeaea;
+}
+
+#footer-inner {
+  width: 1024px;
+  overflow: hidden;
+  margin: 0 auto;
+  height: 100%;
+}
+
+#footer a {
+  color: #d3cf97;
+  font-size: 14px;
+  border-bottom: none;
+}
+
+#footer #footer-inner .col-3 {
+  height: 250px;
+  border-bottom: 1px solid #443e3b;
+  background-repeat: repeat-x;
+  margin-top: 30px;
+}
+
+/* #3a4f51: rgb(58,79,81);*/
+/*#565955: rgb(86,89,85);*/
+#footer #footer-inner .col-3 {
+  /* Fallback for older browsers */
+  background-image: url("../../Images/Stripes.png");
+  /* linear gradient from "transparent #666" to #666 from the top down, overlayed with a linear gradient from #3A4F51 to #565955 sized to 16px (stripes 8px wide) */
+  background-image: -moz-linear-gradient(top, rgba(102, 102, 102, 0) 0, #666666 85%), -moz-linear-gradient(left, rgba(58, 79, 81, 0.25) 0, rgba(58, 79, 81, 0.25) 49.9%, rgba(86, 89, 85, 0.25) 50.1%, rgba(86, 89, 85, 0.25) 100%);
+  background-image: -webkit-linear-gradient(top, rgba(102, 102, 102, 0) 0, #666666 85%), -webkit-linear-gradient(left, rgba(58, 79, 81, 0.25) 0, rgba(58, 79, 81, 0.25) 49.9%, rgba(86, 89, 85, 0.25) 50.1%, rgba(86, 89, 85, 0.25) 100%);
+  background-image: -o-linear-gradient(top, rgba(102, 102, 102, 0) 0, #666666 85%), -o-linear-gradient(left, rgba(58, 79, 81, 0.25) 0, rgba(58, 79, 81, 0.25) 49.9%, rgba(86, 89, 85, 0.25) 50.1%, rgba(86, 89, 85, 0.25) 100%);
+  background-image: -ms-linear-gradient(top, rgba(102, 102, 102, 0) 0, #666666 85%), -ms-linear-gradient(left, rgba(58, 79, 81, 0.25) 0, rgba(58, 79, 81, 0.25) 49.9%, rgba(86, 89, 85, 0.25) 50.1%, rgba(86, 89, 85, 0.25) 100%);
+  background-image: linear-gradient(to bottom, rgba(102, 102, 102, 0) 0, #666666 85%), linear-gradient(to right, rgba(58, 79, 81, 0.25) 0, rgba(58, 79, 81, 0.25) 49.9%, rgba(86, 89, 85, 0.25) 50.1%, rgba(86, 89, 85, 0.25) 100%);
+  -moz-background-size: 16px 250px;
+  -o-background-size: 16px 250px;
+  -webkit-background-size: 16px 250px;
+  background-size: 16px 250px;
+}
+
+#footer .col-3 a {
+  -webkit-text-shadow: 1px 1px 0 #443e3b;
+  text-shadow: 1px 1px 0 #443e3b;
+}
+
+#footer .col-3 .col {
+  float: left;
+  width: 33%;
+  margin-top: 30px;
+}
+
+#footer .col-3 .col .col-inner {
+  margin: 0 auto 20px auto;
+  width: 50%;
+}
+
+#footer .col-3 .col.col-left .col-inner {
+  margin-right: 0;
+}
+
+#footer .col-3 .col.col-right .col-inner {
+  margin-left: 0;
+}
+
+#footer #terms-conditions {
+  color: #443e3b;
+  height: 30px;
+  border-top: 1px solid #93908f;
+  width: 100%;
+}
+
+#footer #terms-conditions a {
+  color: #443e3b;
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+#footer #terms-conditions .link.terms a {
+  padding-right: 10px;
+}
+
+/* for IE */
+#footer .spacer {
+  background: url("../../Images/separator.png") no-repeat center center;
+  float: left;
+}
+
+#footer #terms-conditions div {
+  line-height: 30px;
+}
+
+#footer #terms-conditions .link {
+  float: left;
+}
+
+#footer #terms-conditions .copyright {
+  float: right;
+}
+
+
+
+
+
+/*footer area*/
+.footer_title > h3{
+  color: white;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+.footer_title > h4{
+  color: #fe9b00;
+  font-weight: normal;
+  font-family: 'GothamLight';
+  margin: 0px;
+  font-size: 1.25vw;
+  line-height: 1.75vw;
+  text-transform: none;
+}
+.footer_title > h4 > span{
+  font-family: 'GothamBold';
+}
+.footer_title{
+  padding: 9.5% 0 3.3%;
+  text-align: center;
+}
+.footer_comming{
+  padding: 9.5% 0 3.3%;
+}
+.footer_commping > p{
+  position: relative;
+  margin: 0px;
+}
+.comming{
+  color: #fff;
+  font-family: 'GothamBold';
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0px;
+  line-height: 28px;
+  padding: 0 3.5% 0 0;
+  font-size: 1.02vw;
+  line-height: 2.2vw;
+}
+.apple{
+  height: 30px;
+  width: 25px;
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/apple.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 73px;
+left: 160px;
+}
+.android{
+  height: 30px;
+  width: 25px;
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/android.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  bottom: 73px;
+left: 210px;
+}
+.all_rights{
+  color: #fff;
+  display: inline-block;
+  vertical-align: top;
+  font-family: 'GothamLight';
+  font-size: 0.93vw;
+  line-height: 1.2vw;
+  text-align: center;
+}
+.social_dive{
+  position: relative;
+}
+.footer_img{
+  width: 372px;
+  height: 125px;
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/footer-tyre.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 84px;
+}
+.social_imgs a{
+  position: absolute;
+  height: 45px;
+  width: 46px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.social_imgs > a:nth-child(1){
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/facebook.png');
+  bottom: 35px;
+  left: 60px;
+}
+.social_imgs > a:nth-child(2){
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/twitter.png');
+  bottom: 105px;
+  left: 95px;
+}
+.social_imgs > a:nth-child(3){
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/youtube.png');
+  bottom: 135px;
+  left: 171px;
+}
+.social_imgs > a:nth-child(4){
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/instgram.png');
+  right: 162px;
+  top: 57px;
+}
+.social_imgs > a:nth-child(5){
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/gplus.png');
+  right: 121px;
+  bottom: 33px;
+}
+.social_imgs > a:nth-child(1):hover{
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/facebook-hover.png');
+}
+.social_imgs > a:nth-child(2):hover{
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/twitter-hover.png');
+}
+.social_imgs > a:nth-child(3):hover{
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/youtube-hover.png');
+}
+.social_imgs > a:nth-child(4):hover{
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/instgram-hover.png');
+}
+.social_imgs > a:nth-child(5):hover{
+  background-image: url('/IT-CDN/Themes/_default/Images/footer/gplus-hover.png');
+}

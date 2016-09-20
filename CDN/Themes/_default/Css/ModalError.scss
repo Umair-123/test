@@ -1,0 +1,33 @@
+
+$modal-error-width: 250px;
+$modal-error-padding: 15px;
+
+#modal-error-container {
+    // Some of these can probably be moved under .simplmodal-container
+    background: white;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.75); // TODO: compass
+    width: $modal-error-width + 2 * $modal-error-padding; // match to prevent extra whitespace
+}
+
+.modal-error {
+    // NB: width should be set here to make sure the modal dimensions calculations are correct
+
+    display: none;
+    overflow: hidden;
+    padding: $modal-error-padding;
+    width: $modal-error-width;
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    p {
+        margin: 15px 0;
+    }
+
+}
+
+.modal-error-button-container {
+    // Centering this way required for IE8
+    text-align: center;
+}

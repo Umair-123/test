@@ -1,0 +1,550 @@
+﻿@import "compass/css3/images";
+@import "compass/css3/opacity";
+@import "compass/css3/user-interface";
+@import "../_Fonts";
+@import "../_Colours";
+
+$overlay-zindex: 500;
+$main-zindex: $overlay-zindex + 5;
+$sidepanel-zindex: $main-zindex + 5;
+
+$sidepanel-width: 309px;
+ 
+@mixin fill-container {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+#quick-tickets,
+#quick-tickets-details {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+#quick-tickets,
+#quick-tickets-overlay {
+    background: $color-2b2725 url('../../Images/QuickTickets/QuickTicketsBackground.png');
+}
+
+#quick-tickets {
+    $horizontal-padding: 10px;
+    padding: 10px 0 10px $horizontal-padding;
+    text-align: center;
+    white-space: normal;
+    width: $sidepanel-width - $horizontal-padding;
+    z-index: $sidepanel-zindex;
+
+    h2 {
+        color: $color-eaeaea;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    p {
+        color: $color-93908f;
+        font-style: italic;
+        margin: 10px 20px 10px 10px;
+    }
+
+    button {
+        border: 1px solid $color-93908f;
+        color: $color-eaeaea;
+        font-family: $font-calibri;
+        font-size: 18px;
+        height: 60px;
+        line-height: 20px;
+        margin: 10px 10px 0 0;
+		overflow: hidden;
+        padding: 3px;
+        text-transform: uppercase;
+		white-space: nowrap;
+        width: 139px;
+
+        &:hover {
+            background: $color-highlight;
+            color: $color-ffffff;
+        }
+
+        em {
+            color: $color-93908f;
+            display: block;
+            font-size: 26px;
+            font-weight: normal;
+        }
+
+        &:hover em {
+            color: $color-eaeaea;
+        }
+
+    }
+}
+
+#quick-tickets-overlay {
+    @include fill-container;
+
+    display: none;
+    position: absolute;
+    z-index: $main-zindex;
+
+    $button-color: $color-93908f;
+    button {
+        color: $button-color;
+        padding: 0;
+
+        &:hover {
+            color: $color-highlight;
+        }
+
+        &.disabled:hover {
+            color: $button-color;
+        }
+        
+    }
+
+    .close {
+        font-size: 14px;
+        line-height: normal;
+        position: absolute;
+        right: 5px;
+        top: 0;
+
+        span {
+            background: url('../../Images/QuickTickets/Icon_Close.png') no-repeat right 8px;
+            padding-right: 9px;
+
+            &:hover {
+                background-image: url('../../Images/QuickTickets/Icon_Close_Hover.png');
+            }
+        }
+    }
+}
+
+#quick-tickets-details {
+    text-align: center;
+    width: $sidepanel-width;
+
+    h3 {
+        background: $color-highlight;
+        color: $color-ffffff;
+        font-size: 18px;
+        font-weight: normal;
+        height: 47px;
+        line-height: 20px;
+        margin: 10px auto 20px auto;
+        text-transform: uppercase;
+        text-align: center;
+        width: 192px;
+
+        em {
+            color: $color-eaeaea;
+            display: block;
+            font-size: 25px;
+        }
+    }
+
+    dl {
+        $details-list-margin: 30px;
+        $details-list-width: $sidepanel-width - (2 * $details-list-margin);
+
+        height: 115px;
+        line-height: 13px;
+        margin: 0 $details-list-margin;
+        overflow: hidden;
+        text-align: left;
+        width: $details-list-width;
+
+        $details-term-width: 75px;
+
+        dt, dd {
+            display: none;
+            float: left;
+            margin-top: 2px;
+        }
+
+        dt {
+            clear: left;
+            color: $color-d3cf97;
+            font-family: $font-calibri;
+            font-size: 12px;
+            width: $details-term-width;
+        }
+
+        dd {
+            color: $color-93908f;
+            font-size: 11px;
+            white-space: normal;
+            width: $details-list-width - $details-term-width - 5px; // 5px tolerance for cross-browser inconsistencies
+        }
+    }
+
+    .compare, .restart {
+        $button-height: 24px;
+        height: $button-height;
+        line-height: $button-height;
+
+    }
+
+    $button-spacing: 10px;
+    .compare {
+        display: inline;
+        margin-left: $button-spacing / 2;
+
+        span {
+            background: {
+                image: url('../../Images/QuickTickets/Skip.png');
+                position: right center;
+            }
+
+            padding: 0 17px 0 0;
+
+            &:hover {
+                background-image: url('../../Images/QuickTickets/Skip_Hover.png');
+            }
+        }
+    }
+
+    .restart {
+        display: inline;
+        margin-right: $button-spacing / 2;
+
+        span {
+            background-image: url('../../Images/QuickTickets/Icon_StartAgain.png');
+
+            &:hover {
+                background-image: url('../../Images/QuickTickets/Icon_StartAgain_Hover.png');
+            }
+        }
+    }
+
+}
+
+#quick-tickets-selection {
+    bottom: 0;
+    left: 310px;
+    margin-right: 20px;
+    position: absolute;
+    right: 0;
+    top: 19px;
+
+    .container-loading {
+        background: {
+            image: url('../../Images/Icon_Loading_Dark.gif');
+            repeat: no-repeat;
+            position: center center;
+        }
+    }
+
+    .selection {
+        @include user-select(none);
+
+        background-color: $color-2b2725;
+        border: 1px solid $color-93908f;
+        display: block;
+        height: 157px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .filtered {
+        display: none !important;
+    }
+
+    .column {
+        display: inline-block;
+        height: 146px;
+        vertical-align: top;
+        width: 216px;
+    }
+
+    .label:hover {
+        background: none;
+        color: $color-eaeaea;
+    }
+
+    .invalid {
+        text-decoration: line-through;
+    }
+
+}
+
+#quick-tickets-selection {
+    .selectable {
+        color: $color-eaeaea;
+        cursor: pointer;
+        display: block;
+        height: 24px;
+        line-height: 24px;
+        margin: 2px 1px;
+        padding: 5px 0px 5px 15px;
+        width: 199px;
+
+        &:hover {
+            background-color: $color-595655;
+            color: $color-highlight;
+        }
+
+        &.label {
+            cursor: default;
+        }
+
+        span {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 190px;
+        }
+    }
+
+
+    .movie {
+        color: $color-eaeaea;
+        cursor: pointer;
+        display: inline-block;
+        height: 142px;
+        margin: 2px 1px;
+        text-align: center;
+        vertical-align: top;
+        white-space: normal;
+        width: 126px;
+
+        &:hover { 
+            color: $color-highlight;
+            background-color: $color-595655;
+        }
+
+        .name {
+            display: inline-block;
+            line-height: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 116px;
+        }
+
+        img {
+            display: block;
+            height: 105px;
+            margin: 9px auto 6px auto;
+            width: 70px;
+        }
+    }
+
+    .cinema {
+        border: none;
+        line-height: normal;
+
+        .attributes {
+            color: $color-93908f;
+            display: block;
+            font-size: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 190px;
+        }
+
+        &.selected .attributes {
+            color: $color-2b2725;
+        }
+    }
+    .selected { 
+        // overrides colours, must be after other styles
+        background-color: $color-selected;
+        color: $color-eaeaea;
+
+        &:hover {
+            background-color: $color-selected;
+            color: $color-ffffff;
+        }
+    }
+
+}
+
+#quick-tickets-selection {
+   .toolbar {
+        $toolbar-height: 33px;
+
+        background-color: $color-595655;
+        border: 1px solid grey;
+        border-top: none;
+        height: $toolbar-height;
+        overflow: hidden;
+        position: relative;
+        text-align: center;
+
+        @include filter-gradient($color-595655, $color-2b2725, horizontal);
+        @include background(linear-gradient(left, $color-595655, $color-2b2725));
+
+        button {
+            height: $toolbar-height;
+            line-height: $toolbar-height;
+        }
+
+        .search {
+            left: 20px;
+            position: absolute;
+
+            input {
+                background: url('../../Images/QuickTickets/SearchBox.png') no-repeat left center;
+                border: none;
+                border-radius: 5px;
+                color: $color-93908f;
+                height: 27px;
+                margin-top: 2px;
+                padding: 0 20px 0 25px;
+                width: 100px;
+
+                // These two cannot be combined as (a,b); browsers will ignore the whole line when they encounter a non-recognisable selector 
+                @mixin placeholder-text {
+                    color: $color-93908f;
+                    font-family: $font-segoe;
+                    font-size: 14px;
+                    font-style: italic;
+                }
+
+                &:-moz-placeholder {
+                    @include placeholder-text;
+                }
+
+                &::-webkit-input-placeholder {
+                    @include placeholder-text;
+                }
+            }
+
+            button {
+                background: url('../../Images/QuickTickets/Icon_Close.png') no-repeat center center;
+                display: none;
+                height: 16px;
+                position: absolute;
+                right: 3px;
+                top: 8px;
+                width: 16px;
+
+                &:hover {
+                    background-image: url('../../Images/QuickTickets/Icon_Close_Hover.png');
+                }
+            }
+        }
+
+        .clear {
+            display: inline; 
+
+             span {
+                background-image: url('../../Images/Icon_Clear.png');
+
+                &:hover { 
+                    background-image: url('../../Images/QuickTickets/Icon_Clear_Hover.png');
+                }
+            }
+        }
+
+        .next {
+            color: $color-eaeaea;
+            display: none;
+            font-size: 16px;
+            position: absolute;
+            right: 10px;
+            top: 0;
+
+            &:hover {
+                color: $color-highlight;
+            }
+
+            span {
+                background: url('../../Images/QuickTickets/Icon_NextArrow.png') no-repeat right center;
+                padding-right: 25px;
+                text-decoration: underline;
+
+                &:hover {
+                    background-image: url('../../Images/QuickTickets/Icon_NextArrow_Hover.png');
+                }
+            }
+        }
+    }
+}
+
+#quick-tickets-selection {
+    .calendar-container, .calendar {
+        display: block;
+        height: 108px;
+        width: 108px;
+    }
+
+    .calendar-container {
+        background: $color-ffffff;
+        cursor: default;
+        margin: 20px auto 0 auto;
+        position: relative; 
+    }
+
+    .calendar {
+        text-align: center;
+
+        span  {
+            display: block;
+        }
+    }
+
+    .calendar-month {
+        background: $color-highlight;
+        color: $color-eaeaea;
+        font-family: $font-calibri;
+        font-size: 14px;
+        height: 20px;
+        line-height: 20px;
+    }
+
+    .calendar-day {
+        color: $color-443e3b;
+        font-size: 60px;
+    }
+
+    .calendar-footer {
+        color: $color-93908f;
+        font-family: $font-calibri;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    $arrow-width: 12px;
+    $arrow-margin: 2px;
+    .calendar-left-arrow,
+    .calendar-right-arrow {
+        $arrow-height: 19px; 
+        background: {
+            position: center center;
+            repeat: no-repeat;
+        }
+
+        cursor: pointer;
+        top: 50%;
+        height: $arrow-height;
+        margin-top: -($arrow-height / 2);
+        position: absolute;
+        width: $arrow-width;
+    }
+
+    .calendar-left-arrow {
+        background-image: url('../../Images/QuickTickets/CalendarArrow_Left.png');
+        left: -($arrow-width + $arrow-margin);
+    }
+
+    .calendar-right-arrow {
+        background-image: url('../../Images/QuickTickets/CalendarArrow_Right.png');
+        right: -($arrow-width + $arrow-margin);
+    }
+}
+
+#page-overlay {
+    @include fill-container;
+    @include opacity(0.5);
+
+    background-color: $color-443e3b;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    z-index: $overlay-zindex;
+}

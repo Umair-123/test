@@ -1,0 +1,81 @@
+﻿@import "../../_Colours";
+@import "../_Flexbox";
+@import "../_Lines";
+
+/* HOME PAGE */
+/* 
+<body class="home-page">
+    <header>
+        <h1 class="logo"><em>ABC</em>CINEMAS</h1>
+    </header>
+    <div id="home-now-showing" class="home-movies scrollbox-container"></div>
+    <nav class="nav-menu"></nav>
+    <footer></footer>
+</body>
+*/
+
+.home-page {
+    background-color: $color-2b2725;
+    color: $color-eaeaea;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    @include display-box;
+    @include box-direction(column);
+
+
+    >* {
+        @include box-flex-legacy(0);
+        @include box-flex(0 0 auto);
+    }
+
+    header {
+        .logo {
+             :not(.flexbox).flexboxlegacy & {
+                // legacy flexbox collapses the margins, so use padding instead
+                padding: 1rem 0;
+            }
+
+            .flexbox & {
+                padding: 0.5rem 0;
+            }
+
+			background-color: $color-2b2725;
+        }
+    }
+
+    #home-now-showing {
+        
+        @include box-flex-legacy(1);
+        @include box-flex(1 0);
+        min-height: 197px;
+		//min-height: 317px;
+
+		height: 76%;        
+        background-color: $color-1c1918;
+        &.container-loading
+        {
+            background-color: inherit;
+        }        
+    }
+
+    .nav-menu {
+		padding: 0.6rem 0 0 0;
+    }
+
+    footer {
+     
+        @include horizontal-separator-line($margin-bottom: 0.6rem, $colour: $color-1c1918); /*param = margin-bottom on pseudo element */
+		 
+        :not(.flexbox).flexboxlegacy & {
+            // legacy flexbox collapses the margins, so use padding instead
+            padding: 0.6rem 0;
+        }
+        
+        .flexbox & {
+            margin: 0.6rem 0;
+        }
+    }
+}

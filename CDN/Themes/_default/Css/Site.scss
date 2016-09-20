@@ -1,0 +1,102 @@
+@import "_Colours";
+@import "_Styles";
+@import "_LayoutDimensions";
+
+/* GENERAL SITE STYLES */
+body {
+    @extend %body-text;
+
+    background-color: $color-443e3b;
+    padding-bottom: 280px;
+    position: relative;
+}
+
+/* Border bottom replaces the default underline for a tags */
+a { cursor: pointer; text-decoration: none; border-bottom: 1px solid $color-666666; padding-bottom: 2px; color: $color-666666; }
+a:visited { color: $color-666666; }
+/* a tags without an href don't have underlines */
+a[href=""] { border-bottom: none; padding-bottom: 0px; }
+
+a.disabled {
+    cursor: default;
+}
+
+p { margin-bottom: 3px; }
+em { font-weight: bold; font-style: normal; }
+input, textarea, select { font-family: $font-segoe; font-size: 12px; color: $color-666666; }
+hr { margin: 20px 0 20px 0; border: 0; border-top: 1px solid $color-93908f; }
+
+
+h1, h2, h4, h5, h6 { @extend %header; }
+h1, h2 { text-transform: uppercase; }
+h1 em, h2 em { color: $color-highlight; display: block; }
+/* h1 = cinema logo, cinema names, and product/experiences, e.g. ABC Gold Class */
+h1 { font-size: 40px; margin: 10px 0px; }
+h1 em { margin-right: 12px; display: inline; }
+/* h2 = page content titles - used to indicate a new page or a new set of content on a page */
+h2 { font-size: 26px; font-weight: bold; margin-bottom: 15px; }
+h2 em { font-size: 39px; line-height: 30px; }
+/* h3 = section headers - within a set of content, section headers break up the content into sections.
+        under "Personal Details" (h2) the section headers may be: "Preferences", "Memberships" and
+        "Change Password".  */
+h3 { @extend %section-header; }
+/* h4 = copy header/sub header - e.g. the day/date above session times */
+h4 { font-size: 16px; }
+h6 { margin-bottom: 10px;}
+
+.selected { color: $color-selected; }
+
+.disabled, [disabled] {
+	@extend %disabled
+} 
+
+span.vertical-separator { border-left: solid 1px $color-666666; padding-right: 7px; margin-left: 7px; }
+
+/* MASTER PAGE */
+body > section { 
+    width: 1024px; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+body > section { width: 1024px; margin-left: auto; margin-right: auto; clear: both; }
+
+.content { 
+        background-color: $color-ffffff; 
+        width: 994px;
+        padding: $layout-content-padding; 
+        overflow: hidden; 
+        position: relative; 
+        z-index: 2; 
+        min-height: 500px; box-shadow: 0 0 6px $color-000000; 
+}
+footer { width: 100%; height: 310px; position: absolute; bottom: 0; }
+
+.simplemodal-overlay { background-color: $color-443e3b; }
+
+body .simplemodal-container {
+    margin: 0; // margin: auto is applied on IE despite position: fixed, which breaks the centering logic
+}
+
+input, textarea {
+	&::-webkit-input-placeholder { color: $color-b2afaf; font-style: italic; }
+	&::-moz-placeholder {  color: $color-b2afaf; font-style: italic; } /* firefox 19+ */
+	&:-ms-input-placeholder {  color: $color-b2afaf; font-style: italic; } /* ie */
+}
+
+@media screen  and (max-width: 1024px) {
+    footer {
+        width: 1024px;
+    }
+}
+
+@media screen and (min-height: 760px) {
+    .content {
+        min-height: 615px;
+    }
+}
+
+@media screen and (min-height: 770px) {
+    .content {
+        min-height: 800px;
+    }
+}

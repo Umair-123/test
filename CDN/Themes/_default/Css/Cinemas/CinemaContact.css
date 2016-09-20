@@ -1,0 +1,13 @@
+.contact-cinema > div {
+  margin-bottom: 15px;
+}
+.contact-cinema .contact-address, .contact-cinema .contact-other {
+  width: 250px;
+  float: left;
+  overflow: hidden;
+  margin-right: 10px;
+  word-wrap: break-word;
+}
+.contact-cinema .contact-address > p, .contact-cinema .contact-other > p {
+  margin-bottom: 5px;
+}

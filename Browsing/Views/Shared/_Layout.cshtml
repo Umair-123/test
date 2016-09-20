@@ -1,0 +1,241 @@
+﻿@using InternetTicketing.Controls.SiteLayout
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.SocialMedia
+@using Vista.Web
+
+@model InternetTicketing.Infrastructure.InternetTicketingViewModel
+<!DOCTYPE html>
+<html @Html.Raw(SocialMediaHtmlHelper.FacebookXmlNamespace()) @Html.Raw(Model.IsAltLang ? @"class=""alt-lang""" : "")>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+
+    
+
+        <!-- facebook open graph metadata -->
+        @RenderSection("OpenGraphMetadata", false)
+
+        <title>@Shared.SiteTitle</title>
+        <link rel="shortcut icon" href="@ContentDelivery.Image("favicon.ico")" />
+
+        @ContentDelivery.CssBundle(CssBundles.MasterPage)
+        @ContentDelivery.CssBundle(CssBundles.BrowsingPages)
+        @RenderSection("Css", false)
+        @ContentDelivery.Script("modernizr-2.6.2.min.js")
+        @ContentDelivery.Script("Vista/Vista.js")
+        @ContentDelivery.Script("Vista/Polyfill.js")
+        @ContentDelivery.Script("Vista/js/jquery-1.11.3.min.js")
+        @ContentDelivery.Script("Vista/js/slider.js")
+         @ContentDelivery.Script("Vista/js/jssor.slider.mini.js")
+        
+        
+        <!--[if lte IE 8]>
+            @ContentDelivery.Css("Browsing/IE8.css")
+            @ContentDelivery.Css("IE8.css")
+        <![endif]-->
+
+        <!--[if lte IE 7]>
+            @ContentDelivery.Css("Browsing/IE7.css")
+            @ContentDelivery.Css("IE7.css")
+        <![endif]-->
+     
+        <!--[if IE 6]>
+            @ContentDelivery.CssBundle(CssBundles.InternetExplorer6)
+            @ContentDelivery.Css("Browsing/IE6.css")
+       <![endif]-->             
+        
+        @* Link in custom CSS files here, the path is relative to the CDN's /Css directory, e.g for /Css/Custom.css
+            @ContentDelivery.Css("Custom.css")
+        *@
+
+        
+    </head>
+    <body>
+        <header style="background-color:white;">
+            <!--@{ Html.RenderHeader(Model); }-->
+
+
+
+
+                    <div class="container-fluid" style=" background-color: white;padding: 20px;">
+        <div class="row">
+            <div class="col-lg-2 col-lg-offset-1">
+                <div class="logo">
+                    <a href="http://universalcinemas.com/" style="text-decoration: none;">
+                        <img src="/IT-CDN/Themes/_default/Images/logo.svg">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-lg-offset-1">
+                
+                <ul class="movie_nav">
+                    <li>
+                        <a>
+                            <span style="font-size: 1.26vw;font-family: 'GothamBold';">REWARDS</span><span> CLUB</span>
+                        </a>
+                    </li>
+                    <li style="margin-left:45px;">
+                        <a>
+                            EXPERIENCE
+                        </a>
+                    </li>
+                    <li style="margin-left:45px;">
+                        <a >
+                            MOVIE TALK
+                        </a>
+                    </li>
+                    
+                </ul>   
+            </div>
+        </div>
+    </div>
+        </header>
+
+
+
+
+
+        
+        
+
+
+        <section class="content">
+        
+            <article>
+                @RenderBody()
+            </article>
+        
+        </section>
+        
+        <footer>
+           <!-- @{ Html.RenderFooter(Model);}-->
+           <!--Custom Footer-->
+        <div class="container-fluid">
+    <div class="row" style=" background-color: #053b69;">
+        <div class="col-lg-10 col-lg-offset-1">
+            <div class="row">
+                <div class="col-lg-3 footer_title">
+                    <h3>Universal Cinemas</h3>
+                    <h4>
+                        Experience
+                        <span>Amazing.</span>
+                    </h4>
+                </div>
+                <div class="col-lg-4 footer_comming">
+                    <p>
+                        <span class="comming">Coming Soon on</span>
+                    </p>
+                    <div class="apple"></div>
+                    <div class="android"></div>
+                    <p class="all_rights">© 2015 Universal Cinemas. All rights reserved.</p>
+                </div>
+                <div class="col-lg-5" style=" position: relative; ">
+                    <div class="social_imgs">
+                        <a href="https://www.facebook.com/universalcinemas/" target="_blank" class="facebook">
+                            <div></div>
+                        </a>
+                        <a href="https://twitter.com/universalcinema/" target="_blank" class="twitter">
+                            <div></div>
+                        </a>
+                        <a href="http://www.youtube.com/" target="_blank" class="youtube">
+                            <div></div>
+                        </a>
+                        <a href="https://instagram.com/universalcinemas/" target="_blank" class="instagram">
+                            <div></div>
+                        </a>
+                        <a href="https://plus.google.com/" target="_blank" class="gplus">
+                            <div></div>
+                        </a>
+                    </div>
+                    <div class="footer_img">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+           
+        </footer>
+        
+
+
+
+
+
+
+
+
+
+
+
+        
+        @ContentDelivery.ScriptBundle(JsBundles.JQueryCommon)
+       
+        @ContentDelivery.Script("Culture/globalize.js")
+        @ContentDelivery.Script(String.Format("Culture/Cultures/globalize.culture.{0}.js", Model.PrimaryLanguageCultureInfo.Name))
+        <script type="text/javascript">
+            Globalize.culture('@Model.PrimaryLanguageCultureInfo.Name');
+            var currentCulture = Globalize.culture();
+            currentCulture.numberFormat.currency.symbol = '@Html.Raw(Model.PrimaryLanguageCultureInfo.NumberFormat.CurrencySymbol)';
+            currentCulture.numberFormat.currency.decimalSeparator = '@Html.Raw(Model.PrimaryLanguageCultureInfo.NumberFormat.CurrencyDecimalSeparator)';
+            currentCulture.numberFormat.currency.decimalDigits = @Model.PrimaryLanguageCultureInfo.NumberFormat.CurrencyDecimalDigits;
+            currentCulture.numberFormat.currency.groupSeparator = '@Html.Raw(HttpUtility.JavaScriptStringEncode(Model.PrimaryLanguageCultureInfo.NumberFormat.CurrencyGroupSeparator))';
+
+            Vista.Urls.Shared = {};
+            Vista.Urls.Shared.Home = '@BrowsingUrls.GetHomeUrl()';
+            Vista.Urls.CDN = {};
+            Vista.Urls.CDN.GetImageData = '@Html.Raw(ContentDelivery.GetImageData("{0}", "{1}", "{2}", "{3}"))';
+            Vista.Urls.CDN.GalleryImage = '@Html.Raw(ContentDelivery.GalleryImage("{0}", "{1}", "{2}", "{3}", "{4}"))';
+            Vista.Urls.Ads = {};
+            Vista.Urls.Ads.GetAdData = '@Html.Raw(ContentDelivery.GetAdData("{0}", "{1}"))';
+            Vista.Urls.Movies = {};
+            Vista.Urls.Movies.GetMovieFutureSessions = '@Url.Action("GetMovieFutureSessions", "Movies")';
+           
+
+            Vista.Lang.Shared = {};
+            Vista.Lang.Shared.OverflowPlaceholder = @Html.Raw(Shared.OverflowPlaceholder.ToJson());
+
+            @* TODO: we need a shared way of specifying language strings in the layout *@
+            Vista.Lang.ModalError = {};
+            Vista.Lang.ModalError.Title = @Html.Raw(ModalError.Title.ToJson());
+            Vista.Lang.ModalError.OkButton = @Html.Raw(ModalError.OkButton.ToJson());
+
+            Vista.Lang.Address = {};
+            Vista.Lang.Address.NoResult = @Html.Raw(AddressSearch.NoResults.ToJson());
+            Vista.Lang.Address.ErrorSearch = @Html.Raw(AddressSearch.ErrorSearch.ToJson());
+
+            Vista.Lang.DiscountTickets = @Html.Raw(Shared.DiscountTickets.ToJson());
+        </script>
+        
+        @ContentDelivery.ScriptBundle(JsBundles.MasterPageMvc)        
+        <!--[if IE 6]>
+            @ContentDelivery.Script("Navigation/IE6.js")
+        <![endif]-->  
+        @ContentDelivery.Script("Navigation/Index.js")  
+        @ContentDelivery.Script("Navigation/LanguageLocation.js")  
+        @ContentDelivery.ScriptBundle(JsBundles.Scrollbox)
+        @ContentDelivery.Script("Vista/Collapsible.js")  
+        @ContentDelivery.Script("Vista/ModalError.js")  
+        @ContentDelivery.ScriptBundle(JsBundles.ImageGallery)
+        @ContentDelivery.Script("Vista/Layout.js")
+
+        @RenderSection("Scripts", false)
+        
+
+        @{ Html.RenderPartial("~/Views/QuickTickets/Data.cshtml"); }
+       
+        @ContentDelivery.ScriptBundle(JsBundles.QuickTickets) 
+
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+        <!--
+        <script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=" crossorigin="anonymous"></script>
+        -->
+    </body>
+</html>

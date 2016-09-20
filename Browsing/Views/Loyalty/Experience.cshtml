@@ -1,0 +1,125 @@
+﻿@using InternetTicketing.Browsing.ViewModels.Loyalty.Ratings
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using System.Drawing
+@using InternetTicketing.Browsing.ViewModels
+@using Ninject
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Web
+
+@model ExperienceViewModel
+<div id="experience">
+    <div id="sessions-list">
+        <div class="items-wrapper">
+            @if (Model.Sessions.Any())
+            {
+                var itemClass = Model.Sessions.Count == 1 ? "" : "item-col";
+                foreach(var session in Model.Sessions)
+                {
+                    var film = session.Film;
+                    if (film == null)
+                    {
+                        continue;
+                    }
+
+                    <div class="list-item @itemClass">
+                        <div class="image-outer">
+                            @Html.Partial("SmartImage", new SmartImageViewModel(@film.PosterUrl,"film-poster"))            
+                        </div>
+                        <div class="item-details">
+                            <div class="item-details-inner">
+                                <div class="title-wrapper">
+                                    @if (!string.IsNullOrEmpty(film.CensorRating))
+                                    {
+                                        var ratingImageUrl = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.RatingIconGraphic, film.CensorRating, EntityReferenceScheme.Global, new Size(24, 24));
+                                        <div class="censor-rating">
+                                            <img class="icon" src="@ratingImageUrl" title="@film.CensorRatingDescription" />
+                                        </div>
+                                    }
+                                    <a href="@BrowsingUrls.GetMovieDetailsUrl(film.RouteId)">
+                                        <h3 class="item-title">
+                                            @film.Title
+                                        </h3>
+                                    </a>
+                                </div>
+                                <p class="session-time">@session.SessionTimeDisplay</p>
+                                <p class="cinema-name">@session.CinemaName</p>
+                            </div>
+                        </div>
+                        <div class="movie-actions">
+                            <div class="main-action">
+                                <span class="showtimes-book image-wrapper">&nbsp;</span> <a href="@BrowsingUrls.GetMovieDetailsUrl(film.RouteId)">@LoyaltyExperience.ViewMoreInfo</a> <span class="right-arrow image-wrapper">&nbsp;</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+   
+    @using (Html.BeginForm("SubmitRatings", "Ratings", new { transactionId = Model.TransationNumber, sessionTime = Model.SessionTime, cinemaId = Model.CinemaId  }, FormMethod.Post))
+    {
+        <div class="ratings-list">
+            <h2>@LoyaltyExperience.TitleText1<em>@LoyaltyExperience.TitleText2</em></h2>
+            @foreach (var film in Model.Films)
+            {
+                <div class="rating film" data-movie-id="@film.FilmRating.MovieId">
+                    <h3>@film.Title</h3>
+                    @if (film.FilmRating.ShowScore)
+                    {
+                        <div class="rating-stars">
+                            <div class="rating-wrapper" data-rating-value="@film.FilmRating.Score"></div>
+                        </div>
+                    }
+                    @if (film.FilmRating.ShowComment)
+                    {
+                        <div class="comment">
+                            <textarea placeholder="@LoyaltyExperience.CommentPlaceholder">@film.FilmRating.Comment</textarea>
+                        </div>
+                    }
+                </div>
+            }
+            @foreach (var rating in Model.ExperienceRatings)
+            {
+                <div class="rating experience" data-rating-type="@rating.RatingType">
+                    <h3>@rating.Title</h3>
+                    @if (rating.ShowScore)
+                    {
+                        <div class="rating-stars">
+                            <div class="rating-wrapper" data-rating-value="@rating.Score"></div>
+                        </div>
+                    }
+                    @if (rating.ShowComment)
+                    {
+                        <div class="comment">
+                            <textarea placeholder="@LoyaltyExperience.CommentPlaceholder">@rating.Comment</textarea>
+                        </div>
+                    }
+                </div>
+            }
+            <div class="actions"><button type="submit">@LoyaltyExperience.SubmitRatings</button></div>
+        </div>
+    }
+</div>
+
+
+<script>
+    Vista.Urls.General = {};
+    Vista.Urls.General.Error = '@Html.Raw(Url.Action("Error", "General"))';
+</script>
+
+@section Css
+{
+    @ContentDelivery.CssBundle(CssBundles.LoyaltyExperience)
+    @ContentDelivery.Css("Thirdparty/jquery-ui.css")
+    @ContentDelivery.Css("Trailers/Controls.css")
+}
+@section Scripts
+{
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("jquery-ui-1.8.23.min.js")
+    @ContentDelivery.Script("Vista/Utilities/StarRating.js")
+    @ContentDelivery.Script("Loyalty/Experience.js")
+}

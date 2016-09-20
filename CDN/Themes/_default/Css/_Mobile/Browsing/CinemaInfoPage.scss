@@ -1,0 +1,203 @@
+@import "../../_Colours.scss";
+@import "../../_Fonts.scss";
+@import "../_Flexbox.scss";
+@import "../_Headers.scss";
+@import "../_Links.scss";
+@import "../_Lines.scss";
+@import "../_FontsMobile.scss";
+@import "../_Icons.scss";
+
+
+h1, h2 {
+    //@extend %header;
+    color: $color-443e3b;
+    font-family: $font-segoe;
+    font-size: $font-size-big;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+}
+
+h1 em, h2 em {
+    color: $color-highlight;
+    display: block;
+    font-size: $font-size-big;
+    margin-top: -0.3rem;
+}
+
+.cinema-name-header {
+    margin-bottom: 0.25rem;
+}
+
+.nav-menu .nav-menu-item.selected:before {
+    border-color: transparent transparent $color-eaeaea transparent;
+}
+
+.page-content {
+    //padding: 0 5% 5% 5%;
+}
+
+.description-box {
+    @include display-box;
+    @include box-direction(row);
+
+    //background-color: $color-eaeaea;
+    color: $color-666666;
+    margin-bottom: 0.6rem;
+    padding: 2%;
+
+    .cinema-list-image {
+        @include box-flex(0 0 120px);
+        @include box-flex-legacy(0);
+    }
+
+    .cinema-details {
+        @include box-flex(1 1 auto);
+        @include box-flex-legacy(1);
+        
+        margin-left: 0.6rem;
+        overflow-x: hidden;
+
+        span {
+            display: inline-block;
+            word-break: break-all;
+        }
+
+		span:after {
+			content: ',';
+		}
+
+		span:last-child:after {
+			content: '';
+		}
+    }
+
+    .cinema-more-info-link {
+        @extend %link;
+        color: $color-666666;
+        display: block;
+    }
+}
+
+.cinema-description {
+	color: $color-93908f;
+    white-space: pre-wrap;
+	padding: 0.6rem 2%;
+}
+
+.contact-info {
+	padding: 0 2%;
+	margin-bottom: 1rem;
+	color: $color-666666;
+
+	p {
+		display: inline-block;
+	}
+
+	p:first-child {
+		width: 50%;
+	}
+
+	.contact-email-link {
+        @extend %link;
+        color: $color-666666;
+    }
+}
+
+.horizontal-separator {
+    border-top: 1px solid $color-93908f;
+    margin-bottom: 0.6rem;
+}
+
+.about-cinema-title {
+    color: $color-93908f;
+	padding: 0 2%;
+}
+
+.cinema-location {
+    
+    margin-bottom: 0.6rem;
+
+    .google-map {
+        width: 100%;
+        height: 80vw;
+        overflow: scroll;
+    }
+
+    .address {
+        font-size: 0.8rem;
+    }
+}
+
+
+.other-information {
+
+	line-height: 3.5rem;
+
+	h6 {
+		padding-left: 0.8rem;
+	}
+
+	.tab-header {
+		@include display-box;
+		@include box-direction(row);
+		//background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Expand_37.png");
+		//background-position: 97% 50%;
+		//background-size: 24px;
+		//background-repeat: no-repeat;
+		color: $color-443e3b;
+        font-size: $font-size-big;
+        border-top: solid 1px #bfbfbf;
+        outline: 0;
+        .icon{
+            margin-top: 12px;
+            background-repeat: no-repeat;
+        }
+        .icon-car {
+            line-height: 56px;
+			@extend %icon-car;
+		}
+
+        .icon-bus {
+            line-height: 56px;
+			@extend %icon-bus;
+		}
+
+        .icon-map {
+            line-height: 56px;
+			@extend %icon-map;
+		}
+	}
+
+	.content {
+        color: $color-666666;
+        font-size: $font-size-normal;        
+		display: block;
+		padding: 1rem;
+        line-height: 3.5rem;
+	}
+	
+
+	.info-tab:last-child {
+		border-width: 1px 0 1px 0;
+	}
+
+	.cinema-location {
+		.content {
+			padding: 0;
+		}
+	}
+
+	.expanded {
+		.content{
+			display: block;
+			color: $color-666666;
+		}
+
+		.tab-header {
+			//background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Collapse_37.png");
+		}
+	}
+}

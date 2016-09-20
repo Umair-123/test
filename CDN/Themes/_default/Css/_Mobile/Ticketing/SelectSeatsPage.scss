@@ -1,0 +1,43 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+
+.cart {
+	display: none;
+
+	h2, .cart-estimate, .cart-sessions {
+		display: none;
+	}
+
+	.cart-footer {
+		.promotion, .points-cost, li:last-child {
+			display: none;
+		}
+
+		.total {
+			float: right;
+			font-size: $font-size-big;
+
+			.price {
+				color: $color-93908f;
+				margin-right: 10px;
+				margin-left: 5px;
+			}
+		}
+	}
+
+	.cart-estimate {
+		display: none !important;
+		//text-align: center;
+		//margin-bottom: 0.3rem;
+		//color: $color-93908f;
+	}
+}
+
+.disabled {
+	background-color: $color-93908f;
+}
+
+.session-time,
+.cinema-screen-name {
+	display: none;
+}

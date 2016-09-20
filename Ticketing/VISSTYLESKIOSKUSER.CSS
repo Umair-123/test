@@ -1,0 +1,18 @@
+/**********************************************************
+ CUSTOMER STYLESHEET CUSTOMISATION FILE FOR KIOSK WEB PAGES
+
+ Copy styles from visStylesKiosk.css that you wish to override.
+ Styles written in this file will take precedence over other styles
+ in the base visStylesKiosk.css file.
+
+ For example, to change the text colour on visError.aspx to black
+ add the following style override to this file
+ 
+ .UnexpectedErrorText
+ {
+    color:#000000;
+ }
+
+ All other attributes of this text (font size, weighting and type) will
+ be interpreted using visStylesKiosk.css
+***********************************************************/

@@ -1,0 +1,22 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+
+<div class="loyalty-terms-conditions">
+    
+    <h2>@LoyaltyTermsAndConditions.TitleText1
+        <em>@LoyaltyTermsAndConditions.TitleText2</em>
+    </h2>
+    
+    <h3>
+        @LoyaltyTermsAndConditions.LoyaltyMembership
+    </h3>
+
+    <div>@Html.Raw(LoyaltyTermsAndConditions.TermsAndConditionsBody)</div>
+
+</div>
+
+@section Css
+{
+	@ContentDelivery.CssBundle(CssBundles.LoyaltyTermsAndConditions)
+}

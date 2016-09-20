@@ -1,0 +1,178 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+@import "../_Headings.scss";
+@import "../_Flexbox.scss";
+
+hr {
+	border: 0;
+	border-top: 1px solid #93908f;
+	margin: 10px 0 0 0;
+}
+
+.countdown {
+	float: right;
+}
+
+#assign-gift-modal {
+	display: none;
+}
+
+.cart-summary {
+	padding: 10px 0.5rem 0 0.5rem;
+	margin-bottom: 20px;
+}
+
+#confirmForm h2,
+.personal-details,
+.payment-method,
+.terms-conditions-line {
+	padding: 0.5rem;
+    .form-line{
+        margin: 1rem 0.5rem;
+    }
+}
+
+.payment-method {
+    .payment-type {
+        display: inline-block;
+    }
+}
+
+.cart,
+#confirmForm {
+	h2 {
+		color: $color-443e3b;
+		font-size: $font-size-big;
+
+		em:before {
+			content: ' ';
+		}
+	}
+}
+
+.cart-session {
+
+	margin-top: 1.5rem;
+
+	.clear {
+		//Workaround javascript showing button after clicking Next
+		display: none !important;
+	}
+
+	dl {
+		dd {
+			line-height: 1.1rem;
+		}
+
+		.movie-name {
+			font-size: $font-size-big;
+		}
+
+		.movie-name,
+		.location {
+			color: $color-443e3b;
+		}
+
+		.showing-time {
+			color: $color-666666;
+		}
+	}
+
+	table {
+		width: 100%;
+		margin: 10px 0 10px 0;
+
+		.name {
+			width: 30%;
+		}
+
+		.number.cost {
+			width: 15%;
+		}
+
+		.number {
+			text-align: right;
+			width: 15%;
+		}
+
+		.number:last-child {
+			width: 25%;
+		}
+
+		th:last-child, td:last-child {
+			display:none;
+		}
+
+		tr {
+			line-height: 1.2rem;
+		}
+
+		td {
+			color: $color-666666;
+		}
+	}
+}
+
+.booking-fee, 
+.total-ticket-fee, 
+.total {
+	dt {
+		display: inline;
+		margin-left: 50%;
+	}
+}
+
+.booking-fee,
+.total-ticket-fee {
+	color: $color-666666;
+}
+
+.total {
+	color: $color-443e3b;
+}
+
+.booking-fee .booking-fee-amount,
+.total-ticket-fee .ticket-fee-amount,
+.total .price {
+	float: right;
+	display: inline;
+}
+
+.personal-details {
+
+	label {
+		width: 30%;
+		display: inline-block;
+	}
+
+	input,
+	#pickup-comments {
+		display: inline-block;
+		width: 100%;
+		line-height: 1.5rem;
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		font-family: inherit;
+	}
+
+	label[for='pickup-comments'] {
+		margin-top: 5px;
+		width: 50%;
+	}
+}
+
+#cancelOrder {
+	//margin-right: 10px;
+	float: left;
+}
+
+
+.button-list {
+    @include display-box;
+    background-color: $color-35a0a8;
+    margin-top: 10px;
+}
+
+label[for="gift-card-number"] {
+    margin-right: 10px;
+}

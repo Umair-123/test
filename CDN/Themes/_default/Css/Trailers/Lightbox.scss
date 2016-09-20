@@ -1,0 +1,29 @@
+﻿@import "../_Colours";
+
+.close-trailer, #close-gallery { 
+	float: right;
+	margin-right: 5px;
+	padding: 3px 3px 3px 0; 
+
+	span {
+		&.icon { 
+			color: $color-modal-close; 
+			text-decoration: none; 
+			background-image: url('../../Images/Trailers/Icon_Close.png'); 
+		}
+	}
+
+	&:hover {
+		span { 
+			color: $color-highlight; 
+			background-image: url('../../Images/Trailers/Icon_Close_Hover.png'); 
+		}
+	}
+}
+
+/* Margin, border and padding need to be explicitly set in order for IE9 to have a proper outerHeight() calculation done on it */
+#simplemodal-container { 
+	margin: 0; 
+	padding: 0; 
+	border: 0; 
+}

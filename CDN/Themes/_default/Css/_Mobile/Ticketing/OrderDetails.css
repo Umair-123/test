@@ -1,0 +1,133 @@
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* 
+<div class="order-details">
+                        
+	<section id="cart" class="cart cart-order">
+		<h2>Your<em>Basket</em></h2>
+    
+		<div class="cart-estimate">
+		</div>
+
+		<ul class="cart-sessions">
+    
+			<li class="cart-session cart-current-session" data-id="307400">
+				<div class="cart-session-information"><button type="button" class="clear icon icon-clear"></button><span class="name">10,000 Bc </span><span class="points-cost" data-value="0">0</span><span class="price cart-session-total" data-value="0">0.00</span></div>    
+					<ul id="cart-tickets">
+					</ul>
+					<ul id="cart-concessions">
+					</ul>
+			</li>
+		</ul>
+
+		<div class="cart-footer">
+			<ul>
+				<li class="promotion promotion-none"><span class="name">Promotion</span><span class="value"></span></li>
+				<li class="total"><span class="name">Total Cost</span><span class="price">$0.00</span></li>
+				<li class="points-cost points-none"><span class="value">(+0.00 points)</span></li>
+				<li><span class="name">(Excl. booking fee)</span></li>
+			</ul>
+		</div>
+	</section>
+</div>
+*/
+.order-details .cart > h2 {
+  display: none;
+}
+
+.cart-sessions {
+  margin-bottom: 10px;
+  display: none;
+}
+.cart-sessions li {
+  line-height: 1.5rem;
+}
+.cart-sessions .cart-session-information {
+  display: none;
+}
+.cart-sessions .cart-ticket, .cart-sessions .cart-concession {
+  color: #666666;
+}
+.cart-sessions .cart-ticket .clear, .cart-sessions .cart-concession .clear {
+  display: none;
+}
+.cart-sessions .cart-ticket .name, .cart-sessions .cart-concession .name {
+  margin-left: 5px;
+}
+.cart-sessions .cart-ticket .points-cost, .cart-sessions .cart-concession .points-cost {
+  display: none;
+}
+.cart-sessions .cart-ticket .quantity, .cart-sessions .cart-concession .quantity {
+  float: left;
+}
+.cart-sessions .cart-ticket .quantity:after, .cart-sessions .cart-concession .quantity:after {
+  content: 'x';
+}
+.cart-sessions .cart-ticket .price, .cart-sessions .cart-concession .price {
+  float: right;
+}
+
+.cart-footer {
+  padding: 0.5rem;
+}
+.cart-footer .promotion {
+  margin-bottom: 10px;
+  color: #666666;
+}
+.cart-footer .promotion .value {
+  float: right;
+}
+.cart-footer .promotion.promotion-none, .cart-footer .points-cost.points-none {
+  display: none;
+}
+.cart-footer .total-savings {
+  color: #35a0a8;
+  font-weight: bold;
+  font-style: italic;
+}
+.cart-footer .total-savings .savings {
+  display: inline-block;
+  float: right;
+}
+.cart-footer .total {
+  font-size: 1rem;
+  color: #443e3b;
+}
+.cart-footer .total .price {
+  display: inline-block;
+  float: right;
+}
+.cart-footer .total-savings .name,
+.cart-footer .total .name {
+  margin-left: 50%;
+}
+.cart-footer .disclaimer {
+  text-align: right;
+}
+.cart-footer li {
+  margin-top: 0.5rem;
+}
+.cart-footer li:last-child {
+  color: #666666;
+}

@@ -1,0 +1,156 @@
+﻿@import "../_Colours";
+@import "../_Styles";
+
+@mixin message-action {
+    float: right;
+    font-size: 0.8em;
+}
+
+.loyalty-messages {
+    width: 700px;
+
+    h2 {
+        margin-bottom: 30px;
+    }
+
+    table {
+        .message-header {
+            background-color: $color-eaeaea;
+            height: 25px;
+            font-size: 1.2em;
+
+            td.message-title {
+                width: 700px;
+                vertical-align: middle;
+                padding: 5px;
+
+                .message-action-reply {
+                    @include message-action
+                }
+
+                .message-action-delete {
+                    @include message-action
+                }
+
+                .message-response-modal {
+                    display: none;
+                }
+            }
+        }
+        .message-text {
+            td {
+                padding: 5px;
+                padding-bottom: 30px;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
+#loyalty-messages-sidebar {
+    float: right;
+    text-align: right;
+    width: 320px;
+
+    }
+
+#reply-modal {
+    display:none;
+    background: $color-ffffff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+    padding: 15px;
+    width: 595px;
+    min-height:100px;
+
+    .loading-container {        
+        min-height:100px;
+        background: url('../../Images/Icon_Loading_Light.gif') no-repeat center center;         
+    }
+
+    .form-container {
+        display:none;
+        //margin: 15px;
+
+        .send-button-wrapper {
+            float: right;
+
+            input {
+                background: none;
+                border: none;
+                margin: 0 7px 0 0;
+                padding: 0;
+                text-decoration: underline;
+            }
+        }
+
+        .form-line {
+
+            &.checkboxlist {
+                @extend %clearfix; 
+                height:120px;
+                .title {
+                    display:block;
+                }
+                .checkbox-list {
+                    display:block;
+                    max-height:100px;
+                    float:left;
+                }
+
+                .field-validation-error {
+                    float:left;
+                    display:block;
+                    //margin-bottom:64px;
+                }
+            }
+
+            &.text {
+                textarea {
+                    display:inline-block;
+                    width:300px;
+                    height:50px;
+                }
+
+                .field-validation-error {
+                    margin-bottom:43px;
+                }
+            }
+
+            &.number {
+                textarea {
+                    display:inline-block;
+                    width:300px;
+                    height:50px;
+                }
+
+                .field-validation-error {
+                    margin-bottom:43px;
+                }
+            }
+        }
+
+        .modal-message-detail {
+            margin-bottom: 15px;
+        }
+    }
+
+    &.type-list {
+        min-height:180px;
+        .loading-container {        
+            min-height:180px;
+        }
+    }
+        
+}
+
+
+#reply-modal-container {
+    div.simplemodal-wrap {
+
+        overflow: visible !important;
+    }
+    .form-container {
+
+    }
+
+}

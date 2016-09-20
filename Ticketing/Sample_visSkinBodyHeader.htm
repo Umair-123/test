@@ -1,0 +1,1113 @@
+<%= ""%>
+<%
+    'COMMON HTML HEADER CUSTOMISATION FILE
+    'This file is complementary to visSkinBodyFooter.htm
+    '
+    'Use this file to start any html structures that you require to contain the
+    'functional parts of the application and to navigate between various pages.
+    'Add custom design elements here to brand your site.
+%>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+        <td align="center">
+            <%
+			'--------------------------------------------------------------
+			'-- IMPORTANT!
+			'-- This page is written in ASP.NET not standard ASP
+			'--
+			'-- NAME ALL VARIABLES with a prefix of "x" to reduce chance
+			'-- of name clashes with variables in the page this is included
+			'-- on (in other words all pages of the site)
+			'--------------------------------------------------------------
+
+			Dim xstrLocation As String
+			Dim xintSlash As Integer
+			Dim xintLength As Integer
+			Dim xstrPageName As String
+
+			Dim xstrVisLang As String
+			Dim xstrHomeURL As String
+			Dim xstrNowShowingURL As String
+			Dim xstrComingSoonURL As String
+			Dim xstrTermsURL As String
+			Dim xstrBuyTicketsURL As String
+			Dim xstrLoginLogoutURL as String
+			Dim xstrLoyaltyURL as string
+			Dim xstrCartURL as String
+			Dim xstrHomeIMG As String
+			Dim xstrNowShowingIMG As String
+			Dim xstrComingSoonIMG As String
+			Dim xstrTermsIMG As String
+			Dim xstrBuyTicketsIMG As String
+			Dim xstrChangeLangIMG As String
+			Dim xstrLoginLogoutIMG as String
+			Dim xstrLoyaltyIMG as String
+			Dim xstrCartIMG As String
+
+			Dim xstrHeaderMovieInfoIMG as String
+			Dim xstrHeaderBuyTicksIMG as String
+			Dim xstrHeaderMembersIMG as String
+			Dim xstrHeaderMembersPopIMG as String
+			Dim xstrHeaderBuyTicksLongIMG as String
+            Dim xstrHeaderBuyConcIMG as String
+
+			Dim xstrMemberAccess as string
+			Dim xstrLoggedIn as String
+			Dim xblnLtyLoggedIn as Boolean
+
+			Dim xstrLoyaltyActive as string
+
+			Dim xstrDualLanguageMode As String
+			Dim xstrFullURL As String
+			
+			Dim xblnShoppingCartMode As Boolean
+
+			Dim xblnDualMemberMode As Boolean
+			Dim xstrFullPageUrl As String
+			Dim xstrLtyHomeFullPageUrl As String
+			Dim xstrQueryString As String = ""
+			Dim xblnShowLoyaltyMemberLink As Boolean
+			dim xblnShowWebMemberLink As Boolean
+
+            'vars for Shop Online pages for Gift store warehouse
+            'note: separate to buy tickets shopping cart etc
+			Dim xstrShopOnlineURL As String
+			Dim xstrShopOnlineIMG As String
+            Dim xstrHeaderShopOnlineIMG as String
+            Dim xstrEnableShopOnline as String
+            Dim xblnShopProcess as Boolean         
+
+            xblnShopProcess = (Request.QueryString("mode") = "shop")
+			xstrEnableShopOnline = If(visInternetTicketing.visConfigSettings.EnableGiftStore(), "Y", "N")
+								
+			'-----------------------------------------------------------
+			'-- Get current page name
+			'-----------------------------------------------------------
+			xintSlash = 0
+			xintLength = 0
+
+			'Get current page name and location
+			xstrLocation = Request.ServerVariables("SCRIPT_NAME")
+			xintLength = Len(xstrLocation)
+
+			'Find how many characters from left of the string, the LAST "/" is
+			xintSlash = InStrRev(xstrLocation, "/")
+			'Now find how many chars from the right end of the string the last "/" is
+			xintSlash = xintLength - xintSlash
+
+			'Get the page name by taking all characters after the "/"
+			xstrPageName = Right(xstrLocation, xintSlash)
+			'-----------------------------------------------------------
+
+
+			'-----------------------------------------------------------
+			'-- Check if site has a members (non loyalty) area and is already logged in
+			'-----------------------------------------------------------
+			Try
+				xstrMemberAccess  = ConfigurationManager.AppSettings("BuyTicketsMembersOnly")
+
+				If (xstrMemberAccess <> "Y") and (xstrMemberAccess <> "N") Then
+					xstrMemberAccess = "N"
+				End If
+			Catch
+				xstrMemberAccess = "N"
+			End Try
+			Try
+				If xstrMemberAccess = "Y" Then
+					xstrLoggedIn = User.Identity.Name
+				Else
+					xstrLoggedIn = ""
+				End If
+			Catch
+				xstrLoggedIn = ""
+			End Try
+
+			'-----------------------------------------------------------
+			'-- Check if site has a members (loyalty) area
+			'-----------------------------------------------------------
+			If visInternetTicketing.visConfigSettings.LoyaltyActive()
+				xstrLoyaltyActive = "Y"
+			Else
+				xstrLoyaltyActive = "N"
+			End If
+
+
+			'-----------------------------------------------------------
+			'-- Check if loyalty member is logged in
+			'-----------------------------------------------------------
+			Dim xstrSessionID As String
+			Dim xstrOutcome As String
+			Dim xobjOrder As Vista.Connect.WebClient.Order
+
+			Try
+				'get user session id
+				If Context.Session.Item("visSessionID") <> "" Then
+					xstrSessionID = Context.Session.Item("visSessionID")
+				Else
+					xstrSessionID = Replace(Guid.NewGuid.ToString, "-", "")
+				End If
+
+				If Not Trim(xstrSessionID) = "" Then
+					xobjOrder = New Vista.Connect.WebClient.Order(xstrSessionID, visInternetTicketing.visUtilities.GetDBAppId(), xstrOutcome, visInternetTicketing.visUtilities.GetConnectString, visInternetTicketing.visUtilities.GetDebugLogFlag)
+				End If
+
+				If (Not xobjOrder Is Nothing) And (xstrOutcome = "OK") Then
+					xblnLtyLoggedIn = (Not xobjOrder.LoyaltyMemberData Is Nothing)
+				End If
+			Catch
+				'User already timed out, no point redirecting to error page.
+			End Try
+
+
+			'-----------------------------------------------------------
+			'-- Check if site is in dual membership (web membership and loyalty) mode
+			'-----------------------------------------------------------
+			xblnDualMemberMode = visInternetTicketing.visConfigSettings.WebsiteMembershipActive()
+			
+			'-----------------------------------------------------------
+			'-- Check if site is using the shopping cart system
+			'-----------------------------------------------------------
+			xblnShoppingCartMode = visInternetTicketing.visConfigSettings.EnableShoppingCart()
+
+			'-----------------------------------------------------------
+			'-- Store Navigation URL's and image location in strings
+			'-----------------------------------------------------------
+
+			Try
+				xstrDualLanguageMode = ConfigurationManager.AppSettings("DualLanguageMode")
+
+				If (xstrDualLanguageMode <> "Y") and (xstrDualLanguageMode <> "N") Then
+					xstrDualLanguageMode = "N"
+				End If
+
+				If xstrDualLanguageMode = "Y" Then
+					xstrVisLang = Request.QueryString("visLang")
+
+					If (xstrVisLang = "") Or (xstrVisLang Is Nothing) Or (xstrVisLang <> "1" And xstrVisLang <> "2") Then
+						'Set to default language
+						xstrVisLang = "1"
+					End If
+				Else
+					'Set to default language
+					xstrVisLang = ""
+				End If
+			Catch
+				xstrDualLanguageMode = "N"
+				xstrVisLang = ""
+			End Try
+
+			'-----------------------------------------------------------
+			'-- Determine which member buttons should be shown
+			'-----------------------------------------------------------	
+			xblnShowLoyaltyMemberLink = false
+			if (xstrLoyaltyActive = "Y") then
+				if (xblnDualMemberMode And xblnLtyLoggedIn) Or (xblnDualMemberMode And xstrLoggedIn = "" And Not xblnLtyLoggedIn) Or (Not xblnDualMemberMode) then
+					xblnShowLoyaltyMemberLink = true
+				end if
+			end if
+			
+			xblnShowWebMemberLink = false
+			if (xstrMemberAccess = "Y")
+				if (xstrLoyaltyActive <> "Y") then
+					xblnShowWebMemberLink = true
+				elseif (xblnDualMemberMode And xstrLoggedIn <> "" And Not xblnLtyLoggedIn)
+					xblnShowWebMemberLink = true
+				end if
+			end if
+			
+			
+			'-----------------------------------------------------------
+			'-- Get Full Page Url for the current page and the lty home page
+			'-----------------------------------------------------------
+			xstrQueryString = Request.ServerVariables("QUERY_STRING")
+        	xstrFullPageUrl = xstrPageName
+			if xstrQueryString <> "" then
+				xstrFullPageUrl &= "?" & xstrQueryString
+			end if
+			
+			xstrLtyHomeFullPageUrl = "visLtyHome.aspx"
+			if xstrVisLang <> "" then
+				xstrLtyHomeFullPageUrl &= "?visLang=" & xstrVisLang
+			end if
+
+			
+			If (xstrVisLang <> "") Then
+				If (xstrVisLang = "2") Then
+					xstrHomeIMG = "Images/Button_HomeAlt.gif"
+					xstrNowShowingIMG = "Images/Button_NowShowingAlt.gif"
+					xstrComingSoonIMG = "Images/Button_ComingSoonAlt.gif"
+					xstrTermsIMG = "Images/Button_TermsAlt.gif"
+					xstrBuyTicketsIMG = "Images/Button_BuyTicketsAlt.gif"
+					xstrChangeLangIMG = "Images/Button_ChangeLangToDefault.gif"
+					xstrLoyaltyIMG = "Images/Button_MembersAlt.gif"
+					xstrCartIMG = "Images/Button_CartAlt.gif"
+
+					If xstrLoggedIn = "" Then
+						xstrLoginLogoutIMG = "Images/Button_LoginAlt.gif"
+					Else
+						xstrLoginLogoutIMG = "Images/Button_LogoutAlt.gif"
+					End If
+
+					'New alternate lang images folder
+					xstrHeaderMovieInfoIMG = "Images/Lang2/Header_MovieInfo.gif"
+					xstrHeaderBuyTicksIMG = "Images/Lang2/Header_BuyTickets.gif"
+                    xstrHeaderBuyConcIMG = "Images/Lang2/Header_BuyConcessions.gif"
+					xstrHeaderMembersIMG = "Images/Lang2/Header_MemberInfo.gif"
+					xstrHeaderMembersPopIMG = "Images/Lang2/Header_MemberPopup.gif"
+					xstrHeaderBuyTicksLongIMG = "Images/Lang2/Header_BuyTicketsLong.gif"
+					xstrShopOnlineIMG = "Images/Lang2/Button_ShopOnline.gif"
+					xstrHeaderShopOnlineIMG = "Images/Lang2/Header_ShopOnline.gif"
+				Else
+					xstrHomeIMG = "Images/Button_Home.gif"
+					xstrNowShowingIMG = "Images/Button_NowShowing.gif"
+					xstrComingSoonIMG = "Images/Button_ComingSoon.gif"
+					xstrTermsIMG = "Images/Button_Terms.gif"
+					xstrBuyTicketsIMG = "Images/Button_BuyTickets.gif"
+					xstrChangeLangIMG = "Images/Button_ChangeLangToAlt.gif"
+					xstrLoyaltyIMG = "Images/Button_Members.gif"
+					xstrCartIMG = "Images/Button_Cart.gif"
+
+					If xstrLoggedIn = "" Then
+						xstrLoginLogoutIMG = "Images/Button_Login.gif"
+					Else
+						xstrLoginLogoutIMG = "Images/Button_Logout.gif"
+					End If
+
+					xstrHeaderMovieInfoIMG = "Images/Header_MovieInfo.gif"
+					xstrHeaderBuyTicksIMG = "Images/Header_BuyTickets.gif"
+                    xstrHeaderBuyConcIMG = "Images/Header_BuyConcessions.gif"
+					xstrHeaderMembersIMG = "Images/Header_MemberInfo.gif"
+					xstrHeaderMembersPopIMG = "Images/Header_MemberPopup.gif"
+					xstrHeaderBuyTicksLongIMG = "Images/Header_BuyTicketsLong.gif"
+					xstrShopOnlineIMG = "Images/Button_ShopOnline.gif"
+                    xstrHeaderShopOnlineIMG = "Images/Header_ShopOnline.gif"
+
+				End If
+
+				xstrHomeURL = "visHome.aspx?visLang=" & xstrVisLang
+				xstrNowShowingURL = "visMovies.aspx?visLang=" & xstrVisLang
+				xstrComingSoonURL = "visMovies.aspx?visMode=ComingSoon&visLang=" & xstrVisLang
+				xstrTermsURL = "visTerms.aspx?visLang=" & xstrVisLang
+				xstrBuyTicketsURL = "visSelect.aspx?visLang=" & xstrVisLang
+				xstrShopOnlineURL = "visShop.aspx?visLang=" & xstrVisLang
+				if xblnDualMemberMode And Not xblnLtyLoggedIn then
+					xstrLoyaltyURL = "visMbrLogin.aspx?visLang=" & xstrVisLang & "&ReturnUrl=" & Server.URLencode(xstrFullPageUrl) & "&LtyReturnUrl=" & Server.URLencode(xstrLtyHomeFullPageUrl)
+				else
+					xstrLoyaltyURL = "visLtyHome.aspx?visLang=" & xstrVisLang
+				end if
+				
+                xstrCartURL = "visOrderCart.aspx?visLang=" & xstrVisLang 
+				If xObjOrder.CinemaID <> "" then
+				    If Not (xObjOrder.Concessions is Nothing) Then
+				        If (xObjOrder.Sessions is Nothing) Then
+        			        If xObjOrder.Concessions.Count > 0 Then xstrCartURL = "visShop.aspx?visLang=" & xstrVisLang			    
+				        ElseIf (xObjOrder.Sessions.Count = 0) Then
+        			        If xObjOrder.Concessions.Count > 0 Then xstrCartURL = "visShop.aspx?visLang=" & xstrVisLang			    
+                	    End If		    
+				    End If
+				End If
+				
+				If xstrLoggedIn = "" Then
+					'xstrLoginLogoutURL = "visMbrLogin.aspx?ReturnURL=" & xstrLocation & "&visLang=" & xstrVisLang
+					xstrLoginLogoutURL = "visMbrLogin.aspx?ReturnURL=" & server.urlencode(xstrLocation & "?visLang=" & xstrVisLang) & "&visLang=" & xstrVisLang
+				Else
+					xstrLoginLogoutURL = "visMbrLogin.aspx?visSignOut=Y&visLang=" & xstrVisLang
+				End If
+
+			Else
+				xstrVisLang = ""
+
+				xstrHomeIMG = "Images/Button_Home.gif"
+				xstrNowShowingIMG = "Images/Button_NowShowing.gif"
+				xstrComingSoonIMG = "Images/Button_ComingSoon.gif"
+				xstrTermsIMG = "Images/Button_Terms.gif"
+				xstrBuyTicketsIMG = "Images/Button_BuyTickets.gif"
+				xstrLoyaltyIMG = "Images/Button_Members.gif"
+				xstrHeaderMovieInfoIMG = "Images/Header_MovieInfo.gif"
+				xstrHeaderBuyTicksIMG = "Images/Header_BuyTickets.gif"
+                xstrHeaderBuyConcIMG = "Images/Header_BuyConcessions.gif"
+				xstrHeaderMembersIMG = "Images/Header_MemberInfo.gif"
+				xstrHeaderMembersPopIMG = "Images/Header_MemberPopup.gif"
+				xstrHeaderBuyTicksLongIMG = "Images/Header_BuyTicketsLong.gif"
+				xstrShopOnlineIMG = "Images/Button_ShopOnline.gif"
+				xstrHeaderShopOnlineIMG = "Images/Header_ShopOnline.gif"
+
+				If xstrLoggedIn = "" Then
+					xstrLoginLogoutIMG = "Images/Button_Login.gif"
+				Else
+					xstrLoginLogoutIMG = "Images/Button_Logout.gif"
+				End If
+				xstrCartIMG = "Images/Button_Cart.gif"
+
+				xstrHomeURL = "visHome.aspx"
+				xstrNowShowingURL = "visMovies.aspx"
+				xstrComingSoonURL = "visMovies.aspx?visMode=ComingSoon"
+				xstrTermsURL = "visTerms.aspx"
+				xstrBuyTicketsURL = "visSelect.aspx"
+				xstrShopOnlineURL = "visShop.aspx"
+				if xblnDualMemberMode And Not xblnLtyLoggedIn then
+					xstrLoyaltyURL = "visMbrLogin.aspx?ReturnUrl=" & Server.URLencode(xstrFullPageUrl) & "&LtyReturnUrl=" & Server.URLencode(xstrLtyHomeFullPageUrl)
+				else
+					xstrLoyaltyURL = "visLtyHome.aspx"
+				end if
+
+				If xstrLoggedIn = "" Then
+					xstrLoginLogoutURL = "visMbrLogin.aspx?ReturnURL=" & xstrLocation
+				Else
+					xstrLoginLogoutURL = "visMbrLogin.aspx?visSignOut=Y"
+				End If
+
+                xstrCartURL = "visOrderCart.aspx?visLang=" & xstrVisLang 
+				If xObjOrder.CinemaID <> "" then
+				    If Not (xObjOrder.Concessions is Nothing) Then
+				        If (xObjOrder.Sessions is Nothing) Then
+        			        If xObjOrder.Concessions.Count > 0 Then xstrCartURL = "visShop.aspx?visLang=" & xstrVisLang			    
+				        ElseIf (xObjOrder.Sessions.Count = 0) Then
+        			        If xObjOrder.Concessions.Count > 0 Then xstrCartURL = "visShop.aspx?visLang=" & xstrVisLang			    
+                	    End If		    
+				    End If
+                End If
+			End If
+
+			'-----------------------------------------------------------
+
+			'-----------------------------------------------------------
+			'-- Create Link for ChangeLang (preserving full querystring)
+			'-----------------------------------------------------------
+
+			xstrFullURL = Request.ServerVariables("QUERY_STRING")
+
+			If xstrVisLang = "1" Then
+				If xstrFullURL <> "" Then
+					If InStr(xstrFullURL, "visLang=") > 0 Then
+						xstrFullURL = Replace(xstrFullURL, "visLang=1", "visLang=2")
+						xstrFullURL = Replace(xstrFullURL, "visLang%3d1", "visLang%3d2")
+					Else
+						xstrFullURL = xstrFullURL & "&visLang=2"
+					End If
+				Else
+					xstrFullURL = "visLang=2"
+				End If
+			Else
+				If xstrFullURL <> "" Then
+					If InStr(xstrFullURL, "visLang=") > 0 Then
+						xstrFullURL = Replace(xstrFullURL, "visLang=2", "visLang=1")
+						xstrFullURL = Replace(xstrFullURL, "visLang%3d2", "visLang%3d1")
+					Else
+						xstrFullURL = xstrFullURL & "&visLang=1"
+					End If
+				Else
+					xstrFullURL = "visLang=1"
+				End If
+			End If
+
+			xstrFullURL = xstrPageName & "?" & xstrFullURL
+
+			'-----------------------------------------------------------
+
+			'Check which page we are on, ignoring string case
+			If (LCase(xstrPageName) = "vismovies.aspx") or (LCase(xstrPageName) = "vismovieinfo.aspx") or (LCase(xstrPageName) = "visratings.aspx") or (LCase(xstrPageName) = "visshowtimes.aspx") or (LCase(xstrPageName) = "visselectfromcinema.aspx") Then
+            %>
+            <table border="0" cellspacing="0" cellpadding="0" width="754">
+                <tr style="height: 108px;">
+                    <td colspan="2">
+                        <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                            top: 0px;">
+                        <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                            height: auto; overflow: visible; visibility: inherit;">
+                            <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a>
+                            <% If (xstrEnableShopOnline = "Y") Then %>
+                            &nbsp;<a href="<%=xstrShopOnlineURL%>" border="0">
+                                <img src="<%=xstrShopOnlineIMG%>" border="0" width="125" height="20"></a>
+                           <% End If %>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="161" valign="top">
+                        <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                        <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                            height: auto; overflow: visible; visibility: inherit;">
+                            <a href="<%=xstrHomeURL%>" border="0">
+                                <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                            <br />
+                            <a href="<%=xstrNowShowingURL%>" border="0">
+                                <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                            <br />
+                            <a href="<%=xstrComingSoonURL%>" border="0">
+                                <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                            <br />
+                            <a id="lnkTerms" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                            <% If (xblnShowLoyaltyMemberLink) Then %>
+                            <br />
+                            <a href="<%=xstrLoyaltyURL%>" border="0">
+                                <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                            <% End If %>
+                            <% If (xblnShowWebMemberLink) Then %>
+                            <br />
+                            <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                            <% End If %>
+                            <% If (xblnShoppingCartMode) Then %>
+                            <br />
+                            <a href="<%=xstrCartURL%>" border="0">
+                                <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                            <% End If %>
+                            <br />
+                            <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                        </div>
+                    </td>
+                    <td width="593" valign="top">
+                        <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF">
+                            <tr>
+                                <td colspan="3" align="center">
+                                    <img src="<%=xstrHeaderMovieInfoIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" height="5">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" align="center">
+                                    <table border="0" cellspacing="0" cellpadding="0" width="590px">
+                                        <tr>
+                                            <td colspan="3" align="center" valign="top">
+                                                <%
+			ElseIf (LCase(xstrPageName) = "visselecttickets.aspx") or (LCase(xstrPageName) = "visselectseats.aspx") or (LCase(xstrPageName) = "visselectconcessions.aspx") or (LCase(xstrPageName) = "vispayment.aspx") or (LCase(xstrPageName) = "visordercart.aspx") or (LCase(xstrPageName) = "visconfirmation.aspx") or (LCase(xstrPageName) = "viswebpaymentconfirm.aspx")  or (LCase(xstrPageName) = "vispaywithpoints.aspx") Then
+                                                %>
+                                                <table border="0" cellspacing="0" cellpadding="0" width="754">
+                                                    <tr style="height: 108px;">
+                                                        <td colspan="2">
+                                                            <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                top: 0px;">
+                                                            <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                height: auto; overflow: visible; visibility: inherit;">
+                                                                <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                    <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="161" valign="top">
+                                                            <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                            <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                height: auto; overflow: visible; visibility: inherit;">
+                                                                <a href="<%=xstrHomeURL%>" border="0">
+                                                                    <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                <br />
+                                                                <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                    <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                <br />
+                                                                <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                    <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                <br />
+                                                                <a id="lnkTerms" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                    <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                <br />
+                                                                <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                    <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                <% End If %>
+                                                                <% If (xblnShowWebMemberLink) Then %>
+                                                                <br />
+                                                                <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                    <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                <% End If %>
+                                                                <% If (xblnShoppingCartMode) Then %>
+                                                                <br />
+                                                                <a href="<%=xstrCartURL%>" border="0">
+                                                                    <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                <% End If %>
+                                                                <br />
+                                                                <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                                                    src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                                                            </div>
+                                                        </td>
+                                                        <td width="593" valign="top">
+                                                            <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF">
+                                                                <tr>
+                                                                    <td colspan="3" align="center">
+                                                                        <img src="<%=xstrHeaderBuyTicksLongIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" height="5">
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3" height="5">
+                                                                        <table border="0" cellspacing="0" cellpadding="0" width="590">
+                                                                            <tr>
+                                                                                <td colspan="3" align="center" valign="top">
+                                                                                    <%
+			ElseIf (LCase(xstrPageName) = "vishome.aspx") Then
+                                                                                    %>
+                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="754">
+                                                                                        <tr style="height: 108px;">
+                                                                                            <td colspan="2">
+                                                                                                <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                    top: 0px;">
+                                                                                                <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                    height: auto; overflow: visible; visibility: inherit;">
+                                                                                                    <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                                                        <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <% If (xstrEnableShopOnline = "Y") Then %>
+                                                                                                    &nbsp;<a href="<%=xstrShopOnlineURL%>" border="0">
+                                                                                                    <img src="<%=xstrShopOnlineIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <% End If %>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                            <td width="161" valign="top">
+                                                                                                <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                    height: auto; overflow: visible; visibility: inherit;">
+                                                                                                    <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                        <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <br />
+                                                                                                    <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                        <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <br />
+                                                                                                    <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                        <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <br />
+                                                                                                    <a id="lnkTerms" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                        <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                    <br />
+                                                                                                    <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                        <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <% End If %>
+                                                                                                    <% If (xblnShowWebMemberLink) Then %>
+                                                                                                    <br />
+                                                                                                    <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                        <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <% End If %>
+                                                                                                    <% If (xblnShoppingCartMode) Then %>
+                                                                                                    <br />
+                                                                                                    <a href="<%=xstrCartURL%>" border="0">
+                                                                                                        <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                    <% End If %>
+                                                                                                    <br />
+                                                                                                    <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                                                                                        src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td width="593" valign="top">
+                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="590px">
+                                                                                                    <tr>
+                                                                                                        <td width="590" valign="top">
+                                                                                                            <%
+			ElseIf (LCase(xstrPageName) = "visterms.aspx") or (LCase(xstrPageName) = "visticketcontents.aspx") Then
+                                                                                                            %>
+                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="468px" bgcolor="#FFFFFF">
+                                                                                                                <tr>
+                                                                                                                    <td colspan="3" align="center">
+                                                                                                                        <img src="<%=xstrHeaderBuyTicksIMG%>" width="468" height="20" border="0" class="FormStandard">
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td colspan="3" height="5">
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td colspan="3" height="5">
+                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="468">
+                                                                                                                            <tr>
+                                                                                                                                <td colspan="3" align="center" valign="top">
+                                                                                                            <%
+            ElseIf (LCase(xstrPageName) = "visconcessioncontents.aspx") Then
+                                                                                                            %>
+                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="468px" bgcolor="#FFFFFF">
+                                                                                                                <tr>
+                                                                                                                    <td colspan="3" align="center">
+                                                                                                                        <img src="<%=xstrHeaderBuyConcIMG%>" width="468" height="20" border="0" class="FormStandard">
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td colspan="3" height="5">
+                                                                                                                    </td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td colspan="3" height="5">
+                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="468">
+                                                                                                                            <tr>
+                                                                                                                                <td colspan="3" align="center" valign="top">
+                                                                                                                                    <%
+			ElseIf (LCase(xstrPageName) = "visltyforgotdetails.aspx") or (LCase(xstrPageName) = "visltypurchaserewardconfirmation.aspx") or (LCase(xstrPageName) = "visltypurchaserewardconfirmationkiosk.aspx") Then
+                                                                                                                                    %>
+                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="460px" bgcolor="#FFFFFF">
+                                                                                                                                        <tr>
+                                                                                                                                            <td colspan="3" align="center">
+                                                                                                                                                <img src="<%=xstrHeaderMembersPopIMG%>" width="460" height="20" border="0" class="FormStandard">
+                                                                                                                                            </td>
+                                                                                                                                        </tr>
+                                                                                                                                        <tr>
+                                                                                                                                            <td colspan="3" height="5">
+                                                                                                                                            </td>
+                                                                                                                                        </tr>
+                                                                                                                                        <tr>
+                                                                                                                                            <td colspan="3" height="5">
+                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="460">
+                                                                                                                                                    <tr>
+                                                                                                                                                        <td colspan="3" align="center" valign="top">
+                                                                                                                                                            <%
+			ElseIf (LCase(xstrPageName) = "vismbrregister.aspx") or (LCase(xstrPageName) = "vismbrreminder.aspx") Then
+                                                                                                                                                            %>
+                                                                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="460px" bgcolor="#FFFFFF">
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td colspan="3" align="center">
+                                                                                                                                                                        <img src="<%=xstrHeaderMembersPopIMG%>" width="460" height="20" border="0" class="FormStandard">
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td colspan="3" height="5">
+                                                                                                                                                                    </td>
+                                                                                                                                                                </tr>
+                                                                                                                                                                <tr>
+                                                                                                                                                                    <td colspan="3" height="5">
+                                                                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="460px">
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                    <%
+			ElseIf (LCase(xstrPageName) = "vismbrbookings.aspx") Then
+                                                                                                                                                                                    %>
+                                                                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="754" id="Table1">
+                                                                                                                                                                                        <tr style="height: 108px;">
+                                                                                                                                                                                            <td colspan="2">
+                                                                                                                                                                                                <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                                                                                                                    top: 0px;">
+                                                                                                                                                                                                <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                                                                                                                    height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                    <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a></div>
+                                                                                                                                                                                            </td>
+                                                                                                                                                                                        </tr>
+                                                                                                                                                                                        <tr>
+                                                                                                                                                                                            <td width="161" valign="top">
+                                                                                                                                                                                                <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                                                                                                                <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                                                                                                                    height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                    <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <a id="A1" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                                                                                                                        <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <% End If %>
+                                                                                                                                                                                                    <% If (xblnShowWebMemberLink) Then %>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <% End If %>
+                                                                                                                                                                                                    <% If (xblnShoppingCartMode) Then %>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <a href="<%=xstrCartURL%>" border="0">
+                                                                                                                                                                                                        <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                    <% End If %>
+                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                    <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                                                                                                                                                                                        src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                            </td>
+                                                                                                                                                                                            <td width="593" valign="top">
+                                                                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF"
+                                                                                                                                                                                                    id="Table2">
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td colspan="3" align="center">
+                                                                                                                                                                                                            <img src="<%=xstrHeaderMembersIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td colspan="3" height="5">
+                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                        <td colspan="3" align="center">
+                                                                                                                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="590px" id="Table3">
+                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                    <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                        <%
+			ElseIf (LCase(xstrPageName) = "viseventinfo.aspx") Then
+                                                                                                                                                                                                                        %>
+                                                                                                                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="754" id="Table5">
+                                                                                                                                                                                                                            <tr style="height: 108px;">
+                                                                                                                                                                                                                                <td colspan="2">
+                                                                                                                                                                                                                                    <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                                                                                                                                                        top: 0px;">
+                                                                                                                                                                                                                                    <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                                                                                                                                                        height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                        <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <% If (xstrEnableShopOnline = "Y") Then %>
+                                                                                                                                                                                                                                        &nbsp;<a href="<%=xstrShopOnlineURL%>" border="0">
+                                                                                                                                                                                                                                        <img src="<%=xstrShopOnlineIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                <td width="161" valign="top">
+                                                                                                                                                                                                                                    <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                                                                                                                                                    <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                                                                                                                                                        height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                        <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <a id="A3" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                                                                                                                                                            <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                        <% If (xblnShowWebMemberLink) Then %>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                        <% If (xblnShoppingCartMode) Then %>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <a href="<%=xstrCartURL%>" border="0">
+                                                                                                                                                                                                                                            <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                        <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                                                                                                                                                                                                                            src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                <td width="593" valign="top">
+                                                                                                                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF"
+                                                                                                                                                                                                                                        id="Table8">
+                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                            <td colspan="3" align="center">
+                                                                                                                                                                                                                                                <img src="<%=xstrHeaderMovieInfoIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                        </tr>
+                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                            <td colspan="3" height="5">
+                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                        </tr>
+                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                            <td colspan="3" align="center">
+                                                                                                                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="590px" id="Table9">
+                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                        <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                                                            <%
+			ElseIf (LCase(xstrPageName) = "visltypurchaserewardskiosk.aspx") Then
+                                                                                                                                                                                                                                                            %>
+                                                                                                                                                                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="580" id="Table4">
+                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                    <td width="593" valign="top">
+                                                                                                                                                                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF"
+                                                                                                                                                                                                                                                                            id="Table6">
+                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                    <img src="<%=xstrHeaderMembersIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                <td colspan="3" height="5">
+                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="590px" id="Table7">
+                                                                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                                                                            <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                                                                                                <%
+			ElseIf (LCase(xstrPageName).IndexOf("vislty") >= 0) Or (LCase(xstrPageName) = "vismembershipoption.aspx") Then
+                                                                                                                                                                                                                                                                                                %>
+                                                                                                                                                                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="754" id="Table4">
+                                                                                                                                                                                                                                                                                                    <tr style="height: 108px;">
+                                                                                                                                                                                                                                                                                                        <td colspan="2">
+                                                                                                                                                                                                                                                                                                            <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                                                                                                                                                                                                                                top: 0px;">
+                                                                                                                                                                                                                                                                                                            <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                                                                                                                                                                                                                                height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <% If (xstrEnableShopOnline = "Y") Then %>
+                                                                                                                                                                                                                                                                                                                &nbsp;<a href="<%=xstrShopOnlineURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                <img src="<%=xstrShopOnlineIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <% End If %>
+                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                        <td width="161" valign="top">
+                                                                                                                                                                                                                                                                                                            <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                                                                                                                                                                                                                            <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                                                                                                                                                                                                                                height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <a id="A2" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <% End If %>
+                                                                                                                                                                                                                                                                                                                <% If (xblnShowWebMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <% End If %>
+                                                                                                                                                                                                                                                                                                                <% If (xblnShoppingCartMode) Then %>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <a href="<%=xstrCartURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                <% End If %>
+                                                                                                                                                                                                                                                                                                                <br />
+                                                                                                                                                                                                                                                                                                                <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                                                                                                                                                                                                                                                                                                    src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                                                        <td width="593" valign="top">
+                                                                                                                                                                                                                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF"
+                                                                                                                                                                                                                                                                                                                id="Table6">
+                                                                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                                                                    <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrHeaderMembersIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                                                                                                                                </tr>
+                                                                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                                                                    <td colspan="3" height="5">
+                                                                                                                                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                                                                                                                                </tr>
+                                                                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                                                                    <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="590px" id="Table7">
+                                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                                <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                                                                                                                                    <%
+			ElseIf (LCase(xstrPageName) = "visconfirmationselect.aspx") Then
+                                                                                                                                                                                                                                                                                                                                    %>
+                                                                                                                                                                                                                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="754">
+                                                                                                                                                                                                                                                                                                                                        <tr style="height: 108px;">
+                                                                                                                                                                                                                                                                                                                                            <td colspan="2">
+                                                                                                                                                                                                                                                                                                                                                <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                                                                                                                                                                                                                                                                    top: 0px;">
+                                                                                                                                                                                                                                                                                                                                                <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                                                                                                                                                                                                                                                                    height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a></div>
+                                                                                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                                                                                        </tr>
+                                                                                                                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                                                                                                                            <td width="161" valign="top">
+                                                                                                                                                                                                                                                                                                                                                <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                                                                                                                                                                                                                                                                <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                                                                                                                                                                                                                                                                    height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <a id="A4" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <% End If %>
+                                                                                                                                                                                                                                                                                                                                                    <% If (xblnShowWebMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <% End If %>
+                                                                                                                                                                                                                                                                                                                                                    <% If (xblnShoppingCartMode) Then %>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <a href="<%=xstrCartURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                    <% End If %>
+                                                                                                                                                                                                                                                                                                                                                    <br />
+                                                                                                                                                                                                                                                                                                                                                    <% If (xstrDualLanguageMode = "Y" and LCase(xstrPageName) <> "visconfirmation.aspx") Then %><a
+                                                                                                                                                                                                                                                                                                                                                        href="<%=xstrFullURL%>" border="0"><img src="<%=xstrChangeLangIMG%>" border="0" width="125"
+                                                                                                                                                                                                                                                                                                                                                            height="20"></a><% End If %>
+                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                                                                                            <td width="593" valign="top">
+                                                                                                                                                                                                                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="590px" bgcolor="#FFFFFF"
+                                                                                                                                                                                                                                                                                                                                                    id="Table11">
+                                                                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                                                                        <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrHeaderBuyTicksLongIMG%>" width="590" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                                                                        <td colspan="3" height="5">
+                                                                                                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                                                                                                    </tr>
+                                                                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                                                                        <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                                                                                            <table border="0" cellspacing="0" cellpadding="0" width="590px" id="Table12">
+                                                                                                                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                                                                                                                    <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                        <%
+			ElseIf (LCase(xstrPageName) = "visshop.aspx") Or (LCase(xstrPageName) = "visshopdelmethod.aspx") Or (LCase(xstrPageName) = "visshopbillinfo.aspx") Or (LCase(xstrPageName) = "visshoppayment.aspx")  Or (LCase(xstrPageName) = "visshopconfirmation.aspx") Then
+                                                                                                                                                                                                                                                                                                                                                                        %>
+                                                                                                                                                                                                                                                                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="754">
+                                                                                                                                                                                                                                                                                                                                                                            <tr style="height: 108px;">
+                                                                                                                                                                                                                                                                                                                                                                                <td colspan="2">
+                                                                                                                                                                                                                                                                                                                                                                                    <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                                                                                                                                                                                                                                                                                                        top: 0px;">
+                                                                                                                                                                                                                                                                                                                                                                                    <div id="Div1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                                                                                                                                                                                                                                                                                                        height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrShopOnlineURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrShopOnlineIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                                                                                <td width="161" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                                    <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                    <div id="Div2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                                                                                                                                                                                                                                                                                                        height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a id="A5" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xblnShowWebMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                         <% If (xblnShoppingCartMode) Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrCartURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xstrDualLanguageMode = "Y") Then %><a href="<%=xstrFullURL%>" border="0"><img
+                                                                                                                                                                                                                                                                                                                                                                                            src="<%=xstrChangeLangIMG%>" border="0" width="125" height="20"></a><% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                                                                                                                                <td width="593" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="462px" bgcolor="#FFFFFF">
+                                                                                                                                                                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                                                                                                                                                                            <td colspan="3" height="5">
+                                                                                                                                                                                                                                                                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="462">
+                                                                                                                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                                                                                                                        <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                                                            <%
+			Else
+                                                                                                                                                                                                                                                                                                                                                                        %>
+                                                                                                                                                                                                                                                                                                                                                                        <table border="0" cellspacing="0" cellpadding="0" width="754">
+                                                                                                                                                                                                                                                                                                                                                                            <tr style="height: 108px;">
+                                                                                                                                                                                                                                                                                                                                                                                <td colspan="2">
+                                                                                                                                                                                                                                                                                                                                                                                    <img src="Images/TopFrame.gif" width="754" height="108" border="0" style="position: absolute;
+                                                                                                                                                                                                                                                                                                                                                                                        top: 0px;">
+                                                                                                                                                                                                                                                                                                                                                                                    <div id="ButtonLayer1" style="position: relative; top: 18px; left: 161px; width: 300px;
+                                                                                                                                                                                                                                                                                                                                                                                        height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrBuyTicketsURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrBuyTicketsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xstrEnableShopOnline = "Y") Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        &nbsp;<a href="<%=xstrShopOnlineURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                        <img src="<%=xstrShopOnlineIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                                                                                                                            </tr>
+                                                                                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                                                                                <td width="161" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                                    <img src="Images/LeftFrame.gif" width="161" height="312" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                    <div id="ButtonLayer2" style="position: relative; top: -285px; left: 5px; width: 161px;
+                                                                                                                                                                                                                                                                                                                                                                                        height: auto; overflow: visible; visibility: inherit;">
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrHomeURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrHomeIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrNowShowingURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrNowShowingIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrComingSoonURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrComingSoonIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a id="lnkTerms" class="StandardLink" href="javascript:openWindow('<%=xstrTermsURL%>',500,580)">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrTermsIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xblnShowLoyaltyMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a  href="<%=xstrLoyaltyURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrLoyaltyIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xblnShowWebMemberLink) Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrLoginLogoutURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrLoginLogoutIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xblnShoppingCartMode) Then %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <a href="<%=xstrCartURL%>" border="0">
+                                                                                                                                                                                                                                                                                                                                                                                            <img src="<%=xstrCartIMG%>" border="0" width="125" height="20"></a>
+                                                                                                                                                                                                                                                                                                                                                                                        <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                        <br />
+                                                                                                                                                                                                                                                                                                                                                                                        <% If (xstrDualLanguageMode = "Y" and LCase(xstrPageName) <> "visconfirmation.aspx") Then %><a
+                                                                                                                                                                                                                                                                                                                                                                                            href="<%=xstrFullURL%>" border="0"><img src="<%=xstrChangeLangIMG%>" border="0" width="125"
+                                                                                                                                                                                                                                                                                                                                                                                                height="20"></a><% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                                                                                                                                <td width="593" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                                    <table border="0" cellspacing="0" cellpadding="0" width="462px" bgcolor="#FFFFFF">
+                                                                                                                                                                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                                                                                                                                                                            <td colspan="3" align="center">
+                                                                                                                                                                                                                                                                                                                                                                                                <% If xblnShopProcess Then %>
+                                                                                                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrHeaderShopOnlineIMG%>" width="462" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                                                                                                                                                                                                                <% Else %>
+                                                                                                                                                                                                                                                                                                                                                                                                    <img src="<%=xstrHeaderBuyTicksIMG%>" width="462" height="20" border="0" class="FormStandard">
+                                                                                                                                                                                                                                                                                                                                                                                                <% End If %>
+                                                                                                                                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                                                                                                                                        </tr>
+                                                                                                                                                                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                                                                                                                                                                            <td colspan="3" height="5">
+                                                                                                                                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                                                                                                                                        </tr>
+                                                                                                                                                                                                                                                                                                                                                                                        <tr>
+                                                                                                                                                                                                                                                                                                                                                                                            <td colspan="3" height="5">
+                                                                                                                                                                                                                                                                                                                                                                                                <table border="0" cellspacing="0" cellpadding="0" width="462">
+                                                                                                                                                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                                                                                                                                                        <td colspan="3" align="center" valign="top">
+                                                                                                                                                                                                                                                                                                                                                                                                            <%
+			End If
+                                                                                                                                                                                                                                                                                                                                                                                                            %>

@@ -1,0 +1,145 @@
+﻿<style type="text/css">
+	body {
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+		width:700px;
+	}
+	table {
+		width:700px;
+	}
+	#hd {
+		text-align:center;
+		background-color:#EEEEE0;
+	}
+	#bd{
+		text-align:left;
+		background-color:#EEEEE0;
+	}
+	#ft {
+		text-align:left;
+		background-color:#EEEEE0;
+		font-size:12px;
+		margin:3px;
+	}
+    #ft h3 {
+		font-size:14px;
+	}
+	#dt, #it {
+		text-align:left;
+		margin:0;
+		padding:0;
+		border:1px solid #EEEEE0;
+	}
+    #it .number {
+        text-align: right;
+    }
+	#hd, #bd, #ft {
+		margin:3px 0;
+		padding:5px;
+	}
+	h1, h3, p, td, ul {
+		font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+		color:#666666;
+	}
+	#hd p {
+		text-align:left;
+		font-size:10px;
+		margin:3px;
+	}
+	#hd img {
+		width:592px;
+		height:155px;
+	}
+
+	#bd h1 {
+		font-size:16px;
+		margin:3px;
+	}
+	#bd h3 {
+		font-size:14px;
+		margin:3px;
+	}
+	#bd p {
+		font-size:12px;
+		margin:3px;
+	}
+	td {
+		font-size:12px;
+		line-height:1.5em;
+		padding:4px;
+		background-color:#EEEEE0;
+	}
+	.label {
+		vertical-align:top;
+	}
+	.details {
+		font-weight:bold;
+	}
+
+</style>
+<body>
+	<table id="hd">
+		<tr>
+			<td>
+				<img src="http://localhost/ticketing/images/ConfirmationImage.png" alt="Vista Web Booking Confirmation" />
+				<p>Contact details can be added here. &nbsp; eg. Tel:09-9844570 &nbsp; Email:helpdesk@vistacinemas.com &nbsp; <a href="http://www.vista.co.nz">http://www.vista.co.nz</a></p>
+			</td>
+		</tr>
+	</table>
+	<table id="bd">
+		<tr>
+			<td>
+				<h1>Your Membership Confirmation</h1>
+				<h3>Hi <CUSTOMER_NAME></h3>
+				<p>Thank you for renewing your membership.</p>
+			</td>
+		</tr>
+	</table>
+	<table id="dt">
+		<colgroup>
+			<col width="225px" />
+			<col />
+		</colgroup>
+		<tr>
+			<td class="label">Order Number:</td>
+			<td class="details"><ORDER_NUMBER></td>
+		</tr>
+	    <tr>
+	        <td class="label">Order Reference:</td>
+	        <td class="details"><ORDER_REFERENCE></td>
+	    </tr>
+        <tr>
+			<td class="label">Card Number:</td>
+			<td class="details"><MBR_CARD_NUMBER></td>
+		</tr>
+		<tr>
+			<td class="label">Membership:</td>
+			<td class="details"><MEMBERSHIP_NAME></td>
+		</tr>
+		<tr>
+			<td class="label">Club:</td>
+			<td class="details"><CLUB_NAME>&nbsp;<MEMBERSHIP_LEVEL></td>
+		</tr>
+		<tr>
+			<td class="label">Expiry Date:</td>
+			<td class="details"><MEMBERSHIP_EXPIRY_DATE></td>
+		</tr>
+		<tr>
+			<td class="label">Total:</td>
+			<td class="details"><ORDER_TOTAL></td>
+		</tr>
+	</table>
+
+	<table id="ft">
+		<tr>
+			<td>
+				<h3>Special Messages: eg. Loyalty sign up information</h3>
+				<ul>
+					<li>Please keep this email for your records.</li>
+					<li>To login to your membership account go to and click on the members link.</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</body>

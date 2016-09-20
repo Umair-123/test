@@ -1,0 +1,54 @@
+@import "../../_Colours.scss";
+@import "../_Headings.scss";
+@import "../_FontsMobile.scss";
+@import "../_Flexbox.scss";
+
+.category-tabs > h2 {
+	@extend %page-heading-first-line;
+
+	em {
+		@extend %page-heading-second-line;
+	}
+}
+
+.blurb {
+	margin: 10px 0;
+}
+
+.categories {
+	.item {
+		vertical-align: middle;
+
+		.image-container {
+			display: none;
+		}
+
+		div, span {
+			display: inline-block;
+		}
+
+		.item-details {
+			@include flex-order(1);
+			@include box-flex(0 0 40%);
+		}
+
+		.item-footer {
+			@include flex-order(2);
+			@include box-flex(0 0 45%);
+			text-align: right;
+
+			.clear {
+				display: none;
+			}
+		}
+	}
+}
+
+.error-text {
+	margin-top: 10px;
+	color: $color-666666;
+}
+
+.signin-widget {
+    display:none;
+}

@@ -1,0 +1,50 @@
+﻿@using InternetTicketing.Infrastructure.Localisation
+@{
+    Layout = null;
+}
+
+<div id="quick-tickets">
+    <h2>@QuickTickets.Title</h2>
+    
+    <p>@QuickTickets.Blurb</p>
+
+    <button type="button" value="movie">@QuickTickets.MovieButtonText1<em>@QuickTickets.MovieButtonText2</em></button>@*
+  *@<button type="button" value="cinema">@QuickTickets.CinemaButtonText1<em>@QuickTickets.CinemaButtonText2</em></button>@*
+  *@<button type="button" value="type">@QuickTickets.ShowTypeButtonText1<em>@QuickTickets.ShowTypeButtonText2</em></button>@*
+  *@<button type="button" value="time">@QuickTickets.TimeButtonText1<em>@QuickTickets.TimeButtonText2</em></button>
+</div>
+
+ <div id="quick-tickets-overlay">
+    <button type="button" class="close"><span>@QuickTickets.Close</span></button>
+
+    <div id="quick-tickets-details">
+        <h3>@QuickTickets.HeadingText<em></em></h3>
+        
+        <dl>
+            <dt class="movies">@QuickTickets.SelectedMoviesLabel</dt>
+            <dd></dd>
+            <dt class="cinemas">@QuickTickets.SelectedCinemasLabel</dt>
+            <dd></dd>
+            <dt class="types">@QuickTickets.SelectedShowTypesLabel</dt>
+            <dd></dd>
+            <dt class="times">@QuickTickets.SelectedTimeLabel</dt>
+            <dd></dd>
+        </dl>
+
+        <button type="button" class="restart user-action"><span class="icon">@QuickTickets.Restart</span></button>
+        <button type="button" class="compare user-action"><span class="icon">@QuickTickets.SkipToResults</span></button>
+    </div>
+    
+    <div id="quick-tickets-selection">
+        <div class="selection"></div> 
+        
+        <div class="toolbar">
+            <span class="search">
+                <input type="text" placeholder="@QuickTickets.Search" />
+                <button type="button" class="clear-search"></button>
+            </span>
+            <button type="button" class="clear user-action"><span class="icon">@QuickTickets.Clear</span></button>
+            <button type="button" class="next"><span class="icon"></span></button>
+        </div>
+    </div>
+</div>

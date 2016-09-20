@@ -1,0 +1,110 @@
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+.category-tabs > h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+  text-transform: uppercase;
+}
+
+.category-tabs > h2 em {
+  font-size: 1.8rem;
+  color: #35a0a8;
+  display: block;
+  text-transform: uppercase;
+}
+
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+.blurb {
+  margin: 10px 0;
+}
+
+.categories .item {
+  vertical-align: middle;
+}
+.categories .item .image-container {
+  display: none;
+}
+.categories .item div, .categories .item span {
+  display: inline-block;
+}
+.categories .item .item-details {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  -ms-flex-order: 1;
+  -webkit-order: 1;
+  order: 1;
+  -webkit-box-flex: 0 0 40%;
+  -webkit-flex: 0 0 40%;
+  flex: 0 0 40%;
+  -ms-flex: 0 0 40%;
+}
+.categories .item .item-footer {
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 2;
+  -webkit-order: 2;
+  order: 2;
+  -webkit-box-flex: 0 0 45%;
+  -webkit-flex: 0 0 45%;
+  flex: 0 0 45%;
+  -ms-flex: 0 0 45%;
+  text-align: right;
+}
+.categories .item .item-footer .clear {
+  display: none;
+}
+
+.error-text {
+  margin-top: 10px;
+  color: #666666;
+}
+
+.signin-widget {
+  display: none;
+}

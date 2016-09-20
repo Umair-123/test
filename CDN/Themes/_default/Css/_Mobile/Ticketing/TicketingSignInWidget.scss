@@ -1,0 +1,135 @@
+﻿@import "../_Buttons";
+.ticketing-signin-widget,.ticketing-signedin-widget,.ticketing-signin-required-widget {
+    a {
+        padding:0px;
+        border:none;
+    }
+    .widget-blurb {
+        margin-bottom:15px;
+        display:block;
+    
+    }
+
+    .form-error {
+        margin-bottom:5px;
+    }
+    .form-actions {
+        text-align:right;
+        li {        
+            display:inline;
+        }
+        button {
+           //@extend %body-text;
+        }
+    }
+
+    .webforms-form {
+        .form-line {
+            height:auto;
+            line-height:normal;
+            padding-top:1px;
+            padding-bottom:1px;
+            label {
+                width:100px;
+                display:inline-block;
+           }
+
+           input {
+            width:60%;
+            margin-right:5px;
+           }
+        }
+
+        margin-bottom:5px;
+    }
+
+    .form-actions {
+        //padding-right:80px;    
+        //@extend %vertical-separator-list;    
+
+        #signInButton {
+            width:100%;
+            display:block;
+            position:absolute;
+            bottom:0;
+            @extend %button;
+        }
+    }
+
+    .form-actions {
+        text-align:right;        
+    }
+}
+
+.ticketing-signin-required-widget { 
+    margin-top:10px;
+    .widget-title {
+        //@extend %header;
+    }
+    
+    h2,#lblWidgetBlurb,.webforms-form,#ulSignInErrors {
+        margin-left:10px;
+        margin-right:10px;
+
+    }
+
+    h2 {
+        margin-bottom:5px;
+    }
+    .form-actions {
+        text-align:left;
+
+        #forgotPasswordLink {
+            margin-left:110px;
+        }
+
+        #signUpLink {
+            display:none;
+        }
+        
+    }    
+}
+.ticketing-signin-widget {
+    .widget-title {
+        //@extend %copy-header;
+    }
+
+    .widget-blurb {
+        margin-bottom:5px;
+        margin-bottom:5px;
+    }
+
+    .form-error {
+        margin-top:15px;
+        margin-bottom:10px;
+    }
+
+    .sign-in-form-toggler {
+        text-decoration:underline;
+    }
+
+    .sign-in-form-container {
+        margin-top:15px;        
+    }
+}
+
+.ticketing-signedin-widget {
+    .widget-title {
+       // @extend %copy-header;
+    }
+
+    .widget-blurb {
+        .member-name {
+            font-weight:bold;
+        }
+
+        margin-bottom:5px;
+        margin-bottom:5px;
+    }  
+
+    .webforms-form {
+        .form-line {
+            height:auto;
+        }
+    }
+}

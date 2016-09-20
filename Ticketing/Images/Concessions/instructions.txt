@@ -1,0 +1,22 @@
+Instructions for creating concession images
+--------------------------------------------
+
+1. Obtain an image of the concession item in jpg or gif format
+2. Crop the image to 400x300 pixels (or less)
+3. Look up the item HO code from Vista and name the file <hoitemcode>.jpg/gif *
+
+*  If no HO code exists, use the item code in Vista instead.
+   
+   
+Instructions for creating concession images for Online Shop
+------------------------------------------------------------
+
+1. Obtain an image of the concession item in jpg or gif format
+2. Create two sizes of the images - one 50x50 pixels, one 100x100 pixels (or less) *
+3. Look up the item HO code from Vista and name BOTH files with <hoitemcode>.jpg/gif **
+4. Add the 50x50 image to the "Images/Concessions/50/" folder
+5. Add the 100x100 image to the "Images/Concessions/50/" folder
+
+*  If no 100x100 image exists, the 50x50 images will be used in its place if it exists.
+   If neither of these images exist, no image will be displayed. 
+** If no HO code exists, use the item code in Vista instead. 

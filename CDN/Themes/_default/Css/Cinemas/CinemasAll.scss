@@ -1,0 +1,97 @@
+﻿@import "../_ItemList";
+
+#cinemas {
+
+	overflow: hidden; 
+	margin: -15px;
+	
+	h2 {
+		margin: 15px 15px 20px 15px;
+	}
+
+
+}
+
+#general-enquiries { 
+	float: right; 
+	margin: 15px;
+}
+
+#cinema-list {
+	@extend %item-list;	
+
+	.image-outer { 
+		@extend %image-outer;
+
+		width: 160px;
+		height: 160px;
+	}
+
+	.list-item { 
+		@extend %list-item;
+		height: auto;
+		border: none;
+
+		.item-details { 
+			@extend %item-details;
+
+			margin-left: 160px;
+			border-top: 1px solid $color-eaeaea;
+			height: auto;
+			//min-height: 120px;
+			position: relative;
+
+			.item-details-inner {
+				height: auto;
+				min-height: 76px;
+				
+			}
+
+			&:after {
+				visibility: hidden;
+				display: block;
+				content: "";
+				clear: both;
+				height: 0;
+			}
+
+		}
+
+		.main-action {
+			@extend %main-action;
+			border: none;
+			float: none;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			line-height: 14px;
+		}
+	}
+
+}
+
+
+/*
+.subtext { margin-top: 7px; }
+.cinema-title {
+	 border-bottom: none; 
+	 h3 {
+		 display: inline;
+	 }
+}
+*/
+.contact-other {
+	.contact-image {
+		float: left;
+		margin-right: 3px;
+		width: 15px;
+	}
+
+	.contact-email span {
+		background: url('../../Images/Icon_Email_Light.png') no-repeat center center;
+	}
+
+	.contact-phone span {
+		background: url('../../Images/Icon_Phone_Light.png') no-repeat center center;
+	}
+}

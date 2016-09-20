@@ -1,0 +1,461 @@
+@import "../_Colours";
+@import "../_Styles";
+@import "../_Fonts";
+
+$section-spacing-vertical: 30px;
+
+#select-tickets {
+    .main-page-blurb {
+        margin-bottom:$section-spacing-vertical;
+
+        p:last-child {
+            margin-bottom:0px;
+        }
+    }
+
+    .signin-widget
+    {
+        margin-bottom:$section-spacing-vertical;
+    }
+}
+
+/* SELECT TICKETS PAGE */
+.error-text { margin-bottom: 20px; }
+
+.order-details { float: right; }
+.countdown { margin-bottom: 30px; }
+
+.ticket-list { margin-bottom: 10px; box-sizing: border-box; }
+.ticket-list >* { margin: 15px; }
+.ticket-list h6 { font-size: 16px; }
+
+/* generic grid styles (TODO: refactor in Grid.css) */
+.ticket-list h6, .item >* { display: inline-block; }
+.ticket-list .grid-4-col h6, .grid-4-col .item >* { width: 25%; } 
+.ticket-list .grid-5-col h6, .grid-5-col .item >* { width: 20%; }
+.ticket-list .item >*, .ticket-list h6 { text-align: center; }
+.ticket-list .item >*:first-child, .ticket-list h6:first-child { text-align: left; }
+.ticket-list .item >*.last-child, .ticket-list h6.last-child { text-align: right; }
+
+
+.voucher-control { margin: 0; } /* reset margin to allow voucher-header to fill the space */
+.vouchers-in-order { margin: 15px; } /* re-apply margin */
+
+/* ticket voucher input field */
+#ticket-voucher { margin-left: 10px; width: 250px; }
+
+#ticket-voucher-pin { margin-left: 10px; width: 50px; }
+
+/* THIRD PARTY MEMBER TICKETS */
+.third-party-ticket-control {
+
+	// reset the margins set on a regular .ticket-list as these ticket lines need to span the entire
+	// container
+	margin: 0; 
+
+	h6 {
+		margin-top: 16px;
+		
+		&.first-child {
+			margin-left: 16px;
+		}
+	}
+
+	.item:nth-child(even) {
+		background-color: $color-row-banding;
+	}
+
+	.item {
+		padding-bottom: 10px;
+
+		> * {
+			vertical-align: top;
+			margin-top: 10px;
+			line-height: 16px;
+		}
+
+		label.desc {
+			box-sizing: border-box;
+			padding-left: 16px;
+		}
+
+		.last-step-button-list {
+			// ensure the buttons are stacked horizontally
+			>* {
+				float: left;
+				clear: both;
+			}
+		}
+
+		.third-party-member-ticket-card-number-entry {
+			text-align: right; 
+		}
+
+		.third-party-member-ticket-card-number {
+			width: 100%;
+			height: 14px;
+			&.card-promotion {
+				display: none;
+			}
+		}
+	}
+
+	.third-party-member-ticket-line {
+		
+		width: 100%;
+		margin: 10px 0 0 20px;
+		text-align: left;
+
+		.quantity {
+			margin-left: 5px;
+		}
+			
+		.desc {
+			margin-left: 3px;
+		}
+
+		.member-card-number {
+			margin-left: 5px;
+		}
+
+		.price {
+			margin-left: 30px;
+		}
+	}
+}
+
+
+.not-applicable { visibility: hidden; }
+
+/* forms */
+.form-line label { font-family: $font-segoe; font-size: 13px; color: $color-443e3b;
+                   display: inline-block; width: 170px; }
+.form-line.not-applicable { display: none; }
+
+
+/* ticket voucher add to order button */
+#add-voucher { margin-left: 10px; }
+
+.voucher-error { padding-top: 10px; }
+.vouchers-in-order { margin-top: 20px; }
+.form-line { line-height: 34px; }
+.voucher-line { margin-bottom: 10px; }
+.voucher-ticket { line-height: 15px; vertical-align: top; }
+.remove-voucher-ticket { margin-left: 10px; }
+
+/* nav buttons */
+#divOrderTickets { clear: both; text-align: right; margin-top: 10px; }
+
+
+/* copied from concessions */
+.voucher-header {
+    background: $color-eaeaea;
+    /*height: 34px;*/
+    /*line-height: 34px;*/
+    margin: 2px 0px 0 2px;
+    padding-left: 13px;
+}
+
+.voucher-header input {
+    width: 205px;
+    margin: 0 5px;
+}
+
+#select-tickets-list-wrapper {
+    float: left;
+    position: relative;
+}
+
+
+/* SIMILAR SESSIONS */
+.cheapest-ticket-today {
+	
+	margin-bottom: 10px;
+	font-size: 13px;
+
+	.cheapest-ticket-label {
+		color: $color-443e3b;
+		//font-weight: bold;
+		margin-right: 5px;
+
+		&:after {
+			content: ':';
+		}
+	}
+
+	.cheapest-ticket-description {
+		font-style: italic;
+	}
+}
+
+/* similar sessions selector */
+.session-selector {
+	float: left;
+	border: 1px solid $color-93908f;
+	border-right: 0;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; 
+	overflow: visible; // to ensure selected item triangle is visible
+	background-color: $color-eaeaea;
+    width: 175px;
+
+	.session-selector-title {
+		font-size: 19px;
+		margin: 5px;
+
+		em {
+			font-size: 28px;
+		}
+	}
+
+	.categories {
+		text-transform: none;
+	}
+
+	.session-list {
+
+		width: 100%;
+		border: 0;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		.session-list-item {
+			text-align: center;
+            line-height: 16px;
+            
+            .session-list-item-link {
+                border-top-color: $color-93908f;
+                padding-top: 6px;
+            }
+
+			&:not(.ui-tabs-selected):hover {
+				background-color: $color-d8d8d8;
+			}
+			
+			&.ui-tabs-selected:after {
+				z-index: 1; // ensures triangle displays over the top of the session-selector border
+			}
+
+            .similar-session-time {
+                display: block;
+            }
+
+            .similar-session-screen {
+                display: block;
+                font-style: italic;
+                font-size: 12px;
+            }
+		}
+
+        .session-list-item.ui-tabs-selected + .session-list-item a {
+            border-top-style: none;
+        }
+	}
+}
+
+/* modifications to ticket selection tabs due to similar sessions pane */
+#select-tickets-list-wrapper.has-similar-sessions {
+
+	width: 560px;
+
+	$tab-header-list-item-height: 33px;
+
+	.categories {
+		display: block;
+		width: 100%;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		border-bottom: 0;
+		background-color: $color-666666;
+
+		.tab-list-item-thirdpartymembertickets {
+			width: 145px;
+		}
+
+		li {
+			float: left;
+			width: 120px;
+			height: $tab-header-list-item-height;
+			text-align: left;
+			
+
+			a {
+				height: $tab-header-list-item-height;
+				width: 100%;
+				line-height: $tab-header-list-item-height;
+				border-top: 0;	
+				color: $color-d8d8d8;	
+				margin-left: 12px;
+			}
+				
+			&.ui-state-hover a {
+				color: $color-ffffff;		
+			}
+
+			&.ui-tabs-selected {
+				border-bottom: 0;
+
+				a {
+					color: $color-595655;
+				}
+
+				&:before {
+				  display: none;
+				}
+
+				&:after {
+					border-color: transparent $color-666666 transparent transparent;
+					border-color: rgba(0, 0, 0, 0) $color-666666 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+					border-style: solid;
+					border-width: 0px $tab-header-list-item-height $tab-header-list-item-height 0;
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					margin-top: 0px;
+					top: 0;
+					right: 0;
+				}
+			}
+
+			&.ui-state-hover {
+				background-color: transparent;
+			}
+		}
+		
+		.ui-tabs-selected {
+			
+			background-color: $color-ffffff;
+			
+			&.ui-state-hover {
+				background-color: $color-ffffff;		
+			}
+
+			a {
+				color: $color-595655;
+			}
+		}
+	}
+
+	.ticket-list.category-tabs-items {
+		width: 100%;
+		border-top: 0;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+
+		.tab {
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			border: 1px solid $color-93908f;
+			padding: 5px;
+
+			&.third-party-ticket-control {
+				border: 0;
+			}
+		}
+	}
+
+	#category-ticket-voucher {
+		border: 0;
+	}
+}
+
+.ticket-list {
+		
+	.is-exhausted-dynamic-ticket {
+        >* {
+    	    @extend %disabled;
+        }
+	}
+
+	.exhausted-dynamic-ticket-label {
+		font-style: italic;
+		white-space: nowrap;
+
+		&:before {
+			content: '-';
+			margin: 0 10px;
+		}
+	}
+
+    .hidden {
+        display: none;
+    }
+
+    li.dynamic-pricing-display {
+        padding: 2px;
+        margin-bottom: 6px;
+    }
+
+    li.dynamic-pricing-display:nth-child(even) {
+        background-color: $color-row-banding;
+    }
+
+    li.item label {
+        //vertical-align: middle;
+
+        span.ticket-price-description {
+            display: block;
+            padding-bottom: 3px;
+        }
+
+        span.ticket-price-description-dynamic-price {
+            color: $color-443e3b;
+        }
+
+        span.ticket-description {
+            display: block;
+        }
+
+        span.ticket-description button {
+            width: 15px;
+            height: 15px;
+            vertical-align: sub;
+        }
+    }
+}
+
+#packageInfoDialog {
+    background-color: #fff;
+    padding: 10px 20px 25px 20px;
+    height: auto !important;
+
+    .simplemodal-close {
+        float: right;
+    }
+    .simplemodal-wrap {
+        overflow: hidden !important;
+    }
+
+    .ticket-description {
+        font-size: 20px;
+        margin: 0 0 5px 0;
+    }
+
+    .ticket-long-description {
+        margin: 15px 0 15px 0;
+    }
+
+    .label-line, .value-line {
+        display: block;
+        span {
+            display: inline-block;
+            margin-bottom: 3px;
+        }
+        span:first-child {
+            width: 150px;
+        }
+        span:last-child {
+            min-width: 100px;
+            text-align: center;
+        }
+    }
+
+    .label-line {     
+        margin: 5px 0 5px 0;
+        span {
+            text-decoration: underline; 
+            margin-bottom: 5px;
+        }       
+    }
+
+}

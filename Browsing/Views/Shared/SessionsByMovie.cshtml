@@ -1,0 +1,80 @@
+@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Browsing.ViewModels.QuickTickets
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+
+@model CompareSessionsViewModel
+
+@{
+    var sessionsGrouped = Model.SessionsGrouped.ToArray();
+    var multiDateClass = Model.Filters.Date == null ? "multi-date" : "";
+}
+
+@Html.Partial("DateFilterTitle", Model.Filters, new ViewDataDictionary())
+
+<div class="film-list @multiDateClass">
+    @if (sessionsGrouped.Any())
+    {
+        for (int i = 0; i < sessionsGrouped.Length; i++)
+        {
+            var sessionsByDate = sessionsGrouped[i];
+            if (Model.Filters.Date == null)
+            {
+                <h3 class="date-group">@sessionsByDate.SessionDate.ToString("dddd dd MMMM")</h3>		        
+            }
+            var sessionGroups = sessionsByDate.SessionGroups.ToArray();
+            for (int index = 0; index < sessionGroups.Length; index++)
+            {
+                var lastClass = i == sessionsGrouped.Length - 1 && index == sessionGroups.Length - 1 ? "last" : "";                
+                var grouping = sessionGroups[index];
+                var movie = grouping.ScheduledFilm;
+                var routeId = @MovieIdHelper.GetRouteId(movie);
+                <div class="film-item @lastClass">
+                    <div class="movie-image">
+                        <div class="image-outer">
+                            <div style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.FilmPosterGraphic, routeId, CommonImageSizes.MovieList)')">
+                                <img src="@ContentDelivery.EntityImage(CdnMediaType.FilmPosterGraphic, routeId, CommonImageSizes.MovieList)" />
+                            </div>
+                            @if (!string.IsNullOrWhiteSpace(movie.TrailerUrl))
+                            {
+                                <a class="play" href="@movie.TrailerUrl" data-movie-id="@routeId"><div class="overlay">&nbsp;</div><span>@Movies.PlayTrailer</span></a>							
+                            }                        
+                        </div>                
+                        <img class="rating-image" src="@ContentDelivery.EntityImage(CdnMediaType.RatingIconGraphic, movie.Rating, CommonImageSizes.RatingImage)" alt="@movie.RatingDescription" width="22" height="22" />
+                    </div>
+                    <div class="film-showtimes">
+                        <div class="film-header">
+                            <a href="@BrowsingUrls.GetMovieDetailsUrl(routeId)">
+                                <h3 class="film-title">@Model.GetPropertyInCorrectLang(model => movie.Title, model => movie.TitleAlt)</h3>
+                            </a>
+                        </div>
+                        @foreach (var s in grouping.CinemaGroups)
+                        {
+                            <div class="session">
+                                @if (!movie.AllowTicketSales && movie.AdvertiseAdvanceBookingDate && movie.AdvanceBookingDate.HasValue)
+                                {
+                                    var advanceBookingDateForCulture = Model.FormattingService.FormatDate(movie.AdvanceBookingDate.Value);
+                                    var advanceBookingTime = Model.FormattingService.FormatTime(movie.AdvanceBookingDate.Value);
+                                    <span class="advance-sale-date">@string.Format(Shared.TicketsAvailableFrom, advanceBookingDateForCulture, advanceBookingTime)</span>
+                                }
+                                <div class="cinema-name">
+                                    <a href="@BrowsingUrls.GetCinemasDetailsUrl(s.Cinema.ID)">
+                                        <h4 class="session-date">@Model.GetPropertyInCorrectLang(model => s.Cinema.Name, model => s.Cinema.NameAlt)</h4>
+                                    </a>
+                                </div>
+                                @Html.Partial("SessionList", s.Sessions, ViewData)
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+    }
+    else
+    {
+        <p>@CompareSessions.NoSessions</p>
+    }
+</div>

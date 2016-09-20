@@ -1,0 +1,49 @@
+.sign-in-help:before, .sign-in-help:after {
+  content: " ";
+  display: table; }
+.sign-in-help:after {
+  clear: both; }
+.sign-in-help {
+  *zoom: 1; }
+
+.sign-in-help {
+  display: none; }
+  .sign-in-help .separator-bar {
+    border-bottom: solid 1px #FFF;
+    background-color: #B2B186;
+    height: 1px;
+    margin: 5px; }
+  .sign-in-help .help-content {
+    float: left;
+    margin-left: 10px;
+    padding-bottom: 10px; }
+    .sign-in-help .help-content .title {
+      font-size: 16px;
+      color: #443E3B;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 15px; }
+    .sign-in-help .help-content .link-list {
+      padding: 0px;
+      margin: 0px; }
+      .sign-in-help .help-content .link-list li {
+        margin-left: 0px;
+        padding-left: 0px;
+        text-align: left; }
+        .sign-in-help .help-content .link-list li a {
+          padding-bottom: 1px; }
+  .sign-in-help .close {
+    background-image: url("../../images/Icon_Close.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 12px;
+    display: block;
+    float: right;
+    margin-right: 5px;
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+    border: none;
+    padding-bottom: 1px; }
+
+/*# sourceMappingURL=SignInWidget.css.map */

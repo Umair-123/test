@@ -1,0 +1,135 @@
+@import "../../_Colours.scss";
+@import "../Flexbox.scss";
+@import "../Headers.scss";
+@import "../Lines.scss";
+@import "../Links.scss";
+@import "../FontsMobile.scss";
+@import "../_Icons.scss";
+
+/*
+
+
+*/
+
+.movie-list-page {
+    //padding: 7%;
+
+    .page-option-links {
+        //margin-bottom: 1.5rem;
+		padding: 1rem 0;
+        text-align: center;
+		@extend %title;
+		font-weight: normal;
+		@include display-box;
+
+        .option-link {
+			
+            @extend %link;
+            color: $color-443e3b;
+            
+            @extend %vertical-separator-list;
+           
+            &:first-child {
+				display: block;
+				width: 50%;
+            }
+
+            &:not(:first-child) {
+				display: block;
+				width: 50%;
+            }
+
+            &.selected {
+                color: $color-selected;
+            }
+        }
+    }
+    
+    .movie-list-item-link {
+	
+		&:hover {
+			background-color: #eaeaea;
+		}       
+        
+        @extend %link;
+        color: $color-666666;
+
+        @include display-box;
+        @include box-direction(row);
+
+		border-top: 1px solid $color-dadada;
+		height: 145px;
+		overflow: hidden;
+
+//        background-image: url("../../../Images/Mobile/Icons/Icons_Arrow_Right_37.png");
+//        background-position: 100% 0;
+//        background-size: 24px;
+//        background-repeat: no-repeat;
+
+        .movie-list-image {
+            @include box-flex(0 0 95px);
+            @include box-flex-legacy(0);
+			
+			img {
+				width: 100%;
+			}
+
+			.trailer-icon {
+				display: block;
+				position: relative;
+				bottom: 38px;
+                left: 60px;
+                width: 30px;
+                height: 30px;
+			    @extend %icon-trailer;
+				background-repeat: no-repeat;
+			}
+        }
+
+        .item-details {
+			@extend %link;
+			color: $color-443e3b;
+            @include box-flex(1 1 auto);
+            @include box-flex-legacy(1);
+
+            margin-left: 0.6rem;
+
+			padding: 0.3rem 0.3rem 0.3rem 0;
+
+            .item-title {
+                @extend %title;
+
+				font-size: $font-size-big;
+                font-weight: normal;
+                display: block;
+                vertical-align: top;
+            }
+        
+            .rating-image {
+                width: 20px;
+                margin: 0.3rem 0;
+            }
+
+            .blurb {
+				height: 70px;
+				margin-bottom: 0.5rem;
+				color: $color-666666;
+            }
+        }
+    }
+
+    .horizontal-separator {
+        border: 0;
+        border-top: 1px solid $color-93908f;
+        margin-bottom: 0.6rem;
+
+        &:last-child {
+            display: none;
+        }
+    }
+}
+
+
+.no-movies-showing {
+	padding: 1rem;
+}

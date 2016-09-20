@@ -1,0 +1,28 @@
+﻿@import "_Colours";
+@import "_Fonts";
+
+/* RADIO BUTTON GROUP */
+.radio-button-group {
+    display: inline-block; border-bottom: 1px solid $color-selected; margin-bottom: 10px; font-family: $font-calibri;
+
+    label { display: inline-block; width: 115px; font-size: 14px; color: $color-595655; text-align: center; cursor: pointer; text-transform: uppercase; 
+            border-bottom: 4px solid $color-transparent; padding-bottom: 8px;
+
+        &:hover { color: $color-666666; }
+
+        &.disabled { cursor: default; }
+    }
+
+    input:checked + label {
+        color: $color-selected; cursor: default; font-weight: bold; border-color: $color-selected; position: relative; 
+        &:before { content: ' ';
+             border-color: $color-transparent $color-transparent $color-selected $color-transparent;
+             border-color: $color-transparentrgba $color-transparentrgba $color-selected $color-transparentrgba; /* firefox transparency fix */
+             border-style: solid; border-width: 0px 4px 4px 4px; position: absolute;
+             bottom: 4px; left: 47%; margin-bottom: -4px; 
+        }
+    }
+    
+    input { display: none; }
+
+}

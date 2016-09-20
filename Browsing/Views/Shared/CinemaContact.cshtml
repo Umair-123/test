@@ -1,0 +1,37 @@
+﻿@using InternetTicketing.Infrastructure.Routing
+@using Vista.Connect
+@using InternetTicketing.Infrastructure.Localisation
+@model Cinema
+@{
+    var viewMap = ViewBag.ShowViewMap == true;
+}
+<div class="contact-cinema">
+    <div class="contact-address">
+        @if (!string.IsNullOrEmpty(Model.Address1))
+        {
+            <p>@Model.Address1</p>
+        }
+        @if (!string.IsNullOrEmpty(Model.Address2))
+        {
+            <p>@Model.Address2</p>
+        }
+        @if (!string.IsNullOrEmpty(Model.City))
+        {
+            <p>@Model.City</p>
+        }
+    </div>
+    <div class="contact-other">
+        @if (!string.IsNullOrEmpty(Model.PhoneNumber))
+        {
+            <p class="contact-phone"><span class="contact-image">&nbsp;</span>@Cinemas.Phone: @Model.PhoneNumber</p>
+        }
+        @if (!string.IsNullOrEmpty(Model.EmailAddress))
+        {
+            <p class="contact-email"><span class="contact-image">&nbsp;</span>@Cinemas.Email: <a href="mailto:@Model.EmailAddress">@Shared.ClickHere</a></p>
+        }
+        @if (viewMap && Model.Latitude != null && Model.Longitude != null)
+		{
+			<p><span>&nbsp;</span><a href="@BrowsingUrls.GetCinemasDetailsUrl(Model.ID)">@Cinemas.ViewMap</a><br /></p>
+        }
+    </div>
+</div>

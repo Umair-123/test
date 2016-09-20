@@ -1,0 +1,88 @@
+﻿@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Browsing.ViewModels.Loyalty
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Web
+
+@model SignInViewModel
+
+<script type="text/javascript">
+    Vista.Lang.SignIn = {};
+    Vista.Lang.SignIn.LoyaltyGeneralSignInError = @Html.Raw(LoyaltySignIn.GeneralSignInError.ToJson());
+</script>
+
+@* null action/controller makes it default to the rendering action *@
+@using (Html.BeginForm(null, null, new { Model.ReturnUrl }, FormMethod.Post, new { @class="loyalty-login" }))
+{
+    <h3>@LoyaltySignIn.TitleText1<em>@LoyaltySignIn.TitleText2</em></h3>
+    
+    <ul class="signin-errors">
+        @foreach(var keyValue in ViewContext.ViewData.ModelState)
+        {
+            foreach (var error in keyValue.Value.Errors)
+            {
+                <li>@error.ErrorMessage</li> 
+            }
+        }
+    </ul>
+    
+    <ul>
+        <li>
+            @if (Model.LoyaltySignInUsingEmail)
+            {
+                @Html.TextBoxFor(x => x.Email, new { type = "text", @class = "form-field", placeholder=LoyaltySignIn.Email })
+            }
+            else
+            {
+                @Html.TextBoxFor(x => x.UserName, new { type = "text", @class = "form-field", placeholder=LoyaltySignIn.Username })
+            }
+        </li>
+        <li>
+          @Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-field", name = "password", placeholder=LoyaltySignIn.Password })
+        </li>
+    </ul>
+    
+    <div class="footer">
+        @if (!Model.ShowFullHelpMenu)
+        {
+            <a href="@BrowsingUrls.GetLoyaltyForgotPasswordPageUrl()">@LoyaltySignIn.ForgotPassword</a>
+        }
+        else
+        {
+            <a class="js-sign-in-help-toggle" href="#">@LoyaltySignIn.HelpLink</a>
+        }
+        <span class="button-separator"></span>
+        <div class="right">
+            @if (Model.SignUpUrl != null)
+            {
+                <a class="loyalty-register" href="@Model.SignUpUrl">@LoyaltySignIn.SignUp</a>
+            }
+            else
+            {
+                <a class="loyalty-register disabled" href="javascript:void(0);">@LoyaltySignIn.SignUp</a>
+            }
+            <span class="button-separator"></span>
+            <input type="submit" name="login" value="@LoyaltySignIn.Login" />
+        </div>
+    </div>
+    if (Model.ShowFullHelpMenu)
+     {
+         <div class="sign-in-help">
+             <div class="separator-bar"></div>
+             <a class="close js-sign-in-help-toggle" href="#">@LoyaltySignIn.HelpClose</a>  
+             <div class="help-content">
+                 <span class="title">@LoyaltySignIn.HelpTitle</span>
+                 <ul class="link-list">
+                     @if (Model.ShowResendActivationLink)
+                     {
+                         <li><a href="@BrowsingUrls.GetLoyaltyResendActivationEmailPageUrl()">@LoyaltySignIn.HelpResendActivationEmail</a></li>
+                     }                
+                     <li><a href="@BrowsingUrls.GetLoyaltyForgotPasswordPageUrl()">@LoyaltySignIn.HelpForgotPassword</a></li>
+                     @if (Model.ShowForgotUsernameLink)
+                     {
+                         <li><a href="@BrowsingUrls.GetLoyaltyUsernameReminderPageUrl()">@LoyaltySignIn.HelpForgotUsername</a></li>
+                     }
+                 </ul>     
+             </div> 
+         </div>
+     }
+}

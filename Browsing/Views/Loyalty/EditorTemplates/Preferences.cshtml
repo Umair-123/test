@@ -1,0 +1,4 @@
+﻿@using InternetTicketing.Infrastructure.Html
+@model InternetTicketing.Browsing.ViewModels.Loyalty.Member.PreferencesViewModel
+
+@Html.CheckBoxListFor(m => m.SelectedValues, Model.Values, Model.DisplayName, false, Model.MaxSelected)

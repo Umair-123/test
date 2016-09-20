@@ -1,0 +1,21 @@
+.loyalty-authentication-form-page {
+  width: 385px;
+}
+.loyalty-authentication-form-page .loyalty-authentication-form .form-line label {
+  width: 150px;
+  display: inline-block;
+}
+.loyalty-authentication-form-page .loyalty-authentication-form .form-line input {
+  width: 200px;
+  margin-right: 5px;
+}
+.loyalty-authentication-form-page .blurb, .loyalty-authentication-form-page .button-container, .loyalty-authentication-form-page .form-error {
+  padding-right: 25px;
+}
+.loyalty-authentication-form-page .form-error {
+  margin-top: 10px;
+}
+.loyalty-authentication-form-page .button-container {
+  text-align: right;
+  margin-top: 20px;
+}

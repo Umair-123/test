@@ -1,0 +1,30 @@
+﻿@import "../../_Colours.scss";
+@import "../../_Fonts.scss";
+@import "../_FontsMobile.scss";
+@import "../Buttons.scss";
+
+a.button
+{
+    text-decoration:none;   
+}
+
+
+@media screen and (orientation:portrait) {
+    button.page-action,.button.page-action {
+         width: 100%;
+         display: block;
+     }
+}
+
+ @media screen and (orientation:landscape) {
+     button.page-action,.button.page-action {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+     }
+ }
+
+button.page-action,.button.page-action {
+    @extend %button;
+}

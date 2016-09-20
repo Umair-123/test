@@ -1,0 +1,234 @@
+/* IMAGE HELPERS */
+/* ICONS */
+.select-grid-footer .icon-clear {
+  background-image: url("../../../Images/Icon_Minus_Light.png");
+}
+
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* Seat first selection style for select ticket page */
+.select-grid-item {
+  display: block;
+  line-height: 3.5rem;
+  margin-top: 0.3rem;
+  padding: 0 0.5rem 0 0.5rem;
+  background-color: #93908f;
+}
+.select-grid-item:first-item {
+  margin-top: 1rem;
+}
+
+.select-grid-active {
+  background-color: #35a0a8;
+  color: #ffffff;
+}
+
+.select-grid-counter {
+  margin: 10px 0;
+}
+.select-grid-counter span {
+  font-weight: bold;
+}
+.select-grid-counter p {
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.select-grid-selector span {
+  border: 1px solid #ffffff;
+  width: 8%;
+  display: inline-block;
+  line-height: 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  margin-left: 0.3rem;
+}
+.select-grid-selector span:hover {
+  background-color: #35a0a8;
+  color: #ffffff;
+}
+.select-grid-selector .disabled {
+  color: #666666;
+  border: none;
+}
+.select-grid-selector .disabled:hover {
+  background-color: #93908f;
+  color: #666666;
+}
+
+.select-grid-footer span {
+  float: right;
+  margin-right: 10px;
+  display: none;
+}
+.select-grid-footer .icon-clear {
+  display: inline-block;
+  float: right;
+  width: 16px;
+  height: 3.5rem;
+  padding-left: 2rem;
+  margin-right: 0.3rem;
+  background-repeat: no-repeat;
+  background-position: 2rem;
+}
+
+.select-grid-count {
+  display: none !important;
+}
+
+#concessions .categories {
+  min-height: calc(100vh - 271px);
+}
+
+/* Default style for select ticket page */
+.categories > li {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #93908f;
+}
+.categories > li a {
+  padding-left: 10px;
+}
+.categories > li ul {
+  margin-top: 20px;
+}
+
+.categories > .ui-tabs-active {
+  padding-bottom: 0;
+}
+
+.categories li a {
+  font-size: 1rem;
+  color: #666666;
+  text-decoration: none;
+}
+.categories li button {
+  border: none;
+  background-color: transparent;
+}
+.categories li button:hover, .categories li button:active, .categories li button:focus {
+  outline: 0;
+}
+.categories li .icon-plus:before {
+  content: '\FF0B';
+  font-size: 0.875rem;
+  font-family: "Segoe UI", sans-serif;
+}
+.categories li .icon-minus:before {
+  content: '\2212';
+  font-size: 0.875rem;
+  font-family: "Segoe UI", sans-serif;
+}
+.categories .tab {
+  min-height: inherit !important;
+}
+.categories .item {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  min-height: 3.5rem;
+  line-height: 1.5rem;
+  margin-top: 0.3rem;
+  padding: 0 0.5rem;
+  border-top: 1px solid #93908f;
+  color: #443e3b;
+  -ms-flex-pack: justify;
+  justify-content: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+}
+.categories .item label {
+  -webkit-box-ordinal-group: 1;
+  -moz-box-ordinal-group: 1;
+  -ms-flex-order: 1;
+  -webkit-order: 1;
+  order: 1;
+  -webkit-box-flex: 0 0 35%;
+  -webkit-flex: 0 0 35%;
+  flex: 0 0 35%;
+  -ms-flex: 0 0 35%;
+}
+.categories .item .price {
+  -webkit-box-ordinal-group: 3;
+  -moz-box-ordinal-group: 3;
+  -ms-flex-order: 3;
+  -webkit-order: 3;
+  order: 3;
+  float: right;
+  text-align: right;
+  width: 45px;
+  margin-left: auto;
+}
+.categories .item .quantity {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  width: 20px;
+  font-size: 0.875rem;
+  color: #443e3b;
+  font-family: "Segoe UI", sans-serif;
+}
+.categories .item .ticket-quantity {
+  -webkit-box-ordinal-group: 2;
+  -moz-box-ordinal-group: 2;
+  -ms-flex-order: 2;
+  -webkit-order: 2;
+  order: 2;
+  -webkit-box-flex: 0 0 40%;
+  -webkit-flex: 0 0 40%;
+  flex: 0 0 40%;
+  -ms-flex: 0 0 40%;
+  float: right;
+  text-align: right;
+  margin-left: auto;
+}
+.categories .item .plus-minus-numeric .minus {
+  display: none;
+}
+.categories .item .sub-total,
+.categories .item .points-cost {
+  display: none;
+}
+.categories .item.selected {
+  color: #35a0a8;
+}
+.categories .item.selected .ticket-quantity, .categories .item.selected .quantity, .categories .item.selected .icon-plus:before, .categories .item.selected .icon-minus:before {
+  color: #35a0a8;
+}
+.categories .item.selected .plus-minus-numeric .minus {
+  display: inline-block;
+}
+.categories .item:first-child {
+  margin-top: 0.8rem;
+}

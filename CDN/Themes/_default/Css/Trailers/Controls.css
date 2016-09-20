@@ -1,0 +1,221 @@
+.player-container .overlay {
+  background-color: black;
+  position: absolute;
+  height: calc(100% - 30px);
+  width: 100%;
+  top: 26px;
+  left: 0;
+}
+.player-container .overlay .login-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  border: 0;
+  font-family: 'Segoe UI';
+  font-size: 14px;
+}
+.player-container .overlay .login-wrapper .form-wrapper h2 {
+  color: #EAEAEA;
+  margin-bottom: 8px;
+}
+.player-container .overlay .login-wrapper .form-wrapper > p {
+  color: #EAEAEA;
+  margin-bottom: 30px;
+}
+.player-container .overlay .login-wrapper .form-wrapper .signin-errors {
+  margin-bottom: 15px;
+  margin-top: -8px;
+  font-family: Calibri;
+  font-size: 14px;
+  font-style: italic;
+}
+.player-container .overlay .login-wrapper .form-wrapper .signin-errors li {
+  color: #EAEAEA;
+  margin-bottom: 5px;
+  padding-left: 28px;
+  line-height: 18px;
+  background: url("../../Images/Notification_Red.png") no-repeat left center;
+}
+.player-container .overlay .login-wrapper .form-wrapper form h3 {
+  display: none;
+}
+.player-container .overlay .login-wrapper .form-wrapper form ul li input {
+  width: 388px;
+  padding: 0 7px;
+  height: 36px;
+  background-color: #EAEAEA;
+  border: 0;
+  margin-bottom: 5px;
+  border: 1px solid #EAEAEA;
+}
+.player-container .overlay .login-wrapper .form-wrapper form ul li input.error {
+  border-color: #BC3939;
+  background-color: #F8EBEB;
+  color: #DD9C9C;
+  font-family: 'Segoe UI';
+  font-style: italic;
+}
+.player-container .overlay .login-wrapper .form-wrapper form .footer {
+  margin-top: 3px;
+  color: #93908F;
+}
+.player-container .overlay .login-wrapper .form-wrapper form .footer > a {
+  float: left;
+}
+.player-container .overlay .login-wrapper .form-wrapper form .footer .right {
+  text-align: right;
+  font-size: 0;
+}
+.player-container .overlay .login-wrapper .form-wrapper form .footer .right > a {
+  border: 0;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.player-container .overlay .login-wrapper .form-wrapper form .footer .right .button-separator {
+  border-right: 1px solid #666666;
+  height: 23px;
+  width: 1px;
+  display: inline-block;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+.player-container .overlay .login-wrapper .form-wrapper form .footer .right input {
+  border: 0;
+  border-radius: 5px;
+  height: 44px;
+  padding: 0;
+  width: 140px;
+  background-color: #35A0A8;
+  color: #EAEAEA;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 44px;
+  vertical-align: middle;
+}
+.player-container .overlay .rate {
+  width: 70%;
+  height: 80%;
+  margin: auto;
+}
+.player-container .overlay .rate .thumbs-up, .player-container .overlay .rate .thumbs-down {
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  min-height: 100px;
+}
+.player-container .overlay .rate .thumbs-up:hover, .player-container .overlay .rate .thumbs-down:hover {
+  cursor: pointer;
+}
+.player-container .overlay .rate .thumbs-up {
+  background-image: url("../../Images/Trailers/Thumbs_Trailer_Up.png");
+}
+.player-container .overlay .rate .thumbs-up.selected, .player-container .overlay .rate .thumbs-up:hover {
+  background-image: url("../../Images/Trailers/Thumbs_Trailer_UpBlue.png");
+}
+.player-container .overlay .rate .thumbs-down {
+  background-image: url("../../Images/Trailers/Thumbs_Trailer_Dwn.png");
+}
+.player-container .overlay .rate .thumbs-down.selected, .player-container .overlay .rate .thumbs-down:hover {
+  background-image: url("../../Images/Trailers/Thumbs_Trailer_DwnBlue.png");
+}
+.player-container .overlay .rate-text {
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+}
+.player-container button, .player-container a {
+  outline: 0;
+}
+.player-container button:focus, .player-container button:active, .player-container a:focus, .player-container a:active {
+  outline: 0;
+}
+
+.close-trailer {
+  outline: 0;
+}
+.close-trailer:focus, .close-trailer:active {
+  outline: 0;
+}
+
+.playback-controls {
+  background-color: #2b2725;
+  margin-top: -1px;
+  height: 29px;
+}
+.playback-controls > div {
+  display: flex;
+  flex-direction: row;
+  margin-right: 10px;
+}
+.playback-controls .slider-container {
+  display: inline-block;
+  flex: 1;
+  position: relative;
+}
+.playback-controls .slider-container .slider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 5px 0 5px;
+  font-size: 8px;
+}
+.playback-controls .slider-container .slider .ui-slider-handle {
+  top: -5px;
+  width: 6px;
+  height: 12px;
+}
+.playback-controls .play-button {
+  width: 40px;
+  height: 30px;
+  line-height: 20px;
+  padding: 5px 0 5px 0;
+  display: inline-block;
+}
+.playback-controls .play-button.play {
+  background: url("../../Images/Trailers/trailer-play.png") no-repeat 50% 50%/24px 24px;
+}
+.playback-controls .play-button.pause {
+  background: url("../../Images/Trailers/trailer-pause.png") no-repeat 50% 50%/24px 24px;
+}
+.playback-controls .rate {
+  width: 50px;
+  height: 16px;
+  display: inline-block;
+  margin: 2px 0 0 5px;
+}
+.playback-controls .rate .rate-text {
+  display: none;
+}
+.playback-controls .rate > span {
+  width: 16px;
+  height: 20px;
+  background-repeat: no-repeat;
+  margin-bottom: -5px;
+  display: inline-block;
+}
+.playback-controls .rate > span:hover {
+  cursor: pointer;
+}
+.playback-controls .rate .thumbs-up {
+  background-image: url("../../Images/Trailers/Thumb_Up_16.png");
+}
+.playback-controls .rate .thumbs-up:hover, .playback-controls .rate .thumbs-up.selected {
+  background-image: url("../../Images/Trailers/Thumb_Up_Blue_16.png");
+}
+.playback-controls .rate .thumbs-down {
+  background-image: url("../../Images/Trailers/Thumb_Dwn_16.png");
+  background-position: left bottom;
+  margin-left: 6px;
+}
+.playback-controls .rate .thumbs-down:hover, .playback-controls .rate .thumbs-down.selected {
+  background-image: url("../../Images/Trailers/Thumb_Dwn_Blue_16.png");
+}

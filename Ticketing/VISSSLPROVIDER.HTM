@@ -1,0 +1,34 @@
+<%
+    'CUSTOMER SSL PROVIDER SPECIFICATION FILE
+    'This file holds the URL link and image to display of your SSL provider.
+    'By default, this can be handled within the base configuration by changing the "VerifyCertificateLink" setting
+    'and inserting the SSL provider image into the "Images" folder.
+    '
+    'If your SSL provider has a unique mechanism for accessing your SSL information, replace the html code
+    'at the bottom of the file with the code provided to you by your SSL provider.
+    '
+    'For example, to add Verisign's javascript link to the site, remove the existing hyperlink html in this file
+    'and add the following (without comments) with account details as provided by Verisign.
+    '
+    '<script type="text/javascript" src="https://seal.verisign.com/getseal?host_name=yourcinema.com&amp;size=S&amp;use_flash=NO&amp;use_transparent=YES&amp;lang=en"></script>
+%>
+
+<%
+    'SSL setup code for basic SSL linking
+    Dim xstrVerifyImgPath as String
+    Dim xstrVerifyCertLink as String
+
+    If xstrVisLang = "2" Then
+        xstrVerifyImgPath = "Images/Lang2/verify.gif"
+    Else
+        xstrVerifyImgPath = "Images/verify.gif"
+    End If
+
+    xstrVerifyCertLink = ConfigurationManager.AppSettings("VerifyCertificateLink")
+
+
+%>
+
+<a id="lnkVerify" class="VerifyLink" target="_blank" href="<%=xstrVerifyCertLink%>">
+    <img src="images/verify.gif" border="0" class="ImageVerify" id="imgVerify" src="<%=xstrVerifyImgPath%>">
+</a>

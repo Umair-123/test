@@ -1,0 +1,112 @@
+.media-info:before, .media-info:after {
+  content: " ";
+  display: table;
+}
+.media-info:after {
+  clear: both;
+}
+.media-info {
+  *zoom: 1;
+}
+
+.generic-image-carousel {
+  overflow: hidden;
+  margin-bottom: 45px;
+}
+.generic-image-carousel .images {
+  background-color: #ffffff;
+}
+.generic-image-carousel .images img.gallery-image {
+  display: block;
+  margin: 0 auto;
+}
+.generic-image-carousel .images img.other-image {
+  display: none;
+}
+.generic-image-carousel .images a {
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+.generic-image-carousel .image-select-container {
+  overflow: hidden;
+}
+.generic-image-carousel .image-select-container .image-select-inner {
+  text-align: center;
+  margin-top: 2px;
+}
+.generic-image-carousel .image-select-container .image-select {
+  height: 10px;
+  width: 10px;
+  background-color: #d8d8d8;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 3px;
+  cursor: pointer;
+}
+.generic-image-carousel .image-select-container .image-select.selected {
+  background-color: #35a0a8;
+}
+.generic-image-carousel .image-descriptions .image-description {
+  display: none;
+  float: right;
+  margin-top: 5px;
+}
+.generic-image-carousel .image-descriptions .image-description.selected {
+  display: inline;
+  color: #666666;
+}
+
+.media-info .generic-image-carousel, .media-info .media-gallery {
+  float: left;
+  background-color: #ffffff;
+  margin-right: 15px;
+  width: 400px;
+}
+.media-info .generic-image-carousel .images, .media-info .media-gallery .images {
+  width: 400px;
+  height: 300px;
+}
+.media-info .generic-image-carousel.loading, .media-info .media-gallery.loading {
+  background: url("../Images/Icon_Loading_Light.gif") no-repeat center center;
+  /* Hide the black background while loading */
+}
+.media-info .generic-image-carousel.loading .images, .media-info .media-gallery.loading .images {
+  background: none;
+}
+.media-info .description-box {
+  overflow: hidden;
+  background-color: #eaeaea;
+  padding: 5px 10px;
+  line-height: 14px;
+}
+.media-info .description-box h3 {
+  line-height: 26px;
+}
+.media-info .description-box .other-information {
+  float: left;
+  width: 40%;
+}
+
+#trailer {
+  display: block;
+  height: 291px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+#trailer-wrapper {
+  width: auto;
+  height: 316px;
+  margin: -15px -15px 0 -15px;
+  background-color: #000000;
+  overflow: hidden;
+  z-index: 5;
+  position: relative;
+}
+
+#trailer-wrapper img {
+  display: block;
+  margin: 0 auto;
+}

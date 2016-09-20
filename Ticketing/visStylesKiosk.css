@@ -1,0 +1,245 @@
+/* IMPORTANT - PLEASE READ! */
+/* 
+	Only Vista should change this file!!!
+
+	Customising should be done in visStylesKioskUser.css. Do so by copying this page or a
+	single style and pasting it into visStylesKioskUser.css and changing there. That way
+	if the site is upgraded by Vista, you can easily get your customising back by replacing
+	visStylesKioskUser.css with the one you customised.
+*/
+.Page {
+  overflow: hidden;
+  text-align: center; }
+
+.Background {
+  background: #46403D; }
+
+.ContentsContainer {
+  padding: 0 4px;
+  background: #1C1918;
+  border: solid 1px #389FA7;
+  width: 600px;
+  min-height: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left; }
+
+.ErrorDiv {
+  background-color: red;
+  border: outset 1px #389FA7;
+  text-align: left;
+  padding: 5px;
+  font-size: 12px;
+  color: #FFFFFF;
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-weight: bold;
+  font-style: normal; }
+
+.LtyRewardKioskErrorCancel {
+  float: right;
+  margin-top: 5px; }
+
+/*
+.LoyaltyHomeHeaderRow
+{
+	height:22px;
+	background-color:#FB8D1E;
+}
+*/
+.LoyaltyHomeHeaderText {
+  font-size: 22px;
+  color: white;
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-style: normal; }
+
+.LoyaltyHomeAestheticsRow {
+  background-color: #FFFFFF;
+  height: 10px; }
+
+.LoyaltyHomeDetailsText {
+  font-size: 14px;
+  color: white;
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-style: normal; }
+
+.LtyRewardKioskCancel {
+  float: right; }
+
+.ImageRecognitions {
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 120;
+  height: 120px; }
+
+.LoyaltyHomeSubHeaderText {
+  color: #fff;
+  font-size: 18px;
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-style: normal; }
+
+.tdRewardItemRight {
+  text-align: left;
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right-width: 0; }
+
+.LtyRewardDivider {
+  height: 3px;
+  overflow: hidden;
+  width: 563px;
+  background-color: #1C1918; }
+
+.ltyRewardConfTable {
+  display: block;
+  line-height: 15px;
+  margin-bottom: 5px; }
+
+.LtyRewardConfText {
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-style: normal;
+  text-align: left; }
+
+.LtyChooseCinemaDropDown {
+  	/*font-size:12px;
+      color:#000000;*/
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-weight: normal;
+  font-style: normal;
+  /*ackground-color:Transparent;*/
+  text-indent: 0px;
+  width: 250px; }
+
+.response-message-container {
+  padding: 30px;
+  text-align: center; }
+  .response-message-container .response-message {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: bold;
+    color: #FF0000;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif"; }
+
+.LtyForgotTextBox {
+  float: left;
+  margin-left: 10px;
+  vertical-align: top;
+  width: 125px;
+  margin-bottom: 5px; }
+
+.LtyRewardConfRedeem {
+  display: inline;
+  margin-bottom: 5px; }
+
+.LtyRewardConfCancel {
+  display: inline;
+  text-align: right;
+  margin-bottom: 5px;
+  margin-right: 5px; }
+
+.LtyRewardConfKioskCancel {
+  display: inline;
+  text-align: right;
+  margin-bottom: 5px;
+  margin-right: 5px; }
+
+.LtyRewardConfKioskBack {
+  display: inline;
+  text-align: right;
+  margin-bottom: 5px;
+  margin-right: 5px; }
+
+.LtyRewardConfClose {
+  display: block;
+  clear: both;
+  text-align: right; }
+
+/* -- Button to cancel a loyalty redemption */
+.ImageCancelRedemption {
+  width: 115px;
+  height: 22px; }
+
+/* -- Animated gif image displayed in times of expected delay (doing something at cinema with sales server) */
+.image-processing-container {
+  text-align: center; }
+  .image-processing-container .ImageProcessing {
+    margin-top: 100px;
+    width: 409px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.rewards-grid {
+  width: 100%;
+  margin-bottom: 2px; }
+  .rewards-grid .item-details {
+    width: 100%; }
+  .rewards-grid .reward-item {
+    background-color: #46403D;
+    width: 100%;
+    color: #fff; }
+    .rewards-grid .reward-item .LoyaltyHomeDetailsText {
+      font-size: 13px;
+      color: #fff; }
+
+.button {
+  color: white;
+  background-color: #389FA7;
+  padding-left: 10px;
+  height: 40px;
+  padding-right: 10px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif"; }
+
+.cancel-button {
+  display: none; }
+
+.category-tabs {
+  padding-left: 2px; }
+  .category-tabs .category-button {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 5px; }
+    .category-tabs .category-button.de-selected {
+      background: none; }
+
+.redeem-button-container {
+  text-align: right;
+  position: relative; }
+  .redeem-button-container .redeem-button {
+    width: 100px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    margin-bottom: 5px;
+    margin-right: 0px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px; }
+
+.second-category-title {
+  background-color: #389FA7;
+  color: white;
+  padding: 3px;
+  font-size: 15px; }
+  .second-category-title a {
+    font-size: 15px;
+    color: white;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    text-decoration: none; }
+  .second-category-title a:link {
+    color: white;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    text-decoration: none; }
+  .second-category-title a:visited {
+    color: white;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    text-decoration: none; }
+  .second-category-title a:hover {
+    color: white;
+    font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    text-decoration: none; }
+

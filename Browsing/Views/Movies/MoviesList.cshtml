@@ -1,0 +1,195 @@
+﻿@using System.Drawing
+@using System.Globalization
+@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Browsing.ViewModels
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.SocialMedia
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Connect.Localisation
+@using Vista.Connect.Loyalty
+@using Vista.Web
+@model InternetTicketing.Browsing.ViewModels.MoviesListViewModel
+@{
+    bool isComingSoon = ViewBag.IsComingSoon ?? false;
+    string comingSoonClass = isComingSoon ? "coming-soon" : "now-showing";
+    var movies = Model.Movies.ToArray();
+}
+
+<script type="text/javascript">
+    Vista.Localisation = {};
+    Vista.Localisation.CloseTrailer = @Html.Raw(Movies.CloseTrailer.ToJson());
+    Vista.Localisation.RateTrailer = @Html.Raw(Movies.RateTrailer.ToJson());
+</script>
+<div id="movies" class="@comingSoonClass">
+    <h2>
+        @Movies.MoviesDisplay
+        <em>@Model.ListType</em>
+    </h2>
+    <div class="ad-content">
+        <section class="loading main-ad generic-image-carousel"></section>
+        <section class="loading lower-ad generic-image-carousel"></section>
+    </div>
+    <article id="movies-list">
+        @if (movies.Any())
+        {
+
+            for (int i = 0; i < movies.Length; i++)
+            {                                
+                var movie = movies[i];
+                var routeId = MovieIdHelper.GetRouteId(movie);
+                var cdnEntityReferenceScheme = MovieIdHelper.GetCdnReferenceScheme(routeId);
+                var lastClass = i == movies.Length - 1 ? "last" : "";
+                <div class="list-item movie @lastClass">
+                    <div class="image-outer">
+                        <div style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.FilmPosterGraphic, routeId,cdnEntityReferenceScheme, CommonImageSizes.MovieList)')">
+                            <img src="@ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.FilmPosterGraphic, routeId, cdnEntityReferenceScheme, new Size(121, 180))" />
+                        </div>
+                        @if (!string.IsNullOrWhiteSpace(movie.TrailerUrl))
+                        {
+                            <a class="play" href="@movie.TrailerUrl" data-movie-id="@routeId"><div class="overlay">&nbsp;</div><span>@Movies.PlayTrailer</span></a>							
+                        }                        
+                    </div>
+                    <div class="item-details">
+                        <div class="item-details-inner">
+                            <div class="title-wrapper">
+                                @if (!string.IsNullOrEmpty(movie.Rating))
+                                {
+                                    var ratingImageUrl = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.RatingIconGraphic, movie.Rating, EntityReferenceScheme.Global);
+                                    <div class="censor-rating">
+                                        <img class="icon" src="@ratingImageUrl" title="@movie.RatingDescription" />
+                                    </div>
+                                }
+                                <a href="@BrowsingUrls.GetMovieDetailsUrl(MovieIdHelper.GetRouteId(movie))">
+                                    <h3 class="item-title">
+                                        @Model.GetPropertyInCorrectLang(m => movie.Title, m => movie.TitleAlt)
+                                    </h3>
+                                </a>
+                                @if (Model.DisplayAverageCustomerRatings && movie.CustomerRatingStatistics.RatingCount > 0 && movie.CustomerRatingStatistics.AverageScore.HasValue)
+                                {
+                                    var averageScore = Math.Round(movie.CustomerRatingStatistics.AverageScore.Value, 1);
+                                    <div class="average-rating">
+                                        <span class="score">
+                                            <span class="average-score">@string.Format("{0:G29}", averageScore)</span>
+                                            <span>/10 </span>
+                                        </span>
+                                        @if (movie.CustomerRatingStatistics.RatingCount > 1)
+                                        {
+                                            <span class="rated-label">@Movies.FromXUsers.Replace("{0}", movie.CustomerRatingStatistics.RatingCount.ToString(CultureInfo.InvariantCulture))</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="rated-label">@Movies.From1User</span>
+                                        }
+                                        
+                                    </div>
+                                }            
+                            </div>
+                            @if (isComingSoon && movie.OpeningDate != null)
+                            {
+                                <p class="movie-opening-date"> @Model.FormattingService.FormatDate(movie.OpeningDate.GetValueOrDefault())</p>
+                            }
+                            <p class="blurb subtext">@Model.GetPropertyInCorrectLang(m => movie.Synopsis, m => movie.SynopsisAlt)</p>
+                        </div>
+                    </div>
+                    <div class="movie-actions">
+                        @if (Model.EnableSocialMediaIntegration)
+                        {
+                            <div class="social-actions social-media-data">
+                                @if (Model.DisplayFacebookLikeButton)
+                                {
+                                    @Html.Raw(SocialMediaHtmlHelper.FacebookLikeButton("button_count", Url.Action("Details", "Movies", new { id = @MovieIdHelper.GetRouteId(movie) }, Request.Url.Scheme)))
+                                }
+                                @if (Model.DisplayTwitterTweetButton)
+                                {
+                                    var hashTags = new[] { Model.CompanyTwitterTag, movie.TwitterTag };
+                                    @Html.Raw(SocialMediaHtmlHelper.TwitterShareUrlButton(Url.Action("Details", "Movies", new { id = @MovieIdHelper.GetRouteId(movie) }, Request.Url.Scheme), hashTags: hashTags))
+                                }
+                                @Html.Hidden("MovieId", @GetFilmIdForLoyalty(movie))
+                            </div>
+                        }
+                         
+                        <div class="main-action">
+                            <span class="showtimes-book image-wrapper">&nbsp;</span> <a href="@BrowsingUrls.GetMovieDetailsUrl(MovieIdHelper.GetRouteId(movie))">@(movie.AllowTicketSales && movie.HasSessionsAvailable ? Movies.ViewShowTimes : Movies.MoreDetails)</a> <span class="right-arrow image-wrapper">&nbsp;</span>
+                        </div>
+                        @if (Model.DisplayFilmRating)
+                        {
+                            <div class="film-rating hidden" data-movie-id="@MovieIdHelper.GetRouteId(movie)" data-get-url="@BrowsingUrls.GetFilmsRatingsUrl()">
+                                <div class="user-rating">
+                                    <span class="icon star"></span>
+                                    <span class="score">
+                                        <span class="your-score"></span>
+                                        /10
+                                    </span>
+                                    <span class="your-rating">@Movies.YourRating</span>
+                                </div>
+                            </div>
+                        }
+                        
+                        @if (Model.DisplayTrailerRating)
+                        {
+                            <div class="trailer-rating hidden" data-movie-id="@MovieIdHelper.GetRouteId(movie)" data-get-url="@BrowsingUrls.GetFilmsRatingsUrl()">
+                                <div class="liked">@Movies.YouLikedTheTrailer</div>
+                            </div>
+                        }
+                        
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="no-movies-message">@Movies.NoMoviesShowing</p>
+        }
+    </article>
+</div>
+@if(Model.DisplayTrailerRating)
+{
+    @Html.Partial("../Loyalty/_TrailerRate")
+}
+@Html.Partial("TrailerPlayer", Model.CurrentUser)
+
+@helper GetFilmIdForLoyalty(ScheduledFilm scheduledFilm)
+{
+    if (Model.LoyaltyItemMatchingScheme == LoyaltyItemCodeMatchingScheme.HOCodes)
+    {
+        @(scheduledFilm == null ? string.Empty : scheduledFilm.FilmHOCode)
+    }
+    else
+    {
+        @(scheduledFilm == null ? string.Empty : scheduledFilm.ScheduledFilmId)
+    }
+}
+
+@section Css
+{
+    @ContentDelivery.CssBundle(CssBundles.MoviesList)
+    @ContentDelivery.Css("Thirdparty/jquery-ui.css")
+    @ContentDelivery.Css("Trailers/Controls.css")
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        Vista.Urls.Loyalty = {};
+        Vista.Urls.Loyalty.SendFacebookLikeFeedback = '@Html.Raw(Url.Action("SendMovieFacebookLikeFeedback", "Loyalty"))';
+        Vista.Urls.Loyalty.SendTwitterTweetFeedback = '@Html.Raw(Url.Action("SendMovieTwitterTweetFeedback", "Loyalty"))';
+        Vista.Urls.Loyalty.SubmitFilmTrailerRating = '@BrowsingUrls.SubmitFilmTrailerRatingUrl()';
+        Vista.Localisation.YouLikedTheTrailer = '@Movies.YouLikedTheTrailer';
+        Vista.Localisation.YouDislikedTheTrailer = '@Movies.YouDislikedTheTrailer';
+    </script>
+    
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("jquery-ui-1.8.23.min.js")
+    @ContentDelivery.Script("jquery.dotdotdot.min.js")
+    @ContentDelivery.Script("Vista/Trailers/Trailers.js")
+    @ContentDelivery.Script("Vista/Loyalty/AjaxifyLoyaltySignup.js")
+    @ContentDelivery.Script("Vista/Loyalty/LoyaltyTrailerRate.js")
+    @ContentDelivery.Script("Movies/MoviesList.js")
+    @ContentDelivery.Script("Vista/SocialMedia/FacebookJavascriptSDK.js")
+    @ContentDelivery.Script("Vista/SocialMedia/TwitterWidgets.js")
+    @ContentDelivery.Script("Vista/Loyalty/MemberMovieFeedback.js")
+}

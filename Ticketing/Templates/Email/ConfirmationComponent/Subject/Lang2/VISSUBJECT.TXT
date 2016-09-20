@@ -1,0 +1,1 @@
+﻿Booking Confirmation number <ORDER_BOOKING>

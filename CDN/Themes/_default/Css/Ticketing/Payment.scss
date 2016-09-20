@@ -1,0 +1,41 @@
+﻿.form-line {
+    
+    &.date-field select {
+        width: 53px;
+    }
+
+    label {
+        width: 120px;
+    }
+
+    // labels that appear after their input
+    input+label {
+        width: 80%;
+    }
+
+    input[type=text], select {
+        width: 200px;
+    }
+}
+
+.amount {
+    margin-top: 8px;
+    margin-bottom: 17px;
+    font-size: 20px;
+}
+       
+#card-type {
+    width: 100px;
+}
+
+#card-cvc {
+    width: 50px;
+}
+
+.save-card-to-wallet-container {
+    margin-top: 15px;
+}
+
+.button-list {
+    margin-top: 100px;
+}

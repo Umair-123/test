@@ -1,0 +1,66 @@
+﻿button.page-action, a.page-action, button.user-action, a.user-action { overflow: visible; font-size: 1px; line-height: 1px; /* button width fix */}
+button.page-action span, a.page-action span { line-height: 30px; font-size: 24px; }
+button.user-action span, a.user-action span { line-height: 24px; font-size: 12px; }
+
+header, #banner, .content {
+    // For whatever reason this isn't applied correctly on IE7
+    margin: {
+        left: auto;
+        right: auto;
+    }
+}
+
+header {
+    padding:0px;
+    margin:0px;
+    .fixed-content-wrapper {
+        .fixed-content {
+            margin-bottom:0px;
+        }
+        margin-bottom:0px;
+    }
+
+    /*Floating content not working in IE7. Just fix it instead.*/
+    .user-menu {
+        float:none;
+        text-align:right;
+    }
+}
+
+#banner 
+{
+    padding-top:0px;
+    margin-top:0px;
+}
+
+/* IE<=7: Click not triggered for display: none; elements */
+.checkbox-list li input {
+    display: inline;
+    float: left;
+    margin-left: -50px;
+}
+
+.select-grid {
+    // :not filter does not work IE<7, so just set cursor to pointer regardless of whether the element is disabled
+    .select-grid-selector {
+        cursor: pointer;
+    }
+
+    // IE6 does not handle left: 0, right: 0
+    // Floating right abuses a bug where a right float on unbound container expands it to max possible width
+    .select-grid-footer {
+        right: auto;
+
+        span {
+            float: right;
+        }
+
+        .select-grid-total {
+            float: none;
+        }
+    }
+}
+
+#select-seats-container {
+    float: left; // In IE<=7 this is too wide causing it to drop down to a new line
+}

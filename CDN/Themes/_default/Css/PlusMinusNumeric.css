@@ -1,0 +1,34 @@
+/* PLUS MINUS NUMERIC INPUT FIELD */
+.plus-minus-numeric {
+  height: 28px;
+  line-height: 28px;
+}
+
+.plus-minus-numeric > * {
+  vertical-align: middle;
+}
+
+.plus-minus-numeric .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.plus-minus-numeric .quantity {
+  width: 34px;
+  height: 14px;
+  text-align: right;
+}
+
+.plus-minus-numeric .icon-plus {
+  margin: 0 0 0 5px;
+}
+
+.plus-minus-numeric .icon-minus {
+  margin: 0 5px 0 0;
+}
+
+.plus-minus-numeric .icon-clear {
+  margin: 7px 0 0 10px;
+  float: left;
+  display: none;
+}

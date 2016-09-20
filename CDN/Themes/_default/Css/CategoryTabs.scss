@@ -1,0 +1,32 @@
+﻿@import "_Colours";
+@import "_Styles";
+
+/* CATEGORY TABS */
+
+/* category-tabs - parent container for the tabs */
+.category-tabs { overflow: hidden; }
+
+/* categories - list of category headers */ 
+.categories { text-transform: capitalize; float: left; border: 1px solid $color-93908f; width: 160px; margin-right: -1px; }
+.categories li { line-height: 42px; height: 42px; padding: 0 5px; }
+.categories .ui-state-hover { background: $color-eaeaea; }
+.categories li a { color: $color-595655; font-family: $font-calibri; font-size: 16px; border: none; border-top: 1px solid $color-eaeaea; padding: 0; display: block; }
+.categories li:first-child a { border-top: none; }
+.categories .ui-tabs-selected { background: $color-selected; position: relative; }
+/* selected arrow shape */
+.categories .ui-tabs-selected:before { content: ' '; border-color: $color-transparent $color-93908f $color-transparent $color-transparent;
+                                       border-color: $color-transparentrgba $color-93908f $color-transparentrgba $color-transparentrgba; /* firefox transparency fix */
+                                       border-style: solid; border-width: 10px 10px 10px 0; position: absolute;
+                                       right: -1px; top: 50%; margin-top: -10px; }
+.categories .ui-tabs-selected:after { content: ' '; border-color: $color-transparent $color-ffffff $color-transparent $color-transparent;
+                                      border-color: $color-transparentrgba $color-ffffff $color-transparentrgba $color-transparentrgba; /* firefox transparency fix */
+                                      border-style: solid; border-width: 8px 8px 8px 0; position: absolute;
+                                      right: -1px; top: 50%; margin-top: -8px; }
+                                      
+.categories .ui-tabs-selected a { color: $color-ffffff; border: none; }
+
+
+/* category-tabs-items - the container for the item for each category */
+.category-tabs-items { float: left; border: 1px solid $color-93908f; width: 570px; padding: 0 3px 3px 0; }
+.category-tabs-items .ui-tabs-hide { display: none; } 
+.category-tabs-items .tab { overflow: hidden; }

@@ -1,0 +1,63 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@using Vista.Connect.Extensions
+@using Vista.Connect.Localisation
+@using Vista.Web.Utilities
+@using Vista.Cdn.Client
+
+@model InternetTicketing.Browsing.ViewModels.CinemasViewModel
+@{
+	var cinemas = Model.Cinemas.OrderByLang(Model.IsAltLang, m => m.Name, m => m.NameAlt).ToArray();
+}
+
+<div id="cinemas">
+    <a id="general-enquiries" href="@BrowsingUrls.GetContactUsUrl(Model.IsAltLang)">@Cinemas.GeneralEnquiries</a>
+    <h2>
+        @Shared.SiteTitle 
+        <em>@Model.CinemaLocation</em>
+    </h2>
+    <article id="cinema-list" class="cinemas">
+	    @for (int i = 0; i < cinemas.Length; i++)
+	    {
+		    var cinema = cinemas[i];
+		    var lastClass = i == cinemas.Length - 1 ? "last" : "";
+	        <div class="list-item @lastClass">
+	            
+                <div class="image-outer">
+                    <a href="@BrowsingUrls.GetCinemasDetailsUrl(cinema.ID)" style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.CinemaGraphic, cinema.ID, CommonImageSizes.CinemasList)')">
+                        <img src="@ContentDelivery.EntityImage(CdnMediaType.CinemaGraphic, cinema.ID, CommonImageSizes.CinemasList)" alt="@cinema.Name" width="160" height="160"/>
+                    </a>
+                </div>
+	            <div class="item-details">
+	                <div class="item-details-inner">
+	                    <div class="title-wrapper">
+	                        <a class="cinema-title" href="@BrowsingUrls.GetCinemasDetailsUrl(cinema.ID)">
+	                            <h3 class="item-title">@Model.GetPropertyInCorrectLang(m => cinema.Name, m => cinema.NameAlt)</h3>
+	                        </a>
+	                    </div>
+	                    <p class="subtext">
+	                        @string.Join(", ", cinema.ScreenAttributes.DistinctByName().Select(sa => sa.GetDisplayDescription().GetTranslation(!Model.IsAltLang)).OrderBy(s => s))
+	                    </p>
+	                    @Html.Partial("CinemaContact", cinema)
+	                </div>
+	                <div class="main-action">
+                        <a href="@BrowsingUrls.GetCinemasDetailsUrl(cinema.ID)">@Cinemas.SeeWhatsPlaying</a> <span class="right-arrow image-wrapper">&nbsp;</span>
+                    </div>
+	            </div>
+	        </div>
+	    }
+    </article>
+   
+</div>
+
+
+@section Css {
+	@ContentDelivery.CssBundle(CssBundles.CinemaList)
+}
+
+@section Scripts
+{
+}

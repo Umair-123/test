@@ -1,0 +1,114 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="visInternetTicketing.Site" ClientIDMode="Static" %>
+<%@ Import Namespace="InternetTicketing.Infrastructure.Bundles" %>
+<%@ Import Namespace="InternetTicketing.Infrastructure.Localisation" %>
+<%@ Import Namespace="InternetTicketing.Infrastructure.Routing" %>
+<%@ Import Namespace="Vista.Web" %>
+<%@ Register Assembly="InternetTicketing.Controls.WebForms" Namespace="InternetTicketing.Controls.WebForms" TagPrefix="vis" %>
+<!DOCTYPE html>
+<html<%= If(IsAltLang, " class=""alt-lang""", "")%>>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <asp:ContentPlaceHolder ID="MetaTags" runat="server" />
+
+        <title><%=[Shared].SiteTitle%></title>
+        <link rel="shortcut icon" href="<%=ContentDelivery.Image("favicon.ico") %>" />
+
+        <%=ContentDelivery.CssBundle(CssBundles.MasterPage).ToString()%>     
+        <%=ContentDelivery.CssBundle(CssBundles.TicketingPages).ToString()%>     
+        <asp:ContentPlaceHolder ID="Css" runat="server" />
+
+        <%=ContentDelivery.ScriptBundle(JsBundles.MasterPageHead).ToString()%>     
+        
+        <!--[if lte IE 8]>
+            <%: ContentDelivery.Css("IE8.css") %>
+        <![endif]-->
+        
+        <!--[if lte IE 7]>
+            <%: ContentDelivery.Css("Ticketing/IE7.css")%>
+            <%: ContentDelivery.Css("IE7.css")%>
+        <![endif]-->
+
+       <!--[if IE 6]>
+            <%: ContentDelivery.Css("Ticketing/IE6.css") %> <%-- TODO: integrate with bundle? --%>
+            <%: ContentDelivery.CssBundle(CssBundles.InternetExplorer6)%>
+       <![endif]-->   
+        
+        <%-- Link in custom CSS files here, the path is relative to the CDN's /Css directory, e.g for /Css/Custom.css
+            <%: ContentDelivery.Css("Custom.css") %> 
+        --%>
+    </head>
+    <body>
+        <header>
+            <vis:HeaderControl runat="server" id="HeaderControl" />
+        </header>
+
+        <section class="top-banner">
+            <article class="loyalty-login"></article>
+        </section>
+
+        <section class="content">
+            <article class="quick-book"></article>
+            <article>
+                <asp:ContentPlaceHolder ID="ContentBody" runat="server" />                         
+            </article>
+        </section>
+        
+        <footer>
+            <vis:FooterControl runat="server" id="FooterControl" />            
+        </footer>
+        
+        
+        
+        <%: ContentDelivery.ScriptBundle(JsBundles.JQueryCommon)%>        
+        
+        <%=ContentDelivery.Script("Culture/globalize.js").ToString()%> 
+        <%=ContentDelivery.Script(String.Format("Culture/Cultures/globalize.culture.{0}.js", PrimaryLanguageCultureInfo.Name)).ToString()%> 
+        <script type="text/javascript">
+            Globalize.culture('<%: PrimaryLanguageCultureInfo.Name%>');
+            var currentCulture = Globalize.culture();
+            currentCulture.numberFormat.currency.symbol = '<%= PrimaryLanguageCultureInfo.NumberFormat.CurrencySymbol%>';
+            currentCulture.numberFormat.currency.decimalSeparator = '<%= PrimaryLanguageCultureInfo.NumberFormat.CurrencyDecimalSeparator%>';
+            currentCulture.numberFormat.currency.decimalDigits = <%= PrimaryLanguageCultureInfo.NumberFormat.CurrencyDecimalDigits%>;
+            currentCulture.numberFormat.currency.groupSeparator = '<%= HttpUtility.JavaScriptStringEncode(PrimaryLanguageCultureInfo.NumberFormat.CurrencyGroupSeparator)%>';
+
+            Vista.Urls.Shared = {};
+            Vista.Urls.Shared.Home = '<%= BrowsingUrls.GetHomeUrl()%>';
+            Vista.Urls.Shared.Error = 'visError.aspx'; <%-- TODO --%>
+
+            Vista.Urls.Order = {};
+            Vista.Urls.Order.removeSession = '<%: ResolveUrl("Api/Order/RemoveSession/") %>';
+            Vista.Urls.Order.removeConcession = '<%: ResolveUrl("Api/Order/RemoveConcession/") %>';
+            Vista.Urls.Order.setDeliveryMethod = '<%: ResolveUrl("Api/Order/SetDeliveryMethod/") %>';
+            Vista.Urls.Order.updateDeliveryDetails = '<%: ResolveUrl("Api/Order/UpdateDeliveryDetails/")%>';
+
+            Vista.Urls.LoyaltyRewardShop = {};
+            Vista.Urls.LoyaltyRewardShop.purchaseReward = '<%: ResolveUrl("Api/LoyaltyRewardShop/PurchaseReward/")%>';
+
+            Vista.Lang.Shared = {};
+            Vista.Lang.Shared.OverflowPlaceholder = <%= [Shared].OverflowPlaceholder.ToJson()%>;
+            
+            <%-- TODO: we need a shared way of specifying language strings in the layout --%>
+            Vista.Lang.ModalError = {};
+            Vista.Lang.ModalError.Title = <%= ModalError.Title.ToJson()%>;
+            Vista.Lang.ModalError.OkButton = <%= ModalError.OkButton.ToJson()%>;
+        </script>
+
+        <%= ContentDelivery.ScriptBundle(JsBundles.MasterPageWebForms).ToString()%>
+        <%: ContentDelivery.ScriptBundle(JsBundles.Validation)%>  
+
+        <%= ContentDelivery.Script("Vista/Utilities/Utilities.js")%>
+        <!--[if IE 6]>
+            <%= ContentDelivery.Script("Navigation/IE6.js")%>
+        <![endif]-->  
+        <%= ContentDelivery.Script("Navigation/Index.js")  %>
+        <%= ContentDelivery.Script("Navigation/LanguageLocation.js")%>
+
+        <%: ContentDelivery.Script("Vista/ModalError.js")%>
+        <%: ContentDelivery.Script("Vista/AssignGiftModalDialog.js")%>
+
+        <%: ContentDelivery.ScriptBundle(JsBundles.WebFormsEnhancements)%>  
+        <asp:ContentPlaceHolder ID="Script" runat="server" />
+        
+    </body>
+</html>

@@ -1,0 +1,10 @@
+You can use the following tags
+
+key			will insert
+-----------------       -------------------
+<MBR_FNAME>		member's first name
+<MBR_LNAME>		member's last name
+<MBR_UID>		member's username
+<MBR_PWD>		member's password
+<MBR_EMAIL>		member's email address
+<EML_DISPLAY_NAME>	cinema name for signature

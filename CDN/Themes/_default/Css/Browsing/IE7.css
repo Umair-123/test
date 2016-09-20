@@ -1,0 +1,89 @@
+/* IE<=7 creates new stacking context for positioned elements */
+#banner {
+  z-index: 501;
+  margin-top: 24px;
+}
+
+/* make the more menu appear on top of #banner */
+header {
+  z-index: 502;
+}
+
+#quick-tickets-overlay .close, #quick-tickets-overlay .restart, #quick-tickets-overlay .clear, #quick-tickets-overlay .next {
+  font-size: 0;
+  line-height: 0;
+  overflow: visible;
+}
+#quick-tickets-overlay .next span {
+  font-size: 16px;
+  line-height: 25px;
+}
+#quick-tickets-overlay .close span {
+  font-size: 14px;
+  line-height: 19px;
+}
+#quick-tickets-overlay .restart span,
+#quick-tickets-overlay .clear span {
+  font-size: 12px;
+}
+#quick-tickets-overlay .restart span {
+  line-height: 20px;
+}
+#quick-tickets-overlay .clear span {
+  line-height: 33px;
+}
+
+#quick-tickets button {
+  font-size: 14px;
+  float: left;
+}
+#quick-tickets button em {
+  font-size: 21px;
+}
+
+#quick-tickets-details dt {
+  width: 74px;
+}
+#quick-tickets-details dd {
+  width: 170px;
+}
+
+#home-side-bar .loyalty-login li input {
+  padding: 3px 0;
+}
+
+#home-side-bar .loyalty-login div input {
+  overflow: visible;
+}
+
+/* IE<=7: Floating right on unbound container stretches it to max width */
+#loyalty-member-address {
+  position: relative;
+}
+
+#loyalty-member-address button {
+  position: absolute;
+  right: 0;
+}
+
+#loyalty-clubs button {
+  overflow: visible;
+}
+
+/* IE<=7 calculates padding incorrectly, but IE8+ does not */
+*:first-child + html .attributes-key {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.media-gallery.photos {
+  width: 400px;
+}
+
+.change-site-group.icon {
+  line-height: 12px;
+}
+
+#site-group-select {
+  top: 2px;
+}

@@ -1,0 +1,35 @@
+//This is a common theme for the many small loyalty authentication forms
+// - Sign In
+// - Forgot/Reset Password
+// - Activate Card
+.loyalty-authentication-form-page {
+
+    width:385px;
+
+    .loyalty-authentication-form {
+        .form-line {
+            label {
+                width:150px;
+                display:inline-block;
+           }
+
+           input {
+            width:200px;
+            margin-right:5px;
+           }
+        }
+    }
+
+    .blurb,.button-container,.form-error   {
+        padding-right:25px;
+    }
+
+    .form-error {
+        margin-top:10px;
+    }
+
+    .button-container {
+        text-align:right;
+        margin-top:20px;
+    }
+}

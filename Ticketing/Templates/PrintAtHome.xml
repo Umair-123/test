@@ -1,0 +1,28 @@
+<pdf>
+	<page size="A4" orientation="Portrait" margains="10" textareaborders="N">
+		<image id="imgBackground" x="10" y="10" path="templates/images/background.png" />
+		<image id="imgAdvert1" x="19" y="588" path="templates/images/advert1.png" />
+		<image id="imgCinemaMap" x="19" y="368" path="templates/images/cinemamap1001.png" />
+    
+		<barcode id="bcdBooking" x="440" y="248" value="B10  0003469" height="60" angle="270" widthRatio="0.6" />
+    <!--
+			A QR code can also be displayed in place of a 2D barcode by adding a qr "type"
+		<barcode id="bcdBooking" type="qr" x="440" y="148" value="B10  0003469" height="3" />
+    -->
+    <!--<barcode id="bcdBooking2" x="346" y="655" value="B10  0003469" height="60" widthRatio="0.6" />-->
+		<textarea id="txtDisclaimer" x="30" y="285" width="500" height="50" align="left" valign="centre" truetypefont="verdana" fontsize="10" value= "Please print out this ticket and keep it with you. This ticket allows you to skip the Box Office counter and go straight to the usher at the entrance of the cinema. 
+You can still pickup your booking at the Box Office using the credit card you used to make this booking if you lose this ticket. Thank you for using our Print @ Home service!" />
+		<textarea id="txtCinemaName" x="135" y="107" width="278" height="30" truetypefont="verdanab" fontsize="11" align="centre" valign="centre" value= "khyber pass cinema" />		
+		<textarea id="txtDirections" x="290" y="365" width="240" height="210" truetypefont="verdana" fontsize="10" align="left" valign="center" value= "The Cinema is located on Khyber Pass Road close to the Symonds St intersection.
+
+Driving Directions:
+From the South - Southern Motorway - Take the Khyber Pass Road offramp and turn left up towards Symonds St. The Cinema is on your right.
+
+From the North and West - Take the Port offramp and turn right down Wellesley St. Turn right up Grafton Road and right onto Khyber Pass Road. The Cinema is on the right of the road.
+" />
+		<textarea id="txtFilmName" x="135" y="150" width="278" height="20" truetypefont="verdana" fontsize="11" align="center" valign="top" delimeter=", " value= "Lawrence of Arabia" />
+		<textarea id="txtShowTime" x="135" y="170" width="278" height="50" truetypefont="verdana" fontsize="11" align="center" valign="top" delimeter=", " value= "10:00 pm 28 June 2008" />
+		<textarea id="txtSeatInfo" x="135" y="195" width="278" height="50" truetypefont="verdana" fontsize="11" align="center" valign="bottom" delimeter=", " value= "" />
+		<textarea id="txtTicketTypes" x="135" y="175" width="278" height="50" truetypefont="verdana" fontsize="11" align="center" valign="bottom" delimeter=", " value= "2 x Adult, 1 x Child" />		
+	</page>
+</pdf>

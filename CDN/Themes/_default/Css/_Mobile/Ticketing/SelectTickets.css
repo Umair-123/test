@@ -1,0 +1,135 @@
+.ticket-list .is-exhausted-dynamic-ticket > * {
+  filter: Alpha(Opacity=50);
+  opacity: 0.5;
+}
+
+html, body, article, #select-tickets, #frmSelectTickets {
+  height: 100%;
+}
+
+section.content {
+  height: calc(100% - 60px);
+}
+
+#SelectTicketsPanel {
+  min-height: calc(100% - 129px);
+}
+
+.terms-conditions-line {
+  min-height: calc(100vh - 570px);
+}
+
+.session-selector {
+  display: none;
+}
+
+#select-tickets-list-wrapper .categories .item {
+  margin-top: 0;
+}
+
+.ticket-list .exhausted-dynamic-ticket-label, .ticket-list .dynamic-ticket-available-label {
+  font-style: italic;
+  white-space: nowrap;
+  text-transform: lowercase;
+}
+.ticket-list .exhausted-dynamic-ticket-label:before, .ticket-list .dynamic-ticket-available-label:before {
+  content: '-';
+  margin: 0 10px;
+}
+.ticket-list .hidden {
+  display: none;
+}
+.ticket-list li.dynamic-pricing-display {
+  padding: 2px;
+  margin-bottom: 0;
+}
+.ticket-list li.dynamic-pricing-display .sub-total {
+  width: 0;
+  display: none;
+}
+.ticket-list li.dynamic-pricing-display:nth-child(even) {
+  background-color: #EAEAEA;
+}
+.ticket-list li.item {
+  padding-left: 10px;
+}
+.ticket-list li.item label {
+  vertical-align: middle;
+  display: inline-block;
+}
+.ticket-list li.item label span.ticket-price-description {
+  display: block;
+  padding-bottom: 3px;
+}
+.ticket-list li.item label span.ticket-price-description-dynamic-price {
+  color: #443e3b;
+}
+.ticket-list li.item label span.ticket-description {
+  display: block;
+}
+.ticket-list li.item span.ticket-quantity {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* THIRD PARTY MEMBER TICKETS */
+.third-party-ticket-control {
+  margin-top: 10px;
+}
+.third-party-ticket-control h6 {
+  display: none !important;
+}
+.third-party-ticket-control .item {
+  display: block;
+  position: relative;
+}
+.third-party-ticket-control .item .desc {
+  width: auto;
+  display: block;
+  flex: inherit;
+  order: inherit;
+  margin-right: 70px;
+}
+.third-party-ticket-control .item .ticket-quantity.plus-minus-numeric {
+  display: block;
+  flex: inherit;
+  order: inherit;
+  width: 70px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.third-party-ticket-control .item .third-party-member-ticket-card-number-entry {
+  display: block;
+  flex: inherit;
+  order: inherit;
+  width: auto;
+  text-align: left;
+}
+.third-party-ticket-control .item .last-step-button-list {
+  display: block;
+  flex: inherit;
+  order: inherit;
+  text-align: left;
+}
+.third-party-ticket-control .item .third-party-member-ticket span {
+  display: inline-block;
+}
+.third-party-ticket-control .item .third-party-member-ticket span.member-card-number {
+  display: none;
+  vertical-align: middle;
+}
+.third-party-ticket-control .item .third-party-member-ticket-line {
+  line-height: 26px;
+  vertical-align: middle;
+}
+.third-party-ticket-control .item .third-party-member-ticket-line button.remove-third-party-member-ticket {
+  background: url("../../../Images/Icon_Clear_Light.png");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+.third-party-ticket-control .item .third-party-member-ticket-line button.remove-third-party-member-ticket:hover {
+  background-image: url("../../../Images/Icon_Clear.png");
+}

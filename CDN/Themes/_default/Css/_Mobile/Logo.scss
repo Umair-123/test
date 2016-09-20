@@ -1,0 +1,25 @@
+@import "../_Colours";
+@import "../_Fonts";
+
+/* LOGO */
+/*
+<h1 class="logo">
+    <em>ABC</em>Cinemas
+</h1>
+*/
+.logo {
+    font-size: 2.2rem;
+    font-family: $font-header; 
+    color: $color-35a0a8;
+
+    text-align: center;
+    word-break: break-all; //ensure the logo width doesnt exceed screen width when the text is long
+
+    em {
+        font-size: 2.2rem; // this font size needs to be a fraction smaller than the standard logo text as the bold makes it appear larger
+        font-weight: bold;
+        color: $color-eaeaea;
+
+        margin-right: 0.3rem;
+    }
+}

@@ -1,0 +1,197 @@
+﻿@import "compass/css3/images";
+@import "../Colours";
+
+#banner {
+    background: $color-2b2725;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px black;
+    border: 2px solid white;
+    width: 1018px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    height: 230px;
+}
+
+#banner-image {
+    margin-left: 305px;
+}
+
+#home-side-bar {
+    float: right;
+    width: 260px;
+}
+
+#home-card-balance {
+    margin-bottom: 35px;
+    width: 260px;
+}
+
+#home-card-balance img {
+    display: block;
+    width: 100%;
+}
+
+#home-card-balance h2 {
+    background: $color-eaeaea;
+    padding: 9px 7px 17px 7px;
+}
+
+.home-ad {
+    border: none;
+}
+
+.home-movies {
+    border: 1px solid $color-93908f;
+    height: 230px;
+    width: 720px; 
+}
+
+.container-loading {
+    background: url('../../Images/Icon_Loading_Light.gif') no-repeat center center;
+}
+
+.home-movies .movie {
+    border: none;
+    display: inline-block;
+    height: 230px;
+    overflow: hidden;
+    text-align: center;
+    width: 160px; 
+}
+
+.home-movies .movie-poster {
+    display: block; 
+    height: 155px;
+    margin: 10px auto 8px auto;
+    width: 104px;
+}
+
+.home-movies .movie span {
+    color: $color-443e3b;
+    display: block;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.home-movies .movie .name {
+    color: $color-666666;
+    font-size: 14px;
+    margin: 0 10px;
+    overflow: hidden;
+    line-height: 18px;
+    text-overflow: ellipsis;
+}
+
+.home-movies .movie .name img {
+    height: 18px;
+    vertical-align: bottom;
+    width: 18px;
+    margin-right:3px;
+}
+
+/* Scrollbox */
+
+.home-movies .scrollbox-left-button {
+    background: $color-93908f url('../../Images/Scrollbox/Scroll_Left_Light.png') no-repeat center center;
+}
+
+.home-movies .scrollbox-right-button {
+    background: $color-93908f url('../../Images/Scrollbox/Scroll_Right_Light.png') no-repeat center center;
+}
+
+.home-movies .scrollbox-scroll {
+    background: $color-93908f;
+    border-color: $color-ffffff;
+}
+
+/* Image gallery */
+
+#qt-ad {     
+    .images {
+	    height: 233px;
+	    width: 733px;
+	    margin-left: 305px;
+    }
+}
+
+#home-center-ad {
+    width:719px;    
+    margin:20px 0px 20px 0px;
+    .images 
+    {   
+        width:719px;
+        height:365px;        
+    }
+    display: block;
+}
+
+#home-sidebar-ad {
+    width:260px;
+    .images 
+    {   
+        width:260px;
+        height:395px;        
+    }
+    display: block;
+    margin: auto;
+}
+
+
+
+#home-side-bar .loyalty-login {
+    background: $color-efeabd;
+
+    @include filter-gradient($color-d3cf97, $color-efeabd, horizontal);
+    @include background(linear-gradient(left, $color-d3cf97, $color-efeabd));
+
+    box-shadow: -3px -3px 5px $color-b2afaf;
+    margin-bottom: 13px; 
+}
+
+#home-side-bar .loyalty-login h3 {
+    color: $color-ffffff;
+    margin: 10px 7px;
+    text-transform: uppercase;
+}
+
+#home-side-bar .loyalty-login h3 em {
+    color: $color-443e3b;
+    display: inline;
+    margin-left: 7px; 
+}
+
+#home-side-bar .loyalty-login .form-field {
+    border: none; 
+    width: 238px; 
+}
+
+#home-sidebar-fbrecommendations {
+	margin-top: 20px;
+}
+
+#home-now-showing-header {
+
+	height: 56px;
+	margin-bottom: 15px;
+
+	#home-now-showing-title {
+		width: 300px;
+		float: left;
+	}
+
+	#home-social-header {
+		float: right;
+		position: relative;
+		right: 12px;
+
+		.facebook {
+			float: left;
+		}
+
+		.twitter {
+			float: right;
+			padding-left: 10px;
+		}
+	}
+}

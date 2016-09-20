@@ -1,0 +1,262 @@
+@import "../_Colours";
+@import "../_Styles";
+
+$color-main-menu-item-natural: $color-eaeaea;
+$color-main-menu-item-hover: $color-35a0a8;
+
+/* NAVIGATION MENU */
+#main-menu {
+    float:right;
+    width: 75%;
+}
+
+#main-menu ul {
+    text-align: center;
+    width: 100%;
+    height: 30px;
+}
+/* IE7 (and below) hack */
+#main-menu ul {
+    *width: 99.9%;
+}
+
+
+.flexbox {
+    #main-menu ul {
+        display: -webkit-flex;
+        display: -moz-box;
+		display: -ms-flexbox;
+        display: flex;
+	    
+        -webkit-flex-direction: row;
+		-ms-flex-direction: row; 
+        -moz-box-direction: row;
+		-ms-box-direction: row; 
+        flex-direction: row;
+    }
+
+    #main-menu li {
+      -webkit-flex: 1 1 auto;
+      -moz-box-flex: 1;
+	  -ms-flex: 1 auto; 
+      flex: 1 1 auto;
+    }
+}
+
+
+.no-flexbox {
+    #main-menu {
+        $fullWidth: 100%;
+
+        li.grid-3-col {
+            width: $fullWidth * 1/3;
+
+            &.col-span-2 {
+                width: $fullWidth * 2/3;
+            }
+        }
+    
+        li.grid-4-col {
+            width:  $fullWidth * 1/4;
+
+            &.col-span-2 {
+                width:  $fullWidth * 2/4;
+            }
+        }
+    
+        li.grid-5-col {
+            width:  $fullWidth * 1/5;
+
+            &.col-span-2 {
+                width:  $fullWidth * 2/5;
+            }
+        }
+
+        li.grid-6-col {
+            width: $fullWidth * 1/6;
+
+            &.col-span-2 {
+                width: $fullWidth * 2/6;
+            }
+        }
+
+        li.grid-7-col {
+            width: $fullWidth * 1/7;
+
+            &.col-span-2 {
+                width: $fullWidth * 2/7;
+            }
+        }
+
+        li.grid-8-col {
+            width: $fullWidth * 1/8;
+
+            &.col-span-2 {
+                width: $fullWidth * 2/8;
+            }
+        }
+
+        li.grid-9-col {
+            width: $fullWidth * 1/9;
+
+            &.col-span-2 {
+                width: $fullWidth * 2/9;
+            }
+        }
+    }
+}
+
+
+#main-menu li {
+    display: inline;
+    float: left;
+    height: 100%;
+    background: url('../../Images/Navigation/line.png') repeat-x;
+    background-position: bottom left;
+    white-space: nowrap;
+
+    &.selected {
+        background: url('../../Images/Navigation/triangle.png') repeat-x;
+        background-position: bottom center;
+        border-bottom: none;
+    }
+}
+
+#main-menu li a {
+    color: $color-main-menu-item-natural;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    outline: none;
+    border-bottom: none;
+}
+
+#main-menu li.selected a,
+#main-menu li:hover a {
+    text-decoration: none;
+}
+
+#main-menu li:hover a {
+    color: $color-main-menu-item-hover;
+}
+
+#main-menu li.selected a {
+    color: $color-selected;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+/* Sub nav */
+#main-menu ul.sub-nav { text-align: center; border: none; margin-top: 10px; background: none; }
+#main-menu ul.sub-nav li { display: inline; float: left; border-bottom: none; margin-right: 30px; background: none; }
+.sub-nav-hover, #main-menu ul.sub-nav li:hover { background: none; cursor: pointer; font-weight: normal; }
+#main-menu .sub-nav-hover a, #main-menu ul.sub-nav li:hover a { font-weight: normal; }
+#main-menu ul.sub-nav li a { color: $color-93908f; text-decoration: none; font-size: 14px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; line-height: 18px; }
+#main-menu ul.sub-nav li.sub-selected a, #more-nav li.sub-selected a { color: $color-efeabd; }
+#main-menu ul.sub-nav li a:hover { color: $color-eaeaea; font-size: 14px; font-weight: normal; }
+
+#main-menu .sub-nav-base { float: right; overflow: visible; white-space: nowrap; }
+#main-menu ul.sub-nav li.more-nav-parent { color: $color-efeabd; display: none; width: auto; margin-right: 0px; width: 70px; background: url('../../Images/Navigation/arrow.png') no-repeat 90% 30%; padding-right: 16px; padding-left: 6px; }
+#main-menu ul.sub-nav li.more-nav-parent.hovered { border: 1px solid $color-93908f; border-bottom: none; padding-right: 15px;padding-left: 5px; }
+
+/* more nav parent */
+.more-nav-parent {display: none; padding-right: 15px; padding-left: 5px; }
+.has-more-nav .more-nav-parent { display: inline;}
+#main-menu ul.sub-nav .more-nav-parent a { color: $color-efeabd; }
+#main-menu ul.sub-nav .more-nav-parent a:hover { font-weight: normal; }
+
+/* more nav */
+#more-nav { display: none; margin-top: 5px; width: 150px; float: left; position: absolute; z-index: 10; }
+#more-nav li, .more-nav-hover, ul#more-nav li:hover { background-color: $color-93908f; border-left: 1px solid $color-93908f; border-right: 1px solid $color-93908f; }
+/* .more-nav-hover is IE6 specific */
+* html .more-nav-hover, ul#more-nav li:hover { background-color: $color-666666; display: block; }
+* html .more-nav-hover a, ul#more-nav li:hover a { color: $color-efeabd; }
+#more-nav li { color: $color-eaeaea; padding: 2px 2px 2px 5px; text-align: left; width: 150px; margin-right: 0px; font-size: 14px; line-height: 18px; }
+#more-nav li a { color: $color-eaeaea; text-decoration: none; outline: none; border-bottom: none; padding-bottom: 0px; }
+
+
+header {   
+    position: relative;
+    .user-menu {
+    
+        @extend %vertical-separator-list;
+        float:right;
+        margin-top:5px;
+        margin-right:5px;
+        margin-bottom:10px;
+        color: $color-eaeaea; font-size: 12px; 
+
+        li 
+        {
+            display:inline;
+            padding-left:5px;
+            padding-right:5px;
+        }
+        a,a:visited 
+        {
+            text-decoration:none;
+            color: $color-eaeaea;
+            border:none;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        button.user-action span.change-site-group { 
+            color: $color-eaeaea; 
+            text-decoration: none; 
+        }
+
+        button.user-action span.change-site-group.icon { 
+            padding: 0 15px 0 0; 
+            background-position: right center;               
+            background-image: url('../../Images/triangle-down-light.png'); 
+        }
+
+        #site-group {
+            position:relative;
+        }
+        #site-group-select { 
+            display: none; 
+            color: $color-eaeaea; 
+            position: absolute; 
+            background-color: $color-93908f;
+            right: 0; 
+            top: 18px; 
+            z-index: 2000; 
+            padding: 1px 0px 3px 0px; 
+        }
+        #site-group-select .item { display: block; padding: 4px 8px;white-space: nowrap; }
+        #site-group-select .item:hover { cursor: pointer; background-color: $color-666666; color: $color-efeabd;}
+        #site-group:hover, #change-language:hover { color: $color-93908f; }
+
+     }
+
+    .fixed-content-wrapper {                
+        @extend %clearfix;  
+        width: 1024px; 
+        margin-left: auto; 
+        margin-right: auto; 
+        padding-top: 20px; 
+        .fixed-content {
+            width:1024px;
+            height:70px;
+            float: right;
+            @extend %clearfix;
+
+            h1.logo {
+                float:left;
+                color: $color-eaeaea;
+                line-height:0.8em;
+                margin:0px;
+
+                em {
+                    margin-right: 5px; 
+                }                  
+            }
+        }   
+    }
+}
+

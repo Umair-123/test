@@ -1,0 +1,134 @@
+﻿@using System.Activities.Statements
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+
+@using Vista.Cdn.Client
+@using Vista.Connect.Loyalty
+
+@model InternetTicketing.Browsing.ViewModels.Loyalty.MembershipProgramsViewModel
+
+@{
+    Club club = null;
+    var clubName = new MvcHtmlString(string.Empty);
+    if (Model.MembershipPrograms.Any())
+    {
+        club = Model.MembershipPrograms.First().Club;
+        clubName = Model.GetPropertyInCorrectLang(m => club.Name, m => club.NameAlt);
+    }
+
+    var tabs = Model.RenewalPeriodTabs.ToList();
+    
+    string linkText = Model.IsRenewMode ? LoyaltyMembershipPrograms.RenewNow : LoyaltySignUp.SignUpNow;
+    
+}
+
+<div class="loyalty-membership-program-club media-info">
+    @{ if (club != null)
+       {
+           <div class="media-gallery">
+               <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubHomeBanner, @club.ID, width: 469, showIfEmpty: true, height: 247)" alt="@clubName" width="469" height="247" />
+           </div>
+           <div class="description-box">
+               <div class="box-content">
+                    <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubHeader, @club.ID, width: 450, showIfEmpty: true, height: 75)" alt="@clubName" width="450" height="75" />
+                   <p>@LoyaltyMembershipPrograms.ClubHeaderDescription</p>
+                </div>
+           </div>
+       }      
+    }
+</div>
+
+<div id="loyalty-membership-programs-sidebar">
+    <img src="@ContentDelivery.Image("EventAd2.png")" />
+</div>
+
+<div id="loyalty-membership-programs" class="loyalty-membership-programs-wrapper">
+    
+    @if (tabs.Count() > 1)
+    {
+        
+
+        <ol class="membership-program-tabs">
+            @foreach (string tab in tabs)
+            {
+                <li><h4><a href="#tab-@tabs.IndexOf(tab)">@tab</a></h4></li>
+            }
+        </ol>
+    }
+
+    <div style="clear: both"></div>
+
+    @foreach (string tab in tabs)
+    {        
+        <div id="tab-@tabs.IndexOf(tab)" class="tab">
+        
+            @foreach (MembershipProgram membershipProgram in Model.MembershipPrograms)
+            {
+                string membershipProgramRenewalPeriod;
+                Model.MembershipProgramRenewalPeriodDescription.TryGetValue(membershipProgram.ID, out membershipProgramRenewalPeriod);
+
+                if (tab == membershipProgramRenewalPeriod)
+                {
+                    <div class="list-item">
+                        <div class="image-outer">
+                            <a href="@BrowsingUrls.GetLoyaltyClubSignupUrl(membershipProgram.ID)">
+                                <img src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyMembershipPrograms, @membershipProgram.ID, CommonImageSizes.LoyaltyMembershipPrograms)" alt="@membershipProgram.Name" width="88" height="130" />
+                            </a>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-details-inner">
+                                <div class="title-wrapper">
+                                    <h3 class="item-title">@membershipProgram.Name</h3>
+                                </div>
+                                <p class="subtext program-description">@LoyaltyMembershipPrograms.MembershipProgramDescriptionForProgram(membershipProgram.ID)</p>
+                            </div>
+                            <div class="main-action">
+                    
+                                @{
+                                    string priceToDisplay;
+
+                                    if (Model.IsRenewMode)
+                                    {
+                                        Model.MembershipProgramRenewalPriceToDisplay.TryGetValue(membershipProgram.ID, out priceToDisplay);
+                                    }
+                                    else
+                                    {
+                                        Model.MembershipProgramActivatePriceToDisplay.TryGetValue(membershipProgram.ID, out priceToDisplay);                                        
+                                    }
+                                }
+                                <h3>@priceToDisplay</h3>
+                                <a class="proceed-link" href="@GetLinkUrlForProgram(membershipProgram)">@linkText</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>        
+    }
+    
+</div>
+
+@section Css
+{
+    @ContentDelivery.Css("PhotoGalleryCommon.css")
+    @ContentDelivery.Css("List.css")
+    @ContentDelivery.Css("CategoryTabs.css")
+    @ContentDelivery.Css("Loyalty/MembershipPrograms.css")
+}
+
+@section Scripts
+{
+    @ContentDelivery.Script("Vista/Loyalty/MembershipPrograms.js")
+}
+
+@functions
+{
+    string GetLinkUrlForProgram(MembershipProgram membershipProgram)
+    {
+        return Model.IsRenewMode
+            ? Url.Action("RenewMembership", new { membershipProgramId = membershipProgram.ID })
+            : BrowsingUrls.GetLoyaltyClubMembershipProgramSignupUrl(membershipProgram.ClubId, membershipProgram.ID);        
+    }
+}

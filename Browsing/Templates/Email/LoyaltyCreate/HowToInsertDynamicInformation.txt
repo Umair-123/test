@@ -1,0 +1,16 @@
+You can use the following tags
+
+key				will insert
+-----------------       	-------------------
+<MBR_FNAME>			member's first name
+<MBR_LNAME>			member's last name
+<MBR_USERNAME>			member's username
+<MBR_PWD>			member's password
+<MBR_EMAIL>			member's email address
+<CIN_HOME>			cinema's homepage
+<EML_DISPLAY_NAME>		name displayed as sender
+<MBR_ACTIVATE_LINK>		link to page that activates the new member's account
+<MBR_ACTIVATE_LINK_HTML>	note: 	the text inside this link is customisable in SystemLang.txt
+				section: [visLtyCreateUser]
+				label: txtEmail_ActivationLinkText	
+				The HTML version encloses the link with an html hyperlink

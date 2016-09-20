@@ -1,0 +1,12 @@
+.form-error {
+  background-image: url("../Images/Notification_Blue.png");
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 14px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.form-error.reversed {
+  background-image: url("../Images/Notification.png");
+}

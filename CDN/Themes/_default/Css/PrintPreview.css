@@ -1,0 +1,15 @@
+#print-preview {
+  display: inline;
+  position: absolute;
+  right: 0;
+}
+
+#print-preview span {
+  background: url("../Images/Printer.png") no-repeat center;
+  width: 15px;
+  float: left;
+}
+
+.attributes-print {
+  position: relative;
+}

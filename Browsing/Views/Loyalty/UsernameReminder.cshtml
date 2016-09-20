@@ -1,0 +1,61 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@model InternetTicketing.Browsing.ViewModels.Loyalty.UsernameReminderViewModel
+
+@section Css {
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("Loyalty/AuthenticationForm.css")
+    @ContentDelivery.Css("Loyalty/ForgotDetails.css")    
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/ForgotPassword.js")
+}
+
+<div id="username-reminder" class="loyalty-authentication-form-page">
+<h2>
+    @LoyaltyForgotDetails.UsernameReminderTitle
+    @if (!String.IsNullOrWhiteSpace(LoyaltyForgotDetails.UsernameReminderSubtitle))
+    {
+        <em>@LoyaltyForgotDetails.UsernameReminderSubtitle</em>
+    }
+</h2>
+@if (!String.IsNullOrWhiteSpace(Model.SuccessMessage))
+{
+    <p class="blurb">
+        @Model.SuccessMessage
+    </p>
+    <div class="button-container">
+        <a  href="@BrowsingUrls.GetHomeUrl()" class="page-action submit">
+            <span>@LoyaltyForgotDetails.BackToSignInButton</span>
+        </a>
+    </div>    
+}
+else
+{
+    if (!String.IsNullOrWhiteSpace(LoyaltyForgotDetails.UsernameReminderBlurb))
+        {
+            <p class="blurb">
+                @LoyaltyForgotDetails.UsernameReminderBlurb
+            </p>
+        }     
+    <div class="form-error">@Html.ValidationSummary(true)</div>
+    using (Html.BeginForm("UsernameReminder", "Loyalty", FormMethod.Post, new { @class = "user-name-reminder loyalty-authentication-form" }))
+    {
+        <div class="form-line ">
+            @Html.LabelFor(m => m.EmailAddress,null,null, "*")@*
+            *@@Html.TextBoxFor(m => m.EmailAddress, new {@class = "email form-field"})@*
+            *@@Html.ValidationMessageFor(m => m.EmailAddress, String.Empty, new {@class = "icon icon-small"})
+        </div>
+        <div class="button-container">
+            <button type="submit" class="page-action submit">
+                <span>@LoyaltyForgotDetails.UsernameReminderSubmitButton</span>
+            </button>
+        </div>
+}
+}
+</div>           

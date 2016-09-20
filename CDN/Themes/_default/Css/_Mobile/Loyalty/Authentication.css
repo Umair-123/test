@@ -1,0 +1,25 @@
+.reset-password-title {
+  font-size: 14pt;
+  margin: 0.5em;
+}
+
+.form-line {
+  margin: 5px 0 5px 0;
+  padding: 0 2% 0 2%;
+}
+.form-line label {
+  width: 40%;
+  display: inline-block;
+}
+.form-line input {
+  display: inline-block;
+  width: 100%;
+  height: 24px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.form-line select {
+  display: inline-block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}

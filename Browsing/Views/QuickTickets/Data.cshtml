@@ -1,0 +1,45 @@
+﻿@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@using Vista.Web
+@using Vista.Web.Extensions
+<script type="text/javascript">
+    Vista.Urls.QuickTickets = {};
+    Vista.Urls.QuickTickets.Movies = '@Html.Raw(Url.Action("Movies", "QuickTickets"))';
+    Vista.Urls.QuickTickets.Cinemas = '@Html.Raw(Url.Action("Cinemas", "QuickTickets"))';
+    Vista.Urls.QuickTickets.ShowTypes = '@Html.Raw(Url.Action("Types", "QuickTickets"))';
+    Vista.Urls.QuickTickets.Times = '@Html.Raw(Url.Action("Sessions", "QuickTickets"))';
+    Vista.Urls.QuickTickets.MovieImages = '@Html.Raw(ContentDelivery.EntityImageUrlFormatForClientScript(CdnMediaType.FilmPosterGraphic, "{0}", CommonImageSizes.QuickTicketsPoster, showIfEmpty: true))';
+    Vista.Urls.QuickTickets.Ticket = '@Html.Raw(TicketingUrls.GetSelectTicketsUrlFormatForClientScript("{0}", "{1}"))';
+    Vista.Urls.QuickTickets.Compare = '@Html.Raw(Url.Action("Compare", "QuickTickets"))';
+
+    Vista.Lang.QuickTickets = {};
+    Vista.Lang.QuickTickets.Movies = @Html.Raw(@QuickTickets.Movies.ToJson());
+    Vista.Lang.QuickTickets.MovieNext = @Html.Raw(@QuickTickets.MovieNext.ToJson());
+    Vista.Lang.QuickTickets.MovieAny = @Html.Raw(@QuickTickets.MovieAny.ToJson());
+
+    Vista.Lang.QuickTickets.Cinemas = @Html.Raw(@QuickTickets.Cinemas.ToJson());
+    Vista.Lang.QuickTickets.CinemaNext = @Html.Raw(@QuickTickets.CinemaNext.ToJson());
+    Vista.Lang.QuickTickets.CinemaAny = @Html.Raw(@QuickTickets.CinemaAny.ToJson());
+
+    Vista.Lang.QuickTickets.ShowTypes = @Html.Raw(@QuickTickets.ShowTypes.ToJson());
+    Vista.Lang.QuickTickets.ShowTypeNext = @Html.Raw(@QuickTickets.ShowTypeNext.ToJson());
+    Vista.Lang.QuickTickets.ShowTypeAny = @Html.Raw(@QuickTickets.ShowTypeAny.ToJson());
+
+    Vista.Lang.QuickTickets.Times = @Html.Raw(@QuickTickets.Times.ToJson());
+    Vista.Lang.QuickTickets.TimeNext = @Html.Raw(@QuickTickets.TimeNext.ToJson());
+    Vista.Lang.QuickTickets.TimeAny = @Html.Raw(@QuickTickets.TimeAny.ToJson());
+    Vista.Lang.QuickTickets.TimeDay = @Html.Raw(@QuickTickets.TimeDay.ToJson());
+    Vista.Lang.QuickTickets.TimeEvening = @Html.Raw(@QuickTickets.TimeEvening.ToJson());
+    Vista.Lang.QuickTickets.TimeLabel = @Html.Raw(@QuickTickets.TimeLabel.ToJson());
+
+    Vista.Lang.QuickTickets.NoSessions = @Html.Raw(@QuickTickets.NoSessions.ToJson());
+    Vista.Lang.QuickTickets.SoldOutSessions = @Html.Raw(@QuickTickets.SoldOutSessions.ToJson());
+    Vista.Lang.QuickTickets.BookNow = @Html.Raw(@QuickTickets.BookNow.ToJson());
+    Vista.Lang.QuickTickets.Compare = @Html.Raw(@QuickTickets.Compare.ToJson());
+    Vista.Lang.QuickTickets.Today = @Html.Raw(@QuickTickets.Today.ToJson());
+
+    Vista.Formatting = {};
+    Vista.Formatting.TimeFormat = @Html.Raw(((string) ViewBag.TimeDisplayFormat).ToJson());
+</script>

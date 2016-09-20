@@ -1,0 +1,49 @@
+﻿@import "../_Colours";
+
+#footer { background-color: $color-666666; height: 100%; width: 100%; border-top: 1px solid $color-eaeaea; }
+#footer-inner { width: 1024px; overflow: hidden; margin: 0 auto; height: 100%; }
+#footer a { color: $color-d3cf97; font-size: 14px; border-bottom: none; }
+
+#footer #footer-inner .col-3 { height: 250px; border-bottom: 1px solid $color-443e3b; background-repeat: repeat-x; margin-top: 30px; }
+/* #3a4f51: rgb(58,79,81);*/ /*#565955: rgb(86,89,85);*/
+#footer #footer-inner .col-3 { 
+    /* Fallback for older browsers */
+    background-image: url('../../Images/Stripes.png');
+
+    /* linear gradient from "transparent #666" to #666 from the top down, overlayed with a linear gradient from #3A4F51 to #565955 sized to 16px (stripes 8px wide) */
+    background-image: -moz-linear-gradient(top, $color-666a 0, $color-666666 85%),
+                      -moz-linear-gradient(left, $color-3a4f51a 0, $color-3a4f51a 49.9%, $color-565955a 50.1%, $color-565955a 100%); 
+
+    background-image: -webkit-linear-gradient(top, $color-666a 0, $color-666666 85%),
+                      -webkit-linear-gradient(left, $color-3a4f51a 0, $color-3a4f51a 49.9%, $color-565955a 50.1%, $color-565955a 100%);
+    
+    background-image: -o-linear-gradient(top, $color-666a 0, $color-666666 85%),
+                      -o-linear-gradient(left, $color-3a4f51a 0, $color-3a4f51a 49.9%, $color-565955a 50.1%, $color-565955a 100%);
+
+    background-image: -ms-linear-gradient(top, $color-666a 0, $color-666666 85%),
+                      -ms-linear-gradient(left, $color-3a4f51a 0, $color-3a4f51a 49.9%, $color-565955a 50.1%, $color-565955a 100%);
+
+    background-image: linear-gradient(to bottom, $color-666a 0, $color-666666 85%),
+                      linear-gradient(to right, $color-3a4f51a 0, $color-3a4f51a 49.9%, $color-565955a 50.1%, $color-565955a 100%); 
+
+    -moz-background-size: 16px 250px;
+    -o-background-size: 16px 250px;
+    -webkit-background-size: 16px 250px;
+    background-size: 16px 250px;
+}
+#footer .col-3 a {-webkit-text-shadow: 1px 1px 0 $color-443e3b; text-shadow: 1px 1px 0 $color-443e3b; }
+#footer .col-3 .col { float: left; width: 33%; margin-top: 30px; }
+#footer .col-3 .col .col-inner { margin: 0 auto 20px auto; width: 50%; }
+#footer .col-3 .col.col-left .col-inner { margin-right: 0; }
+#footer .col-3 .col.col-right .col-inner { margin-left: 0; }
+
+#footer #terms-conditions { color: $color-443e3b; height: 30px; border-top: 1px solid $color-93908f; width: 100%; }
+#footer #terms-conditions a { color: $color-443e3b; font-size: 12px; padding-left: 10px; }
+#footer #terms-conditions .link.terms a { padding-right: 10px; }
+
+/* for IE */
+#footer .spacer { background: url('../../Images/separator.png') no-repeat center center; float: left;}
+
+#footer #terms-conditions div { line-height: 30px; }
+#footer #terms-conditions .link { float: left; }
+#footer #terms-conditions .copyright { float: right; }

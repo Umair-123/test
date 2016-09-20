@@ -1,0 +1,244 @@
+#sessions-list .image-outer {
+  float: left;
+  width: 121px;
+  height: 180px;
+  overflow: hidden;
+  position: relative; }
+  #sessions-list .image-outer > a, #sessions-list .image-outer > div {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center center; }
+  #sessions-list .image-outer > a, #sessions-list .image-outer > div {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    #sessions-list .image-outer > a img, #sessions-list .image-outer > div img {
+      width: 121px;
+      height: 180px;
+      border: none;
+      margin: 0;
+      padding: 0;
+      float: none;
+      display: none; }
+#sessions-list .list-item {
+  text-overflow: ellipsis;
+  margin-top: 0;
+  margin-bottom: 8px; }
+  #sessions-list .list-item:after {
+    content: ' ';
+    clear: both; }
+  #sessions-list .list-item .item-details {
+    margin-left: 121px;
+    height: 145px;
+    padding-left: 8px;
+    padding-right: 8px; }
+    #sessions-list .list-item .item-details .title-wrapper {
+      overflow: hidden; }
+    #sessions-list .list-item .item-details p {
+      font-size: 13px; }
+  #sessions-list .list-item .item-details-inner {
+    height: 145px; }
+    #sessions-list .list-item .item-details-inner .title-wrapper {
+      padding: 0;
+      margin: 0;
+      line-height: 40px;
+      font-size: 0; }
+      #sessions-list .list-item .item-details-inner .title-wrapper .censor-rating {
+        width: 24px;
+        line-height: 24px;
+        height: 24px;
+        text-align: center;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
+        width: auto;
+        margin-top: 8px;
+        margin-right: 8px;
+        float: left; }
+        #sessions-list .list-item .item-details-inner .title-wrapper .censor-rating .icon {
+          max-width: 24px;
+          max-height: 24px;
+          margin-left: auto;
+          margin-right: auto;
+          vertical-align: middle; }
+        #sessions-list .list-item .item-details-inner .title-wrapper .censor-rating .icon {
+          max-width: none; }
+      #sessions-list .list-item .item-details-inner .title-wrapper > img {
+        margin: 0;
+        float: none;
+        vertical-align: middle;
+        display: inline-block; }
+      #sessions-list .list-item .item-details-inner .title-wrapper a {
+        display: inline-block;
+        border: none;
+        vertical-align: middle; }
+      #sessions-list .list-item .item-details-inner .title-wrapper .item-title {
+        color: #2b2725;
+        font-family: 'Segoe UI';
+        font-weight: normal;
+        font-size: 20px; }
+    #sessions-list .list-item .item-details-inner p {
+      line-height: 16px; }
+    #sessions-list .list-item .item-details-inner .movie-opening-date {
+      font-weight: bold; }
+  #sessions-list .list-item .movie-actions {
+    margin-left: 121px;
+    border-top: 1px solid #eaeaea;
+    background-color: #f9f9f9;
+    height: 34px;
+    overflow: hidden; }
+  #sessions-list .list-item .movie-actions .main-action {
+    display: inline-block;
+    line-height: 34px;
+    vertical-align: middle;
+    font-size: 14px;
+    color: #666666;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    margin-right: 12px;
+    padding-left: 15px;
+    border-left: 1px solid #eaeaea; }
+    #sessions-list .list-item .movie-actions .main-action .image-wrapper {
+      display: inline-block;
+      float: none; }
+    #sessions-list .list-item .movie-actions .main-action a {
+      text-decoration: underline;
+      border: none; }
+    #sessions-list .list-item .movie-actions .main-action .right-arrow {
+      background-image: url("../../images/Icon_Arrow_Right.png");
+      width: 16px;
+      height: 18px;
+      vertical-align: middle;
+      background-repeat: no-repeat;
+      margin-left: 10px;
+      margin-right: 0; }
+
+#experience .ratings-list .rating .rating-wrapper {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer; }
+  #experience .ratings-list .rating .rating-wrapper .current, #experience .ratings-list .rating .rating-wrapper .over {
+    line-height: 26px;
+    height: 26px; }
+    #experience .ratings-list .rating .rating-wrapper .current .star-wrapper, #experience .ratings-list .rating .rating-wrapper .over .star-wrapper {
+      display: inline-block;
+      height: 26px;
+      font-size: 0px;
+      min-width: 28px; }
+      #experience .ratings-list .rating .rating-wrapper .current .star-wrapper .star, #experience .ratings-list .rating .rating-wrapper .over .star-wrapper .star {
+        width: 28px;
+        height: 26px;
+        display: block;
+        background-image: url("../../images/RatingStars.png"); }
+      #experience .ratings-list .rating .rating-wrapper .current .star-wrapper .selected::before, #experience .ratings-list .rating .rating-wrapper .over .star-wrapper .selected::before {
+        background-position: 0 26; }
+  #experience .ratings-list .rating .rating-wrapper .current .star-wrapper .star.selected {
+    background-position: 0 26px; }
+  #experience .ratings-list .rating .rating-wrapper .over-wrapper {
+    overflow: hidden;
+    position: absolute;
+    top: 200px; }
+    #experience .ratings-list .rating .rating-wrapper .over-wrapper.left {
+      left: 0; }
+      #experience .ratings-list .rating .rating-wrapper .over-wrapper.left .star-wrapper .star {
+        background-position: 0 26px; }
+  #experience .ratings-list .rating .rating-wrapper:hover .over-wrapper {
+    top: 0; }
+
+#experience {
+  overflow: hidden;
+  margin: -15px;
+  font-size: 0; }
+  #experience h2 {
+    margin: 15px 15px 20px 15px; }
+  #experience .ratings-list {
+    border-right: 1px solid #eaeaea;
+    width: 60%;
+    display: inline-block; }
+    #experience .ratings-list .rating {
+      margin: 0 15px 30px 15px; }
+      #experience .ratings-list .rating h3 {
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 18px;
+        color: #443e3b;
+        font-weight: normal; }
+      #experience .ratings-list .rating .comment {
+        margin-top: 10px; }
+        #experience .ratings-list .rating .comment textarea {
+          box-sizing: border-box;
+          width: 100%;
+          height: 60px;
+          border: 1px solid #eaeaea;
+          resize: none;
+          padding: 2px 2px 2px 6px;
+          font-family: 'Segoe UI', sans-serif;
+          font-size: 14px;
+          colour: #93908f; }
+      #experience .ratings-list .rating .rating-wrapper {
+        margin: 15px 0 0 0;
+        width: 550px;
+        height: 26px; }
+    #experience .ratings-list .actions {
+      margin: 15px;
+      text-align: right; }
+      #experience .ratings-list .actions button {
+        width: 138px;
+        height: 46px;
+        background-color: #35a0a8;
+        border-radius: 5px;
+        font-family: 'Calibri';
+        font-weight: bold;
+        font-size: 24px;
+        color: #eaeaea; }
+
+#sessions-list .items-wrapper:after {
+  content: ' ';
+  display: block;
+  font-size: 0;
+  clear: both; }
+#sessions-list .list-item {
+  border: 0;
+  height: 180px;
+  margin-top: 0;
+  margin-bottom: 0; }
+  #sessions-list .list-item.item-col {
+    float: left;
+    width: 50%;
+    margin-bottom: 8px; }
+    #sessions-list .list-item.item-col:last-child:nth-child(odd) {
+      width: 100%; }
+    #sessions-list .list-item.item-col:last-child, #sessions-list .list-item.item-col:nth-last-child(2):nth-child(odd) {
+      margin-bottom: 0; }
+  #sessions-list .list-item .item-details {
+    height: 144px; }
+    #sessions-list .list-item .item-details .item-details-inner > p {
+      margin-left: 34px;
+      font-family: 'Segoe UI', sans-serif; }
+    #sessions-list .list-item .item-details .item-details-inner .session-time {
+      font-size: 14px;
+      color: #666666; }
+    #sessions-list .list-item .item-details .item-details-inner .cinema-name {
+      font-size: 16px;
+      color: #666666; }
+  #sessions-list .list-item .movie-actions {
+    border-bottom: 1px solid #eaeaea; }
+    #sessions-list .list-item .movie-actions .main-action {
+      border-left: 0; }
+
+.loading {
+  width: 126px;
+  height: 126px;
+  background-image: url("../../Images/Icon_Loading_Dark.gif"); }
+

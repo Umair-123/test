@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,uBAAwB;EACvB,MAAM,EAAE,iBAA2B;;AAEpC,yBAAyB;EACxB,KAAK,ECkCa,OAAO",
+"sources": ["Validation.scss","../_Colours.scss"],
+"names": [],
+"file": "Validation.css"
+}

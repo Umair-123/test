@@ -1,0 +1,425 @@
+﻿@import "../_Colours";
+@import "../_Images";
+@import "../StarRating";
+@import "../_ScreenAttributes";
+@import "../_FilmShowTimes";
+
+$media-gallery-height: 300px;
+$trailer-width: 450px;
+$social-height: 40px;
+$social-color: #888;
+$triangle-height: 15px;
+$triangle-width: 12px;
+
+
+.play-bar { 
+	height: 78px;
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	button.user-action { 
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 78px;
+		background-color: transparent;
+		
+		&:focus, &:active {
+			outline:0;
+		}
+
+		@include background-image("PlayTrailer_MovieDetail.png","../../");
+
+		span.icon { 
+
+			position: absolute;
+			left: 85px;
+			bottom: 0;
+			font-family: Calibri;
+			font-size: 18px;
+			font-weight: bold;
+			line-height: 34px;
+			vertical-align: middle;
+			text-transform: uppercase;
+			color: #EAEAEA;
+			opacity: 0.5;
+			text-decoration: none; 
+		}
+	}
+}
+
+#show-times 
+{
+	@extend %show-times;
+
+    h2 {
+        width: 560px;
+    }
+
+	.film-list {
+		@extend %film-list;
+
+		.film-item {
+			@extend %film-item;
+
+			.film-showtimes {
+				@extend %film-showtimes;
+			}
+		}
+	}
+}
+
+.movies-detail {
+	.attributes-print {
+		@extend %attributes-print;
+	}
+}
+
+.film-info {
+	min-height: 271px;
+	position: relative;
+	margin: 12px;
+	
+	.film-header {
+		display: block;
+		margin-left: 37px;
+
+		h3.boxout-title {
+			font-weight: normal;
+			font-size: 24px;
+		}
+	}
+
+	.censor-rating {
+        @include rating-image(24px, 0px, 0px,0px, 0px); 
+		float: left;
+		margin-right: 12px;
+		margin-top: 4px;
+  	}
+
+	.film-info-item {
+		.boxout-line-item {
+			display: inline-block;
+			float: left;
+			width: 50%;
+
+			label {
+				font-size: 14px;
+			}
+		}
+  	}
+
+	.boxout-line-item { 
+		margin-bottom: 3px;
+		font-size: 13px;
+		label {
+			font-size: 14px;
+		}
+	}
+
+	.site-url {
+		.boxout-line-item {
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-size: 14px;
+		}
+	}
+
+	.social-media-padding {
+		height: 25px;
+	}
+
+	.social-media {
+		position: absolute;
+		bottom: -8px;
+		left: 0px;
+		right: 0px;
+		height: 25px;
+
+		> div { 
+			display: inline-block;
+			margin-right: 12px;
+		}
+	}
+
+	.customer-rating {
+		margin-bottom: 15px;
+		font-family: 'Calibri';
+		font-size: 16px;
+
+		.average {
+			font-size: 24px;
+		}
+	}
+}
+
+
+.rating-wrapper 
+{
+	@extend %star-rating;
+
+	margin: 6px -3px 0 -3px;
+}
+
+
+.film-rating {
+	margin-top: 12px;
+
+	border-top: 1px solid #b4b4b4;
+
+	.top-line {
+		display: table;
+		width: 100%;
+
+		> div {
+			display: table-row;
+
+			> div {
+				display: table-cell;
+				vertical-align: top;
+				&.left {
+					border-right: 1px solid #b4b4b4;
+					width: 90px;
+				}
+			}
+		}
+	}
+
+	.bottom-line {
+		border-top: 1px solid #b4b4b4;
+	}
+
+	.trailer-rating { 
+		width: 90px;
+		height: 70px;
+		color: $color-highlight;
+		text-align: center;
+		font-size: 10px;
+		position: relative;
+
+		.liked, .disliked {
+			position: absolute;
+			transform: translateY(-50%);
+			top: 50%;
+			background-repeat: no-repeat;
+			background-position: top center;
+			padding: 32px 5px 0 5px;
+		}
+
+		.liked {
+			background-image: url('../../Images/Trailers/Thumb_MovieDetail_Up.png')
+		}
+
+		.disliked {
+			background-image: url('../../Images/Trailers/Thumb_MovieDetail_Dwn.png')
+		}
+	}
+
+
+	.your-rating { 
+		font-family: 'Segoe UI';
+		width: 90px;
+		height: 70px;
+		color: $color-highlight;
+		text-align: center;
+		font-size: 12px;
+
+		.rated {
+
+			.score {
+				font-family: 'Calibri';
+				font-size: 32px;
+
+				&::before {
+					content: ' ';
+					font-size: 0;
+					height: 20px;
+					width: 20px;
+					display: inline-block;
+					margin-right: 4px;
+					@include background-image("SmallStar.png","../../");
+				}
+			}
+
+			.max-score {
+				font-family: 'Calibri';
+				color: #666666;
+				font-size: 18px;
+			}
+		}
+
+		> div {
+			position: relative;
+			top: 50%;
+			transform: translateY(-56%);
+			text-align: center;			
+		}
+	}
+
+	.rating-stars {
+		font-size: 14px;
+		color: #666666;
+
+		> div {
+			margin: 10px 12px 12px 12px;
+		}
+
+		.current {
+			overflow: visible;
+			white-space: nowrap;
+		}
+	}
+
+	.comment {
+		padding: 5px 21px 21px 5px;
+
+		.display {
+			margin: 2px -8px 3px 12px;
+			//min-height: 52px;
+			font-size: 12px;
+			line-height: 17px;
+		}
+
+		textarea {
+			width: 100%;
+			height: 50px;
+			border: none;
+			resize: none;
+			padding: 2px 2px 2px 12px;
+		}
+
+		.actions {
+
+			margin-right: -12px;
+			margin-top: 3px;
+
+			.submit-rating, .edit-comment {
+				text-decoration: underline;
+				text-transform: capitalize;
+				float: right;
+				cursor: pointer;
+  			}		
+		}
+
+	}
+}
+
+/* TODO: these should be made global styles when we update the other login forms */
+.login-wrapper {
+	background-color: #FFF;
+	border: 1px solid #EAEAEA;
+	padding: 20px 30px;
+
+	font-family: 'Segoe UI';
+	font-size: 14px;
+
+	.form-wrapper {
+			
+		h2 {
+			margin-bottom: 8px;
+		}
+
+		> p {
+			color: #666666;
+			margin-bottom: 30px;
+		}
+
+		.signin-errors {
+			margin-bottom: 15px;
+			margin-top: -8px;
+			font-family: Calibri;
+			font-size: 14px;
+			font-style: italic;
+
+			li {
+				color: #93908F;
+				margin-bottom: 5px;
+				padding-left: 28px;
+				line-height: 18px;
+				background: url("../../Images/Notification_Red.png") no-repeat left center;
+			}
+		}
+
+		form {
+			h3 {
+				display: none;
+			}
+
+			ul {
+					
+				li {
+					input {
+						width: 388px;
+						padding: 0 7px;
+						height: 36px;
+						border: 0;
+						margin-bottom: 5px;
+						border: 1px solid #EAEAEA;
+
+						&.error {
+							border-color: #BC3939;
+							background-color: #F8EBEB;
+							color: #DD9C9C;
+							font-family: 'Segoe UI';
+							font-style: italic;
+									 
+
+						}
+					}
+				}
+			}
+
+			.footer {
+				margin-top: 3px;
+				color:  #93908F;
+
+				> a {
+					float: left;
+				}
+
+				.right {
+
+					text-align: right;
+					font-size: 0;
+
+					> a {
+						border: 0;
+						font-size: 14px;
+						display: inline-block;
+						line-height: 20px;
+						vertical-align: middle;
+					}
+
+					.button-separator {
+						border-right: 1px solid #666666;
+						height: 23px;
+						width: 1px;
+						display: inline-block;
+						margin: 0 15px;
+						vertical-align: middle;
+  					}
+
+					input {
+						border: 0;
+						border-radius: 5px;
+						height: 44px;
+						padding: 0;
+						width: 140px;
+						background-color: #35A0A8;
+						color: #EAEAEA;
+						font-weight: bold;
+						font-size: 20px;
+						line-height: 44px;
+						vertical-align: middle;						
+					}
+				}
+
+			}
+		}
+	}
+}

@@ -1,0 +1,119 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* HORIZONTAL AND VERTICAL RULES */
+/* LINK/ANCHOR TAG STYLES */
+.description-box .cinema-more-info-link {
+  text-decoration: none;
+}
+
+.nav-menu .nav-menu-item.selected:before {
+  border-color: transparent transparent #eaeaea transparent;
+}
+
+.description-box {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  color: #666666;
+  border-bottom: 1px solid #dadada;
+}
+.description-box .cinema-list-image {
+  -webkit-box-flex: 0 0 120px;
+  -webkit-flex: 0 0 120px;
+  flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+}
+:not(.flexbox).flexboxlegacy .description-box .cinema-list-image {
+  -webkit-box-flex: 0;
+}
+.description-box .item-details {
+  -webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  margin-left: 0.6rem;
+  margin-top: 0.3rem;
+}
+:not(.flexbox).flexboxlegacy .description-box .item-details {
+  -webkit-box-flex: 1;
+}
+.description-box .item-details .cinema-name {
+  display: block;
+  font-size: 1rem;
+  vertical-align: top;
+  margin-bottom: 0.25rem;
+}
+.description-box .cinema-more-info-link {
+  color: #666666;
+  display: block;
+}
+
+.session-day-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cinema-sessions {
+  margin-top: 0.5rem;
+}
+
+.films-for-day {
+  display: none;
+}
+.films-for-day.selected {
+  display: block;
+}
+.films-for-day .film-for-day {
+  line-height: 3rem;
+}
+
+.rating-image {
+  width: 20px;
+  margin: 0 10px;
+  vertical-align: text-bottom;
+}
+
+.film-title {
+  display: inline-block;
+  vertical-align: top;
+  width: 80%;
+  padding-bottom: 0.6rem;
+  overflow: hidden;
+  height: 3rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.film-title:after {
+  content: '';
+  display: block;
+}

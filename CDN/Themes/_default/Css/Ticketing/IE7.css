@@ -1,0 +1,61 @@
+/* IE<=7 */
+.categories li {
+  clear: left;
+  float: left;
+  width: 150px;
+  /* extra vertical spacing */
+}
+.categories li a {
+  width: 100%;
+}
+
+.countdown {
+  font-size: 18px;
+}
+.countdown em, .countdown .time {
+  font-size: 26px;
+}
+
+#breadcrumb {
+  text-justify: distribute;
+}
+#breadcrumb span {
+  vertical-align: top;
+}
+#breadcrumb input {
+  overflow: visible;
+}
+#breadcrumb input, #breadcrumb span {
+  height: 25px;
+}
+
+#select-seats-container {
+  width: 727px;
+}
+
+#frmSelectTickets .order-details, #frmSelectConcessions .order-details, #visShop .order-details {
+  width: 252px;
+}
+
+#concessions {
+  float: left;
+  width: 740px;
+}
+#concessions .promotion-details {
+  white-space: nowrap;
+  /* wraps for whatever reason */
+}
+
+#concession-tabs .promotion-header button {
+  overflow: visible;
+  /* button width */
+}
+
+/* For whatever reason this wraps on IE7 */
+.user-action .icon {
+  white-space: nowrap;
+}
+
+#cart-summary .cart-sessions dl {
+  float: left;
+}

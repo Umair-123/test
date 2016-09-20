@@ -1,0 +1,32 @@
+﻿.card-wallet
+{
+    margin-top:10px;
+    margin-bottom:0;
+
+    .checkbox-list {
+        min-height:0;
+        width:auto;
+    }
+    
+    .card-wallet-card-number {
+        width:50%;
+
+    }
+    .card-wallet-card-expiry {
+        width:50%;
+        text-align:right;
+    }
+
+    .card-wallet-delete-card {
+        display:none;
+    }
+
+}
+
+.button-list-multi {
+    button {
+        width:100%;
+        flex-grow:1;
+        -ms-flex:1
+    }
+}

@@ -1,0 +1,16 @@
+#ratings .rating h3 {
+  display: inline;
+}
+
+#ratings .rating {
+  margin: 5px 0 30px 0;
+  line-height: 14px;
+}
+
+#ratings .rating img {
+  margin-right: 15px;
+}
+
+#ratings .rating .rating-body {
+  margin-top: 15px;
+}

@@ -1,0 +1,16 @@
+﻿@using InternetTicketing.Infrastructure.Localisation
+<div id="trailer-rating-template" style="display: none;">
+    <div class="rate"><span class="thumbs-up"></span><span class="thumbs-down"></span></div>
+    <div class="rate-text">@Movies.RateTrailer</div>
+    <div class="login-wrapper" style="display: none;">
+        <div class="form-wrapper">
+            <h2>@Movies.SignInHeader1<em>@Movies.SignInHeader2</em></h2>
+            
+            <p>@Movies.SignInTrailerText</p>
+            @{
+                Html.RenderAction("SignInAsync", "Loyalty", new {id=string.Empty});       
+            }
+        </div>
+    </div>
+</div>
+

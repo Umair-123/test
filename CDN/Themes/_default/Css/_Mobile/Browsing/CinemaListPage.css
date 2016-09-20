@@ -1,0 +1,112 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* HORIZONTAL AND VERTICAL RULES */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* LINK/ANCHOR TAG STYLES */
+.cinema-list-page .cinema-list-item-link {
+  text-decoration: none;
+}
+
+/* IMAGE HELPERS */
+/* ICONS */
+/*
+
+
+*/
+.cinema-list-page .cinema-list-item-link {
+  color: #666666;
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+.cinema-list-page .cinema-list-item-link .cinema-list-image {
+  -webkit-box-flex: 0 0 128px;
+  -webkit-flex: 0 0 128px;
+  flex: 0 0 128px;
+  -ms-flex: 0 0 128px;
+}
+:not(.flexbox).flexboxlegacy .cinema-list-page .cinema-list-item-link .cinema-list-image {
+  -webkit-box-flex: 0;
+}
+.cinema-list-page .cinema-list-item-link .item-details {
+  -webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  margin-left: 0.8rem;
+  margin-top: 0.3rem;
+}
+:not(.flexbox).flexboxlegacy .cinema-list-page .cinema-list-item-link .item-details {
+  -webkit-box-flex: 1;
+}
+.cinema-list-page .cinema-list-item-link .item-details .item-title {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 0.25rem;
+}
+.cinema-list-page .cinema-list-item-link .item-address {
+  width: 85%;
+  font-size: 0.875rem;
+}
+.cinema-list-page .cinema-list-item-link .item-address span:after {
+  content: ',';
+}
+.cinema-list-page .cinema-list-item-link .item-address span:last-child:after {
+  content: '';
+}
+.cinema-list-page .horizontal-separator {
+  border: 0;
+  border-top: 1px solid #dadada;
+  margin: 0;
+}

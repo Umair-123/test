@@ -1,0 +1,14 @@
+.loyalty-terms-conditions h3 {
+  text-transform: uppercase;
+}
+.loyalty-terms-conditions ul {
+  list-style: disc;
+  line-height: 14px;
+  margin-left: 15px;
+}
+.loyalty-terms-conditions ul li {
+  margin-top: 10px;
+}
+.loyalty-terms-conditions ul ul {
+  list-style: none;
+}

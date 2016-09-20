@@ -1,0 +1,602 @@
+.rating-wrapper {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.rating-wrapper .current, .rating-wrapper .over {
+  line-height: 26px;
+  height: 26px;
+}
+.rating-wrapper .current .star-wrapper, .rating-wrapper .over .star-wrapper {
+  display: inline-block;
+  height: 26px;
+  font-size: 0px;
+  min-width: 28px;
+}
+.rating-wrapper .current .star-wrapper .star, .rating-wrapper .over .star-wrapper .star {
+  width: 28px;
+  height: 26px;
+  display: block;
+  background-image: url("../../images/RatingStars.png");
+}
+.rating-wrapper .current .star-wrapper .selected::before, .rating-wrapper .over .star-wrapper .selected::before {
+  background-position: 0 26;
+}
+.rating-wrapper .current .star-wrapper .star.selected {
+  background-position: 0 26px;
+}
+.rating-wrapper .over-wrapper {
+  overflow: hidden;
+  position: absolute;
+  top: 200px;
+}
+.rating-wrapper .over-wrapper.left {
+  left: 0;
+}
+.rating-wrapper .over-wrapper.left .star-wrapper .star {
+  background-position: 0 26px;
+}
+.rating-wrapper:hover .over-wrapper {
+  top: 0;
+}
+
+.movies-detail .attributes-print {
+  margin: -22px 430px 14px -7px;
+}
+.movies-detail .attributes-print .attributes-wrapper {
+  text-align: left;
+}
+.movies-detail .attributes-print .attributes-wrapper .attributes-key {
+  border: 1px solid #B4B4B4;
+  display: block;
+  min-height: 59px;
+  padding: 0;
+}
+.movies-detail .attributes-print .attributes-wrapper .attributes-key .key {
+  display: none;
+}
+.movies-detail .attributes-print .attributes-wrapper .attributes-key .attribute {
+  float: none;
+  display: inline-block;
+  width: 24%;
+  line-height: 16px;
+  margin: 5px 0;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.movies-detail .attributes-print .attributes-wrapper .attributes-key .attribute img {
+  vertical-align: middle;
+  height: 16px;
+}
+.movies-detail .attributes-print .attributes-wrapper .attributes-key .attribute span {
+  vertical-align: middle;
+}
+
+#show-times {
+  margin-top: 30px;
+  /*
+  .last-cinema {
+  	.film-item {
+  		&.last-item { 
+  			border-bottom: none; 
+  		}
+  	}
+  }
+  */
+}
+#show-times .film-list {
+  margin-top: 15px;
+}
+#show-times .film-list .film-item {
+  margin-left: -7px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border: 1px solid #EAEAEA;
+  padding: 10px;
+}
+#show-times .film-list .film-item .toggle-future-dates {
+  float: right;
+}
+#show-times .film-list .film-item .movie-image {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+#show-times .film-list .film-item .movie-image .image-outer {
+  float: left;
+  width: 121px;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+#show-times .film-list .film-item .movie-image .image-outer > a, #show-times .film-list .film-item .movie-image .image-outer > div {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+#show-times .film-list .film-item .movie-image .image-outer > a img, #show-times .film-list .film-item .movie-image .image-outer > div img {
+  width: 121px;
+  height: 180px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  float: none;
+  display: none;
+}
+#show-times .film-list .film-item .movie-image .image-outer > a.play, #show-times .film-list .film-item .movie-image .image-outer > div.play {
+  z-index: 15;
+  filter: alpha(opacity=0);
+  -ms-filter: "alpha(opacity=0)";
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+#show-times .film-list .film-item .movie-image .image-outer > a.play > span, #show-times .film-list .film-item .movie-image .image-outer > div.play > span {
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 121px;
+  padding-top: 80px;
+  z-index: 30;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  font-size: 14px;
+  color: #eaeaea;
+  text-transform: uppercase;
+  filter: alpha(opacity=60);
+  -ms-filter: "alpha(opacity=60)";
+  -khtml-opacity: 0.6;
+  opacity: 0.6;
+}
+#show-times .film-list .film-item .movie-image .image-outer > a.play .overlay, #show-times .film-list .film-item .movie-image .image-outer > div.play .overlay {
+  display: block;
+  background-image: url("../../Images/PosterTrailerHover.png");
+  postion: absolute;
+  top: 0;
+  left: 0;
+  width: 121px;
+  height: 180px;
+  z-index: 20;
+}
+#show-times .film-list .film-item .movie-image .image-outer > a.play:hover, #show-times .film-list .film-item .movie-image .image-outer > div.play:hover {
+  filter: alpha(opacity=100);
+  -ms-filter: "alpha(opacity=100)";
+  -khtml-opacity: 1;
+  opacity: 1;
+  background-color: transparent;
+}
+#show-times .film-list .film-item .movie-image a {
+  border-bottom: none;
+}
+#show-times .film-list .film-item .movie-image.rating-image {
+  vertical-align: top;
+}
+#show-times .dynamic-pricing-sessions-key {
+  background-color: #AEE5E1;
+  font-style: italic;
+  font-family: "Calibri", sans-serif;
+  font-size: 14px;
+}
+
+button.user-action.toggle-future-dates span.icon {
+  padding: 0 25px 0 0;
+  background-position: right center;
+  font-size: 13px;
+}
+button.user-action.toggle-future-dates span.icon.up-arrow {
+  background-image: url("../../Images/Icon_Arrow_Up.png");
+}
+button.user-action.toggle-future-dates span.icon.down-arrow {
+  background-image: url("../../Images/Icon_Arrow_Down.png");
+}
+
+/*
+.has-attributes .attributes-print { margin-bottom: 20px;}
+
+.advance-sale-date { font-family: $font-segoe; font-size: 12px; color: $color-666666; font-style: italic; margin-bottom: 5px; }
+.advance-sale-date + .session-date { margin-top: 10px; }
+.advance-sale-date + .session-times time { margin-right: 50px; }
+*/
+#show-times .film-list .film-item .film-showtimes .film-header {
+  margin-bottom: 20px;
+}
+#show-times .film-list .film-item .film-showtimes .film-header a {
+  border-bottom: none;
+}
+#show-times .film-list .film-item .film-showtimes .film-header h3.film-title {
+  display: inline;
+  font-size: 20px;
+  color: #2B2725;
+  font-weight: normal;
+  font-family: 'Segoe UI';
+}
+#show-times .film-list .film-item .film-showtimes .session {
+  margin-bottom: 20px;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-date {
+  font-family: 'Segoe UI';
+  font-weight: normal;
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: -2px;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-times {
+  margin: 0;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-times .session-attributes-list {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  display: block;
+  height: 37px;
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #666666;
+  margin-right: 10px;
+  line-height: 37px;
+  vertical-align: middle;
+  border: 0;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-times .session-time {
+  margin-top: 10px;
+  background-color: #EAEAEA;
+  display: inline-block;
+  height: 37px;
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #666666;
+  margin-right: 10px;
+  line-height: 37px;
+  vertical-align: middle;
+  border: 0;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-times .session-time img {
+  vertical-align: middle;
+  height: 16px;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-times .session-time time {
+  vertical-align: middle;
+}
+#show-times .film-list .film-item .film-showtimes .session .session-times .session-time-with-dynamic-pricing {
+  background-color: #AEE5E1;
+}
+
+.play-bar {
+  height: 78px;
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.play-bar button.user-action {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 78px;
+  background-color: transparent;
+  background-image: url("../../images/PlayTrailer_MovieDetail.png");
+}
+.play-bar button.user-action:focus, .play-bar button.user-action:active {
+  outline: 0;
+}
+.play-bar button.user-action span.icon {
+  position: absolute;
+  left: 85px;
+  bottom: 0;
+  font-family: Calibri;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 34px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #EAEAEA;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+#show-times h2 {
+  width: 560px;
+}
+
+.film-info {
+  min-height: 271px;
+  position: relative;
+  margin: 12px;
+}
+.film-info .film-header {
+  display: block;
+  margin-left: 37px;
+}
+.film-info .film-header h3.boxout-title {
+  font-weight: normal;
+  font-size: 24px;
+}
+.film-info .censor-rating {
+  width: 24px;
+  line-height: 24px;
+  height: 24px;
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  float: left;
+  margin-right: 12px;
+  margin-top: 4px;
+}
+.film-info .censor-rating .icon {
+  max-width: 24px;
+  max-height: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: middle;
+}
+.film-info .film-info-item .boxout-line-item {
+  display: inline-block;
+  float: left;
+  width: 50%;
+}
+.film-info .film-info-item .boxout-line-item label {
+  font-size: 14px;
+}
+.film-info .boxout-line-item {
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+.film-info .boxout-line-item label {
+  font-size: 14px;
+}
+.film-info .site-url .boxout-line-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.film-info .social-media-padding {
+  height: 25px;
+}
+.film-info .social-media {
+  position: absolute;
+  bottom: -8px;
+  left: 0px;
+  right: 0px;
+  height: 25px;
+}
+.film-info .social-media > div {
+  display: inline-block;
+  margin-right: 12px;
+}
+.film-info .customer-rating {
+  margin-bottom: 15px;
+  font-family: 'Calibri';
+  font-size: 16px;
+}
+.film-info .customer-rating .average {
+  font-size: 24px;
+}
+
+.rating-wrapper {
+  margin: 6px -3px 0 -3px;
+}
+
+.film-rating {
+  margin-top: 12px;
+  border-top: 1px solid #b4b4b4;
+}
+.film-rating .top-line {
+  display: table;
+  width: 100%;
+}
+.film-rating .top-line > div {
+  display: table-row;
+}
+.film-rating .top-line > div > div {
+  display: table-cell;
+  vertical-align: top;
+}
+.film-rating .top-line > div > div.left {
+  border-right: 1px solid #b4b4b4;
+  width: 90px;
+}
+.film-rating .bottom-line {
+  border-top: 1px solid #b4b4b4;
+}
+.film-rating .trailer-rating {
+  width: 90px;
+  height: 70px;
+  color: #35a0a8;
+  text-align: center;
+  font-size: 10px;
+  position: relative;
+}
+.film-rating .trailer-rating .liked, .film-rating .trailer-rating .disliked {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding: 32px 5px 0 5px;
+}
+.film-rating .trailer-rating .liked {
+  background-image: url("../../Images/Trailers/Thumb_MovieDetail_Up.png");
+}
+.film-rating .trailer-rating .disliked {
+  background-image: url("../../Images/Trailers/Thumb_MovieDetail_Dwn.png");
+}
+.film-rating .your-rating {
+  font-family: 'Segoe UI';
+  width: 90px;
+  height: 70px;
+  color: #35a0a8;
+  text-align: center;
+  font-size: 12px;
+}
+.film-rating .your-rating .rated .score {
+  font-family: 'Calibri';
+  font-size: 32px;
+}
+.film-rating .your-rating .rated .score::before {
+  content: ' ';
+  font-size: 0;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  margin-right: 4px;
+  background-image: url("../../images/SmallStar.png");
+}
+.film-rating .your-rating .rated .max-score {
+  font-family: 'Calibri';
+  color: #666666;
+  font-size: 18px;
+}
+.film-rating .your-rating > div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-56%);
+  text-align: center;
+}
+.film-rating .rating-stars {
+  font-size: 14px;
+  color: #666666;
+}
+.film-rating .rating-stars > div {
+  margin: 10px 12px 12px 12px;
+}
+.film-rating .rating-stars .current {
+  overflow: visible;
+  white-space: nowrap;
+}
+.film-rating .comment {
+  padding: 5px 21px 21px 5px;
+}
+.film-rating .comment .display {
+  margin: 2px -8px 3px 12px;
+  font-size: 12px;
+  line-height: 17px;
+}
+.film-rating .comment textarea {
+  width: 100%;
+  height: 50px;
+  border: none;
+  resize: none;
+  padding: 2px 2px 2px 12px;
+}
+.film-rating .comment .actions {
+  margin-right: -12px;
+  margin-top: 3px;
+}
+.film-rating .comment .actions .submit-rating, .film-rating .comment .actions .edit-comment {
+  text-decoration: underline;
+  text-transform: capitalize;
+  float: right;
+  cursor: pointer;
+}
+
+/* TODO: these should be made global styles when we update the other login forms */
+.login-wrapper {
+  background-color: #FFF;
+  border: 1px solid #EAEAEA;
+  padding: 20px 30px;
+  font-family: 'Segoe UI';
+  font-size: 14px;
+}
+.login-wrapper .form-wrapper h2 {
+  margin-bottom: 8px;
+}
+.login-wrapper .form-wrapper > p {
+  color: #666666;
+  margin-bottom: 30px;
+}
+.login-wrapper .form-wrapper .signin-errors {
+  margin-bottom: 15px;
+  margin-top: -8px;
+  font-family: Calibri;
+  font-size: 14px;
+  font-style: italic;
+}
+.login-wrapper .form-wrapper .signin-errors li {
+  color: #93908F;
+  margin-bottom: 5px;
+  padding-left: 28px;
+  line-height: 18px;
+  background: url("../../Images/Notification_Red.png") no-repeat left center;
+}
+.login-wrapper .form-wrapper form h3 {
+  display: none;
+}
+.login-wrapper .form-wrapper form ul li input {
+  width: 388px;
+  padding: 0 7px;
+  height: 36px;
+  border: 0;
+  margin-bottom: 5px;
+  border: 1px solid #EAEAEA;
+}
+.login-wrapper .form-wrapper form ul li input.error {
+  border-color: #BC3939;
+  background-color: #F8EBEB;
+  color: #DD9C9C;
+  font-family: 'Segoe UI';
+  font-style: italic;
+}
+.login-wrapper .form-wrapper form .footer {
+  margin-top: 3px;
+  color: #93908F;
+}
+.login-wrapper .form-wrapper form .footer > a {
+  float: left;
+}
+.login-wrapper .form-wrapper form .footer .right {
+  text-align: right;
+  font-size: 0;
+}
+.login-wrapper .form-wrapper form .footer .right > a {
+  border: 0;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 20px;
+  vertical-align: middle;
+}
+.login-wrapper .form-wrapper form .footer .right .button-separator {
+  border-right: 1px solid #666666;
+  height: 23px;
+  width: 1px;
+  display: inline-block;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+.login-wrapper .form-wrapper form .footer .right input {
+  border: 0;
+  border-radius: 5px;
+  height: 44px;
+  padding: 0;
+  width: 140px;
+  background-color: #35A0A8;
+  color: #EAEAEA;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 44px;
+  vertical-align: middle;
+}

@@ -1,0 +1,67 @@
+﻿@using InternetTicketing.Browsing.ViewModels.Loyalty.Member
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@model MessagesViewModel
+           
+@{
+    var messages = Model.Messages.ToList();
+}
+
+<div>
+    @* TODO: are these single images? gallery? generic ads or page specific? *@ 
+    <div id="loyalty-messages-sidebar">
+        <img src="@ContentDelivery.Image("EventAd.png")" />
+    </div>
+
+    <div class="loyalty-messages">
+        <h2>@LoyaltyMember.MessagesTitle1<em>@LoyaltyMember.MessagesTitle2</em></h2>
+        
+        <table>
+            @for (int i = 0; i < messages.Count(); i++)
+            {
+                var message = messages[i];
+                <tr class="message-header">
+                    <td class="message-title">
+                        @message.GetMessageSubject().GetTranslation(Model.IsAltLang)
+                        
+                        @if (message.ResponseRequired)
+                        {
+                            <div data-message-id="@message.MessageId" data-message-type="@message.ResponseDataType.ToLower()" class="message-action-reply"><span class="icon icon-small icon-reply"></span><a data-message-id="@message.MessageId" data-message-type="@message.ResponseDataType.ToLower()" href="#">@LoyaltyMember.ReplyMessage</a></div>                            
+                        }
+                        else
+                        {
+                            <div class="message-action-delete"><span class="icon icon-small icon-clear-666"></span>
+                                @Html.ActionLink(LoyaltyMember.DeleteMessage, "DeleteMessage", new { messageId = message.MessageId, recognitionId = message.RecognitionId })
+                            </div>
+                        }
+                    </td>
+                </tr>
+                <tr class="message-text">
+                    <td>@Html.FromMultilinePlainText(message.GetMessageText().GetTranslation(Model.IsAltLang))</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div id="reply-modal">        
+        <div class="loading-container">
+            <span>&nbsp;</span>       
+        </div>
+        <div class="form-container"></div> 
+    </div>
+</div>
+
+@section Css
+{
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("Loyalty/LoyaltyMessages.css")
+    @ContentDelivery.Css("CheckboxList.css")    
+}
+@section Scripts
+{
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/MemberMessages.js")
+    @ContentDelivery.Script("Vista/CheckBoxList.js")
+}

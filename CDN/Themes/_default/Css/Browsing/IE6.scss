@@ -1,0 +1,41 @@
+﻿/* IE6 has no support for conflicting absolute positions */
+#quick-tickets, #quick-tickets-details { bottom: auto; height: 230px; }
+#quick-tickets-overlay { right: auto; bottom: auto; height: 230px; width: 1018px; }
+#quick-tickets-selection { right: auto; bottom: auto; height: 230px; width: 688px; } 
+
+#page-overlay  { position: absolute; right: auto; bottom: auto; }
+.scrollbox-left-button, .scrollbox-right-button { bottom: auto; height: 157px; }
+.scrollbox-viewport { right: auto; top: auto; }
+.scrollbox-scrollbar { right: auto; }
+
+.home-movies .scrollbox-left-button,
+.home-movies .scrollbox-right-button {
+    height: 230px;
+}
+
+.loyalty-member .row {
+    zoom: 1; /* hasLayout required for overflow: hidden to clear floats */
+}
+
+/* No [attr] selector on IE6 */
+.loyalty-member #CardNumber,
+.loyalty-member #CardNumberConfirm,
+.loyalty-member #ExistingUsername,
+.loyalty-member #ExistingPassword { width: 166px; } 
+
+.loyalty-member #Username,
+.loyalty-member #Password,
+.loyalty-member #OldPassword,
+.loyalty-member #NewPassword,
+.loyalty-member #PasswordConfirm { width: 275px; }
+
+
+#loyalty-member-preferences li {
+    height: 24px;
+    zoom: 1;
+}
+
+
+#loyalty-member-preferences dd {
+    zoom: 1;
+}

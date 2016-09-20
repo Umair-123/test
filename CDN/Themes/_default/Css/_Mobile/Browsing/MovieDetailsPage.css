@@ -1,0 +1,189 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+.cinema-name {
+  color: #443e3b;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* HORIZONTAL AND VERTICAL RULES */
+/* LINK/ANCHOR TAG STYLES */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* IMAGE HELPERS */
+/* ICONS */
+.description-box .movie-list-image .trailer-icon {
+  background-image: url("../../../Images/Mobile/Icons/Icons_Play_30.png");
+}
+
+.nav-menu .nav-menu-item.selected:before {
+  border-color: transparent transparent #eaeaea transparent;
+}
+
+.trailer-box {
+  display: none;
+  margin-bottom: -4px;
+}
+
+.description-box {
+  color: #666666;
+  min-height: 184px;
+  /* This spacer helps with the text wrap for film sypnosis */
+}
+.description-box .movie-list-image {
+  float: left;
+  height: 184px;
+  clear: left;
+  margin-right: 0.6rem;
+}
+.description-box .movie-list-image a {
+  display: block;
+  height: 0;
+}
+.description-box .movie-list-image .trailer-icon {
+  display: block;
+  position: relative;
+  bottom: 35px;
+  left: 85px;
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+}
+.description-box .item-details {
+  margin: 0 0.6rem;
+  overflow: hidden;
+  height: 158px;
+}
+.description-box .item-details .film-description-title {
+  font-size: 1rem;
+  display: block;
+  vertical-align: top;
+  padding-top: 0.5rem;
+}
+.description-box .item-details.expanded {
+  overflow: inherit;
+  height: auto;
+}
+.description-box .spacer {
+  float: left;
+  width: 0;
+  height: calc(100% - 184px);
+}
+.description-box .expand-helper {
+  text-align: right;
+  line-height: 1rem;
+  height: 22px;
+}
+.description-box .expand-helper span {
+  margin-right: 10px;
+  text-decoration: underline;
+}
+.description-box .film-details {
+  margin-top: 0.6rem;
+}
+.description-box .film-details a {
+  color: #3a3a3a;
+}
+.description-box .film-details div {
+  margin-bottom: 2px;
+}
+.description-box .film-details .cast-list {
+  margin-top: 0.75rem;
+}
+.description-box .film-details .desc-label {
+  color: #443e3b;
+}
+.description-box .film-synopsis {
+  margin-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
+
+.session-day-label {
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.cinema-sessions {
+  margin-top: 0.1rem;
+}
+
+.cinemas-for-day {
+  display: none;
+}
+.cinemas-for-day.selected {
+  display: block;
+}
+
+.cinema-name {
+  font-weight: normal;
+  vertical-align: top;
+  margin-left: 0.6rem;
+}
+.cinema-name:after {
+  content: '';
+  display: block;
+}
+
+.cinema-session-times {
+  margin: 0.6rem 0 0 0.6rem;
+  color: #666666;
+  font-size: 0.75rem;
+}
+.cinema-session-times .cinema-showtime {
+  margin-right: 0.6rem;
+}
+
+.cinema-attributes {
+  margin: 0.6rem 0 0.6rem 0.6rem;
+  color: #35a0a8;
+}
+
+.movie-sessions {
+  border-top: 1px solid #dadada;
+  padding-top: 10px;
+}

@@ -1,0 +1,62 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@model InternetTicketing.Browsing.ViewModels.Loyalty.Member.DetailsViewModel
+
+@section Css {
+    @ContentDelivery.Css("Loyalty/LoyaltyMember.css")
+    @ContentDelivery.Css("AddressModal.css")
+    @ContentDelivery.Css("Validation.css")
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Models/Address.js")  
+    @ContentDelivery.Script("Vista/CheckBoxList.js")  
+    @ContentDelivery.Script("Vista/AddressModalDialog.js")
+    @ContentDelivery.Script("Vista/LoyaltyMember/Page.js")
+}
+
+@{
+    IDictionary<string, object> passwordLimits = Html.GetLengthValidationAttributes(Model.MinPasswordLength, Model.MaxPasswordLength);
+    passwordLimits.Add("autocomplete","off");
+}
+
+@using (Html.BeginForm("Details", "Loyalty", FormMethod.Post, new { @class = "loyalty-member" }))
+{
+    @Html.EditorFor(m => m.Member)
+
+    <hr />
+
+    <div id="loyalty-member-password" class="row">
+        <h2>@LoyaltyMember.ChangePassword</h2>    
+
+        <ul>
+            <li>
+                @Html.LabelFor(m => m.OldPassword)@*
+              *@@Html.PasswordFor(m => m.OldPassword, new {autocomplete="off"})@*
+              *@@Html.ValidationMessageFor(m => m.OldPassword,null, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.NewPassword)@*
+              *@@Html.PasswordFor(m => m.NewPassword, passwordLimits)@*
+              *@@Html.ValidationMessageFor(m => m.NewPassword,null, new { @class = "icon icon-small" })
+            </li>
+            <li>
+                @Html.LabelFor(m => m.PasswordConfirm)@*
+              *@@Html.PasswordFor(m => m.PasswordConfirm, passwordLimits)@*
+              *@@Html.ValidationMessageFor(m => m.PasswordConfirm,null, new { @class = "icon icon-small" })
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="button-container"> @* IE<=8 centering fix *@
+        <button type="submit" class="page-action submit"><span>@LoyaltyMember.SaveChanges</span></button>
+    </div>
+}
+
+@{ Html.RenderPartial("AddressModal"); }
+
+

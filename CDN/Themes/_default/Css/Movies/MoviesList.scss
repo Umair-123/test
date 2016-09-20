@@ -1,0 +1,246 @@
+﻿@import "../_UtilMixins";
+@import "../_ItemList";
+$page-margin: 15px;
+
+#movies { 
+	overflow: hidden; 
+	margin: -$page-margin;
+	
+	h2 {
+		margin: $page-margin $page-margin 20px $page-margin;
+	}
+}
+
+#movies-list { 
+	
+	@extend %item-list;	
+
+	margin-right: 330px; 
+
+	.image-outer { 
+		@extend %image-outer;
+
+		> a, > div { 
+
+			&.play {
+				z-index: 15;			
+
+				 @include opacity(0);
+
+				> span {
+					display: block;
+					position: absolute;
+					top: 40px;
+					left: 0;
+					width: $poster-width;
+					padding-top: 80px;
+					z-index: 30;
+
+					font-family: 'Segoe UI';
+					font-weight: bold;
+					font-size: 14px;
+					color: $color-eaeaea;
+					text-transform: uppercase;
+	
+					 @include opacity(0.6);
+				}
+
+				.overlay {
+					display: block;
+					background-image: url('../../Images/PosterTrailerHover.png');	
+					postion: absolute;
+					top: 0;
+					left: 0;
+					width: $poster-width;
+					height: $poster-height;
+					z-index: 20;
+				}
+
+				&:hover {
+					 @include opacity(1);
+
+					background-color: transparent;
+
+					.overlay, > span {
+						//display: block;
+					}
+				}
+			}
+		}
+	}
+
+	.list-item { 
+		@extend %list-item;
+
+		&.movie { 
+			height: $poster-height; 
+			border: 1px solid $color-eaeaea;
+			border-left: 0;
+			margin-top: 0;
+			margin-bottom: 8px;
+		} 
+
+		.item-details { 
+			@extend %item-details;
+
+            .average-rating {
+                font-family: 'Segoe UI';
+                height: 22px;
+                margin-left: 30px;
+                vertical-align: middle;
+                line-height: 11px;
+                margin-top: -2px;
+
+                span {
+                    font-size: 14px;
+                }
+
+                .score .average-score {
+                    font-size: 18px;
+                    margin-right: -3px;
+                }
+
+                .rated-label {
+                    font-size: 11px;
+                }
+            }
+		}
+		
+		.movie-actions { 
+
+			@extend %movie-actions;
+			
+			.main-action {
+				@extend %main-action;
+			}
+
+			.social-actions { 
+
+				display: inline-block;
+				padding: 7px 0 0 8px;
+				border-right: 1px solid $color-eaeaea;
+				background-color: $color-ffffff;
+				height: 27px;
+				> div, > iframe { width: 99px !important; }
+			}
+			
+			.image-wrapper { width: 15px; float: left; margin-right: 3px; line-height: 16px; }
+			.play-trailer { background: url('../../Images/PlayTrailer.png') no-repeat center; }
+
+            .trailer-rating {
+				color: $color-35a0a8;
+				float: right;
+                display: inline-block;
+                line-height: 35px;
+                vertical-align: middle;
+                font-family: 'Segoe UI';
+                padding-right: 18px;
+
+               .liked {
+                    padding-left: 35px;
+                    background-repeat: no-repeat;
+                    background-position: 5% 30%;
+                    background-size: 20px 20px;
+                    background-image: url('../../Images/Trailers/Thumb_MovieDetail_Up.png')
+               }
+            }
+
+            .trailer-rating.hidden {
+                display: none;
+            }
+
+            .film-rating.hidden {
+                display: none;
+            }
+
+            .film-rating {
+                float: right;
+                display: inline-block;
+                line-height: 30px;
+                vertical-align: middle;
+                font-family: 'Segoe UI';
+                padding-right: 18px;
+                color: $color-93908f;
+
+                .user-rating.hidden {
+                    display: none;
+                }
+
+                .user-rating {
+                    .score .your-score {
+                        font-size: 26px;
+                        color: $color-35a0a8;
+                        margin-right: -3px;
+                    }
+
+                    .your-rating {
+                        color: $color-35a0a8;
+                        font-size: 11px;
+                    }
+                }
+
+                span {
+                    display: inline-block;
+                }
+
+                .average-rating {
+
+                    .score .average-score {
+                        font-size: 26px;
+                    }
+
+                    .rated-label {
+                        font-size: 11px;
+                    }
+                }
+
+                .icon.star {
+                    width: 20px;
+                    height: 20px;
+					display: inline-block;
+					margin-right: 3px;
+                    background: url('../../Images/SmallStar.png') no-repeat center;
+                }
+            }
+		}
+	}
+
+    .no-movies-message {
+        margin-left:$page-margin;
+    }
+}
+
+/* Overflow hidden here fixes a very slight display issue */
+.now-showing {
+	#movies-list {
+		.list-item {
+			.movie-actions {
+				.showtimes-book { background: url('../../Images/Clock.png') no-repeat center; }
+			}
+		}
+	}
+}
+
+.ad-content {
+	overflow: hidden;
+	float: right;
+	margin-right: 15px;
+	width: 300px;
+	margin-left: auto;
+	.generic-image-carousel {
+        width:300px;
+        .images 
+        {   
+		    width: 300px;
+		    height: 268px;                
+        }
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.item-details-inner {
+	overflow: hidden;
+}
+

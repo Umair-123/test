@@ -1,0 +1,185 @@
+﻿//@import "../_Styles";
+@import "../_UtilMixins";
+@import "../_ItemList";
+
+
+
+
+#loyalty-clubs { 
+	overflow: hidden; 
+	margin: -15px;
+    position:relative;
+
+	.clubs {
+		position: relative;
+
+		margin-right: 330px; 
+	
+		h2 {
+			margin: 15px 15px 20px 15px;
+		}
+
+		.loyalty-login {
+			display: none; 
+		}
+
+		.activate-card-link 
+		{
+			position: absolute;
+			top: 0;
+			right: 0;        
+		}
+	}
+
+
+}
+
+.loyalty-clubs-list { 
+	
+	@extend %item-list;	
+
+	.image-outer { 
+		@extend %image-outer;
+
+		> a, > div { 
+
+
+			&.play {
+				z-index: 15;			
+
+				 @include opacity(0);
+
+				> span {
+					display: block;
+					position: absolute;
+					top: 40px;
+					left: 0;
+					width: $poster-width;
+					padding-top: 80px;
+					z-index: 30;
+
+					font-family: 'Segoe UI';
+					font-weight: bold;
+					font-size: 14px;
+					color: $color-eaeaea;
+					text-transform: uppercase;
+	
+					 @include opacity(0.6);
+				}
+
+				.overlay {
+					display: block;
+					background-image: url('../../Images/PosterTrailerHover.png');	
+					postion: absolute;
+					top: 0;
+					left: 0;
+					width: $poster-width;
+					height: $poster-height;
+					z-index: 20;
+				}
+
+				&:hover {
+					 @include opacity(1);
+
+					background-color: transparent;
+
+					.overlay, > span {
+						//display: block;
+					}
+				}
+			}
+		}
+	}
+
+	.list-item { 
+		@extend %list-item;
+
+		height: $poster-height; 
+		border: 1px solid $color-eaeaea;
+		border-left: 0;
+
+		margin: 0 0 8px 0;
+		width: auto;
+
+		.item-details { 
+			@extend %item-details;
+		}
+		
+		.movie-actions { 
+
+			@extend %movie-actions;
+			
+			.main-action {
+				@extend %main-action;
+			}
+
+		}
+	}
+}
+
+.ad-content {
+	overflow: hidden;
+	float: right;
+	margin-right: 15px;
+    margin-top:15px;
+	width: 300px;
+	margin-left: auto;
+	.generic-image-carousel {
+        width:300px;
+        .images 
+        {   
+		    width: 300px;
+		    height: 268px;                
+        }
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.item-details-inner {
+	overflow: hidden;
+}
+
+
+#loyalty-delete-container {
+    background: $color-ffffff;
+    padding: 10px;
+    width: 300px;
+}
+
+#loyalty-delete-membership {
+    display: none;
+    margin-bottom: 1px; // This magically prevents the modal dialog from generating a scroll bar 
+
+	p {
+		min-height: 50px;
+	}
+
+	.footer {
+		margin-top: 10px;
+		text-align: center;
+	}
+}
+
+#loyalty-signin-container {
+    background: $color-ffffff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.75);
+    padding-bottom: 10px;
+    width: 300px;
+
+	.loyalty-login{ 
+		
+		h3 em {
+			color: $color-highlight;
+		}
+
+		.form-field {
+			width: 273px;
+		}
+
+		.footer {
+		   padding-right: 15px;
+		}
+	}
+}

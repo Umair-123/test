@@ -1,0 +1,15 @@
+#timeoutpage {
+  text-align: center;
+}
+#timeoutpage h2 em {
+  font-size: 72px;
+  line-height: normal;
+}
+#timeoutpage p {
+  color: #443e3b;
+  display: block;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 20px auto 30px auto;
+  width: 525px;
+}

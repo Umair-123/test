@@ -1,0 +1,35 @@
+The ConfirmationComponent email is built for shopping cart confirmations.
+
+It is made up of a Header, Body and Footer template in that order and, when combined, creates a single html based email.
+
+The html tags at either end of the email need to match up. You may want to design the email in a single file first before splitting up the components.
+
+Template types:
+HEADER - Used to store email stylesheet and information to display at the top of the document, including order detail that does not repeat.
+BODY - Used to display the order details. Session specific data can only be written in the body.
+FOOTER - Used to close off the document, displaying some non repeating order information (such as booking fees or total cost) and some additional information relevant to the customer eg. terms and conditions, navigation hints or special deals.
+
+You can use the following tags
+
+key			will insert
+-----------------       -------------------
+<NAME>			member's first name
+<EMAIL>			member's email address
+<EML_DISPLAY_NAME>	name displayed as sender
+<ORDER_BOOKING>		booking number for order
+<ORDER_BOOKINGID>	booking alphanumeric id for order
+<ORDER_CINEMA>		cinema name for order
+<ORDER_BOOKINGFEE>	booking fee amount for order
+<ORDER_TOTAL>		total cost to customer
+
+-The following only in the BODY section
+<SESS_CINOP>		cinema operator name for session
+<SESS_MOVIE>		movie for session
+<SESS_TIME>		time of session
+<SESS_DATE>		date of session
+<SESS_SCREENNAME>	screen name of session
+<SESS_SCREENNUM>	screen number of session
+<SESS_TICKETDETAIL>	ticket data in fixed text format eg 1 x adult ($1.00 - A1). Additional tickets displayed on separate lines
+<SESS_CONCDETAIL>	concession data in fixed text format eg 1 x Lge Popcorn ($1.00). Additional items on separate lines
+<SESS_TKTVOUCHERSUSED>	comma separated list of ticket vouchers used in the order
+<SESS_SUBTOTAL>		cost subtotal of session

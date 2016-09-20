@@ -1,0 +1,22 @@
+﻿@using InternetTicketing.Infrastructure.Localisation
+@* TODO: more general controller? *@
+@using (Html.BeginForm("ValidateAddress", "Loyalty", FormMethod.Post, new { id = "address-modal-dialog" }))
+{
+    <h2>@AddressSearch.Heading1<em>@AddressSearch.Heading2</em></h2>
+
+    
+    <div class="search-fields">
+        <ul>
+            <li><label for="address-modal-address">@AddressSearch.LabelAddress</label><input type="text" id="address-modal-address" /></li>
+            <li><label for="address-modal-postcode">@AddressSearch.LabelPostcode</label><input class="post-code" type="text" id="address-modal-postcode" /></li>
+            <li><label for="address-modal-city">@AddressSearch.LabelCity</label><input type="text" id="address-modal-city" /></li>
+        </ul>
+
+        <button type="submit" class="user-action"><span class="icon">@AddressSearch.ButtonRefresh</span></button>
+    </div>
+
+    <ul class="search-results container-loading">
+    </ul>
+
+    <button type="button" class="user-action address-modal-close"><span class="icon">@AddressSearch.ButtonClose</span></button>
+}

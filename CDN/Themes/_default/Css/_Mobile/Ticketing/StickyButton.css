@@ -1,0 +1,29 @@
+html, body, article, #select-tickets, #frmSelectTickets, .sticky-button-page {
+  height: 100%;
+}
+html .sticky-button-page-content, body .sticky-button-page-content, article .sticky-button-page-content, #select-tickets .sticky-button-page-content, #frmSelectTickets .sticky-button-page-content, .sticky-button-page .sticky-button-page-content {
+  min-height: calc(100% - 45px);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+section.content {
+  height: calc(100% - 50px);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#SelectTicketsPanel {
+  min-height: calc(100% - 129px);
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.terms-conditions-line {
+  min-height: calc(100vh - 667px);
+}

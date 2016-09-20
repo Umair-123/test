@@ -1,0 +1,18 @@
+﻿.contact-cinema {
+
+	> div {
+		margin-bottom: 15px;
+	}
+
+	.contact-address, .contact-other {
+		width: 250px;
+		float: left;
+		overflow: hidden;
+		margin-right: 10px;
+		word-wrap: break-word;
+
+		> p {
+			margin-bottom: 5px;
+		}
+	 }
+}

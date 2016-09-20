@@ -1,0 +1,68 @@
+html, body {
+  height: 100%; }
+
+body {
+  background-color: #ffffff;
+  padding: 15px;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  min-height: 500px;
+  box-shadow: 0 0 6px #000000;
+  height: 100%; }
+
+#select-seats-tabs {
+  width: 20%;
+  float: left;
+  border-top: 1px #b3b3b3 solid;
+  border-left: 1px #b3b3b3 solid;
+  border-bottom: 1px #b3b3b3 solid;
+  box-sizing: border-box;
+  max-height: 430px;
+  overflow: auto;
+  position: relative; }
+  #select-seats-tabs li {
+    padding: 15px 10px;
+    border-bottom: 1px #eeeeee solid; }
+    #select-seats-tabs li:last-of-type {
+      border-bottom: none; }
+    #select-seats-tabs li.selected {
+      background-color: #35a0a8; }
+      #select-seats-tabs li.selected, #select-seats-tabs li.selected a {
+        color: #eaeaea; }
+      #select-seats-tabs li.selected * {
+        cursor: initial; }
+  #select-seats-tabs dd {
+    padding: 2px 0; }
+    #select-seats-tabs dd.movie-name {
+      font-weight: bold; }
+
+#select-seats-container {
+  margin: 0 auto;
+  overflow: auto;
+  float: left;
+  width: 80%;
+  box-sizing: border-box;
+  border: 1px #b3b3b3 solid;
+  max-width: none; }
+  #select-seats-container #divLegend {
+    border-bottom: 1px #b3b3b3 solid;
+    padding: 5px 0; }
+  #select-seats-container #divSeatMap {
+    padding-top: 20px;
+    height: 392px;
+    box-sizing: border-box;
+    overflow: auto; }
+  #select-seats-container .Seating-Control {
+    margin: 0;
+    overflow: initial; }
+  #select-seats-container #objSeatPlan > div {
+    max-height: none; }
+
+#ibtnNext {
+  position: absolute;
+  float: none;
+  bottom: 45px;
+  right: 20px; }
+
+/*# sourceMappingURL=SelectSeatsPopup.css.map */

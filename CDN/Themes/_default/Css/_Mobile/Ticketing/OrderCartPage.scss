@@ -1,0 +1,101 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+@import "../_Headings.scss";
+@import "../_Flexbox.scss";
+
+@mixin margin-top-bottom {
+	margin: 10px 0;
+}
+
+h2 {
+    font-size: $font-size-big;
+
+	em {
+        font-size: $font-size-big;
+        margin-left: 0.3rem;
+	}	
+}
+
+.countdown {
+	float: right;
+	margin-top: 10px;
+}
+
+.clear {
+	display: none !important;
+}
+
+.cart-summary,.message {
+    padding:0 0.5rem  0 0.5rem;
+
+    //min-height: calc(100vh - 131px); // sticky buttons
+}
+
+.cart-session {
+    margin-top: 1.5rem;
+
+	.movie-name {
+		//font-weight: bold;
+		font-size: $font-size-big;
+		color: $color-000000;
+	}
+
+	dl {
+		color: $color-666666;
+		@include margin-top-bottom;
+	}
+
+	table {
+		@include margin-top-bottom;
+
+		thead {
+			//font-weight: bold;
+		}
+
+		td {
+			color: $color-666666;
+			width: 25%;
+		}
+
+		.number { 
+			text-align: right;
+		}
+
+        .cart-ticket {
+            line-height: 1.2rem;
+        }
+	}
+}
+
+.booking-fee, .total {
+	//font-size: $font-size-big;
+
+    dt {
+          margin-left: 50%;
+    }
+
+	dt, dd {
+		display: inline;
+	}
+
+	dd {
+		float: right;
+	}
+}
+
+p {
+	margin-top: 20px;
+}
+
+#ibtnCancelOrder {
+	float: left;
+}
+
+#ibtnAddShow {
+	display: none !important;
+}
+
+.button-list {
+    @include display-box;
+    background-color: $color-35a0a8;
+}

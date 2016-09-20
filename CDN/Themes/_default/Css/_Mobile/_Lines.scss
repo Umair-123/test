@@ -1,0 +1,20 @@
+@import "../_Colours";
+
+/* HORIZONTAL AND VERTICAL RULES */
+
+// adds a :before pseudo element to allow spacing (a margin) to be set between the element that requested the line and the line
+@mixin horizontal-separator-line($margin-bottom: 0, $colour: #93908f) {
+    &:before {
+        content: '';
+        display: block;
+        border-top: 1px solid $colour;
+        margin-bottom: $margin-bottom;
+    }
+}
+
+// adds a border line for each child element (except the first)
+%vertical-separator-list {
+    &:not(:first-child) {
+        border-left: 1px solid $color-dadada;
+    }
+}

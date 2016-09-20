@@ -1,0 +1,81 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* HORIZONTAL AND VERTICAL RULES */
+/* HOME PAGE */
+/* 
+<body class="home-page">
+    <header>
+        <h1 class="logo"><em>ABC</em>CINEMAS</h1>
+    </header>
+    <div id="home-now-showing" class="home-movies scrollbox-container"></div>
+    <nav class="nav-menu"></nav>
+    <footer></footer>
+</body>
+*/
+.home-page {
+  background-color: #2b2725;
+  color: #eaeaea;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.home-page > * {
+  -webkit-box-flex: 0 0 auto;
+  -webkit-flex: 0 0 auto;
+  flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+}
+:not(.flexbox).flexboxlegacy .home-page > * {
+  -webkit-box-flex: 0;
+}
+.home-page header .logo {
+  background-color: #2b2725;
+}
+:not(.flexbox).flexboxlegacy .home-page header .logo {
+  padding: 1rem 0;
+}
+.flexbox .home-page header .logo {
+  padding: 0.5rem 0;
+}
+.home-page #home-now-showing {
+  -webkit-box-flex: 1 0;
+  -webkit-flex: 1 0;
+  flex: 1 0;
+  -ms-flex: 1 0;
+  min-height: 197px;
+  height: 76%;
+  background-color: #1c1918;
+}
+:not(.flexbox).flexboxlegacy .home-page #home-now-showing {
+  -webkit-box-flex: 1;
+}
+.home-page #home-now-showing.container-loading {
+  background-color: inherit;
+}
+.home-page .nav-menu {
+  padding: 0.6rem 0 0 0;
+}
+.home-page footer {
+  /*param = margin-bottom on pseudo element */
+}
+.home-page footer:before {
+  content: '';
+  display: block;
+  border-top: 1px solid #1c1918;
+  margin-bottom: 0.6rem;
+}
+:not(.flexbox).flexboxlegacy .home-page footer {
+  padding: 0.6rem 0;
+}
+.flexbox .home-page footer {
+  margin: 0.6rem 0;
+}

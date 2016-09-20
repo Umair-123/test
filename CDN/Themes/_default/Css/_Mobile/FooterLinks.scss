@@ -1,0 +1,46 @@
+@import "../_Colours";
+@import "_Flexbox";
+@import "_Links";
+@import "_Lines";
+
+/* FOOTER LINKS */
+/*
+<div class="footer-links">   
+    <a href="#" class="footer-link">Legal Policy</a>
+    <a href="#" class="footer-link">Full Site</a>
+    <a href="#" class="footer-link">Location</a>
+    <a href="#" class="footer-link">Francais</a>
+</div>
+*/
+
+.footer-links {
+
+    @include display-box;
+
+    text-align: center;
+
+    .footer-item {
+    
+        @include box-flex(1);
+        display: block;
+
+        @extend %link;
+        //@extend %vertical-separator-list;
+
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+        color: $color-626366;
+
+        &:hover {
+            color: $color-eaeaea;
+        }
+    }
+
+    .footer-link {
+        @extend %link;
+    }
+
+    .language-toggle {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,24 @@
+You can use the following tags
+
+key			will insert
+-----------------       -------------------
+<MBR_FNAME>				member's first name
+<MBR_LNAME>				member's last name
+<MBR_EMAIL>				member's email address
+<SESS_CINEMA>			cinema for order
+<SESS_MOVIE>			movie for order
+<SESS_TIME>				time of session
+<SESS_DATE>				date of session
+<SESS_SCREENNAME>		screen name of session
+<SESS_SCREENNUM>		screen number of session
+<SESS_BOOKING>			booking number of order
+<SESS_BOOKINGID>		booking id of order
+<SESS_TICKETDETAIL>		ticket data in fixed text format eg 1 x adult ($1.00 A1). Additional tickets displayed on separate lines
+<SESS_CONCDETAIL>		concession data in fixed text format eg 1 x Lge Popcorn ($1.00). Additional items on separate lines
+<SESS_TKTVOUCHERSUSED>	comma separated list of ticket vouchers used in the order
+<EML_DISPLAY_NAME>		name displayed as sender
+<SESS_PICKUPCOMMENTS>	pick up comments of order
+<SESS_BOOKINGFEE>		booking fee of order
+
+Obsolete
+<SESS_TICKETTBL>	table of ticket data (!will display a half completed table. Requires a <tr> tag prefixing it)

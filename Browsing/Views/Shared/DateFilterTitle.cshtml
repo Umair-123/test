@@ -1,0 +1,23 @@
+﻿@using InternetTicketing.Browsing.ViewModels.QuickTickets
+@using InternetTicketing.Infrastructure.Localisation
+@model FilterViewModel
+@if (Model != null && Model.Date != null)
+{
+    <h3>@Model.Date.Value.ToString("dddd dd MMMM") @FormatTime(Model.Time)</h3>
+}
+
+@helper FormatTime(ICollection<TimeFilter> selectedTimes)
+{
+    if (selectedTimes.Count == 1)
+    {
+        var selectedTime = selectedTimes.Single();
+        if (selectedTime == TimeFilter.Day)
+        {
+            @:(@QuickTickets.Day)
+        }
+        else if (selectedTime == TimeFilter.Evening)
+        {
+            @:(@QuickTickets.Evening)
+        }
+    }
+}

@@ -1,0 +1,57 @@
+﻿@using InternetTicketing.Browsing.ViewModels.QuickTickets
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Web
+
+@model CompareSessionsViewModel
+
+<article id="show-times" class="compare-sessions" style="width:83%;margin-left:auto;margin-right:auto;">
+   <div class="attributes-print">
+		@Html.Partial("AttributesKey", Model.AttributesViewModel)
+    </div>
+    <h2>
+        @QuickTickets.Title<em>@Shared.ShowTimes</em>
+    </h2>
+    <div class="ad-content">
+        <section class="loading main-ad generic-image-carousel"></section>
+        <section class="loading lower-ad generic-image-carousel"></section>
+    </div>
+    <article id="movies-list">
+        @Html.Partial("SessionsByMovie", Model)
+    </article>
+</article>
+@if(Model.DisplayTrailerRating)
+{
+    @Html.Partial("../Loyalty/_TrailerRate")
+}
+@Html.Partial("TrailerPlayer", Model.CurrentUser)
+
+@section Css
+{
+    @ContentDelivery.CssBundle(CssBundles.QuickTicketsCompare)
+    @ContentDelivery.Css("Thirdparty/jquery-ui.css")
+    @ContentDelivery.Css("Trailers/Controls.css")
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        Vista.Localisation = {};
+        Vista.Localisation.CloseTrailer = @Html.Raw(Movies.CloseTrailer.ToJson());
+        Vista.Localisation.RateTrailer = @Html.Raw(Movies.RateTrailer.ToJson());
+        Vista.Localisation.YouLikedTheTrailer = @Html.Raw(Movies.YouLikedTheTrailer.ToJson());
+        Vista.Localisation.YouDislikedTheTrailer = @Html.Raw(Movies.YouDislikedTheTrailer.ToJson());
+        Vista.Urls.Loyalty = {};
+        Vista.Urls.Loyalty.SubmitFilmTrailerRating = '@BrowsingUrls.SubmitFilmTrailerRatingUrl()';
+        Vista.Lang.Shared.Close = @Html.Raw(Shared.Close.ToJson());
+    </script>
+
+    @ContentDelivery.Script("QuickTicketsCompare/Compare.js")
+    @ContentDelivery.Script("jquery-ui-1.8.23.min.js")
+    @ContentDelivery.Script("jquery.dotdotdot.min.js")
+    @ContentDelivery.Script("Vista/Trailers/Trailers.js")
+    @ContentDelivery.Script("Vista/Loyalty/AjaxifyLoyaltySignup.js")
+    @ContentDelivery.Script("Vista/Loyalty/LoyaltyTrailerRate.js")
+
+}

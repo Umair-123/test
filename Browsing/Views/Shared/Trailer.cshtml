@@ -1,0 +1,37 @@
+﻿@using System.Drawing
+@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@using InternetTicketing.Browsing.ViewModels
+
+@model TrailerViewModel
+<div id="trailer-wrapper">
+    @if (Model != null)
+    {
+        var cdnEntityReference = MovieIdHelper.GetCdnReferenceScheme(Model.MovieRouteId);
+        var backgroundImageUrl = ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.FilmTitleGraphic, Model.MovieRouteId, cdnEntityReference, new Size(1024,0));
+        if (string.IsNullOrEmpty(Model.TrailerUrl))
+        {
+            <div id="trailer">
+                @Html.Partial("SmartImage", new SmartImageViewModel(backgroundImageUrl, "page-header-banner")
+                {
+                    PreLoad = true
+                })
+            </div>
+            <div class="play-bar">&nbsp;</div>
+        }
+        else
+        {
+            <a href="@Model.TrailerUrl" id="trailer" data-movie-id="@Model.MovieRouteId">
+                @Html.Partial("SmartImage", new SmartImageViewModel(backgroundImageUrl, "page-header-banner")
+                {
+                    PreLoad = true
+                })
+            </a>
+             <div class="play-bar">
+			    <button type="button" class="user-action trailer-button" data-href="@Model.TrailerUrl" data-movie-id="@Model.MovieRouteId"><span class="icon">@Movies.PlayTrailer</span></button>
+		    </div>
+        }
+    }
+</div>

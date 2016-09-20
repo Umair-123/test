@@ -1,0 +1,75 @@
+﻿@import "../_Styles";
+@import "../_ItemList";
+
+$poster-width:120px;
+$poster-height:160px;
+
+
+.event-list, .experience-list { 
+
+	margin-left: -15px;
+	margin-right: -15px;
+	margin-bottom: 30px;
+
+	@extend %item-list;	
+
+	margin-right: 315px; 
+
+	.image-outer { 
+		@extend %image-outer;
+	}
+
+	.list-item { 
+		@extend %list-item;
+
+		height: 180px;
+		border: 1px solid $color-eaeaea;
+		border-left: none;
+
+		.item-details { 
+			@extend %item-details;
+		}
+		
+		.actions { 
+			@extend %movie-actions;
+			
+			background-color: transparent;
+			border: none;
+
+			.main-action {
+				@extend %main-action;
+
+				border: none;
+			}
+
+			
+			.image-wrapper { width: 15px; float: left; margin-right: 3px; line-height: 16px; }
+		}
+
+	}
+} 
+
+.ad-content {
+	overflow: hidden;
+	float: right;
+	width: 300px;
+	margin-left: auto;
+	margin-top: 70px;
+
+	.generic-image-carousel {
+        width:300px;
+        .images 
+        {   
+		    width: 300px;
+		    height: 268px;                
+        }
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.item-details-inner {
+	overflow: hidden;
+}
+

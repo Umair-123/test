@@ -1,0 +1,5307 @@
+/* IMPORTANT - PLEASE READ! */
+/* 
+	Only Vista should change this file!!!
+
+	Customising should be done in visStylesUser.css. Do so by copying this page or a
+	single style and pasting it into visStylesUser.css and changing there. That way
+	if the site is upgraded by Vista, you can easily get your customising back by replacing
+	visStylesUser.css with the one you customised.
+*/
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED OVER MULTIPLE PAGES															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+body
+{
+    margin:0;
+    padding:0;
+}
+
+.CursorArrow
+{
+	cursor:default;
+}
+
+/* -- Bit of a special case. This style is not meant to be changed, it is used for formatting reasons only. */
+.\35PxHeighDONOTCHANGE
+{
+	height:5px;
+	line-height:5px;
+}
+
+/* -- Wording above clock explaining you have that amount of time remaining to finish your transaction */
+.TimeRemaining
+{
+    font-size:9px;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Style for the border you see around any page with a "details" box at the top (hence top border is left off below) */
+.BodyTable
+{
+	background-color:transparent;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+	border-top:none;
+	padding:0;
+	margin:0;
+}
+
+/* used on visMovies and visRatings */
+TABLE.MovieListTable
+{
+	background-color:transparent;
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+}
+
+/* used on visMovies and visRatings */
+TABLE.MovieListHeaderTable
+{
+	background-color:transparent;
+	border-style:none;
+	border-width:1px;
+	border-color:#FFFFFF;
+}
+
+/* Style for the movie list subheader row and similar occurances */
+TR.MovieSubHeaderRow
+{
+	background-color:#29087B;
+}
+
+/* Style for the movie list subheader row and similar occurances */
+TR.LoyaltyLoginSubHeaderRow
+{
+	background-color:#29087B;
+}
+
+/* Text displayed in style above "MovieSubHeaderRow" */
+.MovieSubHeader
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* == A link has three styles for just one style of link. One for the link as you would see it first time (:link), One for the link as it would appear when the mouse is hovering over it (:hover), And one for the link as it would appear after the user has clicked on it once before(:visited). */
+/* -- This is for all standards links you see on the site. */
+A.StandardLink
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.StandardLink:link
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.StandardLink:visited
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;   
+}
+A.StandardLink:hover
+{
+    color:#448AFE;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+.Featured
+{
+	font-weight:bold;
+}
+
+/* == All Styles starting with “Details?are do to with customizing the “box?you see at the top of the select tickets and payment screens, displaying information on the session/cinema/tickets/movie etc you have chosen. */
+/* -- The header text, Eg “You have selected?*/
+.DetailsHeader
+{
+    font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The subheader text. Eg “Cinema:?*/
+.DetailsSubHeader
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The information text Eg “Queen St Cinema?*/
+.DetailsText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- The subheader for the order total, incase someone wants it a different colour the the other subheaders. */
+.DetailsSubHeaderTotal
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The text for the order total */
+.DetailsTextTotal
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.ContentsContainer
+{
+	padding:0 4px;
+}
+
+.TableMargin
+{
+	margin: 0 5px;
+}
+
+/* -- The row containing the header text. You can change the background color, for example. */
+.DetailsHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+	line-height:22px;
+}
+
+/* -- The row containing the subheader and details text. You can change the background color, for example. */
+.DetailsRow
+{
+	height:15px;
+	background-color:#02C5F3;
+}
+
+.DetailsRow td 
+{
+	vertical-align:top;
+	padding:0;
+}
+
+.DetailsTable
+{
+	border:solid 1px #29087B;
+	width:580px;
+	border-collapse: collapse;	
+}
+
+.HeaderLabel
+{
+	text-align:left;
+	padding: 0 5px;
+	margin: 0;
+}
+
+.BodyLabel
+{
+	text-align:left;
+	padding: 0 5px;
+}
+
+/* -- The row containing the subheader and details text. You can change the background color, for example. */
+.DetailsRowAesthetics
+{
+	height:5px;
+	background-color:#02C5F3;
+}
+
+/* -- Border around the details table */
+.DetailsTableBorder
+{
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+}
+
+/* -- Defines what the TABLE looks like that displays a user friendly error */
+.ErrorTable
+{
+	background-color:red;
+	border-style:outset;
+	border-width:1px;
+	border-color:inherit;
+}
+
+.ErrorDiv
+{
+	background-color:red;
+	border:outset 1px #29087B;
+	text-align:left;
+	padding:5px;
+    font-size:12px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";	
+	font-weight:bold;
+	font-style:normal;    
+}
+
+/* -- Defines what each ROW looks like in the user friendly error table */
+.ErrorRow
+{
+	background-color:red;
+	height:25px;
+}
+
+/* -- Defines what the TEXT looks like in the user friendly error table */
+.ErrorCell
+{
+	background-color:Red;
+	text-align:left;
+	text-indent:0px;
+    font-size:12px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";	
+	font-weight:bold;
+	font-style:normal;    
+}
+
+.SuccessDiv
+{
+	background-color:#f9ef81;
+	border:outset 1px #29087B;
+	text-align:left;
+	padding:5px;
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";	
+	font-weight:bold;
+	font-style:normal;    
+	line-height:100%;
+	height:100%;
+}
+
+/* -- Defines what the TABLE looks like containing site navigation buttons like "Next" and "Back" */
+.NavigationTable
+{
+	border-style:none;
+	background-color:transparent;
+}
+
+/* -- Defines what the ROW looks like containing site navigation buttons like "Next" and "Back", can set BackGround colour, for example */
+.NavigationRow
+{
+	height:25px;
+}
+
+/* -- Allows you to put a background colour and border around the count down clock. */
+.ClockTable
+{
+	background-color:#02C5F3;
+	border-color:#29087B;
+	border-width:1px;
+	border-style:solid; 
+	border-collapse:collapse;
+}
+
+.ClockTable td
+{
+	padding:0;
+}
+
+.SelectionTable tr th, .SelectionTable tr td
+{
+	margin:0 5px;
+	text-align:right;
+	vertical-align:top;
+}
+
+.SelectionTable .SelectionTableDescriptor, .SelectionTable .SelectionTableImage
+{
+	text-align:left;
+}
+
+.OptionCategory
+{
+	text-decoration:underline;
+}
+
+.DateDropDownDay
+{
+    font-size:12px;   
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+    width:50px;
+}
+
+.DateDropDownMonth
+{
+    font-size:12px;   
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+    width:70px;
+}
+
+.DateDropDownYear
+{
+    font-size:12px;   
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+    width:60px;
+}
+
+.TextDropDown
+{
+    font-size:12px;   
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+    width:180px;
+}
+
+A.PrinterLink:link
+{
+    font-size:11px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    font-weight:normal; 
+    text-decoration:underline;
+}
+A.PrinterLink:visited
+{
+    font-size:11px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    font-weight:normal; 
+    text-decoration:underline;    
+}
+A.PrinterLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+.Price
+{
+	text-align:right;
+}
+
+#tblCardWallet
+{
+    font-size: 11px;
+    color: black;
+    font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight: normal;
+    font-style: normal;
+    margin-bottom: 10px;
+}
+
+.save-card
+{
+    font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visSelectTickets/Concessions.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.no-script-warning { background-color: Red; display: block; border: 4px solid white; font-size: 16px; line-height: 30px; }
+
+/* --The text in the header of the ticket type list Eg. “TYPE OF TICKET:?*/
+.TicketTypeHeader
+{
+    font-size:12px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The text in the footer of the ticket type list Eg “TOTAL:?*/
+.TicketTypeFooter
+{
+    font-size:12px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* --The text displaying the "including tax" message below total */
+.Tax
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* --The text displaying the "booking fee to be applied" message below total */
+.BkFee
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Depending on whether your site is configured to allow ticket types to appear as buttons (click to increment ticket type amt), this style may or may not apply.  */
+.TicketTypeButton
+{	
+    font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	background-color:transparent;
+	border-style:outset;	
+	width:191px;
+	height:23px;
+	text-indent:5px;
+	text-align:left;
+}
+
+/* -- If your site is configured not to show ticket types as buttons, it will display as normal text. This style is associated with that text.  */
+.TicketType
+{	
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.TicketCategory
+{
+    font-size:12px;
+    color:#CC0000;
+    text-decoration:underline;
+}
+
+.TicketTypeSubText
+{	
+    font-size:9px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+}
+
+.TicketTypeCell
+{
+	text-indent:0px;
+	text-align:left;	
+}
+
+.TicketQtyCell
+{
+	text-align:right;
+}
+
+/* -- If your site is configured not to show ticket types as buttons, it will display as normal text. This style is associated with that text.  */
+.TicketTypeLoyalty
+{	
+    font-size:11px;
+    color:#2908AB;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	background-color:transparent;
+	text-indent:0px;
+	text-align:left;
+}
+
+/* -- This style is used to display ticket types when the ticket is a loyalty ticket and the member carrying out the order is signed in. */
+.TicketTypeLoyaltySignedIn
+{	
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	background-color:transparent;
+	text-indent:0px;
+	text-align:left;
+}
+
+/* -- The unit price of each ticket type in list.  */
+.TicketTypePrice
+{	
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:transparent;
+	border-style:none;
+	border-width:0px;
+	text-indent:0px;
+	text-align:right;
+}
+
+.TicketTypePricePromo
+{
+    font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	text-indent:0px;
+	text-align:right;
+}
+
+/* -- The sub-total of each ticket type in list.  */
+.TicketTypeSubTotal
+{	
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:transparent;
+	border-style:none;
+	border-width:0px;
+	text-align:right;
+}
+
+/* -- The total of full order and booking fee. */
+.TicketTypeTotal
+{	
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	background-color:transparent;
+	border-style:none;
+	border-width:0px;
+	text-align:right;	
+}
+
+/* -- The ticket type drop down list. */
+.TicketTypeDropDown
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:white;
+	text-align:right; 
+	width:50px;
+}
+
+TABLE.TableTotal
+{
+}
+
+/* -- The header row on the ticket types table (contains TicketTypeHeader text). */
+.TicketTypeHeaderRow
+{
+	background-color:#FFFFFF;
+	height:22px;
+}
+
+/* -- The footer row on the ticket types table (contains TicketTypeFooter text). */
+.TicketTypeFooterRow
+{
+	background-color:#FFFFFF;
+	height:20px;
+}
+.TicketTypeCategoryRow
+{
+    background-color:#FFFFFF;
+	height:25px;
+}
+/* -- Style for each (odd) row of ticket type on the ticket types table. */
+.TicketTypeRow
+{
+	background-color:#FFFFFF;
+	height:25px;
+}
+
+/* -- Style for each (even) row of ticket type on the ticket types table. */
+.TicketTypeRowAlt
+{
+	background-color:#FFFFFF;
+	height:25px;
+}
+
+.LoyaltyTicketTypeRow
+{
+    height:30px;
+}
+
+/* -- Defines what the Ad-Hoc text looks like. Eg lblAboveTicketDetails, lblBelowTicketDetail */
+.TicketPageText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Defines what the welcome text looks like. */
+.TicketPageWelcome
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- Giving a quick explanation on what the count down clock is for */
+.ClockExplanation
+{
+    font-size:9px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.VoucherRow
+{
+    background-color:#FFFFFF;
+	height:25px;
+}
+
+/* -- Text for the voucher entry row */
+.VoucherEntryText
+{
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- Styles for the textbox on the voucher entry row */
+.VoucherTextbox
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.PromotionTextbox
+{
+	font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	width:200px;
+}
+
+.PromotionButton
+{
+	vertical-align:top;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visPayment.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- The text informing user to read the terms and conditions before purchase. */
+.TermsAndConditions
+{
+    font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Label to show what each text box in payment details requires. Eg. "Card Number:" */
+.PaymentDetailsSubHeader
+{	
+    font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	background-color:transparent;
+	text-indent:0px;
+	text-align:left;
+}
+
+/* -- Style for each textbox and the text inside it on payment details. */
+.PaymentDetailsTextBox
+{	
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	text-indent:0px;
+	text-align:left;
+}
+
+/* -- Text to the right of the "Card Name" textbox. By default is has no text but some customers like to put "(as appears on card)" in here */
+.AsAppearsOnCard
+{
+    font-size:9px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Applied to a textbox when made ReadOnly -- */
+.TextBoxDisabled
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#D6D6D6;
+	text-align:left;
+}
+
+/* -- Style for each drop down list and the text inside it on payment details. */
+.PaymentDetailsDropDownList
+{	
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:white;
+	text-indent:0px;
+	text-align:left;
+}
+
+/* -- The row which contains PaymentDetails controls like labels, textboxes and drop down lists. Can set background colour, for example */
+.PaymentDetailsRow
+{
+	height:25px;
+}
+
+/* --The text displaying the "including tax" after order total */
+.PaymentDetailsTax
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.PaymentPagePleaseWait
+{
+    font-size:16px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	font-variant:small-caps;
+	margin-left:5px;
+	padding-top:10px;
+}
+
+/* -- Style for welcome text for loyalty members signed on */
+.PaymentPageWelcome
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- Defines what the Ad-Hoc text looks like. Eg lblAbovePaymentDetails, lblBelowPaymentDetail */
+.PaymentText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Style for text in lblUnpaidWarning. Should be styled to emphasise  */
+.UnpaidWarningText
+{
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- Style for text directly above "Pay Now" button. Can change the style to emphasise some sort of warning or message the user should read before purchasing */
+.PaymentWarning
+{
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The link surrounding the verisign/secure site logo, allowing click to open verify certificate page. By default this link is invisible as the image is enough */
+A.VerifyLink:link
+{
+    color:black;
+    border-style:none;
+}
+
+/* Radio button text for paid or unpaid bookings*/
+.RadioPayMethod
+{
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The text used on the label of the SMS ticket option */
+.SendSMSTicket
+{
+	display:block;
+    font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Style for text on post payment pages in web payment gateway systems */
+.PostPaymentPageInformation
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visPrintShowTimes.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.PrintShowTimesTable
+{
+	border-style:none;
+	border-width:1px;
+	border-color:#29087B;
+}
+
+.PrintShowTimesFilm
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;	
+}	
+
+.PrintShowTimesDay
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;	
+}
+
+.PrintShowTimesSession
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;	
+}
+
+.PrintSelectionLabel
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;	
+}
+
+.PrintBlurb
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;	
+}
+
+.PrintCinemaName
+{
+	font-size:11px;
+    color:#ed6a00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	width:250px;
+}
+
+.PrintEventName
+{
+	font-size:11px;
+    color:#ed6a00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;	
+	width:250px;
+}
+
+.PrintDateRange
+{
+	font-size:10px;
+    color:#9e9ea0;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;	
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visError.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- Defines what the TABLE looks like that contains the Error message text */
+.UnexpectedErrorTable
+{
+	border-style:none;
+	background-color:transparent;
+}
+
+/* -- Defines what the Error Message text looks like */
+.UnexpectedErrorText
+{
+    font-size:12px;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+    background-color:transparent;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visTimeOut.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- Text displaying message to user that their session has timed out */
+.TimeoutText
+{
+    font-size:12px;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visSelectSeats.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- Welcome text for loyalty members */
+.SeatPageWelcome
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- Giving a quick explanation to the user how to change their seats */
+.AppletExplanation
+{
+    font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Giving a quick explanation to the user how to change their seats */
+.Legend
+{
+    font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	vertical-align: middle;
+}
+
+/* -- Allows you to put a background colour and border around the count down clock. */
+.LegendTable
+{
+	background-color:#FFFFFF;
+	border:solid 1px #29087B;	
+}
+
+#divLegend span
+{
+    display: inline-block;
+	margin: 0 15px 0 0;
+	white-space: nowrap;
+}
+
+/* -- Border around the details table */
+.SeatsDetailsTableBorder
+{
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+	border-bottom:none 1px #29087B;
+}
+
+/* -- Text below the applet with additional applet info */
+.AppletFooter
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- used for javascript seatplan */
+.Screen-Container
+{
+	
+}
+
+.Screen-Front
+{
+	background:url('images/seating/ScreenForSeating_450.png');
+	height:46px;
+	width:450px;
+	margin-top:15px;
+}
+
+.Screen-Back
+{
+	
+}
+
+.Screen-AreaName
+{
+    font-size:17px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-style:normal;
+	font-weight:bold;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.Screen-AllAreas
+{
+	background:#FFFFFF none repeat scroll 0 0;
+	overflow:auto;
+	width:100%;
+	position: relative;
+}
+
+.Screen-AreaSeats
+{
+	position:relative;
+}
+
+div.SelectSeatDivs
+{
+  /*background-repeat:no-repeat;
+  background-position:bottom center;*/
+  line-height:2em;
+}
+
+div.SelectSeatRows
+{
+  line-height:2em;
+}
+
+.Seating-Area
+{
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.Seating-Area div
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.Seating-Area tr, td
+{
+    padding: 0px;
+    margin: 0px;
+    border: 0;
+}
+
+.Seating-Area img
+{
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.Seating-AreaName
+{
+    font-size: 17px;
+    color: #000000;
+    font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-style: normal;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.Seating-Area p
+{
+    font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    position: absolute;
+    z-index: 1;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 11px;
+    color: black;
+    display: table-cell;
+    cursor: pointer;
+}
+
+.Seating-RowLabelContainer
+{
+    /* Required */
+    height: 100%;
+    float: left;
+    position: relative;
+    /* Customisable */
+    /*background-color: White;*/
+    display: inline-block;
+    text-align: center;
+    width: 15px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.Seating-RowLabelContainer >table
+{
+    /*background-color: white;*/
+    position: absolute;
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+}
+
+.Seating-RowLabel
+{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.Seating-RowLabelContainer div
+{
+    position: absolute;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+img.SeatImage
+{
+  z-index:-1;
+  width:100%;
+  height:100%;
+}
+
+.unselectable
+{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visSelect.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- Text displaying "SELECT A CINEMA:", "SELECT A CINEMA:" etc */
+.StepText
+{
+    font-size:11px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.SessionDateText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Row displaying cinemas (every odd row) */
+.CinemaRow
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#039BE6;
+	height:20px;
+}
+
+/* Row displaying cinemas (every even row) */
+.CinemaRowAlt
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#02C5F3;
+	height:20px;
+}
+
+/* Row displaying movies (every odd row) */
+.MovieRow
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#039BE6;
+	height:20px;	
+}
+
+/* Row displaying movies (every even row) */
+.MovieRowAlt
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#02C5F3;
+	height:20px;	
+}
+
+/* Row displaying sessions (every odd row) */
+.SessionRow
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#F4F3F7;
+	height:20px;
+}
+
+/* Row displaying sessions (every even row) */
+.SessionRowAlt
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:transparent;
+	height:20px;
+}
+
+/* Row displaying sessions, used only for aesthetics (every odd row) */
+.SessionRowAesthetics
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#039BE6;
+	height:5px;
+}
+
+/* Row displaying sessions, used only for aesthetics (every even row) */
+.SessionRowAltAesthetics
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:#02C5F3;
+	height:5px;
+}
+/* Link displaying cinema names */
+A.CinemaLinkSml:link
+{
+    font-size:9px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.CinemaLinkSml:visited
+{
+    font-size:9px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.CinemaLinkSml:hover
+{
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Link displaying movie names */
+.MovieLinkSml
+{
+    font-size:9px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.MovieLinkSml:visited
+{
+    font-size:9px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.MovieLinkSml:hover
+{
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Background colour for page */
+.SessionsBG
+{
+	background-color:#29087B;
+}
+
+/* Background colour for page header (ie. Row containing "Choose By Movie" radio button) */
+.SessionsHeaderBG
+{
+	background-color:#FFFFFF;
+}
+
+/* Background colour for page steps (ie. Row containing "Select A Cinema" text) */
+.SessionsStepsBG
+{
+	background-color:#29087B;
+}
+
+/* Background colour you will see when the (cinema, movie, session) list does not span the full height of the page */
+.bglist
+{
+	background-color:#87CEEB;
+}
+
+/* Radio button text for searching by cinema or movie */
+.RadioSearchBy
+{
+    font-size:12px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text showing what user has selected */
+.StepSelection
+{
+    font-size:10px;
+    color:#00FFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Other text in the step section not related to user selections */
+.StepOther
+{
+    font-size:9px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Text informing user no cinemas, movies, sessions were found */
+.NoneFound
+{
+    font-size:10px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visConfirmation.aspx	and visConfirmationSelect.aspx						  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Header Text (eg. "Your booking was succesfull") */
+.ConfirmDetailsHeader
+{
+    font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* SubHeader Text (eg. "Cinema:") */
+.ConfirmDetailsSubHeader
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Details Text (eg. "Lawrence of Arabia") */
+.ConfirmDetailsText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Style for error messages that customers need to be aware of (eg. "Your points have not been awarded due to loyalty issues") */
+.ConfirmDetailsError
+{
+    font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Ad-hoc Text for picking up tickets (eg. "Please bring along your credit card") */
+.ConfirmDetailsPickUp
+{
+    font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* SubHeader for the Total (ie. "Total:") */
+.ConfirmDetailsSubHeaderTotal
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text for displaying the Total amount (ie. "$18.00") */
+.ConfirmDetailsTextTotal
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Text informing user tax is included (or excluded in some cases) */
+.ConfirmDetailsTax
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Row that contains the header, for example can change background colour */
+.ConfirmDetailsHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+}
+
+.ConfirmDetailsInfoRow
+{
+	height:15px;
+	background-color:#02C5F3;
+	padding:0 0 5px 0;
+}
+
+/* Row that contains the subheaders and details */
+.ConfirmDetailsRow
+{
+	height:15px;
+	background-color:#02C5F3;
+	vertical-align:top;
+}
+
+/* Row fitted between subheader + details rows, for aesthetics only */
+.ConfirmDetailsRowAesthetics
+{
+	height:10px;
+	background-color:#02C5F3;
+}
+
+/* Confirmation Details Border */
+.ConfirmDetailsTableBorder
+{
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+}
+
+/* Text displaying the day of the session */
+.DayText
+{
+	font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+#divConfirmationOptions
+{
+	display:block;
+	margin:0px 0px 5px 0px;
+	padding:0px 0px 0px 0px;
+	float:left;
+	width:100%;
+}
+
+#divConfirmationError
+{
+	margin:0px 5px 5px 3px;
+	width:97%;
+	text-align:left;
+	padding-left:5px;
+}
+
+#divConfirmationSuccess
+{
+	margin:0px 5px 5px 3px;
+	width:97%;
+	text-align:left;
+	padding-left:5px;
+}
+
+#divPrintAtHome 
+{
+	background-color:#02C5F3;
+	border: solid 1px #29087B;
+	margin: 10px 2px 2px 5px;
+	width:48%;
+	max-width:48%;
+	height:320px;
+	display:inline;
+	text-align:left;
+	float:left;
+	padding-bottom:2px;
+	overflow:hidden;
+}
+
+#divSMSTicket
+{
+	background-color:#02C5F3;
+	border: solid 1px #29087B;
+	margin: 10px 5px 5px 2px;
+	width:48%;
+	max-width:48%;
+	height:320px;	
+	display:inline;
+	text-align:left;
+	float:right;
+	padding-bottom:2px;
+	overflow:hidden;
+}
+
+.ConfirmationSuccess
+{
+	background-color:#f9ef81;
+	border-style:outset;
+	border-width:1px;
+	border-color:inherit;
+}
+
+.ConfOptionsHeaderText
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	display:block;
+	width:100%;
+	padding: 0px 5px 0px 5px;
+	line-height:22px;
+	background-color:#29087B;
+}
+
+.ConfOptionsBlurbHeight
+{
+	height:25%;
+}
+
+.ConfOptionsOtherText
+{
+	font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-style:normal;
+	font-weight:bold;
+	margin: 1px 5px 3px 5px;
+	display:block;
+}
+
+.ConfOptionsResultText
+{
+	font-size:12px;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";	
+	font-weight:bold;
+	font-style:normal;
+	line-height: 20px;
+}
+
+.ConfOptionsInputText
+{
+	clear:left;
+	font-weight:bold;
+	color:#CC0000;
+}
+
+.ConfOptionsInputs
+{
+	margin: 0px 5px 3px 5px;
+	display: inline;
+}
+
+.ConfOptionsButton
+{
+	float:right;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visTerms.aspx and visRatings.aspx										  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Text displaying header of terms */
+.TermsHeader
+{
+	font-size:12px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text displaying details of terms (and ratings)*/
+.TermsDetails
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~     STYLES ON visMovies.aspx                                                                                                                                                         */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Movie Row styles. Also apply to visShowtimes.aspx */
+/* Style for first movie image cell */
+.FirstMovieImageCell
+{
+	height:100px;
+	vertical-align:middle;
+}
+
+/* Style for movie image cell */
+.MovieImageCell
+{
+	border-top:solid 1px #29087B;
+	height:100px;
+	vertical-align:middle;
+}
+
+/* Style for movie images shown */
+.MovieImage
+{
+	border:solid 1px #29087B;
+	border-left:none;
+    height:75px;
+	width:100px;       
+}
+ 
+/* Borders for the top cell on sub tables */
+.MovieSubTableTopCell
+{
+    border-top:solid 1px #29087B;
+}
+
+/* Styles to show messages when no movies found */
+.NoMoviesText
+{
+	font-size:10px;
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+.NoMoviesTable
+{
+	border-style:none;
+	border-width:1px;
+	border-color:inherit;
+}
+
+.NoMoviesRow
+{
+	height:25px;
+}
+
+.NoMoviesCell
+{
+	text-align:left;
+	text-indent:0px;
+    color:#FFFFFF;  
+}
+
+/* End Movie Row styles */
+
+/* Style for background/box holding all movie information */
+.MoviesHeaderTable
+{
+	background-color:transparent;
+	border-style:none;
+	border-color:#29087B;
+	border-width:1px;
+	border-bottom:none;
+	padding:0px 0px 0px 0px;
+}
+
+/* "Featured screen show times shown in bold" label */
+.FeaturedScreenBlurb
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* Style for text all other text for each movie in the list. Eg. MovieContent */
+.MovieOtherText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* Text displaying links for each movie in list */
+.MovieLink
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.MovieLink:visited
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.MovieLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;   
+}
+
+/* Text displaying links for each movie rating in list */
+A.RatingLink:link
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.RatingLink:visited
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.RatingLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* Text displaying links for session times */
+A.SessionLink:link
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.SessionLink:visited
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.SessionLink:hover
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* Text displaying links to more details and to sessions for each movie in the list */
+A.NavigationLink:link
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.NavigationLink:visited
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.NavigationLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* Style for each odd movie row in the list */
+TR.MovieSummaryRow
+{
+    background-color:#02C5F3;
+}
+
+/* Style for each even movie row in the list */
+TR.MovieSummaryRowAlt
+{
+    background-color:#FFFFFF;
+}
+
+/* Style for events table if movies have been populated */
+TABLE.EventsListTable
+{
+	background-color:transparent;
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+	border-top:none;
+}
+
+.EventSubHeaderRow
+{
+	background-color:#FFFFFF;
+	height:22px;
+}
+
+/* Borders for the top cell on sub tables */
+.EventSubTableTopCell
+{
+    border-top:solid 1px #29087B;
+}
+
+.EventSubHeaderText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+    font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visMovieInfo.aspx																  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- The row containing the header text. You can change the background color, for example. */
+.MovieInfoDetailsHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+}
+
+/* Text Style displaying movie name */
+.MovieNameLabel
+{
+    font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text Style for all information about a movie, eg. Synopsis, Rating, etc */
+.MovieInfoText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Text Style for all movie information sub-headers eg. "Rating:", "Running Time:" */
+.MovieInfoSubHeader
+{
+    font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Style for background/box holding all movie information */
+.MovieInfoTable
+{
+	background-color:#02C5F3;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+	border-bottom:none;
+}
+
+.MovieInfoImage
+{
+	border:solid 1px #29087B;
+	border-left:none;
+}
+
+/* Style for the cell holding movie info labels (eg. Running time) */
+.MovieInfoLabelCell
+{
+	width:90px;
+}
+
+/* Style break between movie information background/box and the body background/box, containing text "Now Showing At:" */
+.SubHeaderTable
+{
+	background-color:#29087B;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+/* Separate style for coming soon films, cos there's no information below this point. (now showing has showtimes below) */
+.SubHeaderTableComingSoon
+{
+	background-color:#29087B;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+/* Style for text contained in "SubHeaderTable" background/box, displays a message like "Now Showing At:" or "Sorry, no cinemas currently showing this movie" */
+.ShowingAt
+{
+    font-size:11px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text displaying "Now Showing" if movie is now showing */
+.NowShowing
+{
+    font-size:11px;
+    color:#A5FDB1;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text displaying "Coming Soon" if movie is coming soon */
+.ComingSoon
+{
+    font-size:11px;
+    color:#FCDCA9;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.NoMovieInfoFound
+{
+    font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal
+}
+
+/* Text displaying an actors name when no url is associated (so no link required) */
+.ActorNameLabel
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Link displaying an actors name when a url is associated with the actor */
+A.ActorNameLink:link
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.ActorNameLink:visited
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.ActorNameLink:hover
+{
+    color:#448AFE;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Text displaying an directors name when no url is associated (so no link required) */
+.DirectorNameLabel
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Link displaying a directors name when a url is associated with the actor */
+A.DirectorNameLink:link
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.DirectorNameLink:visited
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.DirectorNameLink:hover
+{
+    color:#448AFE;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+.MovieWebsiteSeperator
+{
+	font-size:11px;	
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+/* Link for when a url is associated with a movie */
+A.MovieWebsiteLink:link
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+    font-weight:normal;
+}
+A.MovieWebsiteLink:visited
+{
+    font-size:11px;	
+    color:#123EFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;
+    font-weight:normal;
+}
+A.MovieWebsiteLink:hover
+{
+    color:#448AFE;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;
+    font-weight:normal;
+}
+
+/* Link for seat allocated sessions */
+A.SeatAllocationOn:link
+{
+    font-size:11px;	
+    color:#A32525;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.SeatAllocationOn:visited
+{
+    font-size:11px;	
+    color:#A32525;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.SeatAllocationOn:hover
+{
+    color:#FF8484;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Link for non-seat allocated sessions */
+A.SeatAllocationOff:link
+{
+    font-size:11px;	
+    color:#005F95;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.SeatAllocationOff:visited
+{
+    font-size:11px;	
+    color:#005F95;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;   
+}
+A.SeatAllocationOff:hover
+{
+    color:#3CA2DB;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Link for sold out sessions */
+A.SessionSoldOut:link
+{
+    font-size:11px;	
+    color:#D37700;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.SessionSoldOut:visited
+{
+    font-size:11px;	
+    color:#D37700;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;   
+}
+A.SessionSoldOut:hover
+{
+    color:#FCA743;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Link displaying cinema names */
+A.CinemaLink:link
+{
+    font-size:11px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.CinemaLink:visited
+{
+    font-size:11px;	
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.CinemaLink:hover
+{
+    color:#5933B7;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+/* Link displaying selected cinema name */
+A.CinemaSelectedLink:link
+{
+    font-size:11px;	
+    color:#29087B;
+    background-color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+A.CinemaSelectedLink:visited
+{
+    font-size:11px;	
+    color:#29087B;
+    background-color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+A.CinemaSelectedLink:hover
+{
+    color:#5933B7;
+    background-color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:underline;    
+}
+
+.SessionSoldOutExample
+{   
+    font-size:11px;	
+    color:#D37700;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+	font-style:normal;
+	text-decoration:underline;
+}
+.SeatAllocationOnExample
+{
+    font-size:11px;	
+    color:#A32525;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+	font-style:normal;
+	text-decoration:underline;
+}
+.SeatAllocationOffExample
+{
+    font-size:11px;	
+    color:#005F95;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+	font-style:normal;
+	text-decoration:underline;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visHome.aspx																  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Used when cannot get a list of movies on home page */
+.HomePageError
+{
+    font-size:11px;	
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+}
+
+/* Style for background/box holding movie image */
+.PictureBorder
+{
+	background-color:transparent;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+/* Style for background/box holding movie image */
+.MovieDetailsTable
+{
+	background-color:#FFFFFF;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+	padding:0px 0px 0px 0px;
+	margin:0px 0px 0px 0px;
+}
+
+/* -- Movie name and rating text */
+.MovieSynopsisHomePage
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- Movie name and rating text */
+A.MovieNameHomePage:link
+{
+    font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:underline;
+}
+
+/* -- Movie name and rating text */
+A.MovieNameHomePage:visited
+{
+    font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:underline;
+}
+
+/* -- Movie name and rating text */
+A.MovieNameHomePage:hover
+{
+    font-size:11px;
+    color:#FD6A6A;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:underline;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visLogin.aspx																  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.LoginText
+{
+	font-size:12px;	
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+.LoginMsgTextError
+{
+	font-size:12px;
+	font-weight:bold;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+.LoginMsgTextSuccess
+{
+	font-size:12px;
+	font-weight:bold;
+    color:#24AA1A;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+.TextBox
+{
+	font-size:12px;	
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+    width:180px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visTicketContent.aspx																  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.PTicketHeader
+{
+	font-size:12px;	
+    color:#252776;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.PTicketBlurbText
+{
+	font-size:10px;	
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+.PTicketSubHeader
+{
+	font-size:12px;	
+    color:#A0461B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.PItemSubHeader
+{
+	font-size:12px;	
+    color:#A0461B;   
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.PContentTicket
+{
+	font-size:11px;	
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+.PContentItem
+{
+	font-size:11px;	
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visMbrLogin.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.MemberNavigationLink
+{
+	padding-left:7px;
+	padding-right:7px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visMbrBookings.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Header Text (eg. "Order History") */
+.MemberBookingsHeader
+{
+    font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* SubHeader Text (eg. "Booking Number:") */
+.MemberBookingsSubHeader
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Details SubHeader Text (eg. "CHOCOLAT @ 18:00 Wed 5 Apr 2006") */
+.MemberBookingsSessionHeader
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Details Text (eg. "Child") */
+.MemberBookingsText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Ad-hoc Text (eg. "Displaying up to the last 10 bookings") */
+.MemberBookingsSubtitle
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Text for displaying the Total amount (ie. "$18.00") */
+.MemberBookingsTextTotal
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Text informing user tax is included (or excluded in some cases) */
+.MemberBookingsTax
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Row that contains the header, for example can change background colour */
+.MemberBookingsHeaderRow
+{
+		height:22px;
+	background-color:#29087B;
+}
+
+/* Row that contains the subheaders and details */
+.MemberBookingsRow
+{
+	height:15px;
+	background-color:#ffffff;
+}
+
+/* Row that contains total amounts */
+.MemberBookingsTotalRow
+{
+	height:15px;
+	background-color:#ffffff;
+}
+	
+
+/* Row fitted between subheader + details rows, for aesthetics only */
+.MemberBookingsRowAesthetics
+{
+	height:5px;
+	background-color:#FFFFFF;
+}
+
+/* Member Bookings Border */
+.MemberBookingsTableBorder
+{
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+}
+
+.MemberBookingsDivider
+{
+	height:1px;
+	line-height:0px;
+	font-size:0px;
+	background-color:#000000;
+	overflow:hidden;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visMbrRegister.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.RegisterText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal
+}
+
+.RegisterMsgTextError
+{
+	font-size:12px;
+	font-weight:bold;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visMbrAgreement.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.AgreementTable
+{
+	background-color:#FFFFFF;
+}
+
+.AgreementHeader
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal
+}
+
+.AgreementDetails
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	IMAGES																					  */
+/* ~~	Images on the site (excluding ones only in visSkinHeader.htm and visSkinFooter.htm)		  */
+/* ~~	If an image is changed, the width and height should be changed here.					  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- Animated gif image displayed in times of expected delay (doing something at cinema with sales server) */
+.ImageProcessing
+{
+	width:183px;
+	height:30px;
+}
+
+/* -- The "Next" button used to navigate the site */
+.ImageNext
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Back" button used to navigate the site */
+.ImageBack
+{
+	width:81px;
+	height:22px;
+}
+
+/* -- The "Back" button used to navigate the site */
+.ImageLoyaltyBack
+{
+	width:81px;
+	height:22px;
+}
+
+/* -- The "Cancel" button used to cancel order and return to selecting a session */
+.ImageChangeSeats
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Cancel" button used to cancel order and return to selecting a session */
+.ImageChangeTickets
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Cancel" button used to cancel order and return to selecting a session */
+.ImageCancel
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Cancel" button used to cancel order and return to selecting a session */
+.ImageChangeSession
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Select Seats" button displayed on visSelectTickets.aspx to navigate to visSelectSeats.aspx */
+.ImageSelectSeats
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Sign In" button used to go back to the membership login page during ticket purchase */
+.ImageTicketsSignIn
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- The "Pay Now" button displayed on visPayment.aspx to complete the purchase */
+.ImagePayNow
+{
+	width:119px;
+	height:22px;
+}
+
+/* -- The button image to go back to selecting a session after session times out */
+.ImageSessionTimes
+{
+	width:132px;
+	height:22px;
+}
+
+/* -- The versign/secure site logo on visPayment.aspx */
+.ImageVerify
+{
+	width:120px;
+	height:121px;
+}
+
+/* -- The legend images on visSelectSeats.aspx */
+.ImageAppletExample
+{
+	width:20px;
+	height:20px;
+	vertical-align: middle;
+}
+
+/* -- Button to go back to home page on visConfirmation.aspx */
+.ImageHome
+{
+	width:77px;
+	height:22px;
+}
+
+/* -- Button to print confirmation */
+.ImagePrint
+{
+	width:140px;
+	height:22px;
+}
+
+/* -- Button to print show times */
+.ImagePrintShowTimes
+{
+	width:140px;
+	height:22px;
+}
+
+/* -- Button to print ticket */
+.ImagePrintTicket
+{
+	width:140px;
+	height:22px;
+}
+
+/* -- Button to send SMS ticket */
+.ImageSMSTicket
+{
+	width:170px;
+	height:22px;
+}
+
+/* -- Button to sign UP a new member */
+.ImageSignUp
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button to sign IN a new member */
+.ImageSignIn
+{
+	width:171px;
+	height:22px;
+}
+
+/* -- Button to resend activation email */
+.ImageResendActivation
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button to remind a member of their password */
+.ImageRemind
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button to close window after successful registration/pwd reminder */
+.ImageCloseWindow
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button to close window after successful registration/pwd reminder */
+.ImageBtnPackageTicket
+{
+	width:20px;
+	height:19px;
+}
+
+/* -- Image of the voucher barcode on visTicketContents */
+.ImageVoucher
+{
+	width:130px;
+	height:76px;
+}
+
+/* -- Image of the package deal on visTicketContents */
+.ImageCombo
+{
+	width:142px;
+	height:78px;
+}
+
+/* -- Button to print confirmation */
+.LargeHeader
+{
+	width:580px;
+	height:20px;
+}
+
+/* -- Button to update loyalty information */
+.ImageUpdateInformation
+{
+	width:155px;
+	height:22px;
+}
+
+/* -- Button to skip loyalty sign in */
+.ImageSkipSignIn
+{
+	width:171px;
+	height:22px;
+}
+
+/* -- Button to sign out of loyalty */
+.ImageSignOut
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button to show printer friendly sessions */
+.ImagePrintFriendly
+{
+	width:22px;
+	height:16px;
+}
+
+/* -- Image for adding vouchers to your order on visSelectTickets */
+.ImageAddToOrder
+{
+	width:130px;
+	height:22px;
+	margin-top:4px;
+}
+
+/* -- Button used to allow a user to return to their order if a problem has occurred when making a payment through a gateway */
+.ImageTryAgain
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button used to allow a user to cancel their booking and continue a new order when they still have an active order */
+.ImageOrderInProgressContinue
+{
+	width:115px;
+	height:22px;
+}
+
+/* -- Button used to allow a user to cancel starting a new booking and continue a with their current order */
+.ImageOrderInProgressCancel
+{
+	width:115px;
+	height:22px;
+}
+
+/* -- Button used to display an image of concessions on concession selection page */
+.ImageBtnViewImage
+{
+	width:20px;
+	height:19px;
+}
+
+.ImageBtnLargeImage
+{
+	width:100px;
+	height:75px;
+	border:solid 1px #29087B;
+}
+
+/* -- Button to select concessions on visSelectConcessions from visSelectTickets */
+.ImageSelectConcessions
+{
+	width:130px;
+	height:22px;
+}
+
+.ImageMobileThumb
+{
+}
+
+/* -- Button to clear all selections on visChooseSession */
+.ImageChangedMind
+{
+	width:196px;
+	height:22px
+}
+
+/* -- Button to proceed to ordering pages on visChooseSession */
+.ImageChooseSessionNext
+{
+	width:130px;
+	height:22px
+}
+
+/* -- Button to spend loyalty points */
+.ImageSpendPoints
+{
+	width:152px;
+	height:22px;
+}
+
+/* -- Image of a redemption item on purchase rewards page */
+.ImageRecognitions
+{
+	width:120px;
+	height:120px;
+}
+
+/* -- Button to redeem a loyalty redemption item */
+.ImageRedeem
+{
+	width:130px;
+	height:22px;
+}
+
+/* -- Button to cancel a loyalty redemption */
+.ImageCancelRedemption
+{
+	width:115px;
+	height:22px;
+}
+
+/* -- Button to cancel a loyalty redemption */
+.ImageKioskCancel
+{
+	width:115px;
+	height:22px;
+}
+
+/* -- The "Back" button used to navigate the site */
+.ImageBackKiosk
+{
+	width:81px;
+	height:22px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visLtyHome.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.LoyaltyStandardTable
+{
+    border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+}
+
+/* -- The information text*/
+.LoyaltyHomeHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+}
+
+.LoyaltyHomeDetailsRow
+{
+	background-color:#FFFFFF;
+}
+
+.LoyaltyHomeAestheticsRow
+{
+	background-color:#FFFFFF;
+	height:10px;
+}
+
+.LoyaltyHomeHeaderText
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyHomeSubHeaderText
+{
+	font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyHomeDetailsText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.LoyaltyHomeInfoText
+{
+    font-size:12px;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+    font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visLtyLogin.ascx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+table.wrap
+{
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    table-layout: fixed; /* Required for IE */
+    width: 270px;
+}
+
+.LoyaltyLoginHeader
+{
+    font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- The information text*/
+.LoyaltyLoginText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* -- The information text*/
+.LoyaltyUserPasswordText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+A.LoyaltyLoginTextLink:link
+{
+	font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:underline;
+}
+
+A.LoyaltyLoginTextLink:visited
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:underline;   
+}
+
+A.LoyaltyLoginTextLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+.LoyaltyLoginTable
+{
+    border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+}
+
+.LoyaltyLoginDetailsRow
+{
+	background-color:#FFFFFF;
+}
+
+.LoyaltyLoginAestheticsRow
+{
+	background-color:#FFFFFF;
+	height:10px;
+}
+
+.LoyaltyMemberRenewText
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Style used by visLtyMembershipDialog.ascx */
+.membershipDialogContainer { position: relative; }
+.membershipDialog { position: absolute; border: 2px solid black; top: 10%; left: 50%; width: 400px; margin-left: -200px; background: white; padding: 0; text-align: center; }
+.membershipDialog table { border: 1px solid black;  border-collapse: collapse; text-align: left; margin: 10px auto; width: 376px; text-align: left; }
+.membershipDialog table thead { background: #cccccc; }
+.membershipDialog table tr { cursor: pointer; font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif"; font-size: 12px; margin: 2px; line-height: 1.1em; }
+.membershipDialog table tr.selected { background: #95bcf2; }
+.membershipDialog table tr th { padding: 5px; }
+.membershipDialog table tr td { padding: 5px; }
+.membershipDialog .submit { float: right; margin-right: 10px; }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visLtyCreateUserID.ascx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.LoyaltyCreateUserIDAestheticsRow
+{
+	height:10px;
+	background-color:#FFFFFF;
+}
+
+.LoyaltyCreateUserIDDetailsRow
+{
+	background-color:#FFFFFF;
+}
+
+/* -- The information text*/
+.LoyaltyCreateUserIDText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyCreateUserIDHeaderText
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyCreateUserIDBlurbText
+{
+    font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visLtyCreateUser.ascx                                                                                            */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.LoyaltyCreateUserAestheticsRow
+{
+    height:10px;
+    background-color:#FFFFFF;
+}
+
+.LoyaltyCreateUserDetailsRow
+{
+    background-color:#FFFFFF;
+}
+
+/* -- The information text*/
+.LoyaltyCreateUserText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+.LoyaltyCreateUserBlurbText
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+.LoyaltyCreateUserHeaderText
+{
+    font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+    font-style:normal;
+}
+
+.LoyaltyCheckboxPreferences
+{
+    float:left;
+    min-width:30%;
+    width:30%;
+}
+
+.LoyaltyCheckboxOptions
+{
+    display:block;
+}
+
+.LoyaltyMembershipPaymentRequiredBlurbText
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visLtyBenefits.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* -- The information text*/
+.LoyaltyBenefitsHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+}
+
+.LoyaltyBenefitsDetailsRow
+{
+	background-color:#FFFFFF;
+}
+
+.LoyaltyBenefitsSubHeaderRow
+{
+	background-color:#FFFFFF;
+}
+
+.LoyaltyBenefitsAestheticsRow
+{
+	background-color:#FFFFFF;
+	height:10px;
+}
+
+.LoyaltyBenefitsHeaderText
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+.LoyaltyBenefitsDetailsText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.LoyaltyBenefitsSubHeaderText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visLtyTrHistory.aspx, visLtyRedHistory.aspx								  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.LoyaltyHistHeaderRow
+{
+	background-color:#29087B;
+	height:22px;
+}
+
+.LoyaltyHistAestheticsRow
+{
+	height:5px;
+	background-color:#FFFFFF;
+}
+
+.LoyaltyHistDetailsRow
+{
+	background-color:#FFFFFF;
+}
+
+.Transaction
+{
+    padding:0 0 2px 0;
+}
+
+.LoyaltyHistHeaderText
+{
+	font-size:12px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyHistSubHeaderText
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyHistOtherText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visComingSoon.ascx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.ComingSoonCtrlTable
+{
+	background-color:#d8d5cf;
+	height:648px;
+	width:194px;
+	vertical-align:top;
+}
+
+.ComingSoonCtrlEmpty
+{
+	height:1px;
+}
+
+.ComingSoonCtrlRow
+{
+	background-color:#d8d5cf;
+}
+
+.ComingSoonCtrlText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.ComingSoonEventDescText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:italic;
+}
+
+A.ComingSoonCtrlLink:link
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+}
+
+A.ComingSoonCtrlLink:visited
+{
+    font-size:11px;           
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;    
+}
+
+A.ComingSoonCtrlLink:hover
+{
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES USED ON visNowShowing.ascx														  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.NowShowingCtrlTable
+{
+	background-color:#C4E8F7;
+	height:648px;
+	width:194px;
+	vertical-align:top;
+}
+
+.NowShowingCtrlEmpty
+{
+	height:1px;
+}
+
+.NowShowingCtrlRow
+{
+	background-color:#C4E8F7;
+}
+
+.NowShowingCtrlText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.NowShowingEventDescText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:italic;
+}
+
+A.NowShowingCtrlLink:link
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	text-decoration:none;
+}
+
+A.NowShowingCtrlLink:visited
+{
+    font-size:11px;           
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none; 
+}
+
+A.NowShowingCtrlLink:hover
+{
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~     STYLES ON visEventInfo.aspx                                                                                                                                                         */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Style for movie image cell */
+.EventMovieImageCell
+{
+	border-top:solid 1px #29087B;
+	height:100px;
+	vertical-align:middle;
+}
+
+/* Borders for the top cell on sub tables */
+.EventMovieSubTableTopCell
+{
+    border-top:solid 1px #29087B;
+}
+
+/* Style for text all other text for each movie in the list. Eg. MovieContent */
+.EventMovieOtherText
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* Style for other text on page not belonging to movie list and not from included event html */
+.EventOtherText
+{
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* When a problem occurs on this page this text is displayed */
+.EventErrorText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* Text displaying links for each movie in list */
+A.EventMovieLink:link
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.EventMovieLink:visited
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;   
+}
+
+A.EventMovieLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* Text displaying links for each movie rating in list */
+A.EventRatingLink:link
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.EventRatingLink:visited
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.EventRatingLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* Text displaying links for session times */
+A.EventSessionLink:link
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.EventSessionLink:visited
+{
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.EventSessionLink:hover
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* Text displaying links to more details and to sessions for each movie in the list */
+A.EventNavigationLink:link
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.EventNavigationLink:visited
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;   
+}
+
+A.EventNavigationLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;   
+}
+
+/* Style for each odd movie row in the list */
+TR.EventMovieSummaryRow
+{
+    background-color:#02C5F3;
+}
+
+/* Style for each even movie row in the list */
+TR.EventMovieSummaryRowAlt
+{
+    background-color:#FFFFFF;
+}
+
+.EventInfoSubHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+}
+
+.EventInfoSubHeaderText
+{
+	font-size:11px;
+    color:#FFFF00;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.EventInfoMiddleBorders
+{
+	border-left:solid 1px #29087B;
+	border-right:solid 1px #29087B;
+}
+
+.EventContentSeparatorRow
+{
+	height:22px;
+	background-color:#FFFFFF;
+}
+
+.EventMovieListTable
+{
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+}
+
+/* Style for table surrounding event information (whether using external content or defaults) */
+.EventInfoTable
+{
+	background-color:Transparent;
+	border-style:solid;
+	border-color:#29087B;
+	border-width:1px;
+}
+
+/* Style for the inner table holding event information in the default box */
+.EventDefaultInfoTable
+{
+	background-color:#02C5F3;
+	border-bottom:none;
+}
+
+.EventDefaultHeaderRow
+{
+	height:30px;
+	vertical-align:middle;
+}
+
+.EventDefaultNameLabel
+{
+	font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.EventDefaultRow
+{
+	height:22px;
+}
+
+.EventDefaultLabelText
+{
+	font-size:11px;
+    color:#FFFFFF;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;	
+}
+
+.EventDefaultDetailsText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal; 	
+}
+
+.EventDefaultImage
+{
+	border:solid 1px #29087B;
+	border-left:none;
+}
+
+/* Style for the cell holding movie info labels (eg. Running time) */
+.EventInfoLabelCell
+{
+	width:90px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visLtyTicketsLogin.aspx                                                                                          */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.LoyaltyTicHeaderRow
+{
+	background-color:#29087B;
+	height:22px;
+}
+
+.LoyaltyTicAestheticsRow
+{
+	height:10px;
+	background-color:#FFFFFF;
+}
+
+.LoyaltyTicDetailsRow
+{
+	background-color:#FFFFFF;
+}
+
+.LoyaltyTicHeaderText
+{
+	font-size:12px;
+	color:#FFFF00;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.LoyaltyTicDetailsText
+{
+	font-size:11px;
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visErrorLog.aspx                                                                                          */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.ErrorLogHeadRow
+{
+	background-color:#CCCCCC;
+	height:25px;
+}
+.ErrorLogHeaderText
+{
+	font-size:12px;
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+.ErrorLogTable
+{
+	border:solid 1px black;
+}
+.ErrorLogDetailHeaderRow
+{
+	background-color:#EEEEEE;
+}
+.ErrorLogTableText
+{
+	font-size:11px;
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+.ErrorLogTableHeaderText
+{
+	font-size:11px;
+	color:#000000;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visShowtimes.aspx                                                             */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+/* Style for background/box holding showtimes page header */
+.ShowtimesHeaderTable
+{
+	background-color:transparent;
+	border-style:none;
+	border-color:#29087B;
+	border-width:1px;
+	border-bottom:none;
+	padding:0px 0px 0px 0px;
+}
+
+.ShowtimesHeaderText
+{
+	font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.ShowtimesOtherText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+.ShowtimesRadioListBy
+{
+	font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* -- Style for each drop down list and the text inside it */
+.ShowtimesFilterDropDownList
+{	
+    font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:white;
+	text-indent:0px;
+	text-align:left;
+}
+
+.ShowtimesTable
+{
+	background-color:transparent;
+	border-style:solid;
+	border-width:1px;
+	border-color:#29087B;
+	border-collapse:separate;
+}
+
+.ShowtimesCinemaRow
+{
+	height:25px;
+}
+
+.ShowtimesCinemaName
+{
+	font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+/* Style for each odd movie row in the list */
+TR.ShowtimesSummaryRow
+{
+    background-color:#02C5F3;
+}
+
+/* Style for each even movie row in the list */
+TR.ShowtimesSummaryRowAlt
+{
+    background-color:#FFFFFF;
+}
+
+TR.ShowtimesAestheticRow
+{
+	background-color:#02C5F3;
+	height:5px;
+}
+
+TR.ShowtimesAestheticRowAlt
+{
+	background-color:#FFFFFF;
+	height:5px;
+}
+
+TR.ShowtimesTemplateRow
+{
+	background-color:#02C5F3;
+	height:0px;
+}
+
+.ShowtimesCinemaModeBreak
+{
+	border-bottom:solid 1px #29087B;
+}
+
+/* Style for text all other text for each movie in the list. Eg. MovieContent */
+.ShowtimesMovieOtherText
+{
+    font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:normal;
+    font-style:normal;
+}
+
+/* Text displaying links for each movie in list */
+A.ShowtimesMovieLink:link
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.ShowtimesMovieLink:visited
+{
+    font-size:12px;           
+    font-weight:bold;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesMovieLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;   
+}
+
+/* Text displaying links for session times */
+A.ShowtimesSessionLink:link
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.ShowtimesSessionLink:visited
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionLink:hover
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionAllocatedLink:link
+{
+    font-size:11px; 
+    color:#A32525;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.ShowtimesSessionAllocatedLink:visited
+{
+    font-size:11px; 
+    color:#A32525;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionAllocatedLink:hover
+{
+	font-size:11px;
+    color:#FF8484;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionUnallocatedLink:link
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.ShowtimesSessionUnallocatedLink:visited
+{
+    font-size:11px; 
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionUnallocatedLink:hover
+{
+	font-size:11px;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionSoldOutLink:link
+{
+    font-size:11px; 
+    color:#D37700;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.ShowtimesSessionSoldOutLink:visited
+{
+    font-size:11px; 
+    color:#D37700;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesSessionSoldOutLink:hover
+{
+	font-size:11px;
+    color:#FCA743;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+.ShowtimesSessionSoldOutExample
+{   
+    color:#D37700;
+}
+
+.ShowtimesSessionAllocatedExample
+{   
+    color:#A32525;
+}
+
+.ShowtimesSessionUnallocatedExample
+{   
+    color:#29087B;
+}
+
+/* Text displaying links to more details and to sessions for each movie in the list */
+A.ShowtimesNavigationLink:link
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.ShowtimesNavigationLink:visited
+{
+    font-size:12px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.ShowtimesNavigationLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visLtyForgotDetails.aspx						                              */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#divForgotText 
+{
+	padding:5px 10px 5px 10px;
+	float:none;
+}
+
+#divForgotButton
+{
+	clear:both;
+	padding:5px 10px 5px 10px;
+	float:none;
+}
+
+.LtyForgotHeader
+{
+	font-weight:bold;
+	color:#CC0000;
+	display:block;
+	font-size:12px;
+	line-height:22px;
+}
+
+.LtyForgotSubHeader
+{
+	color:#29087B;
+    font-weight:bold;
+    float:left;
+    font-size:12px;
+    line-height:22px;
+}
+
+.ltyForgotBlurb
+{
+	display:block;
+	font-size:11px;
+	line-height:15px;
+	margin-bottom:5px;
+}
+
+.LtyForgotMessage
+{
+	clear:both;
+	float:left;
+	display:block;
+	font-size:12px;
+	line-height:15px;
+	font-weight:bold;
+    color:#FF0000;
+}
+
+.LtyForgotText
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-style:normal;   
+    text-align:left;
+}
+
+.LtyForgotTextBox
+{
+	float:left;
+	margin-left:10px;
+	vertical-align:top;
+	width:125px;
+	margin-bottom:5px;
+}
+
+.LtyForgotSubmit
+{
+	display:block;
+	clear:both;
+	float:right;
+	margin-bottom:5px;
+}
+
+.LtyForgotClose
+{
+	display:block;
+	clear:right;
+	float:right;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visPaymentError.aspx															  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.PaymentErrorText
+{
+	font-size:12px;
+    color:#FF0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+    background-color:transparent;
+    text-align:left;
+    display:block;
+    padding:0px 10px 15px 10px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visConcessionImage.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.ConcessionImageText
+{
+	font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-weight:bold;
+    text-align:left;
+}
+
+.ConcessionImageDescription
+{
+	font-size:10px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visOrderInProgress.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.InProgressHeader
+{
+    font-size:12px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.InProgressSubHeader
+{
+	font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+}
+
+.InProgressText
+{
+	font-size:11px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~	STYLES ON visChooseSession.aspx													  */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.ChooseSessionHeaderRow
+{
+	background-color:#29087B;
+	height:22px;
+	line-height:22px;
+}
+
+tr.ChooseSessionStandardRow
+{
+	line-height:40px;
+	height:40px;
+}
+
+tr.ChooseSessionSelectionRow
+{
+	line-height:30px;
+	height:30px;
+}
+
+.ChooseSessionText
+{	
+    font-size:11px;
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:bold;
+	font-style:normal;
+	background-color:transparent;
+	text-indent:0px;
+	text-align:left;
+}
+
+.ChooseSessionDropDown
+{
+	font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:Transparent;
+	text-indent:0px;
+	width:250px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visLtyPurchaseRewards.aspx						                  */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.tdRewardItemRight
+{
+	text-align:left;
+	border:1px solid #29087B;
+	border-top-width:0;
+	border-left-width:0;
+	border-right-width:0;	
+}
+
+.LtyRewardKioskCancel
+{
+	float:right;
+	margin-right:30px;
+}
+
+.LtyRewardKioskErrorCancel 
+{
+	float:right;
+	margin-top:5px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visLtyPurchaseRewardConfirmation.aspx						                  */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.LtyRewardDivider
+{
+    height:1px;
+    overflow:hidden;
+    width:563px;
+    background-color:#29087B;
+}
+
+#divButtons
+{
+	padding:5px 10px 5px 10px;
+	float:none;
+}
+
+.LtyRewardConfHeader
+{
+	font-weight:bold;
+	color:#CC0000;
+	display:block;
+	font-size:12px;
+	line-height:22px;
+}
+
+.ltyRewardConfTable
+{
+	display:block;
+	font-size:11px;
+	line-height:15px;
+	margin-bottom:5px;
+	color:#000000;
+}
+
+.LtyRewardConfMessage
+{
+	clear:both;
+	float:left;
+	display:block;
+	font-size:12px;
+	line-height:15px;
+	font-weight:bold;
+    color:#FF0000;
+}
+
+.LtyRewardConfText
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-style:normal;   
+    text-align:left;
+}
+
+.LtyRewardConfRedeem
+{
+	display:inline;
+	float:right;
+	margin-bottom:5px;
+}
+
+.LtyRewardConfCancel
+{
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-bottom:5px;
+	margin-right:5px;
+}
+
+.LtyRewardConfKioskCancel
+{
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-bottom:5px;
+	margin-right:5px;
+}
+
+.LtyRewardConfKioskCancel
+{
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-bottom:5px;
+	margin-right:5px;
+}
+
+.LtyRewardConfKioskBack
+{
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-bottom:5px;
+	margin-right:5px;
+}
+
+.LtyRewardConfClose
+{
+	display:block;
+	clear:both;
+	text-align:right;
+}
+
+.LtyChooseCinemaDropDown
+{
+	font-size:12px;
+    color:#000000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+	font-weight:normal;
+	font-style:normal;
+	background-color:Transparent;
+	text-indent:0px;
+	width:250px;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visLtyAgreement.aspx														  */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.LtyAgreementHeaderRow
+{
+	height:22px;
+	background-color:#29087B;
+}
+
+.LtyAgreementHeaderText
+{
+	font-size:12px;
+	color:#FFFF00;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-style:normal;
+    font-weight:bold; 
+    text-align:center;
+}
+
+.LtyAgreementBodyText
+{
+	font-size:12px;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-style:normal;   
+    text-align:left;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visMembershipOption.aspx													  */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.MbrOptionHeaderText
+{
+	font-size:12px;
+	color:#FFFF00;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-style:normal;
+    font-weight:bold; 
+    text-align:center;
+}
+
+.MbrOptionBodyText
+{
+	font-size:11px;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    font-style:normal;   
+    text-align:left;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visOrderDetails.ascx and visOrderSummary.ascx                                */ 
+/*    This section is used to style the order details table shown on the order pages              */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+#orderDetails
+{
+    background-color:#02C5F3;
+    text-align:left;
+    width:580px;
+}
+
+#orderDetails #orderHeader
+{
+    padding:0px 5px;
+}
+
+#orderDetails dl
+{
+    margin:0;
+}
+
+#orderDetails dt
+{
+    clear:left;
+    float:left;
+    margin:0;
+    display:block;
+}
+
+#orderDetails dd
+{
+    float:left;
+}
+
+#orderDetails .CinLabel
+{
+    width:15%
+}
+
+#orderDetails div div table
+{
+    width:100%;
+}
+
+#orderDetails .SectionContainer
+{
+    padding:0 5px 5px 5px;
+    clear:left;
+}
+
+#orderDetails .DetailsRow
+{
+    vertical-align:top;
+    text-align:left;
+}
+
+#orderDetails .DetailsRowAesthetics
+{
+    height:2px;
+}
+
+#orderDetails .Price
+{
+    width:20%;
+    max-width:20%;
+    text-align:right;
+}
+
+#orderDetails .Points
+{
+    width:15%;
+    max-width:15%;
+    text-indent:2px;
+}
+
+#orderDetails .orderDetailsDescription
+{
+    max-width:40%;
+    width:40%;
+}
+
+#orderDetails .OrderMisc
+{
+    width:20%;
+    max-width:20%;
+}
+
+#orderDetails .MovieSummary
+{
+    width:70%;
+    float:left;
+}
+
+#orderDetails .SubTable
+{
+    margin-top:5px;
+}
+
+#orderDetails .SubRow td
+{
+    padding-bottom:10px;    
+}
+
+.Indent
+{
+    text-indent:10px;
+}
+
+#orderDetails #cartlinks
+{
+    text-align:right;
+    padding-bottom:0;
+}
+
+.Left
+{
+    float:left;
+}
+
+.Right
+{
+    float:right;
+}
+
+.Clear
+{
+    clear:both;
+}
+
+.Bold
+{
+    font-weight:bold;
+}
+
+.GrandTotal
+{
+    font-weight:bold;
+    text-decoration:overline;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visSelectFromCinema.aspx      */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.ExistingOrderContainer
+{
+    width:578px;
+    border: solid 1px #29087B;
+    border-bottom:none;
+}
+
+.InstructionsCell
+{
+    border-top:solid 1px #29087B;
+    padding:10px 3px;
+}
+
+.BodyDiv
+{
+    width:580px;
+    border: solid 1px #29087B;
+    border-collapse:collapse;
+}
+
+.MovieFrameDiv
+{
+    border-bottom:solid 1px #29087B;
+    min-height:50px;
+    width:580px;
+    clear:both;
+    float:left;
+}
+
+.MovieFrameClose
+{
+    clear:both;
+}
+
+.MovieImageDiv
+{
+    padding:5px 2px 5px 0;
+    float:left;
+}
+
+.MovieDetailsDiv
+{
+    text-align:left;
+    width:80%;
+    float:right;
+    padding:2px;
+}
+
+.MovieNormal
+{
+    background-color:#FFFFFF;
+}
+
+.MovieAlt
+{
+    background-color:#02C5F3
+}
+
+.MovieLinkHover
+{
+    color:#CC0000;
+    cursor:pointer;
+    font-size:12px;           
+    font-weight:bold;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+.MovieLinkSmlHover
+{
+    font-size:9px;	
+    cursor:pointer;
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:underline;
+}
+
+.ShowTimeTable
+{
+    width:100%;
+    float:left;
+}
+
+.ShowTimeRow
+{
+    vertical-align:top;
+    text-align:left;
+    line-height:1.2em;
+}
+
+.ShowTimeDiv
+{
+    float:left;
+    width:50px;
+    margin:2px;
+    text-align:center;
+}
+
+ /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED ON visShop.aspx      */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.CategoryLink
+{
+    font-size:10px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    text-decoration:none;
+}
+
+A.CategoryLink:visited
+{
+    font-size:10px;           
+    color:#29087B;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;    
+}
+
+A.CategoryLink:hover
+{
+    color:#CC0000;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";    
+    text-decoration:none;   
+}
+
+.ShopHeaderTable
+{
+	
+}
+
+.ShopItemDetailHeader
+{
+	
+}
+
+.ShopItemDetailDesc
+{
+	
+}
+
+.ShopOnlineForm
+{
+	background-color:white; 
+	width:440px;
+	}
+
+/* Styles for shop items */
+.pickup-item 
+{
+    color: #8B0000;
+    text-align: right;
+    font-size: 9pt;
+}
+.ShopItemDetailCell
+{
+	vertical-align:top; 
+	border-right: solid 1px #29087B;
+	border-top: solid 1px #29087B;
+	border-bottom: solid 1px #29087B;
+	width:100%;  
+	padding-left: 10px;
+}
+.ShopItemFooterCell
+{
+	vertical-align:bottom; 
+	text-align:right;
+	width:100%;  
+	height:100%;
+}
+
+
+.ShopItemImageCell
+{
+	vertical-align:top;
+	border-left: solid 1px #29087B;
+	border-top: solid 1px #29087B;
+	border-bottom: solid 1px #29087B;
+	width:101px;
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.ShopItemImage
+{
+    height:75px;
+	width:100px;  
+}
+
+.ShopItemTitle
+{
+	font-weight:bold;
+	color: Blue;
+	vertical-align:top;
+	width:100%;    
+	font-size:9pt;   
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";  
+	padding-top: 5px;
+}
+.ShopItemDetails
+{
+	color: black;
+	vertical-align:top;
+	width:100%;       
+	font-size:8pt;   
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    padding-right: 20px;
+}
+.ShopItemRow
+{
+	width:100%; 
+	width:100%;
+	border: solid 1px #29087B;
+	width:100%;
+}
+/* this style is used to hide data used by Details panel on visShop */
+.ShopItemHidden
+{
+    height:0px;
+	width:0px;       
+	display:none;
+}
+
+.ShopInfoPanel
+{
+	width: 100%;
+	height: 100%;
+	text-align:left;
+	background-image:url([\images\background.gif]);
+	background-color:white;
+}
+.ShopInfoTable
+{
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+	background-color: white;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+	font-size: 11pt;
+}
+.ShopInfoCell
+{
+	vertical-align:top;
+	padding-left: 10px;
+	height: 1%;
+}
+.ShopInfoFooterCell
+{
+	vertical-align:bottom;
+	padding-left: 10px;
+	height:100%;
+}
+
+.ShopInfoItemImageCell
+{
+	vertical-align:top;
+	height:140px;
+	width:162px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.ShopInfoItemImage
+{
+    height:120px;
+	width:160px;  
+}
+
+
+.ShopOnlineTable
+{
+	width:90%;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+
+.ShopCartTable
+{
+	text-align:right;
+	width:90%;
+	font-size:11px;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+	vertical-align:top;
+}
+
+.ShopWaitMessage
+{
+	color: Green;
+	font-size: 9px;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+
+.ShopErrorMessage
+{
+	color: Red;
+	font-size: 11px;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+    font-weight:bold;
+    text-align:left;
+    width: 100%;
+    padding: 5px 5px 10px 10px;
+}
+
+/* styles used for Online Shop Shopping Cart */
+.ShopCartDetailCell
+{
+	width:200px;  
+	text-align:left;
+	padding-left: 10px;
+}
+
+.ShopCartImageCell
+{
+	vertical-align:middle;
+	/*height:50px;*/
+	width:51px;
+}
+.ShopCartQtyCell
+{
+	width:45px;
+}
+.ShopCartUnitPriceCell
+{
+	width:100px;
+}
+.ShopCartTotalPriceCell
+{
+	width:80px;
+}
+.ShopCartControlsCell
+{
+	text-align:center;
+	width:40px;
+}
+.ShopCartImage
+{
+    height:50px;
+	width:50px;  
+}
+.ShopCartUpdateLink
+{
+	font-size: 8px;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+.ShopCartHeaderCell
+{
+	font-weight:bold;
+	font-size: 11px;
+}
+
+.ShopCartFooterTotalTextCell
+{
+	padding-top: 10px;
+	font-weight:bold;
+	font-size: 12px;
+	padding-bottom: 20px;
+}
+.ShopCartFooterTotalDataCell
+{
+	padding-top: 10px;
+	padding-bottom: 20px;
+	font-weight:bold;
+	font-size: 12px;
+}
+.ShopCartFooterDataCell
+{
+	padding-top: 10px;
+	font-weight:bold;
+}
+.ShopCartFooterTextCell
+{
+	padding-top: 10px;
+	font-weight:bold;
+}
+.ShopCartFooterLineCell
+{
+	border-bottom: solid 1px black;
+	padding-top: 10px;
+}
+.ShopCartQtyTextbox
+{
+	width:40px;
+	text-align:right;
+}
+.ShopCartCheckoutButton
+{
+	width:90%;
+	text-align:right;
+	padding-top:15px;
+	padding-bottom:15px;
+}
+
+.ShopFormDetailCell
+{
+	text-align:left;
+	font-size: 11px;
+	width: 180px;
+	font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+.ShopFormInputCell
+{
+	text-align:left;
+	font-size: 11px;
+	width: 180px;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+.ShopFormTextbox
+{
+	text-align:left;
+	font-size: 11px;
+	width: 180px;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+.ShopFormTextArea
+{
+	text-align:left;
+	font-size: 11px;
+	height: 50px;
+	width: 100%;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+}
+
+.ShopDeliveryMethodTitle
+{
+	font-size: 11px;
+	font-weight:bold;
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+	text-align:left;
+}
+.ShopDeliveryMethodDetails
+{
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+	text-align:left;
+	padding-left:20px;
+	font-size: 10px;
+}
+
+.ShopDeliveryMethodPrice
+{
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";   
+	text-align:right;
+	font-size: 10px;
+}
+.ConcessionTypeCategoryRow
+{
+    background-color:#FFFFFF;
+	height:25px;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED FOR webVPMClientUtility          */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.BankDisplayDataTable
+{
+    font-size:11px;	
+    font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    text-decoration:none;
+}
+
+.BankDisplayDataName
+{
+    font-weight:bold;
+    color: #cc0000;
+    width: 220px;
+}
+
+.BankDisplayDataValue
+{
+    font-weight:normal;
+    color: #29087B;
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~ STYLES USED FOR THE SEATING CONTROL          */ 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+.Seating-Control
+{
+    /* Required */    
+    overflow: auto;
+    position: relative;
+    /* Customisable */
+    width: 560px;
+    margin: 5px auto;
+}
+
+.Seating-Control>div
+{
+    /* Customisable */
+    width: 560px; /* Needs to match width of .Seating-Control */
+    overflow: visible;
+}
+
+.Seating-Theatre
+{
+    position: relative;
+    display: inline-block;
+    float: left;
+}
+
+.Seating-Container
+{
+    position: relative;
+    visibility: hidden; /* Initially hide the seats so that we can change displaying */
+    margin: 0 auto;
+    
+}
+
+.Seating-Popup
+{
+    /* Required */
+    display: none;
+    z-index: 9999;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    /* Customisable */
+    color: White;
+    font-style: inherit;
+    cursor: pointer;
+    background-color: #960423; /* #FFD4A0 */
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 80px;
+}
+
+.Seating-PopupMessage
+{
+    /* Required */
+    clear: both;
+    height: 80px;
+    position: relative;
+}
+
+.Seating-Screen
+{
+    position: relative;
+    height: 20px;
+    margin: 0 auto;
+}
+
+.Seating-Screen img
+{
+    height: 100%;
+}
+
+#membershipProgrammes { width: 99%; border: 2px solid black; border-collapse: collapse; font-family: Verdana , Arial, Helvetica, sans-serif, "MS sans serif"; font-size: 11px; }
+#membershipProgrammes td { padding: 5px 20px; border-bottom: 2px solid black; }
+#membershipProgrammes span { margin: 5px 0; }
+#membershipProgrammes .program-image { width: 30%; text-align: center; vertical-align: middle; }
+#membershipProgrammes .program-image img { height: 100px; width: 100px; }
+#membershipProgrammes .program-title { display: block; font-size: 1.2em; font-weight: bold; color: blue; }
+#membershipProgrammes .program-price { display: block; }
+#membershipProgrammes .program-description { display: block; }
+#membershipProgrammes .program-link { float: right; text-decoration: none; color: White; text-align: center;  margin-top: 10px; }
+
+/* JPH 15/12/2011 address verification */
+#addressSelectorDialog { display: none; position: absolute; padding: 10px; background-color: white; border: 1px solid black; width: 500px; }
+#addressSelectorDialog #loadingImage { margin-left: auto; margin-right: auto; }
+#addressSelectorDialog #addressSelection { display: none; }
+#addressSelectorDialog select { width: 100%;background-color: #E9EBF5; }
+#addressSelectorDialog input { float: right; }

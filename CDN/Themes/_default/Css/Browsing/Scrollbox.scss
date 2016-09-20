@@ -1,0 +1,22 @@
+@import "../_Colours";
+
+.scrollbox-container { position: relative; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none }
+.scrollbox-container:focus { outline: none; }
+.scrollbox-left-button, .scrollbox-right-button { position: absolute; top: 0; bottom: 0; width: 18px; }
+.scrollbox-left-button { left: 0; background: $color-93908f url('../../Images/Scrollbox/Scroll_Left.png') no-repeat center center; }
+.scrollbox-right-button { right: 0; background: $color-93908f url('../../Images/Scrollbox/Scroll_Right.png') no-repeat center center; }
+.scrollbox-viewport { position: absolute; left: 18px; right: 18px; bottom: 11px; top: 0; overflow: hidden; -ms-touch-action: pan-y; touch-action: pan-y; }
+
+.scrollbox-view { position: absolute; white-space: nowrap; overflow: visible; padding: 0 1px 0 1px;
+				  -webkit-transform: translateZ(0); -webkit-backface-visibility: hidden; -webkit-perspective: 1000;
+				  transform: translateZ(0); backface-visibility: hidden; perspective: 1000; }
+
+.scrollbox-scrollbar { position: absolute; left: 18px; right: 18px; bottom: 0; height: 10px; overflow: hidden; border-top: 1px solid $color-93908f; }
+.scrollbox-handle-wrapper { position: relative; margin: 0 auto; width: 100%; height: 100%; }
+
+.scrollbox-scroll { position: absolute; height: 6px; border: 2px solid $color-2b2725; background: $color-93908f; padding: 0; 
+					-webkit-transform: translateZ(0); -webkit-backface-visibility: hidden; -webkit-perspective: 1000;
+					transform: translateZ(0); backface-visibility: hidden; perspective: 1000; }
+
+.scrollbox-scroll:hover { background: $color-666666; }
+.scrollbox-scrolling, .scrollbox-scrolling:hover { background: $color-595655; }

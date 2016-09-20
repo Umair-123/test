@@ -1,0 +1,37 @@
+#loyalty-activate-card {
+  text-align: right;
+  width: 370px;
+}
+
+#loyalty-activate-card p,
+#loyalty-activate-card ul {
+  text-align: left;
+}
+
+#loyalty-activate-card p {
+  line-height: 1.2em;
+}
+
+#loyalty-activate-card li {
+  line-height: 30px;
+  height: 30px;
+}
+
+#loyalty-activate-card label {
+  display: inline-block;
+  width: 150px;
+}
+
+#loyalty-activate-card input {
+  width: 190px;
+}
+
+#loyalty-activate-card h3 {
+  text-align: left;
+  margin-top: 10px;
+}
+
+#loyalty-activate-card button {
+  margin-right: 20px;
+  margin-top: 15px;
+}

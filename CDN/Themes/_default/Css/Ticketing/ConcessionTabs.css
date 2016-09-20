@@ -1,0 +1,123 @@
+/* Styles shared between visSelectConcessions & visShop */
+.concession-tabs .item,
+.concession-tabs .item-footer {
+  width: 185px; }
+.concession-tabs .item {
+  border: 1px solid #93908f;
+  float: left;
+  height: 158px;
+  margin: 3px 0 0 3px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.75s;
+  -moz-transition: transform 0.75s;
+  -webkit-transition: transform 0.75s; }
+  .concession-tabs .item .placeholder {
+    display: block;
+    height: 28px; }
+.concession-tabs .item.flipped {
+  transform-style: preserve-3d;
+  transition: transform 0.75s;
+  -moz-transition: transform 0.75s;
+  -webkit-transition: transform 0.75s;
+  transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg); }
+  .concession-tabs .item.flipped .front {
+    z-index: 8; }
+.concession-tabs .item .front,
+.concession-tabs .item .back {
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: block;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden; }
+.concession-tabs .item .front {
+  background-color: #fff;
+  z-index: 10; }
+  .concession-tabs .item .front .description-toggle {
+    display: block;
+    cursor: pointer;
+    margin-bottom: 10px;
+    height: 18px; }
+    .concession-tabs .item .front .description-toggle span {
+      vertical-align: top; }
+    .concession-tabs .item .front .description-toggle:hover {
+      text-decoration: underline; }
+.concession-tabs .item .back {
+  z-index: 9;
+  transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  background-color: #fff; }
+  .concession-tabs .item .back label, .concession-tabs .item .back span {
+    display: inline-block; }
+  .concession-tabs .item .back hr {
+    margin: 0;
+    border-color: #93908f; }
+  .concession-tabs .item .back .item-details {
+    height: auto; }
+  .concession-tabs .item .back .description-toggle {
+    cursor: pointer;
+    float: right;
+    margin: 3px 0;
+    padding: 3px 0; }
+  .concession-tabs .item .back .item-extended-description {
+    padding: 3px; }
+    .concession-tabs .item .back .item-extended-description p {
+      white-space: pre-wrap; }
+.concession-tabs .item .image-container {
+  float: left;
+  height: 100px;
+  margin: 2px 0 0 2px;
+  width: 100px; }
+.concession-tabs .item img {
+  height: 100%;
+  width: 100%; }
+.concession-tabs .item-details,
+.concession-tabs .item .price {
+  margin-right: 5px; }
+.concession-tabs .pickup-only {
+  font-style: italic; }
+.concession-tabs .item-details {
+  height: 75px;
+  margin-bottom: 2px;
+  margin-left: 3px;
+  overflow: hidden; }
+.concession-tabs .item-details label,
+.concession-tabs .item-details .description {
+  display: block;
+  word-wrap: break-word; }
+.concession-tabs .item-details label {
+  font-weight: bold;
+  line-height: normal;
+  margin: 5px 0; }
+.concession-tabs .item-details .description {
+  font-size: 11px;
+  height: 56px;
+  overflow: hidden; }
+.concession-tabs .item .price {
+  clear: right;
+  float: right;
+  font-weight: bold; }
+.concession-tabs .item-footer {
+  background: #eaeaea;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  text-align: right; }
+.concession-tabs .active .item-footer-quantity {
+  background: #93908f; }
+  .concession-tabs .active .item-footer-quantity span {
+    color: #eaeaea; }
+.concession-tabs .active .item-footer input[type=text] {
+  font-weight: bold; }
+.concession-tabs .active .icon-clear {
+  display: inline-block; }
+.concession-tabs .active .plus-minus-numeric .icon-plus {
+  background: url("../../Images/Icon_Plus_Light.png"); }
+.concession-tabs .active .plus-minus-numeric .icon-minus {
+  background: url("../../Images/Icon_Minus_Light.png"); }
+

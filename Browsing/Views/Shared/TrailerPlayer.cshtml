@@ -1,0 +1,21 @@
+﻿@using InternetTicketing.Infrastructure.Security
+@model IInternetTicketingIdentity
+<script src="https://www.youtube.com/iframe_api"></script>
+<div id="trailer-player-template" style="display: none;">
+    <div>
+        <div class="player-container">
+            <div class="player"></div>
+            <div class="playback-controls">
+                <div>
+                    <button class="play-button play"></button>
+                    <div class="slider-container"><div class="slider"></div></div>
+                    @if (Model.IsAuthenticated)
+                    {
+                        <div class="rate"></div>
+                    }
+                </div>
+            </div>
+            <div class ="overlay"></div>
+        </div>
+    </div>
+</div>

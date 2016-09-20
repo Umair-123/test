@@ -1,0 +1,16 @@
+@import "../_Colours.scss";
+@import "_FontsMobile.scss";
+
+%page-heading-first-line {
+	font-size: $page-heading-size-normal;
+	font-weight: bold;
+	margin: 10px 0 10px 0;
+	text-transform: uppercase;
+}
+
+%page-heading-second-line {
+	font-size: $page-heading-size-big;
+	color: $color-35a0a8;
+	display: block;
+	text-transform: uppercase;
+}

@@ -1,0 +1,19 @@
+You can use the following tags
+
+key                             will insert
+-----------------               -------------------
+<ORDER_NUMBER>                  Number of the order (this is not the booking number)
+<ORDER_REFERENCE>               Reference number of the order (booking ID)
+<BOOKING_NUMBER>                Booking number of the order
+<ORDER_ADDRESS>                 Billing address of the order
+<ORDER_PHONE>                   Billing phone number of the order
+<ORDER_DELIVERY>                Delivery type of the order
+<ORDER_CINEMA>                  Cinema where the order was placed
+<ORDER_DELIVERY_INFORMATION>    Delivery information, based on the ..\DeliveryInfo templates
+                                ..\DeliveryInfo\Pickup for pickup orders
+                                ..\DeliveryInfo\Standard otherwise
+<ORDER_ITEMS>                   Items in the order, based on the ..\Item template
+<ORDER_FREIGHT>                 Cost of delivery
+<ORDER_TOTAL>                   Total charged for the order
+
+

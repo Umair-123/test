@@ -1,0 +1,98 @@
+﻿@import "../_Colours";
+@import "../_LayoutDimensions";
+
+$section-spacing-vertical: 30px;
+$border-style-dark: 1px #b3b3b3 solid;
+$border-style-light: 1px #eeeeee solid;
+
+html, body {
+	height: 100%;
+}
+
+body {
+    background-color: $color-ffffff; 
+    padding: $layout-content-padding; 
+    overflow: hidden; 
+    position: relative; 
+    z-index: 2; 
+    min-height: 500px; box-shadow: 0 0 6px $color-000000; 
+	height: 100%;
+}
+
+#select-seats-tabs {
+    width: 20%;
+    float: left;        
+    border-top: $border-style-dark;
+    border-left: $border-style-dark;
+    border-bottom: $border-style-dark;
+    box-sizing: border-box;
+	max-height: 430px;
+	overflow: auto;
+	position: relative;
+
+    li {
+        padding: 15px 10px;
+        border-bottom: $border-style-light;
+        
+        &:last-of-type {
+            border-bottom: none;
+        }
+		&.selected {
+			background-color: $color-selected;
+			&, a {
+				color: $color-eaeaea;
+			}
+			* {
+				cursor: initial;
+			}
+		}
+    }
+
+    dd {
+        padding: 2px 0;
+
+        &.movie-name {
+            font-weight: bold;
+        }
+    }
+}
+
+#select-seats-container{
+    margin: 0 auto;
+    overflow: auto;
+    float: left;
+    width: 80%; 
+    box-sizing: border-box;
+    border: $border-style-dark;
+    max-width: none;
+        
+    #divLegend {
+        border-bottom: 1px #b3b3b3 solid;
+        padding: 5px 0;
+    }
+
+    #divSeatMap {
+        padding-top: 20px;
+        height: 392px;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+
+    .Seating-Control {
+        margin: 0;
+		overflow: initial;
+    }
+
+    #objSeatPlan > div {
+        max-height: none;
+    }
+}
+
+#ibtnNext {
+	position: absolute;
+	float: none;
+	bottom: 45px;
+	right: 20px;
+}
+
+

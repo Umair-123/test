@@ -1,0 +1,95 @@
+@import "../../_Colours.scss";
+@import "../../_Fonts.scss";
+@import "../_FontsMobile.scss";
+@import "../_Icons.scss";
+
+body {
+	font-family: $font-segoe;
+	font-size: $font-size-normal;
+}
+
+@media screen and (orientation:portrait) {
+    button.page-action {
+         width: 100%;
+         display: block;
+     }
+}
+
+ @media screen and (orientation:landscape) {
+     button.page-action {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+     }
+ }
+
+button.page-action {
+	border: none;
+	height: 45px;
+	background-color: $color-35a0a8;
+	color: #fff;
+	font-family: inherit;
+	padding: 0 1rem;
+	font-size: $font-size-big;
+
+	-moz-border-radius: 5px;
+}
+
+button.disabled {
+	background-color: lighten($color-35a0a8, 40%);
+}
+
+.formContent{
+    min-height: 84.4vh;
+}
+
+.countdown {
+    padding-top:10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+	float: right;
+
+	em {
+		margin-left: 5px;
+	}
+
+	.time {
+		color: $color-35a0a8;
+        font-size: 12px;
+	}
+}
+
+.horizontal-separator {
+	margin: 0;
+    border: 0;
+    border-top: 1px solid $color-93908f;
+}
+
+.hidden, .not-applicable {
+	display: none;
+}
+
+.error-text {
+	margin: 10px 0;
+	color: $color-validation;
+}
+
+.field-validation-error {
+	display: inline-block;
+	background-repeat: no-repeat;
+	height: 20px;
+    color:$color-validation;
+    font-style: italic;
+}
+
+
+
+.button-list .button-separator {
+    border: 1px solid $color-3eb7ba;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

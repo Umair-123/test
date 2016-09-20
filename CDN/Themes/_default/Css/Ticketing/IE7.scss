@@ -1,0 +1,70 @@
+﻿/* IE<=7 */
+
+.categories li {
+    clear: left; 
+    float: left; 
+    width: 150px; /* extra vertical spacing */
+
+    a {
+        width: 100%; // make sure whitespace is also clickable
+    }
+}
+
+// Font larger on IE<=7
+.countdown { 
+    font-size: 18px;
+
+    em, .time {
+        font-size: 26px;
+    }
+}
+
+#breadcrumb {
+    text-justify: distribute; // magical ie property required to get text-align: justify to work with inline-block spans (or something) 
+
+    span {
+        vertical-align: top; // inputs and spans don't line up otherwise for whatever reason
+    }
+
+    input { 
+        overflow: visible;
+    }
+
+    input, span {
+        height: 25px; // remove extra height on IE
+    }
+}
+
+#select-seats-container {
+    width: 742px - 15px /* page padding */;
+} 
+
+#frmSelectTickets, #frmSelectConcessions, #visShop {
+    // Float in IE doesn't shrink the container to the content
+    .order-details {
+        width: 252px;
+    }
+}
+
+#concessions {
+    float: left;
+    width: 740px;
+
+    .promotion-details { white-space: nowrap; /* wraps for whatever reason */ }
+}
+
+#concession-tabs .promotion-header button { overflow: visible; /* button width */}
+
+/* For whatever reason this wraps on IE7 */
+.user-action .icon {
+    white-space: nowrap;
+}
+
+
+#cart-summary {
+    // prevents it wrapping to a new line
+    .cart-sessions dl {
+        float: left;
+    }
+
+}

@@ -1,0 +1,57 @@
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+h1, h2 {
+  color: #443e3b;
+  font-family: "Calibri", sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+h1 em, h2 em {
+  color: #35a0a8;
+  display: block;
+  font-size: 1.25rem;
+  margin-top: -0.3rem;
+}
+
+h3 {
+  font-weight: normal;
+  color: #35a0a8;
+}
+
+.terms-page {
+  padding: 7%;
+}
+.terms-page h2 {
+  margin-bottom: 0.6rem;
+}
+.terms-page p {
+  margin-bottom: 0.6rem;
+  color: #666666;
+}

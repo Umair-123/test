@@ -1,0 +1,18 @@
+﻿@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Browsing.ViewModels.Loyalty
+@using InternetTicketing.Infrastructure.Routing
+
+@model SignInViewModel
+
+@using (Html.BeginForm("SignOut", "Loyalty",new {enableHelp=Model.ShowFullHelpMenu}, FormMethod.Post, new { @class = "loyalty-login" }))
+{
+    <h3>@LoyaltySignIn.TitleText1<em>@LoyaltySignIn.TitleText2</em></h3>
+    <div class="loyalty-login-detail"><em>@Model.FullName</em></div>
+    <div class="loyalty-login-detail">@Model.Email</div>
+
+    <div class="footer">
+        <a class="button" href="@BrowsingUrls.GetLoyaltyAccountDetailsPageUrl()">@LoyaltySignIn.Edit</a>
+        <span class="button-separator"></span>
+        <input type="submit" name="logout" class="button" value="@LoyaltySignIn.Logout" />
+    </div>
+}

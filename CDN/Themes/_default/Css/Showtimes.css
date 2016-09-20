@@ -1,0 +1,139 @@
+#show-times {
+  margin-top: 30px;
+}
+
+#show-times .film-list {
+  margin-top: 15px;
+}
+
+#show-times .film-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #93908f;
+  overflow: hidden;
+}
+
+#show-times .film-item.last {
+  border-bottom: none;
+}
+
+#show-times .last-cinema .film-item.last-item {
+  border-bottom: none;
+}
+
+#show-times .film-item .toggle-future-dates {
+  float: right;
+}
+
+button.user-action.toggle-future-dates span.icon {
+  padding: 0 25px 0 0;
+  background-position: right center;
+  font-size: 13px;
+}
+button.user-action.toggle-future-dates span.icon.up-arrow {
+  background-image: url("../Images/Icon_Arrow_Up.png");
+}
+button.user-action.toggle-future-dates span.icon.down-arrow {
+  background-image: url("../Images/Icon_Arrow_Down.png");
+}
+
+#show-times .film-item .film-showtimes {
+  width: 85%;
+  float: left;
+}
+
+#show-times .film-item .film-showtimes .film-header {
+  margin-bottom: 10px;
+}
+
+#show-times .film-item .film-showtimes .film-header a {
+  border-bottom: none;
+}
+
+#show-times .film-item .film-showtimes .film-header .film-title {
+  display: inline;
+}
+
+#show-times .film-item .film-showtimes .session {
+  margin-bottom: 20px;
+}
+
+#show-times .film-item .film-showtimes .session .session-date {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#show-times .film-item .film-showtimes .session .session-time {
+  margin-right: 20px;
+  line-height: 18px;
+}
+
+#show-times .film-item .movie-image {
+  float: left;
+}
+
+#show-times .film-item .movie-image a {
+  border-bottom: none;
+}
+
+#show-times .film-item .movie-image img {
+  margin: 0px 20px 20px 0px;
+}
+
+#show-times .film-item .movie-image img.rating-image {
+  vertical-align: top;
+}
+
+.has-attributes .attributes-print {
+  margin-bottom: 20px;
+}
+
+.advance-sale-date {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 12px;
+  color: #666666;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.advance-sale-date + .session-date {
+  margin-top: 10px;
+}
+
+.advance-sale-date + .session-times time {
+  margin-right: 50px;
+}
+
+/* DYNAMIC PRICING */
+#show-times .dynamic-pricing-sessions-key {
+  background-color: #AEE5E1;
+  font-style: italic;
+  font-family: "Calibri", sans-serif;
+  font-size: 14px;
+}
+
+.session-times {
+  margin-top: 30px;
+}
+.session-times .session-time {
+  margin-top: 10px;
+  background-color: #EAEAEA;
+}
+.session-times .session-attributes-list {
+  margin-top: 10px;
+  background-color: #FFFFFF;
+  display: block;
+  height: 37px;
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #666666;
+  margin-right: 10px;
+  line-height: 37px;
+  vertical-align: middle;
+  border: 0;
+}
+.session-times .session-time-with-dynamic-pricing {
+  background-color: #AEE5E1;
+}

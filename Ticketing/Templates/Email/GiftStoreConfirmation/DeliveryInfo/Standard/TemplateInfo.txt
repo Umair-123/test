@@ -1,0 +1,6 @@
+You can use the following tags
+
+key			            will insert
+-----------------       -------------------
+<ORDER_SHIPPING>	    Shipping address
+

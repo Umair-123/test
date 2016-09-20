@@ -1,0 +1,39 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using LoyaltySignUpText = InternetTicketing.Infrastructure.Localisation.LoyaltySignUp
+@model InternetTicketing.Browsing.ViewModels.Loyalty.ActivationRequiredViewModel
+
+@section Css {
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("Loyalty/AuthenticationForm.css")
+    @ContentDelivery.Css("Loyalty/ForgotDetails.css")    
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/ForgotPassword.js")
+}
+
+<div id="activation-required" class="loyalty-authentication-form-page">
+    <h2>
+        @LoyaltySignUpText.ActivationRequiredPageTitle
+        @if (!String.IsNullOrWhiteSpace(LoyaltySignUpText.ActivationRequiredPageTitle))
+        {
+            <em>@LoyaltySignUpText.ActivationRequiredPageSubtitle</em>
+        }
+    </h2>
+    @if (!String.IsNullOrWhiteSpace(LoyaltySignUpText.ActivationRequiredPageBlurb))
+    {
+        <p class="blurb">
+            @LoyaltySignUpText.ActivationRequiredPageBlurb
+        </p>
+    }
+    <div class="button-container">
+    <a  href="@BrowsingUrls.GetHomeUrl()" class="page-action submit">
+        <span>@LoyaltyForgotDetails.BackToSignInButton</span>
+    </a>
+</div>    
+
+</div>           

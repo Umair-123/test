@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    MESSAGE DIALOGS
+\*------------------------------------*/
+.message-dialog .message-dialog-header {
+  margin-bottom: 15px;
+}
+.message-dialog .large-message-dialog-header {
+  margin-bottom: 20px;
+}
+.message-dialog .message-dialog-message-text {
+  line-height: 1.5;
+}
+.message-dialog .button-list-single {
+  margin: 20px 0 5px 0;
+  text-align: center;
+}

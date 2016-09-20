@@ -1,0 +1,64 @@
+@import "compass/typography/text/ellipsis";
+@import "_Fonts";
+@import "_Colours";
+@import "_Styles";
+
+.checkbox-list {
+    @extend %body-text;
+
+    $line-height: 20px;
+
+    border: 1px solid $color-93908f;
+    line-height: $line-height;
+    overflow: {
+        x: hidden;
+        y: auto;
+    }
+    padding: 3px;
+    width: 270px;
+
+    li  {
+        height: $line-height;
+
+        &.alt {
+            background-color: $color-eaeaea;
+        }
+
+        @mixin selected-item {
+            background-color: $color-selected;
+            color: $color-eaeaea;
+            font-weight: bold;
+        }
+
+        &.selected {
+            @include selected-item;
+        }
+
+        // IE<9 can't parse this, must be a separate rule
+        input:checked + label {
+            @include selected-item;
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            @include ellipsis;
+
+            display: block;
+            padding-left: 10px;
+            width: auto; // in general we set a width on labels 
+            cursor: pointer;
+        }
+    }
+
+}
+
+.checkbox-list-validation {
+    @extend %body-text;
+
+    color: $color-highlight;
+    float: left;
+    margin-left: 5px;
+}

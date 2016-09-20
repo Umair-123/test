@@ -1,0 +1,160 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+.club-header,
+.club-body,
+.club-footer {
+  padding: 0.8rem;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+hr {
+  margin: 0 0.5rem;
+  height: 1px;
+  border-width: 0;
+  background-color: #93908f;
+}
+
+.club-banner {
+  width: 100%;
+}
+
+.club-header p {
+  color: #666666;
+  line-height: 1.5rem;
+}
+.club-header ul {
+  padding-left: 2rem;
+  color: #666666;
+}
+.club-header ul li {
+  list-style: disc;
+  line-height: 1.5rem;
+}
+
+.club-login {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+.club-login label {
+  display: none;
+}
+.club-login input {
+  width: 100%;
+  line-height: 1.5rem;
+  padding: 0 0.5rem;
+  margin: 0.2rem 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  color: #626366;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin-top: 1rem;
+}
+.footer .sign-in-button {
+  width: 50%;
+  border: none;
+  background-color: #35a0a8;
+  color: #ffffff;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  /* Stop Safari from displaying its ugly buttons */
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+.footer .forgot-password {
+  color: #333;
+  width: 50%;
+  text-align: center;
+  line-height: 3.5rem;
+  padding: 0 0.5rem;
+}
+
+.signup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin: 0 -0.8rem;
+  width: 100%;
+  background-color: #35a0a8;
+}
+.signup a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 5rem;
+  width: 100%;
+  display: block;
+}
+
+.signin-errors {
+  color: red;
+}

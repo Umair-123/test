@@ -1,0 +1,70 @@
+@import "../../_Colours.scss";
+@import "../Flexbox.scss";
+@import "../Headers.scss";
+@import "../Lines.scss";
+@import "../FontsMobile.scss";
+@import "../Links.scss";
+@import "../_Icons.scss";
+
+/*
+
+
+*/
+
+.cinema-list-page {
+   
+    .cinema-list-item-link {       
+        
+        @extend %link;
+        color: $color-666666;
+
+        @include display-box;
+        @include box-direction(row);
+
+		//@include icon-arrow($background-position: 97% 50%);
+        //@extend %icon-arrow-right;
+
+        .cinema-list-image {
+            @include box-flex(0 0 128px);
+            @include box-flex-legacy(0);
+        }
+
+        .item-details {
+
+            @include box-flex(1 1 auto);
+            @include box-flex-legacy(1);
+
+            margin-left: 0.8rem;
+			margin-top: 0.3rem;
+
+            .item-title {
+                font-size: $font-size-big;
+                font-weight: normal;
+                margin-bottom: 0.25rem;
+            }
+        }
+
+		.item-address {
+			width: 85%;
+            font-size: $font-size-normal;
+
+			span:after {
+				content: ',';
+			}
+
+			span:last-child:after {
+				content: '';
+			}
+		}
+    }
+
+    .horizontal-separator {
+        border: 0;
+        border-top: 1px solid $color-dadada;
+        margin: 0;
+
+        &:last-child {
+            //display: none;
+        }
+    }
+}

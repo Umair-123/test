@@ -1,0 +1,37 @@
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover:after {
+  background: #333;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  color: #fff;
+  content: attr(title);
+  text-align: center;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  min-width: 200px;
+  width: auto;
+}
+
+.tooltip.left:hover:after {
+  right: 20px;
+  top: -5px;
+}
+
+.tooltip.right:hover:after {
+  left: 20px;
+  top: -5px;
+}
+
+.tooltip.top:hover:after {
+  left: -100px;
+  bottom: 20px;
+}
+
+.tooltip.bottom:hover:after {
+  left: -100px;
+  top: 20px;
+}

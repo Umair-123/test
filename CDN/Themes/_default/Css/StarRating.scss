@@ -1,0 +1,63 @@
+$star-width: 28px;
+$star-height: 26px;
+@import "_Images";
+
+%star-rating 
+{
+	overflow: hidden;
+	position: relative;
+    cursor:pointer;
+
+	.current, .over {
+		line-height: $star-height;
+		height: $star-height;
+		 
+		.star-wrapper {
+			display: inline-block;
+			height: $star-height;
+			font-size: 0px;
+			min-width: $star-width;
+
+			.star {
+				width: $star-width;
+				height: $star-height;
+				display: block;
+				@include background-image("RatingStars.png","../../");
+			}
+
+			.selected::before {
+				background-position: 0 26;
+			}
+		}
+	}
+
+	.current {
+		.star-wrapper{
+			.star{
+				&.selected {
+					background-position: 0 26px;
+				}
+			}
+		}
+	}
+	.over-wrapper {
+		overflow: hidden;
+		position: absolute;
+		top: 200px;
+
+		&.left {
+			left: 0;
+			.star-wrapper {
+				.star  {
+					background-position: 0 26px;
+				}
+			}
+		}
+	}
+
+	&:hover {
+		.over-wrapper {
+			top: 0;
+		}
+	}
+}

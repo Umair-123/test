@@ -1,0 +1,115 @@
+button, .button {
+  background: none;
+  border-style: none;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  /* IE7 seems to have an issue with a span inside a button when the text is long */
+}
+button span, .button span {
+  white-space: nowrap;
+}
+
+input[type=submit] {
+  cursor: pointer;
+}
+
+/* firefox adds extra padding/border to buttons to allow the button to display focus when tabbed on to, this fix effectively removes the focus border line that displays */
+button::-moz-focus-inner, .button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*
+    PAGE ACTION BUTTON
+    Desc: Used for navigating between different pages.
+          Has more visual emphasis than other buttons.
+*/
+.page-action {
+  vertical-align: bottom;
+  display: inline-block;
+  margin: 0;
+  padding: 3px;
+  color: #efeabd;
+  background-color: #35a0a8;
+  cursor: pointer;
+  font-family: calibri, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  border-style: none;
+  border-radius: 5px;
+}
+
+/* override visited anchor colour to the page-action colour */
+a.page-action:visited {
+  color: #efeabd;
+}
+
+.page-action span {
+  display: inline-block;
+  padding: 3px 30px 3px 30px;
+  text-transform: capitalize;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+/* using .page-action.disabled will set style for all .disabled buttons on IE6 */
+.page-action-disabled {
+  background-color: #eaeaea;
+  color: #ffffff;
+  cursor: default;
+  opacity: 1;
+}
+
+.page-action-disabled span {
+  border-color: #ffffff;
+}
+
+/*
+    USER ACTION BUTTON
+    Desc: Used for handling user action within a page.
+*/
+.user-action {
+  background: none;
+  color: #666666;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 20px;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+/* user-action button text */
+.user-action span {
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.user-action .icon {
+  padding: 0 0 0 17px;
+  /* 17px as icon size is 12px + 5px gap */
+  background-position: left center;
+}
+
+/* Group of buttons usually displayed at the bottom of a page wrapped in a container element */
+.button-list {
+  margin: 30px 0 15px 0;
+}
+
+/* container for single button */
+.button-list-single {
+  text-align: right;
+  margin-right: 30px;
+}
+
+/* container for more than one button */
+.button-list-multi {
+  text-align: center;
+}
+
+.button-list button {
+  margin-left: 8px;
+  margin-right: 8px;
+}

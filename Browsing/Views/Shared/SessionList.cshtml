@@ -1,0 +1,46 @@
+﻿@using System.Drawing
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@using Vista.Connect
+
+@model IEnumerable<Session>
+
+@{
+	var sessions = Model;
+}
+
+<div class="session-times">
+    @if (sessions.Any())
+    {       
+        foreach (var session in sessions.OrderBy(se => se.Showtime))
+        {
+            if (!session.AllowTicketSales)
+            {
+                @DisplaySession(session)
+            }
+            else
+            {
+                string dynamicPricingClass = session.HasDynamicallyPricedTicketsAvailable ? "session-time-with-dynamic-pricing" : "";
+                <a href="@TicketingUrls.GetTicketingEntryPointUrl(session.CinemaId, session.SessionId)" class="session-time @dynamicPricingClass">
+                    @DisplaySession(session)
+                </a>
+            }
+        }
+    }
+    else
+    {
+        <span class="no-sessions-cinema">&nbsp;</span>
+        <p>@CompareSessions.NoSessionsForCinema</p>
+    }
+</div>
+@helper DisplayAttributes(Session session)
+{
+    foreach (var attribute in session.Attributes.OrderBy(a => a.DisplayPriority).ThenBy(a => a.ShortName))
+    {
+        <img src="@ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.AttributeIconGraphic, attribute.ShortName, EntityReferenceScheme.Global)" alt="@attribute.Description"/>
+    }
+}
+@helper DisplaySession(Session session) {
+    @DisplayAttributes(session)<time datetime="@session.Showtime.ToString("yyyy-MM-ddTHH:mm:ss")">@ViewBag.FormatTime(session.Showtime)</time>
+}

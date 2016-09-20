@@ -1,0 +1,202 @@
+﻿/* Styles shared between visSelectConcessions & visShop */
+@import "../Colours";
+
+@mixin transition($transitions) {
+    transition: $transitions;
+    -moz-transition: $transitions;
+    -webkit-transition: $transitions;
+}
+
+@mixin transform($transform) {
+    transform: $transform;
+    -moz-transform: $transform;
+    -webkit-transform: $transform;
+}
+
+.concession-tabs {
+    $item-width: 187px;
+    $item-border: 1px;
+    $item-spacing: 3px;
+
+    .item,
+    .item-footer {
+        width: $item-width - 2 * $item-border;
+    }
+
+    .item {
+        border: $item-border solid $color-93908f;
+        float: left;
+        height: 158px;
+        margin: $item-spacing 0 0 $item-spacing;
+        position: relative;
+        transform-style: preserve-3d;
+        @include transition(transform 0.75s);
+
+        .placeholder {
+            display: block;
+            height: 28px;
+        }
+    }
+
+    .item.flipped {
+        transform-style: preserve-3d;
+        
+        @include transition(transform 0.75s);
+        @include transform(rotateY( 180deg ));
+
+        .front {
+            z-index: 8;
+        }
+    }
+
+    .item .front, 
+    .item .back {
+        overflow: hidden;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: block;
+       
+        //We avoid doing this for IE, since it does the opposite thing to what we want *rolls eyes*
+       -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+    }
+
+    .item .front{
+        background-color: #fff;
+        z-index: 10;
+
+        .description-toggle {
+            display: block;
+            cursor: pointer;
+            margin-bottom: 10px;
+            height: 18px;
+
+            span {
+                vertical-align: top;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .item .back {
+        z-index: 9;
+        @include transform(rotateY( 180deg ));
+        background-color: #fff;
+
+        label, span {
+            display: inline-block;
+        }
+
+        hr {
+            margin: 0;
+            border-color: $color-93908f;
+        }
+
+        .item-details {
+            height: auto;
+        }
+
+        .description-toggle {
+            cursor: pointer;
+            float: right;
+            margin: 3px 0;
+            padding: 3px 0;
+        }
+
+        .item-extended-description {
+            padding: 3px;
+            p {
+                white-space: pre-wrap;
+            }
+        }
+    }
+
+    .item .image-container {
+        float: left;
+        height: 100px;
+        margin: 2px 0 0 2px;
+        width: 100px; 
+    }
+
+    .item img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .item-details,
+    .item .price {
+        margin-right: 5px;
+    }
+
+    .pickup-only {
+        font-style: italic;
+    }
+
+    .item-details {
+        height: 75px;
+        margin-bottom: 2px;
+        margin-left: 3px;
+        overflow: hidden;
+    }
+
+    .item-details label,
+    .item-details .description {
+        display: block;
+        word-wrap: break-word;
+    }
+
+    .item-details label {
+        font-weight: bold;
+        line-height: normal;
+        margin: 5px 0;
+    }
+
+    .item-details .description {
+        font-size: 11px;
+        height: 56px;
+        overflow: hidden;
+    }
+
+    .item .price {
+        clear: right;
+        float: right;
+        font-weight: bold;
+    }
+
+    .item-footer {
+        background: $color-eaeaea;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        text-align: right;
+    }
+
+    .active .item-footer-quantity {
+        background: $color-93908f;
+
+        span {
+            color: #eaeaea;
+        }
+    }
+
+    .active .item-footer input[type=text] {
+        font-weight: bold;
+    }
+
+    .active .icon-clear {
+        display: inline-block;
+    }
+
+    .active .plus-minus-numeric .icon-plus {
+        background: url('../../Images/Icon_Plus_Light.png'); 
+    }
+
+    .active .plus-minus-numeric .icon-minus {
+        background: url('../../Images/Icon_Minus_Light.png'); 
+    }
+
+}

@@ -1,0 +1,196 @@
+.loyalty-reward-shop .account-summary .form-line:before, .loyalty-reward-shop .item-class-category .expander:before, .loyalty-reward-shop .item-class-category .item-class-category-items .row:before, .loyalty-reward-shop .manual-recognition-item:before, .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header:before, .loyalty-reward-shop .account-summary .form-line:after, .loyalty-reward-shop .item-class-category .expander:after, .loyalty-reward-shop .item-class-category .item-class-category-items .row:after, .loyalty-reward-shop .manual-recognition-item:after, .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header:after {
+  content: " ";
+  display: table; }
+.loyalty-reward-shop .account-summary .form-line:after, .loyalty-reward-shop .item-class-category .expander:after, .loyalty-reward-shop .item-class-category .item-class-category-items .row:after, .loyalty-reward-shop .manual-recognition-item:after, .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header:after {
+  clear: both; }
+.loyalty-reward-shop .account-summary .form-line, .loyalty-reward-shop .item-class-category .expander, .loyalty-reward-shop .item-class-category .item-class-category-items .row, .loyalty-reward-shop .manual-recognition-item, .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header {
+  *zoom: 1; }
+
+.loyalty-reward-shop h2 {
+  margin-bottom: 20px; }
+.loyalty-reward-shop .blurb {
+  margin-bottom: 20px; }
+.loyalty-reward-shop .hidden {
+  display: none; }
+.loyalty-reward-shop .button {
+  width: 134px;
+  height: 48px;
+  background-color: #EAEAEA;
+  font-family: Calibri;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase; }
+.loyalty-reward-shop .account-summary {
+  margin-bottom: 30px; }
+  .loyalty-reward-shop .account-summary .form-line {
+    min-height: 20px; }
+    .loyalty-reward-shop .account-summary .form-line label, .loyalty-reward-shop .account-summary .form-line .label {
+      width: 120px;
+      margin-right: 10px; }
+.loyalty-reward-shop #reward-grid .category-tabs-items {
+  width: 830px;
+  padding: 0px; }
+.loyalty-reward-shop .item-class-category .separator {
+  margin-top: 17px;
+  margin-bottom: 0px;
+  padding: 0px;
+  height: 1px;
+  color: black;
+  margin-left: 5px;
+  width: 820px; }
+.loyalty-reward-shop .item-class-category .expander {
+  cursor: pointer; }
+  .loyalty-reward-shop .item-class-category .expander .title {
+    float: left;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-size: 14px; }
+  .loyalty-reward-shop .item-class-category .expander .arrow {
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 15px;
+    height: 15px;
+    background-image: url("../../images/Icon_Arrow_Up.png"); }
+  .loyalty-reward-shop .item-class-category .expander.no-expansion {
+    cursor: default; }
+    .loyalty-reward-shop .item-class-category .expander.no-expansion .arrow {
+      display: none; }
+.loyalty-reward-shop .item-class-category .item-class-category-items {
+  margin-bottom: 20px;
+  margin-left: 30px; }
+  .loyalty-reward-shop .item-class-category .item-class-category-items .row {
+    margin-bottom: 3px; }
+    .loyalty-reward-shop .item-class-category .item-class-category-items .row:last-child {
+      margin-bottom: 0px; }
+.loyalty-reward-shop .item-class-category.collapsed {
+  padding-bottom: 0px; }
+  .loyalty-reward-shop .item-class-category.collapsed .item-class-category-items {
+    display: none; }
+  .loyalty-reward-shop .item-class-category.collapsed .expander .title {
+    margin-bottom: 10px; }
+  .loyalty-reward-shop .item-class-category.collapsed .expander .arrow {
+    background-image: url("../../images/Icon_Arrow_Down.png"); }
+  .loyalty-reward-shop .item-class-category.collapsed .separator {
+    margin-top: 0px; }
+.loyalty-reward-shop .item-class-category:last-child .separator {
+  display: none; }
+.loyalty-reward-shop .manual-recognition-item {
+  border: solid 1px #93908f;
+  width: 382px;
+  margin-right: 3px;
+  float: left; }
+  .loyalty-reward-shop .manual-recognition-item .display-mode {
+    position: relative;
+    height: 158px; }
+    .loyalty-reward-shop .manual-recognition-item .display-mode .information {
+      font-family: Segoe UI;
+      float: left;
+      width: 250px;
+      margin-left: 10px;
+      margin-top: 5px; }
+      .loyalty-reward-shop .manual-recognition-item .display-mode .information .title {
+        font-weight: bold;
+        font-size: 12px;
+        margin: 0px 0px 5px 0px; }
+      .loyalty-reward-shop .manual-recognition-item .display-mode .information .description {
+        display: block;
+        height: 42px;
+        overflow: hidden;
+        font-size: 10px; }
+      .loyalty-reward-shop .manual-recognition-item .display-mode .information .form-line {
+        min-height: 1.2em; }
+        .loyalty-reward-shop .manual-recognition-item .display-mode .information .form-line label {
+          font-size: 11px;
+          margin-right: 5px; }
+      .loyalty-reward-shop .manual-recognition-item .display-mode .information .redeem-button {
+        position: absolute;
+        bottom: 5px;
+        right: 5px; }
+  .loyalty-reward-shop .manual-recognition-item .confirm-mode {
+    position: relative;
+    background-color: #35A0A8;
+    color: #EAEAEA;
+    display: none;
+    padding-bottom: 5px;
+    padding-right: 5px; }
+    .loyalty-reward-shop .manual-recognition-item .confirm-mode label {
+      color: #fff; }
+    .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header {
+      margin-bottom: 20px; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header .title {
+        color: #fff; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header .information {
+        font-family: Segoe UI;
+        float: left;
+        width: 250px;
+        margin-left: 10px;
+        margin-top: 5px; }
+        .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header .information .title {
+          font-weight: bold;
+          font-size: 12px;
+          margin: 0px 0px 5px 0px; }
+        .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header .information .instructions {
+          display: block;
+          margin-bottom: 10px;
+          font-size: 10px; }
+        .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header .information .form-line {
+          min-height: 1.2em; }
+          .loyalty-reward-shop .manual-recognition-item .confirm-mode .confirmation-header .information .form-line label {
+            font-size: 11px;
+            margin-right: 5px; }
+    .loyalty-reward-shop .manual-recognition-item .confirm-mode .pickup-details {
+      margin-left: 10px; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .pickup-details .pickup-instructions {
+        margin-bottom: 10px; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .pickup-details .pickup-form {
+        margin-bottom: 10px; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .pickup-details .pickup-notes {
+        font-style: italic; }
+        .loyalty-reward-shop .manual-recognition-item .confirm-mode .pickup-details .pickup-notes li {
+          margin-bottom: 10px; }
+    .loyalty-reward-shop .manual-recognition-item .confirm-mode .action-buttons {
+      text-align: right; }
+    .loyalty-reward-shop .manual-recognition-item .confirm-mode .loading-mask {
+      display: none;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: #35A0A8;
+      z-index: 100; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .loading-mask .loading {
+        position: absolute;
+        background-image: url("../../images/Icon_Loading_Blue.gif");
+        background-repeat: no-repeat;
+        width: 126px;
+        height: 126px;
+        left: 128px; }
+    .loyalty-reward-shop .manual-recognition-item .confirm-mode .complete-view {
+      display: none;
+      margin-left: 10px; }
+      .loyalty-reward-shop .manual-recognition-item .confirm-mode .complete-view .complete-message {
+        margin-bottom: 10px; }
+        .loyalty-reward-shop .manual-recognition-item .confirm-mode .complete-view .complete-message.form-error {
+          margin-right: 5px; }
+  .loyalty-reward-shop .manual-recognition-item .image {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin-left: 2px;
+    margin-top: 2px;
+    border: solid 1px #93908f; }
+    .loyalty-reward-shop .manual-recognition-item .image img {
+      width: 100px;
+      height: 100px;
+      border: none;
+      margin: 0px; }
+  .loyalty-reward-shop .manual-recognition-item.unavailable .redeem-button, .loyalty-reward-shop .manual-recognition-item.temp-unavailable .redeem-button {
+    opacity: 0.5;
+    cursor: default; }
+.loyalty-reward-shop .ImageRecognitions {
+  width: 150px; }
+
+/*# sourceMappingURL=LoyaltyRewardShop.css.map */

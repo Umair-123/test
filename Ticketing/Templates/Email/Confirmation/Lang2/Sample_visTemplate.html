@@ -1,0 +1,168 @@
+<style type="text/css">
+	body {
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+		width:700px;
+	}
+	table {
+		width:700px;
+	}
+	#hd {
+		text-align:center;
+		background-color:#EEEEE0;
+	}
+	#bd{
+		text-align:left;
+		background-color:#EEEEE0;
+	}
+	#ft {
+		text-align:left;
+		background-color:#EEEEE0;
+		font-size:12px;
+		margin:3px;
+	}
+	#dt {
+		text-align:left;
+		margin:0;
+		padding:0;
+		border:1px solid #EEEEE0;
+	}
+	#hd, #bd, #ft {
+		margin:3px 0;
+		padding:5px;
+	}
+	h1, h3, p, td, ul {
+		font-family:Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+		color:#666666;
+	}
+	#hd p {
+		text-align:left;
+		font-size:10px;
+		margin:3px;
+	}
+	#hd img {
+		width:592px;
+		height:155px;
+	}
+
+	#bd h1 {
+		font-size:16px;
+		margin:3px;
+	}
+	#bd h3 {
+		font-size:14px;
+		margin:3px;
+	}
+	#bd p {
+		font-size:12px;
+		margin:3px;
+	}
+	td {
+		font-size:12px;
+		line-height:1.5em;
+		padding:4px;
+		background-color:#EEEEE0;
+	}
+	.label {
+		vertical-align:top;
+	}
+	.details {
+		font-weight:bold;
+	}
+
+</style>
+<body>
+	<table id="hd">
+		<tr>
+			<td>
+				<img src="http://localhost/ticketing/images/ConfirmationImage.png" alt="Vista Web Booking Confirmation" />
+				<p>Contact details can be added here. &nbsp; eg. Tel:09-9844570 &nbsp; Email:helpdesk@vistacinemas.com &nbsp; <a href="http://www.vista.co.nz">http://www.vista.co.nz</a></p>
+			</td>
+		</tr>
+	</table>
+	<table id="bd">
+		<tr>
+			<td>
+				<h1>Your Reservation</h1>
+				<h3>Hello <MBR_FNAME></h3>
+				<p>* Thank you for choosing Vista Cinemas! Your reservation details are listed below. We hope you have enjoyed using the Vista Online Ticketing System. Enjoy the movie!</p>
+			</td>
+		</tr>
+	</table>
+	<table id="dt">
+		<colgroup>
+			<col width="225px" />
+			<col />
+		</colgroup>
+		<tr>
+			<td class="label">Booking number:</td>
+			<td class="details"><SESS_BOOKING></td>
+		</tr>
+		<tr>
+			<td class="label">Booking ID:</td>
+			<td class="details"><SESS_BOOKINGID></td>
+		</tr>
+        <tr>
+			<td class="label">Pickup Comments:</td>
+			<td class="details"><SESS_PICKUPCOMMENTS></td>
+		</tr>
+		<tr>
+			<td class="label">Cinema:</td>
+			<td class="details"><SESS_CINEMA></td>
+		</tr>
+	    <tr>
+	        <td class="label">Movie:</td>
+	        <td class="details"><div><SESS_MOVIE></div><div><SESS_ATTRIBUTES></div></td>
+	    </tr>
+        <tr>
+	        <td class="label">Screen Name:</td>
+	        <td class="details"><SESS_SCREENNAME></td>
+	    </tr>
+		<tr>
+			<td class="label">Date:</td>
+			<td class="details"><SESS_DATE></td>
+		</tr>
+		<tr>
+			<td class="label">Time:</td>
+			<td class="details"><SESS_TIME></td>
+		</tr>
+	    <tr>
+	        <td class="label">Tickets:</td>
+	        <td class="details"><SESS_TICKETDETAIL></td>
+	    </tr>
+        <tr colspan="2">
+            <td class="label">Total Ticket Fees:</td>
+            <td class="details"><SESS_TOTALTICKETFEES></td>
+        </tr>
+	    <tr colspan="2">
+	        <td class="label">* Booking Fee:</td>
+	        <td class="details"><SESS_BOOKINGFEE></td>
+	    </tr>
+		<tr>
+			<td class="label">Ticket Vouchers Used:</td>
+			<td class="details"><SESS_TKTVOUCHERSUSED></td>
+		</tr>
+		<tr>
+			<td class="label">Food and Drink:</td>
+			<td class="details"><SESS_CONCDETAIL></td>
+		</tr>
+		<tr>
+			<td class="label">Total Payment:</td>
+			<td class="details"><SESS_TOTAL></td>
+		</tr>
+	</table>
+	<table id="ft">
+		<tr>
+			<td>
+				<h3>* Special Messages: eg. Pick up information</h3>
+				<ul>
+					<li>Other messages can be put here. This can be used for promotions, cinema procedures or another thank you message.</li>
+					<li>eg. Please come to the cinema to collect your tickets at least 30 minutes prior to the start of the movie.</li>
+					<li>Show your print at home ticket to the counter. These will be scanned and you will receive your tickets and food and drink items.</li>
+					<li>Alternatively, bring your credit/debit card together with a copy of this email in order to collect your tickets.</li>
+				</ul>
+			</td>
+		</tr>
+	</table>
+</body>

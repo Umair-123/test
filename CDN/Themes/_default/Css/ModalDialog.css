@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    MODAL DIALOGS
+\*------------------------------------*/
+.modal-dialog-container {
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+  padding: 15px;
+}
+.modal-dialog-container .modal-dialog-close-button {
+  float: right;
+  margin: 5px;
+}
+.modal-dialog-container .modal-dialog-content {
+  padding: 15px;
+}

@@ -1,0 +1,16 @@
+﻿@import "../_Colours";
+
+body { background-color: $color-ffffff; padding: 0px 10px; }
+body > * { width: auto; }
+body, .PrintShowTimesSession, .PrintShowTimesDay, .PrintShowTimesFilm, .PrintDateRange, .PrintSelectionLabel, .PrintEventName, .PrintCinemaName { font-family: "Segoe UI" , sans-serif; font-size: 12px; }
+
+h1.logo { color: $color-443e3b; }
+
+.PrintEventName, .PrintCinemaName { font-weight: normal; color: $color-selected; }
+.PrintEventName option, .PrintCinemaName option { color: $color-000000; }
+.PrintEventName option[selected="selected"], .PrintCinemaName option[selected="selected"] { color: $color-selected; }
+.PrintShowTimesFilm, .PrintSelectionLabel { font: 16px calibri, sans-serif; color: $color-443e3b; }
+.PrintSelectionLabel { padding-right: 5px; }
+
+button.page-action, a.page-action { font-size: 16px; line-height: 22px; margin-bottom: 15px; overflow: visible }
+.page-action.second { margin-left: 15px; }

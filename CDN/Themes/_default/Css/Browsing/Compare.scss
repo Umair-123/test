@@ -1,0 +1,116 @@
+﻿@import "../_Colours";
+@import "../_ScreenAttributes";
+@import "../_ItemList";
+@import "../_FilmShowTimes";
+
+/*
+#banner { display: none; }
+#movies-list { float: left; margin-right: 40px; width: 75%; }
+#show-times { margin-top: 0px; }
+#show-times #movies-list .film-list .film-item .film-showtimes { width: 75%; }
+#show-times .film-item .film-showtimes .film-header a { border-bottom: medium none; }
+#show-times .film-list.multi-date {margin-top: 0;}
+.ads { height: 100%; overflow: hidden; }
+.no-sessions-cinema { background: url('../../Images/QuickTickets/exclaim.png') no-repeat center; width: 15px; float: left; }
+.attributes-print { top: 15px; margin-bottom: 35px; }
+
+.cinema-name { padding-bottom: 5px; }
+.cinema-name a { border-bottom: none; }
+.cinema-name a h4 { display: inline; }
+
+.date-group {
+	margin-bottom: 15px;
+}
+*/
+
+#banner { display: none; }
+
+
+.compare-sessions {
+
+	h2 {
+		margin-bottom: 10px;
+	}
+
+	.attributes-print {
+		@extend %attributes-print;
+
+		margin: -7px -7px 25px -7px;
+
+		.attributes-wrapper {
+			.attributes-key { 
+				.attribute {
+					width: 16%;
+				}
+			}
+		}
+	}
+
+	.ad-content {
+		overflow: hidden;
+		float: right;
+		width: 300px;
+		margin-left: auto;
+		margin-top: 40px;
+
+		.generic-image-carousel {
+			width:300px;
+			.images 
+			{   
+				width: 300px;
+				height: 268px;                
+			}
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+ 
+	}
+
+	#movies-list {
+
+		margin-right: 315px;
+
+		h3 {
+			font-weight: normal;
+		}
+	}
+}
+
+
+#show-times 
+{
+	margin-top: 0px;
+	&.has-attributes { margin-top: 30px; } 
+
+
+	@extend %show-times;
+
+	.film-list {
+		@extend %film-list;
+
+		.film-item {
+			@extend %film-item;
+
+			margin-left: -15px;
+			padding: 0;
+			border-left: none;
+
+			.rating-image {
+				margin-top: 10px;
+				margin-left: 10px;
+  			}
+
+			.film-showtimes {
+				@extend %film-showtimes;
+				margin-left: 150px;
+				padding: 10px;
+			}
+
+			button.user-action.toggle-future-dates {
+				margin-right: 15px;
+			}
+		}
+	}
+}
+

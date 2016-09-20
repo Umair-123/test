@@ -1,0 +1,135 @@
+@import "../_Colours";
+@import "../_Fonts";
+@import "_Icons";
+@import "_Flexbox";
+@import "_Links";
+@import "_FontsMobile.scss";
+
+/* NAVIGATION MENU */
+/*
+<nav class="nav-menu">
+    <ul class="nav-menu-list">
+        <li class="nav-menu-item home selected"><a href="http://localhost/Browsing/" target="_self" class="nav-menu-item-link">Home</a></li>
+        <li class="nav-menu-item movies "><a href="http://localhost/Browsing/Movies/NowShowing" target="_self" class="nav-menu-item-link">Movies</a></li>
+        <li class="nav-menu-item cinemas "><a href="http://localhost/Browsing/Cinemas" target="_self" class="nav-menu-item-link">Cinemas</a></li>
+        <li class="nav-menu-item events "><a href="http://localhost/Browsing/EventsAndExperiences" target="_self" class="nav-menu-item-link">Events &amp; Experiences</a></li>
+        <li class="nav-menu-item loyalty "><a href="http://localhost/Browsing/Loyalty/Clubs" target="_self" class="nav-menu-item-link">Loyalty</a></li>
+    </ul>
+</nav>
+*/
+
+.nav-menu {
+
+    $icon-size-small: 30px;
+
+    background-color: $color-2b2725;
+    padding: 0.5rem 0;
+
+    .nav-menu-list {
+        @include display-box;
+    }
+
+    .nav-menu-item {
+    
+        @include box-flex(1);
+
+        &.selected {
+            position: relative;
+            //margin-bottom: 8px;
+        }
+
+        // selected item triangle shape
+		/*
+        &.selected:before {
+            content: ' ';
+            position: absolute;
+            
+            border-color: $color-transparent $color-transparent $color-ffffff $color-transparent;
+            border-style: solid;
+            border-width: 0 8px 8px 8px;
+            left: 50%;
+            top: 100%;
+            margin-left: -8px; 
+        }
+		*/
+        .nav-menu-item-link {
+            @include display-box;
+			@include flex-justify-content(center);
+			@include flex-align-vertical(center);
+			
+            font-size: $font-size-big;
+
+            @extend %link;
+            //display: inline-block;
+            background: no-repeat top transparent; 
+            min-height: ($icon-size-small + 4px);
+            width: 100%;
+
+            text-align: center;
+                          
+            .nav-menu-item-label {
+                display: none; /* default display is off, but allow this to be overriden */
+
+                color: $color-eaeaea;
+                //padding-top: $icon-size-small + 8px;
+				padding-left: 5px;
+            }
+
+			.nav-menu-item-img {
+				background: no-repeat top transparent; 
+				height: $icon-size-small;
+				width: ($icon-size-small + 4px);
+				display: block;
+			}
+
+			&:hover span {
+				color: $color-35a0a8;
+			}
+        }
+
+        &.home .nav-menu-item-link .nav-menu-item-img {
+            @extend %icon-home;
+        }
+
+        &.home.selected .nav-menu-item-link .nav-menu-item-img,
+		&.home .nav-menu-item-link:hover .nav-menu-item-img {
+            @extend %icon-home-selected;
+        }
+               
+        &.movies .nav-menu-item-link .nav-menu-item-img {
+            @extend %icon-movies;
+        }
+               
+        &.movies.selected .nav-menu-item-link .nav-menu-item-img,
+		&.movies .nav-menu-item-link:hover .nav-menu-item-img {
+            @extend %icon-movies-selected;
+        }
+               
+        &.cinemas .nav-menu-item-link .nav-menu-item-img {
+            @extend %icon-cinemas;
+        }
+               
+        &.cinemas.selected .nav-menu-item-link .nav-menu-item-img,
+		&.cinemas .nav-menu-item-link:hover .nav-menu-item-img {
+            @extend %icon-cinemas-selected;
+        }
+
+		&.events .nav-menu-item-link .nav-menu-item-img {
+            @extend %icon-events;
+        }
+               
+        &.events.selected .nav-menu-item-link .nav-menu-item-img {
+            @extend %icon-events-selected;
+        }
+               
+        &.loyalty .nav-menu-item-link .nav-menu-item-img {
+            @extend %icon-loyalty;
+        }
+               
+        &.loyalty.selected .nav-menu-item-link .nav-menu-item-img,
+		&.loyalty .nav-menu-item-link:hover .nav-menu-item-img {
+            @extend %icon-loyalty-selected;
+        }
+    }
+
+}

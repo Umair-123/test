@@ -1,0 +1,56 @@
+@import "../_Colours";
+
+/* CONFIRMATION PAGE */
+#print-page { float: right; }
+
+h5 { font-weight: bold; }
+h5, h6 { color: $color-666666; font-size: 14px; }
+h5, h6, p { margin-bottom: 10px; }
+h5:after, label:after { content: ':'; }
+label { font-size: 13px; }
+
+#booking-overview { margin: 30px 0 0 20px; }
+#booking-overview section { display: inline-block; vertical-align: top; }
+#booking-overview section label { display: inline-block; width: 130px; padding-right: 10px; vertical-align: top; }
+#booking-overview section span { display: inline-block; width: 230px; padding-right: 25px; line-height: 13px; }
+#booking-overview.grid-3-col section label { width: 130px; }
+#booking-overview.grid-3-col section span { width: 150px; }
+
+#order-details { background-color: $color-eaeaea; margin-top: 15px; padding: 10px 40px 10px 20px; }
+#order-details hgroup h6, #order-details .detail-line >* { display: inline-block; }
+#order-details.grid-5-col hgroup h6, #order-details.grid-5-col .detail-line >* { width: 20%; }
+#order-details.grid-4-col hgroup h6, #order-details.grid-4-col .detail-line >* { width: 25%; }
+
+#order-details hgroup h6, #order-details .detail-line >* { text-align: center; vertical-align: top; /* align text to top to line elements up vertically when text wraps */ }
+#order-details hgroup h6:first-child, #order-details .detail-line >*:first-child { text-align: left; }
+#order-details hgroup h6.last-child, #order-details .detail-line >*.last-child, #order-details .amount { text-align: right; } /* can't use :last-child as IE8 doesnt support this */
+#order-details label { color: $color-666666; font-size: 12px; margin-right: 15px; }
+#order-details label:after { content: normal; }
+#order-details .session-details { margin-top: 10px; }
+#order-details .movie-name { font-weight: bold; }
+#order-details .cinema-operator-name { margin-left: 10px; }
+#order-details .screen-name { margin-left: 10px; }
+#order-details .ticket .desc { box-sizing: border-box; -moz-box-sizing: border-box; /* include padding in width calculation to ensure element doesn't exceed % width */ padding-left: 16px; }
+#order-details .ticket .desc span { font-size: 80%;}
+#order-details .amount { margin: 0 -12px 10px 0; padding: 10px 12px 0 0;}
+#order-details .amount span { min-width: 50px; display: inline-block; }
+#order-details .sub-total { border-top: solid 1px; width: 20%; margin-left: auto; }
+#order-details .total, #order-details .total label { color: $color-595655; font-weight: bold; font-size: 14px; }
+
+
+.social-invites { margin: 30px 0 0 30px; }
+.invite-label { float: left; text-transform: uppercase; font-weight: bold; font-size: 14pt; }
+.fb-send {
+    float: left; padding: 0 10px 225px 10px; 
+    //We are required to set this explicitly as it only renders properly if your are logged in
+    iframe {
+        width: 50px;
+        height: 20px;            
+    }
+    span:first-child {
+        width: 50px!important;
+        height: 20px!important;    
+    }
+}
+.twitter-send { float: left; }
+

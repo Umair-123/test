@@ -1,0 +1,33 @@
+﻿@using Vista.Connect
+@using Vista.Connect.Services
+
+@model IEnumerable<Session>
+
+@{
+    var sessionsGrouped = Model.GroupBy(s => new { Showtime = s.SessionBusinessDate, DisplayPriority = s.SessionDisplayPriority,  Attr = s.SessionAttributeString() }).OrderBy(grp => grp.Key.Showtime).ThenBy(grp => grp.Key.DisplayPriority).ThenBy(grp => grp.FirstOrDefault().Showtime).ToArray();
+    IFormattingService formattingService = ViewBag.FormattingService;
+}
+
+@for (int index = 0; index < sessionsGrouped.Length; index++)
+{
+    var sessions = sessionsGrouped[index];
+    var lastClassInner = index == sessionsGrouped.Length - 1 ? "last" : "";
+    DateTime currentSessionDate = DateTime.MinValue;
+	<div class="session future @lastClassInner">
+
+        @if (currentSessionDate != sessions.Key.Showtime.Date)
+        {
+            <h4 class="session-date">@(formattingService.FormatDate(sessions.Key.Showtime.Date))</h4>
+            currentSessionDate = sessions.Key.Showtime.Date;
+        }
+
+        @if (sessions.Key.Attr != null)
+        {
+            @Html.Partial("SessionListByAttribute", sessions)
+        }
+        else
+        {
+            @Html.Partial("SessionList", sessions)
+        }
+    </div>
+}

@@ -1,0 +1,112 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Browsing.ViewModels.Loyalty
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Web
+
+@model SignInViewModel
+           
+@section Css {
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("Loyalty/AuthenticationForm.css")      
+    @ContentDelivery.Css("Loyalty/SignIn.css")      
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+}
+
+<div id="sign-in-page" class="loyalty-authentication-form-page">
+    
+    <h2>
+        @LoyaltySignIn.TitleText1 @LoyaltySignIn.TitleText2
+        @if (!String.IsNullOrWhiteSpace(LoyaltySignIn.Login))
+        {
+            <em>@LoyaltySignIn.Login</em>
+        }
+    </h2>
+    
+    @if (Model.Reason == SignInViewModel.SignInReason.AuthenticationRequired)
+    {
+        var blurbText = LoyaltySignIn.SignInRequiredBlurb;
+        if (!String.IsNullOrWhiteSpace(blurbText))
+        {
+            <p class="blurb">
+                @LoyaltySignIn.SignInRequiredBlurb
+            </p>
+        }
+    }
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="form-error">
+            @Html.ValidationSummary(false)
+        </div>
+    }
+            
+    @using (Html.BeginForm("SignIn", "Loyalty", new { Model.ReturnUrl, Model.Reason }, FormMethod.Post, new { @class = "sign-in-form loyalty-authentication-form" }))
+    {           
+        <ul>
+            <li class="form-line">
+                @if (Model.LoyaltySignInUsingEmail)
+                {
+                    @Html.LabelFor(x => x.UserName, LoyaltySignIn.Email)
+                    @Html.TextBoxFor(x => x.UserName, new Dictionary<string, object> { {"type", "email"}, {"class", "form-field"}, {"data-val-required", "The Email field is required." } })
+                    @Html.ValidationMessageFor(x => x.UserName, string.Empty, new { @class = "icon icon-small" })
+                }
+                else
+                {
+                    @Html.LabelFor(x => x.UserName, LoyaltySignIn.Username)
+                    @Html.TextBoxFor(x => x.UserName, new { type = "text", @class = "form-field" })
+                    @Html.ValidationMessageFor(x => x.UserName, string.Empty, new { @class = "icon icon-small" })
+                }
+            </li>
+            <li class="form-line">
+                @Html.LabelFor(x => x.Password, LoyaltySignIn.Password)@*
+                *@@Html.TextBoxFor(x => x.Password, new { type = "password", @class = "form-field", name = "password" })@*
+                *@@Html.ValidationMessageFor(x => x.Password, string.Empty, new { @class = "icon icon-small" })
+            </li>
+        </ul>
+
+           
+             <div class="button-container">
+                 <button type="submit" name="login" class="page-action submit">
+                     <span>@LoyaltySignIn.Login</span>
+                 </button>
+             </div>        
+    }
+    
+    <div class="footer">
+        <div class="footer-section">
+            @if (!String.IsNullOrWhiteSpace(LoyaltySignIn.SignInHelpSectionTitle))
+            {
+                <h4>@LoyaltySignIn.SignInHelpSectionTitle</h4>
+            }
+            <ul>
+            
+                <li>
+                    <a href="@BrowsingUrls.GetLoyaltyForgotPasswordPageUrl()" title="@LoyaltySignIn.ForgotPassword">@LoyaltySignIn.ForgotPassword</a>            
+                </li>
+            </ul>       
+        </div>        
+        <div class="footer-section">
+            @if (Model.SignUpUrl != null)
+            {
+                if (!String.IsNullOrWhiteSpace(LoyaltySignIn.SignInSignUpSectionTitle))
+                {
+                    <h4>@LoyaltySignIn.SignInSignUpSectionTitle</h4>
+                }
+                <ul>
+                    <li>
+                        <a class="" href="@Model.SignUpUrl">@LoyaltySignIn.SignUp</a>
+                    </li>
+                    <li>
+                        <a class="" href="@BrowsingUrls.GetActivateCardUrl()">@LoyaltyActivateCard.ActivateCard</a>
+                    </li>
+                </ul>
+            }                                    
+        </div>
+    </div>
+</div>

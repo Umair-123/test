@@ -1,0 +1,25 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@{
+}
+
+@model InternetTicketing.Browsing.ViewModels.ErrorViewModel
+
+<form>
+<span class="sorry">@ErrorPage.Sorry</span>
+
+@{
+    string errorMessage = string.IsNullOrEmpty(Model.ErrorMessage) ? ErrorPage.Error : Model.ErrorMessage;
+    <h2 class="error-message">@errorMessage</h2>
+}
+
+<a href="@BrowsingUrls.GetHomeUrl()" class="page-action">
+    <span>@ErrorPage.ReturnToHomePage</span>
+</a>
+    </form>
+
+@section Css
+{
+	@ContentDelivery.CssBundle(CssBundles.ErrorPage)
+}

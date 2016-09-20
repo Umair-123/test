@@ -1,0 +1,135 @@
+.select-grid-counter {
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 130px;
+}
+.select-grid-counter span {
+  font-size: 48px;
+}
+
+.select-grid {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid #93908f;
+  margin-top: 80px;
+  overflow: hidden;
+  padding-right: 2px;
+  padding-bottom: 2px;
+  width: 708px;
+}
+.select-grid .voucher-control {
+  background: #eaeaea;
+  margin-top: 2px;
+  margin-left: 2px;
+  overflow: hidden;
+  padding-left: 13px;
+}
+.select-grid .voucher-header {
+  margin: 0;
+  padding: 0;
+}
+.select-grid .vouchers-in-order {
+  margin: 0;
+}
+.select-grid .voucher-line {
+  margin: 10px 5px;
+}
+.select-grid .select-grid-item {
+  border: 1px solid #93908f;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  height: 150px;
+  margin-top: 2px;
+  margin-left: 2px;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  width: 163px;
+}
+.select-grid .select-grid-item .icon {
+  cursor: pointer;
+  display: none;
+  left: -5px;
+  padding: 5px;
+  position: absolute;
+  top: -5px;
+}
+.select-grid .select-grid-description {
+  display: block;
+  font-weight: bold;
+  margin-top: 63px;
+}
+.select-grid .select-grid-value {
+  display: block;
+}
+.select-grid select {
+  display: none;
+  margin: 40px auto 0 auto;
+  width: 70%;
+}
+.select-grid .select-grid-footer {
+  bottom: 5px;
+  font-weight: bold;
+  left: 5px;
+  line-height: 15px;
+  position: absolute;
+  right: 5px;
+  text-align: right;
+}
+.select-grid .select-grid-total {
+  font-weight: normal;
+  margin-left: 5px;
+}
+.select-grid .select-grid-active .select-grid-description, .select-grid .select-grid-selected .select-grid-description {
+  margin-top: 0;
+}
+.select-grid .select-grid-active {
+  border-color: #35a0a8;
+}
+.select-grid .select-grid-active .select-grid-description, .select-grid .select-grid-active .select-grid-value, .select-grid .select-grid-active .select-grid-count {
+  color: #35a0a8;
+}
+.select-grid .select-grid-active .icon {
+  background-image: url("../Images/QuickTickets/Icon_Clear_Hover.png");
+  display: inline-block;
+}
+.select-grid .select-grid-selected {
+  color: #eaeaea;
+  cursor: default;
+  background: #35a0a8;
+}
+.select-grid .select-grid-selected .icon {
+  background-image: url("../Images/Icon_Clear_Light.png");
+  display: inline-block;
+}
+.select-grid .select-grid-selector {
+  -moz-box-shadow: 0 0 3px 0 #000000;
+  -webkit-box-shadow: 0 0 3px 0 #000000;
+  box-shadow: 0 0 3px 0 #000000;
+  background: #ffffff;
+  color: #666666;
+  font-size: 16px;
+  line-height: 2;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  width: 99%;
+}
+.select-grid .select-grid-selector span {
+  display: inline-block;
+  width: 20%;
+}
+.select-grid .select-grid-selector span:not(.disabled) {
+  cursor: pointer;
+}
+.select-grid .select-grid-selector span:not(.disabled):hover {
+  background: #eaeaea;
+}
+.select-grid .select-grid-count {
+  font-size: 72px;
+  margin-top: 10px;
+}

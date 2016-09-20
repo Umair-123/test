@@ -1,0 +1,47 @@
+﻿@using System.Globalization
+@using InternetTicketing.Browsing.ViewModels.Loyalty.Member
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.Localisation
+@model MessageModalViewModel
+
+<div class="message-response-modal">
+    
+    @using (Html.BeginForm("RespondToMessage", "Loyalty", FormMethod.Post))
+    {
+        <div class="send-button-wrapper">
+            <span class="icon icon-small icon-send"></span><input type="submit" name="sendMessageResponse" value="@LoyaltyMessages.ReplyDialogSend" />
+        </div>
+        
+        <h2>@Model.Message.GetMessageSubject().GetTranslation(Model.IsAltLang)</h2>
+        
+        <div class="modal-message-detail">@Html.FromMultilinePlainText(Model.Message.GetMessageText().GetTranslation(Model.IsAltLang))</div>
+        
+        if (Model.Message.ResponseDataType == MessageModalViewModel.ResponseDataType.List.ToString())
+        {
+            <div class="form-line checkboxlist">                
+                @Html.CheckBoxListFor(model => model.SelectedListValues, Model.ListValues,null,true)                
+                @Html.ValidationMessageFor(model => model.SelectedListValues,String.Empty,new { @class = "icon icon-small" })
+            </div>
+        }
+
+        if (Model.Message.ResponseDataType == MessageModalViewModel.ResponseDataType.Number.ToString())
+        {
+            <div class="form-line number">
+                @Html.TextAreaFor(model => model.NumberResponseData)
+                @Html.ValidationMessageFor(model => model.NumberResponseData,String.Empty,new { @class = "icon icon-small" })
+            </div>
+        }
+        
+        if (Model.Message.ResponseDataType == MessageModalViewModel.ResponseDataType.Text.ToString())
+        {
+            <div class="form-line text">
+                @Html.TextAreaFor(model => model.TextResponseData)
+                @Html.ValidationMessageFor(model => model.TextResponseData,String.Empty,new { @class = "icon icon-small" })
+            </div>
+        }       
+        
+        @Html.HiddenFor(model => model.Message.MessageId)
+        @Html.HiddenFor(model => model.Message.RecognitionId)
+        @Html.HiddenFor(model => model.Message.ResponseDataType)
+    }
+</div>

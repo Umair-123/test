@@ -1,0 +1,77 @@
+﻿@using System.Drawing
+@using InternetTicketing.Browsing.ViewModels
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@model InternetTicketing.Browsing.ViewModels.Loyalty.ClubViewModel
+
+@section Css {
+    @ContentDelivery.Css("Loyalty/ClubDetails.css")
+    @ContentDelivery.Css("Loyalty/SignIn.css")
+    @ContentDelivery.Css("Validation.css")
+}
+
+@section Scripts
+{
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+}
+
+@{
+    var headerBannerImage = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.LoyaltyClubBanner, @Model.Id, EntityReferenceScheme.Global, new Size(1350, 0));
+}
+
+<div id="loyalty-club-details">
+    
+    @Html.Partial("SmartImage", new SmartImageViewModel(headerBannerImage, "page-header-banner")
+    {        
+        
+    })
+@if (!Model.IsUserLoggedIn)
+{
+    <div class="page-header-boxout">
+        @{
+            Html.RenderAction("SignInWidget", new {enableHelp = false});
+        }
+
+    </div>
+}
+
+    <img class="club-payment-image" src="@ContentDelivery.EntityImage(CdnMediaType.LoyaltyClubPayment, Model.Id, 260, 250)" alt="" width="260" height="250" />
+
+    <div class="club-body">
+        <h3>@LoyaltyClubs.ClubDetailsHeading(Model.Id)</h3>
+
+
+        <p>@LoyaltyClubs.ClubDetailsBlurb(Model.Id)</p>
+
+        @{ const string separator = "||"; } 
+        <ul>
+            @foreach (var bulletPoint in LoyaltyClubs.ClubDetailsSummary(Model.Id).Split(new[] { separator }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                <li>@bulletPoint</li>
+            }
+        </ul>
+
+
+    </div>
+    
+    <div class="club-footer button-list">
+        @if (!Model.IsUserLoggedIn)
+        {
+            string signupUrl;
+            if (Model.HasMultipleMemberships)
+            {
+                signupUrl = BrowsingUrls.GetLoyaltyClubMembershipProgramsUrl(Model.Id);
+            }
+            else
+            {
+                signupUrl = BrowsingUrls.GetLoyaltyClubSignupUrl(Model.Id);
+            }            
+            <a href="@BrowsingUrls.GetActivateCardUrl()" class="page-action"><span>@LoyaltyClubs.ActivateCardButton</span></a>
+            <a href="@signupUrl" class="page-action"><span>@LoyaltyClubs.SignUpButton</span></a>
+        }
+    </div>
+
+</div>
+

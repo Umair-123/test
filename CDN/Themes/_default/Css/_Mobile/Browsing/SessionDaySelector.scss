@@ -1,0 +1,62 @@
+﻿@import "../../_Colours.scss";
+@import "../Flexbox.scss";
+@import "../Links.scss";
+
+
+.session-day-selector {
+    @include display-box;
+    @include box-direction(row);
+
+	display: none;
+
+    background-color: $color-eaeaea;
+    text-align: center;
+    border-bottom: solid 1px $color-selected;
+
+    .session-day {
+        @include box-flex(1 1 auto);
+        @include box-flex-legacy(1);
+        display: block; // required for flexbox legacy
+
+        @extend %link;
+        color: $color-443e3b;
+        font-weight: bold;
+        padding-bottom: 0.2rem;
+
+        &.selected {
+            color: $color-selected;
+            
+            position: relative;
+            margin-bottom: 8px;
+
+            // selected item triangle shape
+            &:before {
+                content: ' ';
+                position: absolute;
+            
+                border-color: $color-transparent $color-transparent $color-selected $color-transparent;
+                border-style: solid;
+                border-width: 0 8px 8px 8px;
+                left: 50%;
+                top: 100%;
+                margin-left: -8px;
+            }
+            &:after {
+                content: ' ';
+                position: absolute;
+            
+                border-color: $color-transparent $color-transparent $color-ffffff $color-transparent;
+                border-style: solid;
+                border-width: 0 9px 9px 9px;
+                left: 50%;
+                top: 100%;
+                margin-left: -9px;
+                margin-top: 2px;
+            }
+        }
+
+        &.no-sessions-available {
+            color: $color-93908f; // TODO: confirm the disabled link color
+        }
+    }
+}

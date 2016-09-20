@@ -1,0 +1,145 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+
+/* 
+<div class="order-details">
+                        
+	<section id="cart" class="cart cart-order">
+		<h2>Your<em>Basket</em></h2>
+    
+		<div class="cart-estimate">
+		</div>
+
+		<ul class="cart-sessions">
+    
+			<li class="cart-session cart-current-session" data-id="307400">
+				<div class="cart-session-information"><button type="button" class="clear icon icon-clear"></button><span class="name">10,000 Bc </span><span class="points-cost" data-value="0">0</span><span class="price cart-session-total" data-value="0">0.00</span></div>    
+					<ul id="cart-tickets">
+					</ul>
+					<ul id="cart-concessions">
+					</ul>
+			</li>
+		</ul>
+
+		<div class="cart-footer">
+			<ul>
+				<li class="promotion promotion-none"><span class="name">Promotion</span><span class="value"></span></li>
+				<li class="total"><span class="name">Total Cost</span><span class="price">$0.00</span></li>
+				<li class="points-cost points-none"><span class="value">(+0.00 points)</span></li>
+				<li><span class="name">(Excl. booking fee)</span></li>
+			</ul>
+		</div>
+	</section>
+</div>
+*/
+
+.order-details {
+	
+	//margin-top: 20px;
+	//margin-bottom: 10px;
+
+	.cart > h2 {
+		display: none;
+	}
+}
+
+
+.cart-sessions {
+	margin-bottom: 10px;
+	display: none;
+
+	li {
+		line-height: 1.5rem;
+	}
+
+	.cart-session-information {
+		display: none;
+	}
+
+	.cart-ticket, .cart-concession {
+		color: $color-666666;
+
+		.clear {
+			display: none;
+		}
+
+		.name {
+			margin-left: 5px;
+		}
+
+		.points-cost {
+			display: none;
+		}
+
+		.quantity {
+			float: left;
+		}
+
+		.quantity:after {
+			content: 'x';
+		}
+
+		.price {
+			float: right;
+		}
+	}
+}
+
+.cart-footer {
+	//text-align: right;
+	padding: 0.5rem;
+
+	.promotion {
+		margin-bottom: 10px;
+		color: $color-666666;
+
+		.value {
+			float: right;
+		}
+	}
+
+	.promotion.promotion-none, .points-cost.points-none {
+		display: none;
+	}
+
+    .total-savings {
+        color: $color-35a0a8;
+        font-weight: bold;
+        font-style: italic;
+
+        .savings {
+            display: inline-block;
+            float: right;
+		}
+
+    }
+
+	.total {
+		font-size: $font-size-big;
+		color: $color-443e3b;
+
+		.price {
+            display: inline-block;
+            float: right;
+		}
+	}
+
+    .total-savings,
+    .total {
+        .name {
+            margin-left: 50%;
+        }
+    }
+
+    .disclaimer {
+        text-align: right;
+    }
+
+    li {
+        margin-top: 0.5rem;
+    }
+
+	li:last-child {
+		color: $color-666666;
+	}
+}

@@ -1,0 +1,38 @@
+﻿@using System.Drawing
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@model InternetTicketing.Browsing.ViewModels.AttributesViewModel
+
+@{
+    var attributes = Model.AllAttributes;
+}
+
+@if ((attributes != null && attributes.Any()) || Model.IncludeDynamicallyPricedTicketDetail)
+{
+    <div class="attributes-wrapper">
+        <div class="attributes-key">
+            <div class="attributes-list">
+                <div class="key">@Shared.AttributesKey:</div>
+                @foreach (var attribute in attributes.OrderBy(a => a.Description))
+                {
+                    <div class="attribute @attribute.ShortName.Replace(" ", "")">
+                        <img src="@ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.AttributeIconGraphic, attribute.ShortName, EntityReferenceScheme.Global)" alt="@attribute.Description"/>
+                        <span>@attribute.Description</span>
+                    </div>
+                }
+                @if (Model.IncludeDynamicallyPricedTicketDetail)
+                {
+                    <div class="attribute dynamically-priced-ticket-key">
+                        <span class="highlight">
+                            <img src="@ContentDelivery.Image("Icon_DynamicallyPricedTickets.png")" alt="@Shared.DiscountTickets" />
+                            <span>@Shared.DiscountTickets</span>
+                        </span>
+                    </div>
+                    
+                }
+            </div>
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+}

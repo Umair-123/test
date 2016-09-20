@@ -1,0 +1,64 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* LINK/ANCHOR TAG STYLES */
+.session-day-selector .session-day {
+  text-decoration: none;
+}
+
+.session-day-selector {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  display: none;
+  background-color: #eaeaea;
+  text-align: center;
+  border-bottom: solid 1px #35a0a8;
+}
+.session-day-selector .session-day {
+  -webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  display: block;
+  color: #443e3b;
+  font-weight: bold;
+  padding-bottom: 0.2rem;
+}
+:not(.flexbox).flexboxlegacy .session-day-selector .session-day {
+  -webkit-box-flex: 1;
+}
+.session-day-selector .session-day.selected {
+  color: #35a0a8;
+  position: relative;
+  margin-bottom: 8px;
+}
+.session-day-selector .session-day.selected:before {
+  content: ' ';
+  position: absolute;
+  border-color: transparent transparent #35a0a8 transparent;
+  border-style: solid;
+  border-width: 0 8px 8px 8px;
+  left: 50%;
+  top: 100%;
+  margin-left: -8px;
+}
+.session-day-selector .session-day.selected:after {
+  content: ' ';
+  position: absolute;
+  border-color: transparent transparent #ffffff transparent;
+  border-style: solid;
+  border-width: 0 9px 9px 9px;
+  left: 50%;
+  top: 100%;
+  margin-left: -9px;
+  margin-top: 2px;
+}
+.session-day-selector .session-day.no-sessions-available {
+  color: #93908f;
+}

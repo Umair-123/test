@@ -1,0 +1,66 @@
+/*------------------------------------*\
+    CARD WALLET LIST
+\*------------------------------------*/
+/**
+ * Displays card wallet entries in a list radio buttons
+ * 
+<div class="card-wallet">
+    <h3 class="card-wallet-header"></h3>
+    <p class="card-wallet-info"></p>
+                    
+    <ul class="checkbox-list">
+        <li>                                  
+            <input type="radio" name="card-in-wallet" />
+            <label for="" class="card-wallet-detail">
+                <span class="card-wallet-card-number"></span>
+                <span class="card-wallet-card-expiry"></span>
+                <button type="button" class="card-wallet-delete-card icon-button-clear"></button>
+            </label>
+        </li>
+    </ul>
+</div>
+ * 
+ */
+.card-wallet {
+  margin-bottom: 30px;
+}
+.card-wallet .card-wallet-header {
+  margin-bottom: 15px;
+}
+.card-wallet .checkbox-list {
+  margin-top: 15px;
+  min-height: 160px;
+}
+.card-wallet .card-wallet-detail {
+  height: 100%;
+}
+.card-wallet .card-wallet-card-number,
+.card-wallet .card-wallet-card-expiry {
+  float: left;
+  width: 33%;
+}
+.card-wallet .card-wallet-card-number {
+  text-align: left;
+}
+.card-wallet .card-wallet-card-expiry {
+  text-align: center;
+}
+.card-wallet .card-wallet-delete-card {
+  float: right;
+  margin-right: 15px;
+  height: inherit;
+}
+.card-wallet .validation-placeholder-input {
+  display: block;
+  width: 0;
+  height: 1px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.card-wallet .field-validation-text {
+  margin-top: 15px;
+}
+
+.card-wallet-delete-dialog {
+  width: 350px;
+}

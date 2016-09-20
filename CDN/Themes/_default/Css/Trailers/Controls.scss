@@ -1,0 +1,279 @@
+.player-container {
+    
+	.overlay{
+		background-color: black;
+		position: absolute;
+		height: calc(100% - 30px);
+		width: 100%;
+		top: 26px;
+		left: 0;    
+	
+		.login-wrapper {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: transparent;
+			border: 0;
+
+			font-family: 'Segoe UI';
+			font-size: 14px;
+
+			.form-wrapper {
+			
+				h2 {
+					color: #EAEAEA;
+					margin-bottom: 8px;
+				}
+
+				> p {
+					color: #EAEAEA;
+					margin-bottom: 30px;
+				}
+
+				.signin-errors {
+					margin-bottom: 15px;
+					margin-top: -8px;
+					font-family: Calibri;
+					font-size: 14px;
+					font-style: italic;
+
+					li {
+						color: #EAEAEA;
+						margin-bottom: 5px;
+						padding-left: 28px;
+						line-height: 18px;
+						background: url("../../Images/Notification_Red.png") no-repeat left center;
+					}
+				}
+
+				form {
+					h3 {
+						display: none;
+					}
+
+					ul {
+					
+						li {
+							input {
+								width: 388px;
+								padding: 0 7px;
+								height: 36px;
+								background-color: #EAEAEA;
+								border: 0;
+								margin-bottom: 5px;
+								border: 1px solid #EAEAEA;
+
+								&.error {
+									border-color: #BC3939;
+									background-color: #F8EBEB;
+									color: #DD9C9C;
+									font-family: 'Segoe UI';
+									font-style: italic;
+									 
+
+								}
+							}
+						}
+					}
+
+					.footer {
+						margin-top: 3px;
+						color:  #93908F;
+
+						> a {
+							float: left;
+						}
+
+						.right {
+
+							text-align: right;
+							font-size: 0;
+
+							> a {
+								border: 0;
+								font-size: 14px;
+								display: inline-block;
+								line-height: 20px;
+								vertical-align: middle;
+							}
+
+							.button-separator {
+								border-right: 1px solid #666666;
+								height: 23px;
+								width: 1px;
+								display: inline-block;
+								margin: 0 15px;
+								vertical-align: middle;
+  							}
+
+							input {
+								border: 0;
+								border-radius: 5px;
+								height: 44px;
+								padding: 0;
+								width: 140px;
+								background-color: #35A0A8;
+								color: #EAEAEA;
+								font-weight: bold;
+								font-size: 20px;
+								line-height: 44px;
+								vertical-align: middle;						
+							}
+						}
+
+					}
+				}
+			}
+  		}
+
+		.rate{
+			width: 70%;
+			height: 80%;
+			margin:auto;
+
+			.thumbs-up, .thumbs-down {
+				background-size: 50%;
+				background-repeat: no-repeat;
+				background-position: center; 
+				display: inline-block;
+				width: 50%;
+				height: 100%;
+				min-height: 100px;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			.thumbs-up {
+				background-image: url('../../Images/Trailers/Thumbs_Trailer_Up.png');
+
+				&.selected, &:hover {
+					background-image: url('../../Images/Trailers/Thumbs_Trailer_UpBlue.png');
+				}
+			}
+
+			.thumbs-down {
+				background-image: url('../../Images/Trailers/Thumbs_Trailer_Dwn.png');
+
+				&.selected, &:hover {
+					background-image: url('../../Images/Trailers/Thumbs_Trailer_DwnBlue.png');
+				}
+			}
+			}
+
+		.rate-text {
+			text-align: center;
+			font-size: 16px;
+			color: #fff;
+		}
+	}
+
+	button, a {
+		outline: 0;
+		&:focus, &:active {
+			outline: 0;
+		}
+	}
+}
+
+.close-trailer {
+		outline: 0;
+		&:focus, &:active {
+			outline: 0;
+		}
+}
+
+.playback-controls {
+    background-color: rgb(43, 39, 37);
+    margin-top: -1px;
+    height: 29px;
+
+	> div {
+		display: flex;
+		flex-direction: row;
+		margin-right: 10px;
+	}
+
+    .slider-container {
+        display: inline-block;
+		flex: 1;
+		position: relative;
+
+        //width: calc(100% - 92px);
+        .slider {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+
+            margin: 0 5px 0 5px;
+            font-size: 8px;
+
+            .ui-slider-handle {
+                top: -5px;
+                width: 6px;
+                height: 12px;
+            }
+        }
+    }
+
+    .play-button {
+        width: 40px;
+        height: 30px;
+        line-height: 20px;
+        padding: 5px 0 5px 0;
+        display: inline-block;
+    }
+
+    .play-button.play {
+        background: url('../../Images/Trailers/trailer-play.png') no-repeat 50% 50%/24px 24px; 
+    }
+
+    .play-button.pause {
+        background: url('../../Images/Trailers/trailer-pause.png') no-repeat 50% 50%/24px 24px;
+    }
+
+	.rate{
+		width: 50px;
+		height: 16px;
+		display: inline-block;
+		margin: 2px 0 0 5px;
+
+		.rate-text {
+			display: none;
+		}
+
+		> span {
+			width: 16px;
+			height: 20px;
+			background-repeat: no-repeat;
+			margin-bottom: -5px;
+			display: inline-block;
+
+			&:hover {
+				cursor: pointer;
+			}
+  		}
+
+		.thumbs-up {
+			background-image: url('../../Images/Trailers/Thumb_Up_16.png');
+
+			&:hover, &.selected {
+				background-image: url('../../Images/Trailers/Thumb_Up_Blue_16.png');
+			}
+		}
+
+		.thumbs-down {
+			background-image: url('../../Images/Trailers/Thumb_Dwn_16.png');
+			background-position: left bottom;
+			margin-left: 6px;
+	
+			&:hover, &.selected {
+				background-image: url('../../Images/Trailers/Thumb_Dwn_Blue_16.png');
+			}
+		}
+	}
+}

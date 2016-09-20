@@ -1,0 +1,87 @@
+﻿@using System.Drawing
+@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Browsing.ViewModels
+@using InternetTicketing.Infrastructure.Html
+@using Vista.Cdn.Client
+@using Vista.Connect.Localisation
+@using Vista.Web
+
+@model CinemaDetailViewModel
+@{
+    var cinemaName = Model.GetPropertyInCorrectLang(m => Model.Cinema.Name, m => m.Cinema.NameAlt);
+    // If a Date is not present (i.e., if we are not coming from QT), then show the future date expand/collapse link
+    bool showExpansion = (Model.Filters == null || Model.Filters.Date == null);
+    var attributeClass = Model.AttributesViewModel.AllAttributes.Any() ? "has-attributes" : "";    
+}
+
+
+<div class="cinema-detail">
+    
+    <div class="media-gallery">
+        <div class="banner-wrapper">
+            @Html.Partial("SmartImage", new SmartImageViewModel(ContentDelivery.EntityImage(CdnMediaType.CinemaGallery, Model.Cinema.ID, new Size {Width = 1024, Height = 316}), "page-header-banner")
+            {
+                PreLoad = true
+            })
+        </div>
+    </div>
+    
+    <div class="page-header-boxout">
+        <div class="description-box">
+            
+            <h3 class="boxout-title"><em>@Shared.CompanyName</em> @cinemaName</h3>
+    
+            <div class="address">
+                <div class="map">
+                    @Html.Partial("GoogleMap", Model.Cinema)
+                </div>
+                @Html.Partial("CinemaContact", Model.Cinema)
+            </div>
+            <div class="other-information">
+                <h6>@Cinemas.Parking</h6>
+                <p class="parking">@Model.Cinema.ParkingInfo</p>
+                <h6>@Cinemas.PublicTransport</h6>
+                <p>@Model.Cinema.PublicTransport</p>
+            </div>
+        </div>
+    </div>
+
+@if (Model.Cinema.ScheduledFilms != null)
+{
+	<article id="show-times" class="@attributeClass">
+		<div class="attributes-print">
+		    @Html.Partial("AttributesKey", Model.AttributesViewModel)
+		</div>
+        <div id="print-preview">
+			<span>&nbsp;</span> <a href="@TicketingUrls.GetPrintShowtimesUrl(Model.Cinema.ID, true, BrowsingUrls.GetCinemasDetailsUrl(Model.Cinema.ID), isPrimaryLang: !Model.IsAltLang)">@Shared.PrintPreview</a>
+		</div>
+		<h2><em>@Shared.ShowTimes</em></h2>
+        
+		@Html.Partial("DateFilterTitle", Model.Filters, new ViewDataDictionary())
+		
+        <div class="cinema last-cinema">
+		    @Html.Partial("CinemaSessions", Model.Cinema, new ViewDataDictionary { {"ShowExpansion", showExpansion},  {"IsAltLang", Model.IsAltLang}, {"FormatTime", ViewBag.FormatTime}, {"FormattingService", Model.FormattingService}, {"BusinessDayService", Model.BusinessDayService} })
+        </div>
+	</article>
+}
+    
+</div>
+
+
+@section Scripts
+{
+    @ContentDelivery.Script("Vista/ShowHideDates.js")
+    @ContentDelivery.Script("Cinemas/CinemaDetails.js")	
+    
+    <script type="text/javascript">
+        Vista.Lang.Shared.Close = @Html.Raw(Shared.Close.ToJson());
+    </script>
+}
+
+@section Css
+{
+	@ContentDelivery.CssBundle(CssBundles.CinemaDetails)
+}

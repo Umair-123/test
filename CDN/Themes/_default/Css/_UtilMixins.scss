@@ -1,0 +1,7 @@
+
+@mixin opacity($level) {
+	filter: alpha(opacity=$level*100);       // IE6, IE7
+	-ms-filter: "alpha(opacity=" + ($level*100) + ")"; // IE8
+	-khtml-opacity: $level;
+	opacity: $level;
+}

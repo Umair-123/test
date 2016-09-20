@@ -1,0 +1,74 @@
+.page-header-boxout .boxout-line:before, .page-header-boxout .boxout-line:after {
+  content: " ";
+  display: table;
+}
+.page-header-boxout .boxout-line:after {
+  clear: both;
+}
+.page-header-boxout .boxout-line {
+  *zoom: 1;
+}
+
+.page-header-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 316px;
+  line-height: 316px;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+}
+
+.page-header-boxout {
+  position: absolute;
+  font-size: 13px;
+  top: 20px;
+  right: 20px;
+  width: 417px;
+  min-height: 366px;
+  z-index: 100;
+}
+.page-header-boxout:before {
+  content: '';
+  background-color: #EAEAEA;
+  filter: alpha(opacity=96);
+  -ms-filter: "alpha(opacity=96)";
+  -khtml-opacity: 0.96;
+  opacity: 0.96;
+  z-index: 101;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.page-header-boxout > * {
+  position: relative;
+  z-index: 102;
+}
+.page-header-boxout .boxout-title {
+  font-size: 24px;
+  color: #2b2725;
+  font-family: "Segoe UI", sans-serif;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+.page-header-boxout .boxout-blurb {
+  margin-bottom: 12px;
+}
+.page-header-boxout .boxout-line {
+  line-height: 20px;
+}
+.page-header-boxout .boxout-line-item label {
+  font-weight: bold;
+}
+.page-header-boxout .boxout-line-item.left {
+  float: left;
+}
+.page-header-boxout .boxout-line-item.right {
+  float: right;
+}

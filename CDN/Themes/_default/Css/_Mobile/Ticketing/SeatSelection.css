@@ -1,0 +1,173 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+#divSeatMap {
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  min-height: calc(100vh - 187px); }
+
+.Seating-Container {
+  width: 100% !important;
+  margin-left: auto;
+  margin-right: auto; }
+
+#divLegend {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0; }
+
+.legend-container {
+  margin: 0.3rem; }
+  .legend-container img, .legend-container span {
+    height: 25px;
+    vertical-align: middle;
+    color: #666666;
+    font-size: 12px; }
+
+.Seating-AreaName {
+  font-size: 17px;
+  color: black;
+  font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.Seating-Area {
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border-collapse: collapse; }
+  .Seating-Area div {
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .Seating-Area tr, .Seating-Area td {
+    padding: 0px;
+    margin: 0px;
+    border: 0; }
+  .Seating-Area img {
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0; }
+  .Seating-Area p {
+    font-family: Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+    position: absolute;
+    z-index: 1;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    font-size: 11px;
+    color: black;
+    display: table-cell;
+    cursor: pointer; }
+
+.Seating-Screen {
+  padding-bottom: 10px;
+  width: 100% !important;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+  height: 10px; }
+  .Seating-Screen img {
+    max-height: 32px; }
+
+.Seating-Popup {
+  /* Required */
+  display: table;
+  z-index: 9999;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  /* Customisable */
+  color: white;
+  font-style: inherit;
+  cursor: pointer;
+  background-color: #960423;
+  /* #FFD4A0 */
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Segoe UI, Verdana, Arial, Helvetica, sans-serif, "MS sans serif";
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 80px;
+  border-radius: 4px;
+  display: none; }
+
+.Seating-Control {
+  overflow: auto;
+  position: relative; }
+
+.Seating-PopupMessage {
+  /* Required */
+  clear: both;
+  height: 80px;
+  position: relative;
+  padding: 10px;
+  vertical-align: middle; }
+
+div.Seating-Container {
+  position: relative; }
+  div.Seating-Container .Seating-RowLabelContainer {
+    width: 4.5%;
+    height: 100%;
+    position: absolute; }
+    div.Seating-Container .Seating-RowLabelContainer tr td {
+      width: 12px; }
+    div.Seating-Container .Seating-RowLabelContainer.Seating-RowLabelContainer-Left {
+      text-align: left;
+      left: 0; }
+    div.Seating-Container .Seating-RowLabelContainer.Seating-RowLabelContainer-Right {
+      text-align: right;
+      right: 0; }
+  div.Seating-Container .Seating-Theatre {
+    width: 90% !important;
+    margin-left: 5%;
+    position: absolute !important; }
+    div.Seating-Container .Seating-Theatre img {
+      vertical-align: sub; }
+    div.Seating-Container .Seating-Theatre p {
+      font-family: 'Segoe UI';
+      font-weight: bold; }
+

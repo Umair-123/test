@@ -1,0 +1,50 @@
+﻿@import "_Colours";
+
+.notification {
+    float: left;
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+    background-image: url('../Images/Notification.png');
+}
+
+.error-text {
+    margin-bottom: 5px;
+    line-height: 15px; /* line-height must match notification icon height */
+    font-size: medium;
+}
+
+.input-validation-error { border: 2px solid $color-highlight; }
+
+select.input-validation-error {
+    border-width: 1px;
+}
+
+.field-validation-error {
+    background-image: url('../Images/Notification_Blue.png');
+}
+
+.voucher-error {
+    .field-validation-error {
+        background-image: none !important;
+    }
+}
+
+.field-validation-valid {
+    visibility: hidden;
+}
+
+.field-validation-valid.field-validation-text {
+    display: none;    
+}
+
+.field-validation-text {
+    display: block;
+    width: auto;
+    padding-left: 20px; // icon width + 5px
+    background-position: left center;
+}
+
+.validation-summary-valid {
+    display: none;
+}

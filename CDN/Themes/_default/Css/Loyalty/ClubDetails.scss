@@ -1,0 +1,112 @@
+﻿@import "../_Colours";
+@import "../_LayoutDimensions";
+$login-height:120px;
+#loyalty-club-details {
+    margin-left:-$layout-content-padding;
+    margin-right:-$layout-content-padding;
+    margin-top:-$layout-content-padding;
+    margin-bottom:-$layout-content-padding;
+    font-size:13px;
+    input {
+        font-size:13px;
+    }
+    margin-top:$layout-page-header-height;
+
+    .page-header-boxout {
+        right:0;
+        width:260px;
+        top:$layout-page-header-height - $login-height;
+        min-height:$login-height;
+    }
+
+    .loyalty-login {      
+        height:$login-height;  
+        z-index:102;
+        background: $color-93908f;
+        position:absolute;
+        bottom:0;
+
+        h3 {
+            display:none;
+        }
+
+        .signin-errors {
+            display:block;
+            height:30px;  
+            color:red;          
+        }
+        ul,.footer {
+            margin-right:10px;
+        }
+
+        .form-field {
+            width: 100%;
+        }
+    }
+
+    .club-payment-image {
+        position:absolute;
+        right:0;
+        top:$layout-page-header-height;   
+        height: 250px;
+        width: 260px;
+    }
+
+    .club-body {
+        padding-left:$layout-content-padding;
+    }
+}
+
+#loyalty-club-details .loyalty-login li {
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+}
+
+#loyalty-club-details .loyalty-login div {
+
+    input, a {
+        color: $color-eaeaea;
+    }
+}
+
+#loyalty-club-details .loyalty-register {
+    display: none;
+}
+
+#loyalty-club-details .loyalty-register + span {
+    display: none;
+}
+
+#loyalty-club-details .club-body,
+#loyalty-club-details .club-footer {
+    width: 620px;
+}
+
+#loyalty-club-details .club-body {
+    min-height: 300px;
+}
+
+#loyalty-club-details .club-body h3,
+#loyalty-club-details .club-body p {
+    margin: 12px 0;
+}
+
+#loyalty-club-details .club-body h3 {
+    text-transform: none;
+}
+
+#loyalty-club-details .club-body ul {
+    line-height: 2em;
+    list-style: disc;
+    padding-left: 30px;
+}
+
+#loyalty-club-details .club-footer {
+    text-align: right;
+	margin-top: 0;
+}
+
+#loyalty-club-details .club-footer button {
+    margin-left: 10px;
+}

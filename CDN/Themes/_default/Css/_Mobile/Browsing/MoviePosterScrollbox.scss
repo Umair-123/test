@@ -1,0 +1,120 @@
+﻿@import "../../_Colours";
+@import "../_Flexbox";
+@import "../_Loading";
+
+/* HOME PAGE NOW SHOWING MOVIE POSTER SCROLLBOX */
+/* 
+<div id="home-now-showing" class="home-movies scrollbox-container container-loading" tabindex="1">
+    <div class="scrollbox-viewport">
+        <div class="scrollbox-view">
+            <a href="/Browsing/Movies/Details/h-0000000009" class="movie">
+                <img class="movie-poster" src="http://s.vista.co.nz/CDN/Image/Entity/MovieBanner/h-0000000009?width=445&amp;height=301" alt="District 9" width="445" height="301"></a>
+            <a href="/Browsing/Movies/Details/h-HO00000327" class="movie">
+                <img class="movie-poster" src="http://s.vista.co.nz/CDN/Image/Entity/MovieBanner/h-HO00000327?width=445&amp;height=301" alt="Kill Bill" width="445" height="301">
+            </a>
+        </div>
+    </div>
+    <div class="scrollbox-right-button"></div><div class="scrollbox-left-button"></div>
+    <div class="scrollbox-scrollbar"><div class="scrollbox-scroll ui-draggable" style="width: 0px;"></div>
+</div>
+*/
+
+.container-loading {
+    @extend %loading-container;
+}
+
+.home-movies {
+
+    width: 100%; 
+
+    .movie {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        border: none;
+        display: inline-block;
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+        padding: 15px 20px 15px 0;
+		text-decoration: none;
+
+		vertical-align: top; //Fix for Safari doing it backward, bottom to top,  unlike everyone else
+
+        &:first-child {
+            padding-left: 20px;
+        }
+
+		&:hover .movie-title {
+			color: $color-35a0a8;
+		}
+
+		&:hover .movie-poster {
+			border: 1px solid $color-35a0a8;
+		}
+    }
+
+
+    $total-image-height: 80%;
+    $reflection-height: 23%;
+    $image-height: $total-image-height - $reflection-height;
+
+    .movie-poster {
+
+        display: block;
+        position: absolute;
+
+        width: auto;
+        //height: $image-height;
+		height: 65%;
+
+		top: 12%;
+    }
+
+	.movie-title {
+		width: 90%;
+		margin: 1rem auto;
+
+		white-space: pre-wrap;
+
+		display: block;
+		font-size: 0.875rem;
+		color: $color-eaeaea;
+
+		position: relative;
+		top: 77%;
+	}
+
+    /* Scrollbox */
+
+    .scrollbox-left-button {
+        display: none;
+    }
+
+    .scrollbox-right-button {
+        display: none;
+    }
+
+    .scrollbox-scroll {
+        display: none;
+    }
+
+    .scrollbox-scrollbar {
+        width: 0;
+        height: 0;
+        border: 0;
+    }
+
+    .scrollbox-viewport {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .scrollbox-view {
+        height: 100%;
+        padding: 0;
+    }
+}

@@ -1,0 +1,200 @@
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+.content {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+#print-page,
+#print-tickets,
+#breadcrumb,
+.icon.icon-print {
+  display: none;
+}
+
+.confirmation-heading {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  -webkit-align-items: center;
+  font-size: 1rem;
+}
+.confirmation-heading .success-icon {
+  background-image: url(../../../Images/Mobile/Icons/Icons_Success_30.png);
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.confirmation-heading .success-text {
+  color: #40C199;
+}
+.confirmation-heading span {
+  margin-right: 0.25rem;
+}
+
+#order-confirmation,
+#pickup-info,
+#booking-details,
+#order-details,
+#loyalty-details {
+  margin: 1.25rem 0 1.25rem 0;
+  color: #666666;
+}
+#order-confirmation h5,
+#pickup-info h5,
+#booking-details h5,
+#order-details h5,
+#loyalty-details h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#pickup-info > em {
+  color: #35a0a8;
+}
+
+#booking-details .booking-reference {
+  margin-bottom: 0.5rem;
+}
+#booking-details .booking-reference span {
+  color: #35a0a8;
+}
+
+#booking-details label:after {
+  content: ':';
+}
+#booking-details span {
+  margin-left: 10px;
+  color: #666666;
+}
+
+#loyalty-details label:after {
+  content: ':';
+}
+#loyalty-details span {
+  margin-left: 10px;
+  color: #666666;
+}
+
+#order-details hgroup {
+  display: none;
+}
+#order-details .screening-details {
+  margin-bottom: 3px;
+}
+#order-details .movie-name {
+  color: #35a0a8;
+}
+#order-details .session-time, #order-details .screen-name {
+  color: #666666;
+}
+#order-details .screen-name {
+  margin-left: 1rem;
+}
+#order-details .detail-line {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+#order-details .detail-line span {
+  font-size: 0.875rem;
+}
+#order-details .detail-line.ticket .qty,
+#order-details .detail-line.concession .qty {
+  float: left;
+  font-size: 0.875rem;
+}
+#order-details .detail-line.ticket .qty:after,
+#order-details .detail-line.concession .qty:after {
+  content: 'x';
+  font-size: 0.875rem;
+}
+#order-details .detail-line.ticket .desc,
+#order-details .detail-line.concession .desc {
+  margin: 0 5px 0 5px;
+}
+#order-details .detail-line.ticket .cost,
+#order-details .detail-line.concession .cost {
+  float: right;
+}
+#order-details .detail-line.ticket .seat-info:before,
+#order-details .detail-line.concession .seat-info:before {
+  content: '(';
+  font-size: 0.875rem;
+}
+#order-details .detail-line.ticket .seat-info:after,
+#order-details .detail-line.concession .seat-info:after {
+  content: ')';
+  font-size: 0.875rem;
+}
+#order-details .detail-line.concession > .seat-info {
+  display: none;
+}
+#order-details .order-totals {
+  margin-top: -1rem;
+}
+#order-details .amount {
+  margin-top: 1rem;
+}
+#order-details .amount span {
+  float: right;
+}
+#order-details .amount.sub-total label,
+#order-details .amount.booking-fee label,
+#order-details .amount.total label {
+  margin-left: 30%;
+  text-align: left;
+}
+#order-details .amount.total label, #order-details .amount.total span {
+  font-size: 0.875rem;
+  color: #35a0a8;
+}

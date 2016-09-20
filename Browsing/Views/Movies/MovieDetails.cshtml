@@ -1,0 +1,389 @@
+﻿@using System.Drawing
+@using InternetTicketing.Browsing.ViewModels
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@using InternetTicketing.Infrastructure.SocialMedia
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Connect.Loyalty
+@model MovieDetailsViewModel
+
+@{
+    var movies = Model.Movies.Where(m => m.Sessions.Any()).OrderByLang(Model.IsAltLang, m => m.CinemaName, m => m.CinemaNameAlt).ToArray();
+    bool anySessions = Model.Movies.Any(m => m.Sessions.Any());
+    // If a Date is not present (i.e., if we are not coming from QT), then show the future date expand/collapse link
+    bool showExpansion = (Model.Filters == null || Model.Filters.Date == null);
+    var attributeClass = Model.AttributesViewModel.AllAttributes.Any() ? "has-attributes" : "";
+    bool isComingSoon = Model.IsComingSoon;
+}
+
+@section OpenGraphMetadata
+{
+    @if (Model.EnableSocialMediaIntegration)
+    {
+        @Html.Raw(SocialMediaHtmlHelper.OpenGraphMetadata(
+            Model.GetPropertyInCorrectLang(Model.MovieTitle).ToHtmlString(),
+            "movie",
+            Request.Url.AbsoluteUri,
+            ContentDelivery.EntityImage(CdnMediaType.FilmPosterGraphic, Model.MovieId, 48, 48),
+            Shared.SiteTitle,
+            Model.GetPropertyInCorrectLang(Model.Synopsis).ToHtmlString()))
+    }
+}
+
+<div class="movies-detail" style="width:75%;margin-left:auto;margin-right:auto;">
+    
+    <div class="media-gallery">
+        <script type="text/javascript">
+            Vista.Localisation = {};
+            Vista.Localisation.CloseTrailer = '@Movies.CloseTrailer';
+            Vista.Localisation.RateTrailer = '@Movies.RateTrailer';
+            Vista.Localisation.YouLikedTheTrailer = '@Movies.YouLikedTheTrailer';
+            Vista.Localisation.YouDislikedTheTrailer = '@Movies.YouDislikedTheTrailer';
+        </script>
+        @Html.Partial("Trailer", new ViewDataDictionary(@Model.Trailer))
+    </div>
+    
+    <div class="page-header-boxout" style="position:relative;float:right;margin-bottom:60px;">
+        <div class="film-info">
+            
+            @if (!string.IsNullOrEmpty(Model.Rating.PrimaryVal))
+            {
+                var ratingImageUrl = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.RatingIconGraphic, Model.Rating.PrimaryVal, EntityReferenceScheme.Global, new Size(24, 24));
+                <div class="censor-rating">
+                    <img class="icon" src="@ratingImageUrl" />
+                </div>
+            }
+            
+            <div class="film-header">
+                <h3 class="boxout-title">@Model.GetPropertyInCorrectLang(Model.MovieTitle)</h3>
+                @CustomerRating()
+            </div>
+
+            <p class="boxout-blurb">@Model.GetPropertyInCorrectLang(Model.Synopsis)</p>
+
+            @PersonLinks(Model.Starring.OrderBy(p => p.FirstName).ToArray(), Movies.Starring)
+            @PersonLinks(Model.Directors.OrderBy(p => p.FirstName).ToArray(), Movies.Directors)
+            <div class="boxout-line film-info-item">
+                <div class="boxout-line-item">
+                    <label>@Movies.RunTime:</label>
+                    <span>@Model.MovieLength @Movies.RunTimeUnits</span>
+                </div>
+                <div class="boxout-line-item">
+                    <label>@Movies.Genre:</label>
+                    <span>@Model.Genre</span>
+                </div>
+            </div>
+            @if (Model.OpeningDate != null && Model.OpeningDate > DateTime.Now.Date)
+            {
+                @FilmInfo(Movies.OpeningDate, Model.FormattingService.FormatDate(Model.OpeningDate.GetValueOrDefault()))
+            }
+            @if (!string.IsNullOrEmpty(Model.FilmSiteUrl))
+            {
+                <div class="boxout-line site-url"><div class="boxout-line-item"><span><a target="_blank" href="@Model.FilmSiteUrl" class="film-link">@Movies.FilmSite</a></span></div></div>
+            }
+            @if (Model.EnableSocialMediaIntegration)
+            {
+                <div class="social-media-padding">&nbsp;</div>
+                <div class="social-media">
+                    @if (Model.DisplayFacebookLikeButton)
+                    {
+                        <div class="facebook-button">
+                            @Html.Raw(SocialMediaHtmlHelper.FacebookLikeButton("button_count", Request.Url.AbsoluteUri))
+                        </div>
+                    }
+                    @if (Model.DisplayTwitterTweetButton)
+                    {
+                        <div class="twitter-button">
+                            @{
+                        var hashTags = new[] { Model.CompanyTwitterTag, Model.MovieTwitterTag };
+                                @Html.Raw(SocialMediaHtmlHelper.TwitterShareUrlButton(Request.Url.AbsoluteUri, hashTags: hashTags))
+                            }
+                        </div>
+                    }
+                    @Html.Hidden("MovieId", @GetFilmIdForLoyalty(Model.Movies.FirstOrDefault()))
+                </div>
+            }
+        </div>
+
+
+        @FilmRating()
+    </div>
+    @*        <div class="description-box switch">
+            <a class="toggle-synopsis">@Movies.ExpandSynopsis</a>
+			<a class="toggle-synopsis" style="display: none;">@Movies.CollapseSynopsis</a>
+        </div>*@
+
+    <article id="show-times" class="@attributeClass">
+        @if (anySessions)
+        {
+            <div class="attributes-print">
+                @Html.Partial("AttributesKey", Model.AttributesViewModel)
+            </div>
+        }
+        <h2>
+            @Model.GetPropertyInCorrectLang(Model.MovieTitle)
+            <em>@Shared.ShowTimes</em>
+        </h2>
+
+        @Html.Partial("DateFilterTitle", Model.Filters, new ViewDataDictionary())
+        @if (anySessions)
+        {
+            <div class="film-list" style="width:50%;">
+                @for (int i = 0; i < movies.Length; i++)
+                {
+                    var lastClass = i == movies.Length - 1 ? "last" : "";
+                    var movie = movies[i];
+                    var movieSessionsGrouped = movie.Sessions.GroupBy(session => new { Showtime = session.SessionBusinessDate, DisplayPriority = session.SessionDisplayPriority, Attr = session.SessionAttributeString()});
+                    <div class="film-item @lastClass">
+                        <div class="film-showtimes">
+                            <div class="film-header">
+                                <a href="@BrowsingUrls.GetCinemaDetailsUrl(movie.CinemaId)">
+                                    <h3 class="film-title">@Model.GetPropertyInCorrectLang(m => movie.CinemaName, m => movie.CinemaNameAlt)</h3>
+                                </a>
+                                
+                                @if (showExpansion && movieSessionsGrouped.Any(a => a.Key.Showtime > movieSessionsGrouped.OrderBy(s => s.Key.Showtime).FirstOrDefault().Key.Showtime))
+                                {
+                                   //Show expansion button under the following conditions:
+                                    // 1. showExpansion is true
+                                    // 2. Sessions exists for more than one day
+                                    <button type="button" class="toggle-future-dates user-action">
+                                        <span class="icon up-arrow">@Cinemas.HideFutureDates</span>
+                                    </button>
+                                    <button type="button" class="toggle-future-dates user-action" style="display: none;">
+                                        <span class="icon down-arrow">@Cinemas.ShowFutureDates</span>
+                                    </button>
+                                }
+                            </div>
+                            @{
+                                bool shownAtLeastOne = false;
+                                DateTime currentDate = DateTime.MinValue;
+                                DateTime firstDate = movieSessionsGrouped.OrderBy(s => s.Key.Showtime.Date).FirstOrDefault().Key.Showtime;
+                                foreach (var group in movieSessionsGrouped.OrderBy(s => s.Key.Showtime.Date).ThenBy(s => s.Key.DisplayPriority).ThenBy(a => a.OrderBy(b => b.Showtime).FirstOrDefault().Showtime))
+                                {
+
+                                    shownAtLeastOne = firstDate != @group.Key.Showtime ? true : false;
+                                    var className = shownAtLeastOne && (@group.Key.Showtime.Date > DateTime.Today) ? "future" : "";
+                                    //for future shows, we may have more than one group, if grouped by attributes, so set this only if the date has changed
+                                    
+                                    
+                                    
+                                    <div class="@className session">
+                                        @if (!movie.AllowTicketSales && movie.AdvertiseAdvanceBookingDate && movie.AdvanceBookingDate.HasValue)
+                                        {
+                                            var advanceBookingDateForCulture = Model.FormattingService.FormatDate(movie.AdvanceBookingDate.Value);
+                                            var advanceBookingTime = Model.FormattingService.FormatTime(movie.AdvanceBookingDate.Value);
+                                            
+                                            <span class="advance-sale-date">@string.Format(Shared.TicketsAvailableFrom, advanceBookingDateForCulture, advanceBookingTime)</span>
+                                        }
+                                        @if (currentDate != @group.Key.Showtime.Date)
+                                        {
+                                            //show date only once
+                                            <h4 class="session-date">@(Model.FormattingService.FormatDate(@group.Key.Showtime))</h4>
+                                            currentDate = @group.Key.Showtime.Date;
+                                        }
+                                        
+
+                                        @if (@group.Key.Attr == null)
+                                        {
+                                            @Html.Partial("SessionList", @group)
+                                        }
+                                        else
+                                        {
+                                            @Html.Partial("SessionListByAttribute", @group)
+                                        }
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>@Movies.NoSessionsShowing</p>
+        }
+    </article>
+</div>
+@if (Model.DisplayTrailerRating)
+{
+    @Html.Partial("../Loyalty/_TrailerRate")
+}
+@Html.Partial("TrailerPlayer", Model.CurrentUser)
+
+
+
+@helper FilmInfo(string label, string value, string unit = "")
+{
+    int result = 0;
+    bool isInt = int.TryParse(value, out result);
+    if (!string.IsNullOrEmpty(value) && (!isInt || (result > 0)))
+    {
+        <div class="boxout-line">
+            <div class="boxout-line-item">
+                <label>@label:</label>
+                <span>@value @unit</span>
+            </div>
+        </div>
+    }
+}
+@helper CustomerRating()
+{
+    if (Model.DisplayAverageCustomerRatings && Model.CustomerRatingCountSummary != null && Model.CustomerRatingAverage.HasValue)
+    {
+        <div class="customer-rating">
+            <span class="average">@Model.CustomerRatingAverage.Value.ToString("0.#")</span>/<span class="max">@Model.CustomerRatingMaxValue</span> @Model.CustomerRatingCountSummary
+        </div>
+    }
+}
+@helper PersonLinks(Person[] persons, string label)
+{
+    if (persons.Any())
+    {
+        <div class="boxout-line">
+            <div class="boxout-line-item left">
+                <label>@label:</label>
+                <span>
+                    @for (int i = 0; i < persons.Length; i++)
+                    {
+                        var person = persons.ElementAt(i);
+                        string comma = i < persons.Length - 1 ? ", " : " ";
+                        if (!string.IsNullOrWhiteSpace(person.UrlToDetails))
+                        {
+                            <a target="_blank" href="@person.UrlToDetails">@person.FullName()</a>@comma
+                        }
+                        else
+                        {
+                            @person.FullName()@comma
+                        }
+                    }
+        
+                </span>
+            </div>
+        </div>
+    }
+}
+@helper FilmRatingComment()
+{
+    <div class="comment">
+        <div class="display"></div>
+        <div class="edit"><textarea placeholder="@Movies.YourComment"></textarea></div>
+        <div class="actions">
+            <div class="submit-rating">@Movies.SubmitRating</div>
+            <div class="edit-comment">@Movies.EditComment</div>
+        </div>
+    </div>
+}
+@helper FilmTrailerRating()
+{
+    <div class="trailer-rating"><div class="liked">@Movies.YouLikedTheTrailer</div><div class="disliked">@Movies.YouDislikedTheTrailer</div></div>
+}
+@helper FilmRating()
+{
+    <div class="film-rating" style="display: none;"
+         data-movie-id="@Model.MovieId"
+         data-get-url="@BrowsingUrls.GetFilmRatingUrl(Model.MovieId)" 
+         data-submit-rating-url="@BrowsingUrls.SubmitFilmRatingUrl()"  >
+        
+        <div class="top-line">
+            <div>
+                @if (Model.DisplayFilmRatingStars || Model.DisplayFilmRatingComment)
+                {
+                    <div class="left">
+                        @if (Model.DisplayTrailerRating)
+                        {
+                            @FilmTrailerRating()
+                        } 
+                        @if (Model.DisplayFilmRatingStars)
+                        {
+                            <div class="your-rating">
+                                <div class="rated">
+                                    <div><span class="score"></span><span class="max-score">/10</span></div>
+                                    <div>@Movies.YourRating</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <div class="right">
+                        @if (Model.DisplayFilmRatingStars)
+                        {
+                            <div class="rating-stars">
+                                <div>
+                                    <div class="heading">@Movies.RateThisMovie</div>
+                                    <div class="rating-wrapper"></div>
+                                </div>
+                            </div>
+                        }
+                        else if (Model.DisplayFilmRatingComment)
+                        {
+                            @FilmRatingComment()
+                        }
+                    </div>
+                }
+                @if (Model.DisplayTrailerRating && !Model.DisplayFilmRatingStars && !Model.DisplayFilmRatingComment)
+                {
+                   <div class="right">
+                            @FilmTrailerRating()
+                    </div>
+                }
+            </div>
+        </div>
+        @if (Model.DisplayFilmRatingStars && Model.DisplayFilmRatingComment)
+        {
+            <div class="bottom-line">@FilmRatingComment()</div>
+        }
+
+        <div class="login-wrapper" style="display: none;">
+            <div class="form-wrapper">
+                <h2>@Movies.SignInHeader1<em>@Movies.SignInHeader2</em></h2>
+                <p>@Movies.SignInText</p>
+                @{
+                    Html.RenderAction("SignInAsync", "Loyalty");       
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@helper GetFilmIdForLoyalty(ScheduledFilm scheduledFilm)
+{
+    if (Model.LoyaltyItemMatchingScheme == LoyaltyItemCodeMatchingScheme.HOCodes)
+    {
+        @(scheduledFilm == null ? string.Empty : scheduledFilm.FilmHOCode)
+    }
+    else
+    {
+        @(scheduledFilm == null ? string.Empty : scheduledFilm.ScheduledFilmId)
+    }
+}
+
+@section Css
+{
+    @ContentDelivery.CssBundle(CssBundles.MovieDetails)
+    @ContentDelivery.Css("Thirdparty/jquery-ui.css")
+    @ContentDelivery.Css("Trailers/Controls.css")
+}
+@section Scripts
+{
+    <script type="text/javascript">
+        Vista.Urls.Loyalty = {};
+        Vista.Urls.Loyalty.SendFacebookLikeFeedback = '@Html.Raw(Url.Action("SendMovieFacebookLikeFeedback", "Loyalty"))';
+        Vista.Urls.Loyalty.SendTwitterTweetFeedback = '@Html.Raw(Url.Action("SendMovieTwitterTweetFeedback", "Loyalty"))';
+        Vista.Urls.Loyalty.SubmitFilmTrailerRating = '@BrowsingUrls.SubmitFilmTrailerRatingUrl()';
+    </script>
+    
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("jquery-ui-1.8.23.min.js")
+    @ContentDelivery.Script("Vista/Trailers/Trailers.js")
+    @ContentDelivery.Script("Vista/Utilities/StarRating.js")
+    @ContentDelivery.Script("Vista/Loyalty/AjaxifyLoyaltySignup.js")
+    @ContentDelivery.Script("Vista/Loyalty/LoyaltyTrailerRate.js")
+    @ContentDelivery.Script("Movies/MovieDetails.js")
+    @ContentDelivery.Script("Vista/ShowHideDates.js")
+    @ContentDelivery.Script("Vista/SocialMedia/FacebookJavascriptSDK.js")
+    @ContentDelivery.Script("Vista/SocialMedia/TwitterWidgets.js")
+    @ContentDelivery.Script("Vista/Loyalty/MemberMovieFeedback.js")
+}

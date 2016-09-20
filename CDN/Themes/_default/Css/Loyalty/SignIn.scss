@@ -1,0 +1,110 @@
+﻿@import "../_Colours";
+
+.loyalty-login { 
+	overflow: auto; width: 100%;
+
+	h3 { 
+		margin: 10px 7px; 
+		text-transform: uppercase; 
+		
+		em { 
+			display: block; 
+		}
+	}
+
+	li { 
+		line-height: 22px; 
+		margin-top: 5px; 
+		padding: 0 7px 0 9px; 
+		overflow: hidden;  
+	}
+
+	label { 
+		float: left; 
+		overflow: hidden; 
+		width: 60px; 
+		text-align: left; 
+	}
+	
+	.form-field { 
+		padding: 3px; 
+	}
+
+	div { 
+		&.loyalty-login-detail { 
+			padding: 2px 2px 2px 50px; 
+		}
+	}
+
+	.footer { 
+		line-height: 25px;
+		text-align: right;
+
+		a, input {
+			background: none;
+			border: none;
+			margin: 0 7px 0 0;
+			padding: 0;
+		}
+	}
+
+	span { 
+		&.button-separator { 
+			border-left: solid 1px 
+			$color-666666; 
+			padding-right: 7px; 
+		}
+	}
+
+	ul { 
+		&.signin-errors { 
+			color: $color-highlight; 
+		}
+
+		&.signin-errors li { 
+			text-align: left; 
+		}
+	}
+
+	input[type=button] { 
+		cursor: pointer; 
+	}
+
+	.right {
+		display: inline-block;
+	}
+
+}
+
+#sign-in-page {
+    .footer 
+    {
+        a {
+            border:none;
+        }
+
+
+        .footer-section 
+        {
+            margin-top:15px;
+
+            &:first-child 
+            {
+                margin-top:0px;
+            }
+
+            h4 {
+                margin-bottom:8px;
+            }
+            ul 
+            {
+                list-style-type:circle;
+                li {
+                    margin-left:20px;
+                    line-height:16px;
+                }
+            }
+        }
+
+    }
+}

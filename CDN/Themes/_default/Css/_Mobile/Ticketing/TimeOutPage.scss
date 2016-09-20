@@ -1,0 +1,37 @@
+@import "../../_Colours.scss";
+@import "../_FontsMobile.scss";
+
+.content {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.centred-content
+{
+    top:42%;
+    left:20px;
+    right:20px;
+    text-align:center;
+    position:absolute;
+}
+
+h2 {
+
+    font-size: 2.5rem;
+    font-weight:100;
+    color: $color-35a0a8;
+	color: $color-35a0a8;
+    margin-bottom:10px;
+}
+
+p {
+}
+
+#btnTimeoutConfirm {
+	float: none;
+	width: 100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+}

@@ -1,0 +1,105 @@
+﻿@import "../_Colours";
+@import "../_ScreenAttributes";
+@import "../_ItemList";
+@import "../_FilmShowTimes";
+
+.event-detail {
+
+	.banner-wrapper {
+		width: auto;
+		height: 316px;
+		margin: -15px -15px 0 -15px;
+		background-color: #000000;
+		overflow: hidden;
+		z-index: 5;
+		position: relative;
+	}
+
+	.page-header-boxout {
+		.boxout-title {
+			em {
+				color: $color-35a0a8;
+				font-weight: normal;
+			}
+		}
+
+		.description-box {
+			h6 {
+				color: $color-443e3b;
+			}
+
+			p {
+				font-size: 12px;
+				color: $color-666666;
+			}
+		}
+	}
+
+	.attributes-print {
+		@extend %attributes-print;
+
+		margin-right: -7px;
+
+		.attributes-wrapper {
+			.attributes-key { 
+				.attribute {
+					width: 16%;
+				}
+			}
+		}
+	}
+
+	#print-preview {
+		margin-right: 15px;
+		margin-top: 10px;
+	}
+	.page-header-boxout {
+		min-height: 276px;
+
+		.description-box {
+			margin: 15px;
+
+			h2 { 
+				font-size: 40px; 
+				em { display: inline; }
+			}
+		}
+	}
+}
+
+#show-times 
+{
+	margin-top: 80px;
+	&.has-attributes { margin-top: 30px; } 
+
+
+	@extend %show-times;
+
+	.film-list {
+		@extend %film-list;
+
+		.film-item {
+			@extend %film-item;
+
+			margin-left: -15px;
+			padding: 0;
+			border-left: none; 
+
+			.rating-image {
+				margin-top: 10px;
+				margin-left: 10px;
+  			}
+
+			.film-showtimes {
+				@extend %film-showtimes;
+				margin-left: 150px;
+				padding: 10px;
+			}
+
+			button.user-action.toggle-future-dates {
+				margin-right: 15px;
+			}
+		}
+	}
+}
+

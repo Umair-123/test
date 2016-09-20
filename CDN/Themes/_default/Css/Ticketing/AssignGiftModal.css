@@ -1,0 +1,96 @@
+#assign-gift-modal {
+  background: white;
+  display: none;
+  position: relative;
+  width: 730px;
+}
+#assign-gift-modal.assign-modal-edit {
+  width: 350px;
+}
+#assign-gift-modal.assign-modal-edit .assign-gift-quantity-line,
+#assign-gift-modal.assign-modal-edit .assign-gift-recipients {
+  display: none;
+}
+#assign-gift-modal.assign-modal-edit .gift-name {
+  display: inline-block;
+  width: 80%;
+}
+#assign-gift-modal .assign-gift-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+#assign-gift-modal .form-line {
+  width: 350px;
+}
+#assign-gift-modal .form-line label, #assign-gift-modal .form-line .assign-gift-label {
+  display: inline-block;
+  line-height: 25px;
+  vertical-align: top;
+  width: 130px;
+}
+#assign-gift-modal .form-line .assign-gift-value {
+  display: inline-block;
+  line-height: 25px;
+}
+#assign-gift-modal .form-line input {
+  margin-left: 0;
+  margin-right: 0;
+  width: 201px;
+}
+#assign-gift-modal .form-line .plus-minus-numeric, #assign-gift-modal .form-line .assign-gift-value {
+  width: 205px;
+}
+#assign-gift-modal .form-line .plus-minus-numeric {
+  display: inline-block;
+  height: auto;
+  line-height: 25px;
+}
+#assign-gift-modal .form-line .field-validation-error,
+#assign-gift-modal .form-line .field-validation-valid {
+  height: 25px;
+  position: absolute;
+}
+#assign-gift-modal .form-line .quantity {
+  float: none;
+  width: 34px;
+}
+#assign-gift-modal textarea {
+  box-sizing: border-box;
+  display: block;
+  height: 66px;
+  margin: 0;
+  resize: none;
+  width: 335px;
+}
+#assign-gift-modal .assign-gift-wrapper {
+  position: relative;
+}
+#assign-gift-modal .assign-gift-recipients {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 350px;
+}
+#assign-gift-modal .assign-gift-recipients ul {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  top: 30px;
+}
+#assign-gift-modal .assign-gift-recipients .checkbox-list {
+  width: auto;
+}
+#assign-gift-modal .assign-gift-recipients .recipient-name,
+#assign-gift-modal .assign-gift-recipients .recipient-email {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 50%;
+}
+#assign-gift-modal .button-list-single {
+  margin-right: 0;
+  margin-top: 20px;
+}

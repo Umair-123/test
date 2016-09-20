@@ -1,0 +1,52 @@
+﻿@import "_Colours";
+@import "_Icons";
+
+.attributes-wrapper {
+     text-align: center; 
+}
+
+
+.attributes-key {
+    border: 1px solid $color-666666;
+    display: inline-block;
+    padding-bottom: 10px;
+    
+    .attributes-list {
+        padding: 0px 5px;
+
+        .key {
+            padding-top: 10px;
+            font-weight: bold;
+            float: left;
+            width: 30px;
+        }
+
+        .attribute { 
+            margin: 10px 20px 0px 20px;
+            float: left;
+        }
+
+        .dynamically-priced-ticket-key {
+            .highlight {
+                background-color:$color-dynamic-pricing-session-background;
+                display:inline-block;
+                height:19px;                
+                padding-left:3px;
+                padding-right:3px;
+
+                .dynamically-priced-ticket-key-icon {
+                    @include icon("DynamicallyPricedTickets","../");  
+                    background-size:contain; 
+                    height: 16px;
+                    display: inline-block;
+                    margin-top: 2px;
+                }
+            }
+        }
+    }
+} 
+ 
+
+/*.attributes-key .attributes-list .attribute.GoldClass {
+    color: #ffa500;
+}*/

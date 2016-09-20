@@ -1,0 +1,33 @@
+@mixin icon($icon-name,$relative-path) {
+    background-image:url($relative-path + "images/Icon_" + $icon-name + ".png");
+}
+
+%icon {
+    display: inline-block;
+    background: no-repeat center transparent; 
+}
+
+%icon-small {
+    height: 14px;
+    width: 14px;
+}
+
+%icon-clear {
+    background-image: url('../Images/Icon_Clear.png');
+}
+
+%icon-clear-hover {
+    background-image: url('../Images/QuickTickets/Icon_Clear_Hover.png');
+}
+
+%icon-clear-light {
+    background-image: url('../Images/Icon_Clear_Light.png');
+}
+
+%icon-close {
+    background-image: url('../Images/Icon_Close.png');
+}
+
+%icon-close-hover {
+    background-image: url('../Images/Icon_Close_Hover.png');
+}

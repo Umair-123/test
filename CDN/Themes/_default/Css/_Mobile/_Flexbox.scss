@@ -1,0 +1,60 @@
+
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+@mixin display-box {
+    display: -webkit-box;
+    display: -webkit-flexbox;
+    display: -webkit-flex;    
+    display: flex;
+    display: -ms-flexbox;
+}
+
+@mixin box-flex($flex) {
+    -webkit-box-flex: $flex;
+    -webkit-flex: $flex;
+    flex: $flex;
+    -ms-flex: $flex;
+}
+
+@mixin box-flex-legacy($flex) {
+    :not(.flexbox).flexboxlegacy & {
+        -webkit-box-flex: $flex;
+    }
+}
+
+@mixin box-direction($direction) {
+
+    @if ($direction == column) {
+        -webkit-box-orient: vertical;
+    }
+    @if ($direction == row) {
+        -webkit-box-orient: horizontal;
+    }
+    -webkit-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+@mixin flex-order($value)	{
+	-webkit-box-ordinal-group: $value;
+	-moz-box-ordinal-group: $value;      
+	-ms-flex-order: $value;              
+	-webkit-order: $value;      
+	order: $value;
+}
+
+@mixin flex-justify-content($position: center) {
+	-ms-flex-pack: justify;			//IE
+	justify-content: $position;
+	-webkit-box-pack: $position;		//Old Safari and iOS
+	-webkit-justify-content: $position; //New Safari and iOS
+	-moz-box-pack: $position;			//Old Firefox
+}
+
+@mixin flex-align-vertical($position: center) {
+	align-items: $position;
+	-ms-flex-align: $position;
+	-webkit-box-align: $position;
+	-moz-box-align: $position;
+	-webkit-align-items: $position;
+}

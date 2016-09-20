@@ -1,0 +1,18 @@
+﻿@import "../_Colours.scss";
+@import "../_Fonts.scss";
+@import "_FontsMobile.scss";
+
+%button {
+    border: none;
+	height: 45px;
+	background-color: $color-35a0a8;
+	color: #fff;
+	font-family: inherit;
+	padding: 0 1rem;
+	font-size: $font-size-big;
+	-moz-border-radius: 5px;
+    line-height:45px;
+    height:45px;
+    vertical-align:middle;
+    font-weight:normal;
+}

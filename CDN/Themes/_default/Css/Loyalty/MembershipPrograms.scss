@@ -1,0 +1,85 @@
+﻿@import "../_Colours";
+
+#loyalty-membership-programs-sidebar { float: right; width: 260px; height: 395px;}
+#loyalty-membership-programs { float: left; width: 719px; }
+.loyalty-membership-program-club { height: 247px; margin-bottom: 30px; }
+.loyalty-membership-program-club .media-gallery { height: 100%; width:469px; margin-right: 15px; }
+.loyalty-membership-program-club .description-box { height: 100%; padding: 15px; }
+.loyalty-membership-program-club .description-box p { margin-top: 15px; }
+
+.loyalty-membership-programs-wrapper .tab {
+	border: 1px solid $color-93908f;
+	padding: 0px 15px 15px 15px;
+	overflow: hidden;
+}
+
+.loyalty-membership-programs-wrapper {
+
+	.ui-tabs-hide {
+		display: none;
+	}
+
+	.tab {
+		
+		.list-item {
+			height: 165px;
+		}
+
+		.item-details {
+			padding-left: 95px;
+		}
+		
+		.item-details-inner {
+
+			height: 70%;
+
+			.program-description {
+				// allow the program description to be pre-formatted (have new lines etc.)
+				white-space: pre;
+			}
+		}
+		
+		.main-action {
+			h3 {
+				padding-bottom: 5px;
+				text-align: right;
+			}
+
+			.proceed-link {
+				float: right;
+			}
+		}
+	}
+}
+
+.membership-program-tabs { text-align: center; }
+.membership-program-tabs li { float: left; width: 90px; height: 30px; }
+.membership-program-tabs li a { text-decoration: none; border-bottom: none; }
+.membership-program-tabs .ui-tabs-selected a { font-weight: bold; color: $color-selected; }
+.membership-program-tabs .ui-tabs-selected { position: relative; border-bottom: $color-selected solid 3px; }
+/* selected arrow shape */
+.membership-program-tabs .ui-tabs-selected:after { content: ' '; border-color: $color-transparent $color-transparent $color-selected $color-transparent;
+                                      border-color: $color-transparentrgba $color-transparentrgba $color-selected $color-transparentrgba; /* firefox transparency fix */
+                                      border-style: solid; border-width: 1px 5px 5px 5px; position: absolute;
+                                      right: 40px; top: 50%; margin-top: 9px; }
+
+
+.loyalty-membership-program-club {                                      
+    .description-box {
+        height:247px;
+        padding:0px;            
+        .box-content {
+            margin: 5px 10px;
+        }
+    }
+}
+
+.loyalty-membership-programs-wrapper {
+    .tab {
+        .list-item {
+            &:last-child {
+                border-bottom:none;
+            }
+        }
+    }
+}

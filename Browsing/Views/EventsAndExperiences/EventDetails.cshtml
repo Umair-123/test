@@ -1,0 +1,104 @@
+﻿@using System.Drawing
+@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Browsing.ViewModels
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using System.Collections
+@using InternetTicketing.Infrastructure.Html
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Connect.Localisation
+@using Vista.Web
+
+@model InternetTicketing.Browsing.ViewModels.EventsDetailViewModel
+@{
+    var cinemas = Model.CurrentEvent.LinkedCinemas.Where(c => c.ScheduledFilms.Any()).ToArray();
+    var anySessions = cinemas.Any(c => c.ScheduledFilms.Any(f => (f.FirstDaysSessions != null && f.FirstDaysSessions.Any()) || f.Sessions.Any()));     
+    var attributeClass = Model.AttributesViewModel.AllAttributes.Any() ? "has-attributes" : "";        
+}
+
+<div class="event-detail">
+    
+    <div class="media-gallery">
+        <div class="banner-wrapper">
+            @Html.Partial("SmartImage", new SmartImageViewModel(ContentDelivery.EntityImage(CdnMediaType.EventGallery, Model.CurrentEvent.ID, new Size {Width = 1024, Height = 316}), "page-header-banner")
+            {
+                PreLoad = true
+            })
+        </div>
+    </div>
+    
+    <div class="page-header-boxout">
+        <div class="description-box">
+            
+            <h3 class="boxout-title"><em>@Shared.CompanyName</em> @Model.GetPropertyInCorrectLang(m => Model.CurrentEvent.Name, m => Model.CurrentEvent.NameAlt)</h3>
+            
+            <p class="subtext">@Model.GetPropertyInCorrectLang(m => Model.CurrentEvent.Description, m => Model.CurrentEvent.DescriptionAlt)</p>
+        </div>
+    </div>
+
+    <article id="show-times" class="@attributeClass">
+        @if (anySessions) 
+        {
+            <div class="attributes-print">
+                @Html.Partial("AttributesKey", Model.AttributesViewModel)			
+            </div>
+        }
+        <h2><em>@Shared.ShowTimes</em></h2>
+		
+        @if (cinemas.Any())
+        {
+            for (int i = 0; i < cinemas.Length; i++)
+            {
+                var cinema = cinemas[i];
+                var lastClass = i == cinemas.Length - 1 ? "last-cinema" : "";
+
+                <div class="cinema @lastClass">
+                    <a class="cinema-title" href="@BrowsingUrls.GetCinemasDetailsUrl(cinema.ID)">
+                        <h3>@Model.GetPropertyInCorrectLang(m => cinema.Name, m => cinema.NameAlt)</h3>
+                    </a>
+                    @Html.Partial("CinemaSessions", cinema, new ViewDataDictionary { {"ShowExpansion", true}, {"IsAltLang", Model.IsAltLang}, {"FormatTime", ViewBag.FormatTime}, {"FormattingService", Model.FormattingService}, {"BusinessDayService", Model.BusinessDayService } })
+                </div>
+            }
+        }
+        else {
+            <p>@Movies.NoSessionsShowing</p>
+        }
+      
+    </article>
+</div>
+@if(Model.DisplayTrailerRating)
+{
+    @Html.Partial("../Loyalty/_TrailerRate")
+}
+@Html.Partial("TrailerPlayer", Model.CurrentUser)
+
+
+
+@section Css {
+	@ContentDelivery.CssBundle(CssBundles.EventsAndExperiencesPages)
+    @ContentDelivery.Css("Thirdparty/jquery-ui.css")
+    @ContentDelivery.Css("Trailers/Controls.css")
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        Vista.Localisation = {};
+        Vista.Localisation.CloseTrailer = @Html.Raw(Movies.CloseTrailer.ToJson());
+        Vista.Localisation.RateTrailer = @Html.Raw(Movies.RateTrailer.ToJson());
+        Vista.Localisation.YouLikedTheTrailer = @Html.Raw(Movies.YouLikedTheTrailer.ToJson());
+        Vista.Localisation.YouDislikedTheTrailer = @Html.Raw(Movies.YouDislikedTheTrailer.ToJson());
+        Vista.Urls.Loyalty = {};
+        Vista.Urls.Loyalty.SubmitFilmTrailerRating = '@BrowsingUrls.SubmitFilmTrailerRatingUrl()';
+        Vista.Lang.Shared.Close = @Html.Raw(Shared.Close.ToJson());
+    </script>
+
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Trailers/Trailers.js")
+    @ContentDelivery.Script("Vista/Loyalty/AjaxifyLoyaltySignup.js")
+    @ContentDelivery.Script("Vista/Loyalty/LoyaltyTrailerRate.js")
+    @ContentDelivery.Script("EventsAndExperiences/EventDetails.js")	
+    @ContentDelivery.Script("Vista/ShowHideDates.js")
+}

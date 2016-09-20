@@ -1,0 +1,243 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* LINK/ANCHOR TAG STYLES */
+.description-box .cinema-more-info-link, .contact-info .contact-email-link {
+  text-decoration: none;
+}
+
+/* HORIZONTAL AND VERTICAL RULES */
+/* 
+8px = 0.5rem
+9px = 0.5625rem
+10px = 0.625rem
+11px = 0.6875rem
+12px = 0.75rem
+13px = 0.8125rem
+14px = 0.875rem
+15px = 0.9375rem
+16px = 1rem (base)  - is default font size for most browsers
+18px = 1.125rem
+20px = 1.25rem
+22px = 1.375rem
+24px = 1.5rem
+26px = 1.625rem
+28px = 1.75rem
+30px = 1.875rem
+32px = 2rem
+34px = 2.125rem
+36px = 2.25rem
+38px = 2.375rem
+40px = 2.5rem
+*/
+/* IMAGE HELPERS */
+/* ICONS */
+.other-information .tab-header .icon-car {
+  background-image: url("../../../Images/Mobile/Icons/Icons_Car.png");
+  height: 30px;
+  width: 30px;
+}
+
+.other-information .tab-header .icon-bus {
+  background-image: url("../../../Images/Mobile/Icons/Icons_Bus.png");
+  height: 30px;
+  width: 30px;
+}
+
+.other-information .tab-header .icon-map {
+  background-image: url("../../../Images/Mobile/Icons/Icons_Map.png");
+  height: 30px;
+  width: 30px;
+}
+
+h1, h2 {
+  color: #443e3b;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 1rem;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+h1 em, h2 em {
+  color: #35a0a8;
+  display: block;
+  font-size: 1rem;
+  margin-top: -0.3rem;
+}
+
+.cinema-name-header {
+  margin-bottom: 0.25rem;
+}
+
+.nav-menu .nav-menu-item.selected:before {
+  border-color: transparent transparent #eaeaea transparent;
+}
+
+.description-box {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  color: #666666;
+  margin-bottom: 0.6rem;
+  padding: 2%;
+}
+.description-box .cinema-list-image {
+  -webkit-box-flex: 0 0 120px;
+  -webkit-flex: 0 0 120px;
+  flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+}
+:not(.flexbox).flexboxlegacy .description-box .cinema-list-image {
+  -webkit-box-flex: 0;
+}
+.description-box .cinema-details {
+  -webkit-box-flex: 1 1 auto;
+  -webkit-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  margin-left: 0.6rem;
+  overflow-x: hidden;
+}
+:not(.flexbox).flexboxlegacy .description-box .cinema-details {
+  -webkit-box-flex: 1;
+}
+.description-box .cinema-details span {
+  display: inline-block;
+  word-break: break-all;
+}
+.description-box .cinema-details span:after {
+  content: ',';
+}
+.description-box .cinema-details span:last-child:after {
+  content: '';
+}
+.description-box .cinema-more-info-link {
+  color: #666666;
+  display: block;
+}
+
+.cinema-description {
+  color: #93908f;
+  white-space: pre-wrap;
+  padding: 0.6rem 2%;
+}
+
+.contact-info {
+  padding: 0 2%;
+  margin-bottom: 1rem;
+  color: #666666;
+}
+.contact-info p {
+  display: inline-block;
+}
+.contact-info p:first-child {
+  width: 50%;
+}
+.contact-info .contact-email-link {
+  color: #666666;
+}
+
+.horizontal-separator {
+  border-top: 1px solid #93908f;
+  margin-bottom: 0.6rem;
+}
+
+.about-cinema-title {
+  color: #93908f;
+  padding: 0 2%;
+}
+
+.cinema-location {
+  margin-bottom: 0.6rem;
+}
+.cinema-location .google-map {
+  width: 100%;
+  height: 80vw;
+  overflow: scroll;
+}
+.cinema-location .address {
+  font-size: 0.8rem;
+}
+
+.other-information {
+  line-height: 3.5rem;
+}
+.other-information h6 {
+  padding-left: 0.8rem;
+}
+.other-information .tab-header {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  color: #443e3b;
+  font-size: 1rem;
+  border-top: solid 1px #bfbfbf;
+  outline: 0;
+}
+.other-information .tab-header .icon {
+  margin-top: 12px;
+  background-repeat: no-repeat;
+}
+.other-information .tab-header .icon-car {
+  line-height: 56px;
+}
+.other-information .tab-header .icon-bus {
+  line-height: 56px;
+}
+.other-information .tab-header .icon-map {
+  line-height: 56px;
+}
+.other-information .content {
+  color: #666666;
+  font-size: 0.875rem;
+  display: block;
+  padding: 1rem;
+  line-height: 3.5rem;
+}
+.other-information .info-tab:last-child {
+  border-width: 1px 0 1px 0;
+}
+.other-information .cinema-location .content {
+  padding: 0;
+}
+.other-information .expanded .content {
+  display: block;
+  color: #666666;
+}

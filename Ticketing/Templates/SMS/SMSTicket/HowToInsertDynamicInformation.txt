@@ -1,0 +1,22 @@
+You can use the following tags
+
+It is important to consider the length of the message as there is limited space available on an SMS message and may come as an additional cost to your customers. 
+
+A MAXIMUM of 108 standard characters or 48 unicode characters (NOT 160 as is the standard limit) may be used before the limit is hit and the message is split into 2 SMS messages charged to the customer.
+
+key			will insert
+-----------------       -------------------
+<BOOKINGNUMBER>		booking number attached to the order
+<NUM_TICKETS>		number of tickets in the order
+<NUM_TICKETS_FULL>	tickets in order incl total contained in package tickets
+<MOVIE_NAME>		full name of the movie
+<MOVIE_NAME_SHORT>	short form of movie name
+<CIN_NAME>		full name of the cinema
+<CIN_NAME_SHORT>	short form of cinema name
+<DAY>			day of the month for the session
+<DAY_NAME>		day name for the session
+<MONTH_NAME>		month name for the session
+<TIME_AMPM>		time of session in 12 hr format
+<TIME_24HR>		time of session in 24 hr format
+<SCREEN_NAME>		name of the screen (this is not language enabled)
+<TICKET_SET>		list of seat info in the order of the format "[A1 A2]". Unallocated sessions denoted by "[-]"

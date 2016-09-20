@@ -1,0 +1,41 @@
+@import "../../_Colours.scss";
+@import "../_Flexbox.scss";
+@import "../_Links.scss";
+@import "../_Headings.scss";
+
+h2 {
+	margin-bottom: 1.5rem;
+
+	@extend %page-heading-first-line;
+
+	em {
+		@extend %page-heading-second-line;
+	}	
+}
+
+
+.content {
+	padding: 0.8rem;
+}
+
+li {
+	//@include display-box;
+	//@include box-direction(row);
+	line-height: 2rem;
+	
+	input, select   {
+		float: right;
+	}
+}
+
+button {
+	width: 50%;
+	line-height: 3rem;
+	margin-top: 1.5rem;
+	border: none;
+	background-color: $color-35a0a8;
+	color: $color-ffffff;
+
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+}

@@ -1,0 +1,76 @@
+#address-modal-dialog {
+  background: #ffffff;
+  display: none;
+  padding: 10px;
+  width: 550px;
+}
+
+#address-modal-dialog .address-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#address-modal-dialog .address-modal-close .icon {
+  background-image: url("../Images/QuickTickets/Icon_Close.png");
+  background-position: right center;
+  background-repeat: no-repeat;
+  padding: 0 10px 0 0;
+}
+
+#address-modal-dialog .search-fields {
+  float: left;
+  margin-bottom: 10px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+#address-modal-dialog .search-fields button {
+  background: url("../Images/Reload.png") no-repeat left center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#address-modal-dialog label {
+  display: inline-block;
+  width: 85px;
+}
+
+#address-modal-dialog input {
+  padding: 0 2px;
+  width: 275px;
+}
+
+#address-modal-dialog .post-code {
+  width: 80px;
+}
+
+#address-modal-dialog .container-loading {
+  background: url("../Images/Icon_Loading_Light.gif") no-repeat center center;
+}
+
+#address-modal-dialog .search-results {
+  border: 1px solid #666666;
+  clear: both;
+  height: 180px;
+  overflow: auto;
+}
+
+#address-modal-dialog .search-results li {
+  cursor: pointer;
+  line-height: 30px;
+  height: 30px;
+  overflow: hidden;
+  padding-left: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#address-modal-dialog .search-results .no-result {
+  cursor: default;
+}
+
+#address-modal-dialog .search-results .alt {
+  background: #eaeaea;
+}

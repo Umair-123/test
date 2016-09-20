@@ -1,0 +1,32 @@
+%attributes-print {
+	margin: -22px 430px 14px -7px;
+
+	.attributes-wrapper {
+		text-align: left;
+		.attributes-key { 
+			border: 1px solid #B4B4B4;
+			display: block;
+			min-height: 59px;
+			padding: 0;
+			.key { display: none; }
+			.attribute { 
+				float: none;
+				display: inline-block;
+				width: 24%;
+				line-height: 16px;
+				margin: 5px 0;
+				font-size: 13px;
+				white-space: nowrap;
+				overflow: hidden;
+
+				img {
+					vertical-align: middle;
+					height: 16px;
+				}
+				span {
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+}

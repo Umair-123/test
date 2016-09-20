@@ -1,0 +1,70 @@
+﻿@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@using LoyaltySignUpText = InternetTicketing.Infrastructure.Localisation.LoyaltySignUp
+@model InternetTicketing.Browsing.ViewModels.Loyalty.ResendActivationEmailViewModel
+
+@section Css {
+    @ContentDelivery.Css("Forms.css")
+    @ContentDelivery.Css("Validation.css")
+    @ContentDelivery.Css("Loyalty/AuthenticationForm.css")
+    @ContentDelivery.Css("Loyalty/ForgotDetails.css")    
+}
+
+@section Scripts {
+    @ContentDelivery.ScriptBundle(JsBundles.Validation)
+    @ContentDelivery.Script("Vista/Loyalty/ForgotPassword.js")
+}
+
+<div id="resend-activation-email" class="loyalty-authentication-form-page">
+<h2>
+    @LoyaltySignUpText.ResendActivationEmailPageTitle
+    @if (!String.IsNullOrWhiteSpace(LoyaltySignUpText.ResendActivationEmailPageSubtitle))
+    {
+        <em>@LoyaltySignUpText.ResendActivationEmailPageSubtitle</em>
+    }
+</h2>
+@if (!String.IsNullOrWhiteSpace(Model.SuccessMessage))
+{
+    <p class="blurb">
+        @Model.SuccessMessage
+    </p>
+    <div class="button-container">
+        <a  href="@BrowsingUrls.GetHomeUrl()" class="page-action submit">
+            <span>@LoyaltyForgotDetails.BackToSignInButton</span>
+        </a>
+    </div>    
+}
+else
+{
+    if (!String.IsNullOrWhiteSpace(LoyaltySignUpText.ResendActivationEmailPageBlurbSignIn))
+        {
+            <p class="blurb">
+                @LoyaltySignUpText.ResendActivationEmailPageBlurbSignIn
+            </p>
+        }     
+    <div class="form-error">@Html.ValidationSummary(true)</div>
+    using (Html.BeginForm("ResendActivationEmail", "Loyalty", FormMethod.Post, new { @class = "resend-activation-email-form loyalty-authentication-form" }))
+    {
+        if (Model.IsUsernameVisible)
+        {
+            <div class="form-line ">
+                @Html.LabelFor(m => m.Username)@*
+                *@@Html.TextBoxFor(m => m.Username, new {@class = "username form-field"})@*
+                *@@Html.ValidationMessageFor(m => m.Username, String.Empty, new {@class = "icon icon-small"})
+            </div>
+        }
+        <div class="form-line ">
+            @Html.LabelFor(m => m.EmailAddress,null,null, "*")@*
+            *@@Html.TextBoxFor(m => m.EmailAddress, new {@class = "email form-field"})@*
+            *@@Html.ValidationMessageFor(m => m.EmailAddress, String.Empty, new {@class = "icon icon-small"})
+        </div>
+        <div class="button-container">
+            <button type="submit" class="page-action submit">
+                <span>@LoyaltySignUpText.ResendActivationEmailPageSubmitButton</span>
+            </button>
+        </div>
+}
+}
+</div>           

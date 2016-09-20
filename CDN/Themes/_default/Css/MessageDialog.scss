@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    MESSAGE DIALOGS
+\*------------------------------------*/
+
+.message-dialog {
+
+    .message-dialog-header {
+        margin-bottom: 15px;
+    }
+
+    .large-message-dialog-header {
+        margin-bottom: 20px;
+    }
+
+    .message-dialog-message-text {
+        line-height: 1.5; // this should be on the p tag in Site.scss
+    }
+
+    .button-list-single {
+        margin: 20px 0 5px 0;
+        text-align: center;
+    }
+}

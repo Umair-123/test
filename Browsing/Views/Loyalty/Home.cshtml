@@ -1,0 +1,302 @@
+﻿@using System.Drawing
+@using System.Globalization
+@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Browsing.ViewModels
+@using InternetTicketing.Browsing.ViewModels.Loyalty
+@using InternetTicketing.Domain
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using Vista.Cdn.Client
+@using Vista.Connect.Loyalty
+
+@model HomeViewModel
+
+@{
+    bool hasUpcomingBookings = Model.UpcomingBookings.Any();
+    bool hasMessages = Model.LoyaltyMessages.Any();
+
+    string containerClasses = "";
+
+    if (hasUpcomingBookings)
+    {
+        containerClasses += "has-upcoming-bookings";
+    }
+
+    if (hasMessages)
+    {
+        containerClasses += " has-messages";
+    }
+    else
+    {
+        containerClasses += " no-messages";
+    }
+
+
+    var headerBannerImage = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.LoyaltyClubHomeBanner, @Model.MemberClubId, EntityReferenceScheme.Global, new Size(1150, 0));
+    var headerBannerBlurb = @LoyaltyHome.BannerBlurbForClub(Model.MemberClubId);
+    var pointsExpiryMessageRequired = Model.BalanceTypes.Sum(bt => bt.PointsRemaining) > 0 && Model.PointsValidityPeriod > 0;
+}
+
+<div class="loyalty-home @containerClasses">
+    @Html.Partial("SmartImage", new SmartImageViewModel(headerBannerImage, "page-header-banner"))
+    <div class="page-header-boxout">
+        <h3 class="boxout-title">
+            @if (Model.IsNewMember)
+            {
+                <text>@LoyaltyHome.BannerWelcomeNewMember @Model.MemberFirstName!</text>
+            }
+            else
+            {
+                <text>@LoyaltyHome.BannerWelcome @Model.MemberFirstName!</text>
+            }
+        </h3>
+        @if (!String.IsNullOrWhiteSpace(headerBannerBlurb))
+        {
+            <p class="boxout-blurb">
+                @LoyaltyHome.BannerBlurbForClub(Model.MemberClubId)
+            </p>
+        }
+       
+            @foreach (var balanceType in Model.BalanceTypes)
+            {
+                var expiryPoints = Model.ExpiryPoints.FirstOrDefault(expiry => expiry.BalanceTypeId.ToString(CultureInfo.InvariantCulture) == balanceType.BalanceTypeID);
+                <div class="boxout-line">
+                    <div class="boxout-line-item left">
+                        <label>@Vista.Web.Language.LocalisationExtensions.GetPropertyInCorrectLang(balanceType, Model.IsAltLang, bt => bt.Name, bt => bt.NameAlt) @LoyaltyHome.BannerPointsEarned</label>
+                        <span>@Model.FormattingService.FormatLtyPoints(Convert.ToDecimal(balanceType.PointsRemaining))</span>
+                    </div>
+                    
+
+                    @if (expiryPoints != null && expiryPoints.ExpireOn.Month == DateTime.UtcNow.Month 
+                        && expiryPoints.ExpireOn.Year == DateTime.UtcNow.Year 
+                        && expiryPoints.ExpireOn >= DateTime.UtcNow)
+                    {
+                        <div class="boxout-line-item right">(@LoyaltyHome.BannerExpiringThisMonth @expiryPoints.PointsExpiring)</div>
+                    }
+                    
+                </div>
+            }
+                
+        @if (!String.IsNullOrWhiteSpace(Model.MemberLevelName))
+        {
+            <div class="boxout-line">
+
+                <div class="boxout-line-item left">
+                    <label>@LoyaltyHome.BannerTier</label>
+                    <span>@Model.MemberLevelName</span>
+                </div>
+            </div>
+        }
+        @if (!String.IsNullOrWhiteSpace(Model.MembershipExpiryDate))
+        {
+            <div class="boxout-line">
+                <div class="boxout-line-item">
+                    <label>@LoyaltyHome.BannerExpiryDate</label>
+                    <span> @Model.MembershipExpiryDate</span>
+                </div>
+            </div>
+        }
+        @if (Model.GiftCardBalance != null)
+        {
+            <div class="boxout-line">
+                <div class="boxout-line-item">
+                    <label>@LoyaltyHome.BannerGiftCardBalance</label> 
+                    <span>@Model.GiftCardBalance.Value.ToString("c")</span>
+                </div>
+            </div>
+        }
+        @if (pointsExpiryMessageRequired)
+        {
+            <div class="boxout-line">
+                <div class="boxout-line-item">
+                    <span class="points-expiry-message">*@LoyaltyHome.BannerPointsExpiry @string.Format(@Shared.Months, Model.PointsValidityPeriod)</span>
+                </div>
+            </div>
+        }
+        
+@if (Model.LoyaltyMessages.Any())
+{
+    <div class="messages">
+        <span class="message-count">@Model.LoyaltyMessages.Count()</span>
+        <div class="message-positioner">            
+            <span class="message-message">@Html.ActionLink(@LoyaltyHome.MessagesTitle, "Messages", "Loyalty")</span>            
+        </div>
+    </div>        
+}
+
+        @if (Model.MemberCanRenewMembership)
+        {
+            <div class="renew-membership-section">
+                <a href="@Url.Action("RenewMembership")" class="renew-membership-button user-action">@LoyaltyHome.RenewMembership</a>
+            </div>
+        }
+
+        @if (Model.ShopLoyaltyRewardShopLink)
+        {
+            <a class="manual-recognition-shop-link page-action button" href="@TicketingUrls.GetLoyaltyRewardShopUrl()"><span>@LoyaltyRewardShop.SpendYourPointsLink</span></a>
+        }
+    </div>
+
+    <div class="upcoming-bookings-rewards">
+        <div class="upcoming-bookings">
+            <h2 class="upcoming-bookings-title">@LoyaltyHome.UpcomingBookingsTitle1 <em>@LoyaltyHome.UpcomingBookingsTitle2</em></h2>
+            <div>
+                @foreach (var upcomingBooking in Model.UpcomingBookings)
+                {
+                    if (upcomingBooking.ScheduledFilm == null)
+                    {
+                        continue;
+                    }
+                    var filmRouteId = MovieIdHelper.GetRouteId(upcomingBooking.ScheduledFilm);
+                    CdnImageIdentifier filmIdentifier = CdnImageIdentifier.GetForScheduledFilm(upcomingBooking.ScheduledFilm);
+                    var posterUrl = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.FilmPosterGraphic, filmIdentifier.Identifier, filmIdentifier.ReferenceScheme, new Size(121, 180));
+
+                    <div class="booking-detail-wrapper">
+                        @Html.Partial("SmartImage", new SmartImageViewModel(posterUrl,"film-poster"))
+                        <div class="booking-detail">
+                            @if (!String.IsNullOrWhiteSpace(upcomingBooking.ScheduledFilm.Rating))
+                            {
+                                var ratingImageUrl = @ContentDelivery.GetEntityImageUrlOrDefault(CdnMediaType.RatingIconGraphic, upcomingBooking.ScheduledFilm.Rating, EntityReferenceScheme.Global, new Size(24, 24));
+                                <div class="censor-rating">
+                                    <img class="icon" src="@ratingImageUrl" />
+                                </div>
+                            }
+                            <div class="film-details">
+                                <span class="film-title">@upcomingBooking.AssociatedTransaction.MovieName</span>
+                                <span class="session-time">@upcomingBooking.AssociatedTransaction.SessionTimeFormatted</span>
+                                <span class="cinema-name">@upcomingBooking.AssociatedTransaction.CinemaName</span>
+                            </div>
+                            <div class="booking-detail-links">
+                                <div class="main-action">
+                                    <a href="@BrowsingUrls.GetMovieDetailsUrl(filmRouteId)">@LoyaltyHome.UpcomingBookingsDetailLink</a>
+                                    <img class="arrow" src="@ContentDelivery.Image("Arrow_Right.png")" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                }
+            </div>
+
+            @if (!Model.UpcomingBookings.Any())
+            {
+                <div>
+                    <div class="no-upcoming-bookings">@LoyaltyHome.NoUpcomingBookings</div>
+                    <a href="@BrowsingUrls.GetNowShowingUrl()">@LoyaltyHome.BookNow</a>
+                </div>
+            }
+
+            <div class="clear"></div>
+        </div>
+
+        <div class="rewards">            
+            @{
+                var rewards = Model.MemberRewards;              
+            }
+            @if (rewards.Any())
+            {
+                <h2 class="recent-history-title">Your <em>Rewards</em></h2>                
+                <div class="rewards-list">
+                    @foreach (var reward in rewards)
+                    {
+                        <div class="reward-wrapper">
+                            <div class="reward-icon"><span class="icon icon-small icon-star-blue"></span></div>
+                            <div class="reward-text">@reward.Description</div>
+                            <div class="clear"></div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="recent-history-wrapper">
+        <h2 class="recent-history-title">@LoyaltyHome.RecentHistoryTitle1 <em>@LoyaltyHome.RecentHistoryTitle2</em></h2>
+        @{
+            int rowCount = 0;
+        }
+        <table class="transaction-grid">
+            <tr class="recent-history-header">
+                <th class="recent-history-cell-date">@LoyaltyHome.RecentHistoryHeaderDate</th>
+                <th class="recent-history-cell-cinema">@LoyaltyHome.RecentHistoryHeaderCinema</th>
+                <th class="recent-history-cell-movie">Purchase</th>                
+                <th class="recent-history-cell-points-used">@LoyaltyHome.RecentHistoryHeaderPointsUsed</th>
+                <th class="recent-history-cell-points-earned">@LoyaltyHome.RecentHistoryHeaderPointsEarned</th>
+                <th class="recent-history-cell-spend">@LoyaltyHome.RecentHistoryHeaderSpend</th>
+                @if (Model.DisplayRatingColumn)
+                {
+                    <th class="recent-history-cell-ratings">@LoyaltyHome.RecentHistoryHeaderYourRating</th>
+                }
+                    
+                    
+            </tr>
+            @foreach (var transaction in Model.MemberTransactions)
+            {
+                <tr class="@(rowCount % 2 == 0 ? "recent-history-row" : "recent-history-row-alt")">
+                    <td class="recent-history-cell-date"><span title="@transaction.DebugId">@transaction.TransactionDateFormatted</span></td>
+                    <td class="recent-history-cell-cinema">@transaction.CinemaName</td>
+                    <td class="recent-history-cell-purchase">
+
+                        @if (transaction.GiftShopPurchase != null)
+                        {
+                            @GiftShopPurchase(transaction.GiftShopPurchase)
+                        }
+                        else
+                        {
+                            <div class="box-office-purchase-cell">
+                                <ul>
+                                    @foreach (var lineItem in transaction.DisplayLineItems)
+                                    {
+                                        if (!String.IsNullOrWhiteSpace(lineItem))
+                                        {
+                                            <li>@lineItem</li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        }
+                    </td>
+                    <td class="recent-history-cell-points-used">@Model.FormattingService.FormatLtyPoints(Convert.ToDecimal(transaction.PointsRedeemed))</td>
+                    <td class="recent-history-cell-points-earned">@Model.FormattingService.FormatLtyPoints(Convert.ToDecimal(transaction.PointsEarned))</td>
+                    <td class="recent-history-cell-spend">@transaction.TotalSpendFormatted</td>
+                    @if (Model.DisplayRatingColumn)
+                    {
+                        <td class="recent-history-cell-ratings"><a href="@BrowsingUrls.GetLoyaltyExperienceUrl(transaction.VistaTransactionNumber, transaction.CinemaId)">@LoyaltyHome.YourRatingsLinkText</a><span class="arrow"></span></td>
+                    }                        
+                </tr>
+
+                rowCount++;
+            }
+        </table>
+    </div>
+</div>
+
+@foreach (var transaction in Model.MemberTransactions.Where(m => m.GiftShopPurchase != null))
+{
+    Html.RenderPartial("GiftShopPurchaseDetails", transaction.GiftShopPurchase);
+}
+
+@helper GiftShopPurchase(GiftShopPurchase model)
+{
+    if (model != null && model.PurchaseItems.Any())
+    {
+        <div class="gift-shop-purchase-cell">
+            <button class="icon">&nbsp;</button>
+            <a data-transid="@(model.TransactionId)" data-cinemaid="@(model.CinemaId)" class="gift-purchase">@LoyaltyHome.GiftShopPurchaseViewInfo</a>
+        </div>
+    }
+}
+
+@section Css
+{
+    @* TODO: move into bundle *@
+    @ContentDelivery.Css("Loyalty/LoyaltyHome.css")
+    @ContentDelivery.Css("PhotoGalleryCommon.css")
+    @ContentDelivery.Css("ModalDialog.css")
+}
+
+@section Scripts
+{
+    @ContentDelivery.Script("Vista/Loyalty/GiftHistory.js")
+}

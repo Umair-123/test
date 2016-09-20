@@ -1,0 +1,41 @@
+/* FLEXBOX MIXINS */
+/* defined these here as a temp workaround for compass not including the new webkit prefix yet (-webkit-flex) */
+/* LINK/ANCHOR TAG STYLES */
+.footer-links .footer-item, .footer-links .footer-link {
+  text-decoration: none;
+}
+
+/* HORIZONTAL AND VERTICAL RULES */
+/* FOOTER LINKS */
+/*
+<div class="footer-links">   
+    <a href="#" class="footer-link">Legal Policy</a>
+    <a href="#" class="footer-link">Full Site</a>
+    <a href="#" class="footer-link">Location</a>
+    <a href="#" class="footer-link">Francais</a>
+</div>
+*/
+.footer-links {
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  display: -ms-flexbox;
+  text-align: center;
+}
+.footer-links .footer-item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -ms-flex: 1;
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  color: #626366;
+}
+.footer-links .footer-item:hover {
+  color: #eaeaea;
+}
+.footer-links .language-toggle {
+  cursor: pointer;
+}

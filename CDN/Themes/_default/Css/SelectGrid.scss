@@ -1,0 +1,186 @@
+@import "compass/css3/box-shadow";
+@import "compass/css3/user-interface";
+@import "_Colours";
+
+.select-grid-counter {
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 130px;
+
+    span {
+        font-size: 48px;
+    }
+}
+ 
+.select-grid {
+    @include user-select(none);
+
+    $item-border-width: 1px;
+    $item-height: 150px;
+    $item-line-height: 12px;
+    $item-padding: 5px;
+    $item-spacing: 2px;
+    $item-width: 175px; // this is a border-box width, inclusive of padding & border
+    $items-per-row: 4;
+
+    border: 1px solid $color-93908f;
+    margin-top: 80px;
+    overflow: hidden;
+    padding: {
+        right: $item-spacing;
+        bottom: $item-spacing;
+    }
+
+
+    // Item spacing needs to be counted n + 1 times in total
+    // The extra + 1 is done through padding
+    width: ($item-width + $item-spacing) * $items-per-row;
+
+    .voucher-control {
+        background: $color-eaeaea;
+        margin: {
+            top: $item-spacing;
+            left: $item-spacing;
+        }
+
+        overflow: hidden;
+
+        padding-left: 13px;
+    }
+
+    .voucher-header {
+        margin: 0;
+        padding: 0;
+    }
+
+    .vouchers-in-order {
+        margin: 0;
+    }
+
+    .voucher-line {
+        margin: 10px 5px;
+    }
+
+    .select-grid-item { 
+        border: $item-border-width solid $color-93908f;
+        cursor: pointer;
+        display: inline-block;
+        float: left;
+
+        height: $item-height;
+
+        margin: {
+            top: $item-spacing;
+            left: $item-spacing;
+        }
+
+        padding: $item-padding;
+        position: relative;
+        text-align: center;
+
+        width: $item-width - $item-padding * 2 - $item-border-width * 2;
+
+        .icon {
+            $icon-padding: $item-padding;
+            cursor: pointer;
+            display: none;
+            left: -$icon-padding;
+            padding: $icon-padding;
+            position: absolute;
+            top: -$icon-padding;
+        }
+    }
+
+    .select-grid-description {
+        display: block;
+        font-weight: bold;
+        margin-top: $item-height / 2 - $item-line-height;
+    }
+
+    .select-grid-value {
+        display: block;
+    }
+
+    select {
+        display: none;
+        margin: 40px auto 0 auto;
+        width: 70%;
+    }
+
+    .select-grid-footer {
+        bottom: $item-padding;
+        font-weight: bold;
+        left: $item-padding;
+        line-height: 15px;
+        position: absolute;
+        right: $item-padding;
+        text-align: right;
+    }
+
+    .select-grid-total {
+        font-weight: normal;
+        margin-left: 5px;
+    }
+
+    .select-grid-active, .select-grid-selected {
+        .select-grid-description {
+            margin-top: 0;
+        }
+    }
+ 
+    .select-grid-active {
+        border-color: $color-highlight;
+
+        .select-grid-description, .select-grid-value, .select-grid-count {
+            color: $color-highlight;
+        }
+
+        .icon {
+            background-image: url('../Images/QuickTickets/Icon_Clear_Hover.png');
+            display: inline-block;
+        }
+    }
+
+    .select-grid-selected {
+        color: $color-eaeaea;
+        cursor: default;
+        background: $color-selected;
+
+        .icon {
+            background-image: url('../Images/Icon_Clear_Light.png');
+            display: inline-block;
+        }
+    }
+
+    .select-grid-selector {
+        @include single-box-shadow(0, 0, 3px, 0, $color-000000);
+
+        background: $color-ffffff;
+        color: $color-666666;
+        font-size: 16px;
+        line-height: 2;
+        margin: 20px auto 0 auto;
+        text-align: center;
+        width: 99%; // tolerance for various rounding issues 
+
+        span {
+            display: inline-block;
+            width: 20%;
+
+            &:not(.disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    background: $color-eaeaea;
+                }
+            }
+        }
+    }
+
+    .select-grid-count {
+        font-size: 72px;
+        margin-top: 10px;
+    }
+}

@@ -1,0 +1,111 @@
+﻿@using InternetTicketing.Browsing.Helper
+@using InternetTicketing.Infrastructure.Bundles
+@using InternetTicketing.Infrastructure.ContentDelivery
+@using InternetTicketing.Infrastructure.Localisation
+@using InternetTicketing.Infrastructure.Routing
+@using InternetTicketing.Infrastructure.Html
+@using System.Collections
+@using System.Linq
+@using Vista.Cdn.Client
+@using Vista.Connect
+@using Vista.Connect.Localisation
+@using Vista.Web.Utilities
+@model InternetTicketing.Browsing.ViewModels.EventsAndExperiencesViewModel
+@{
+    var events = Model.CinemaEvents.OrderByLang(Model.IsAltLang, ev => ev.Name, ev => ev.NameAlt).ToArray();
+    var experiences = Model.Experiences.OrderByLang(Model.IsAltLang, a => a.Description, a => a.AltDescription).ToArray();
+}
+<div id="events-and-experiences">                 
+    
+    <div class="ad-content">
+        <section class="loading main-ad generic-image-carousel"></section>
+        <section class="loading lower-ad generic-image-carousel"></section>
+    </div>
+    <div class="list-content">
+
+    @if (events.Any())
+    {
+        <section>                
+            <h2>@Shared.SiteTitle <em>@EventsAndExperiences.Events</em></h2>
+            <div class="event-list">
+                @for (int i = 0; i < events.Length; i++)
+                {
+                    var cinemaEvent = events[i];
+
+                    <div class="list-item">
+                        <div class="image-outer">
+                            <a href="@BrowsingUrls.GetEventUrl(cinemaEvent.ID)" style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.EventPosterGraphic, cinemaEvent.ID, CommonImageSizes.EventsAndExperiencesList)')">
+                                <img src="@ContentDelivery.EntityImage(CdnMediaType.EventPosterGraphic, cinemaEvent.ID, CommonImageSizes.EventsAndExperiencesList)" />
+                            </a>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-details-inner">
+                                <div class="title-wrapper">
+                                    <a href="@BrowsingUrls.GetEventUrl(cinemaEvent.ID)">
+                                        <h3 class="item-title">
+                                            @Model.GetPropertyInCorrectLang(m => cinemaEvent.Name, m => cinemaEvent.NameAlt)
+                                        </h3>
+                                    </a>
+                                </div>
+                                <p class="blurb subtext">@Model.GetPropertyInCorrectLang(m => cinemaEvent.Description, m => cinemaEvent.DescriptionAlt)</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="main-action">
+                                <a href="@BrowsingUrls.GetEventUrl(cinemaEvent.ID)">@EventsAndExperiences.ReadMoreAndBook</a> <span class="right-arrow image-wrapper">&nbsp;</span>
+                            </div>
+                        </div>
+                    </div>
+                }                
+            </div>
+        </section>
+    }
+    @if (experiences.Any())
+    {
+        <section>
+            <h2>@Shared.SiteTitle <em>@EventsAndExperiences.Experiences</em></h2>
+            <div class="experience-list">
+                @for (int i = 0; i < experiences.Length; i++)
+                {
+                    var experience = experiences[i];
+
+                    <div class="list-item">
+                        <div class="image-outer">
+                            <a href="@BrowsingUrls.GetExperienceUrl(experience.ShortName)" style="background-image: url('@ContentDelivery.EntityImage(CdnMediaType.ShowTypeGraphic, experience.ID, CommonImageSizes.EventsAndExperiencesList)')">
+                                <img src="@ContentDelivery.EntityImage(CdnMediaType.ShowTypeGraphic, experience.ID, CommonImageSizes.EventsAndExperiencesList)" />
+                            </a>
+                        </div>
+                        <div class="item-details">
+                            <div class="item-details-inner">
+                                <div class="title-wrapper">
+                                    <a href="@BrowsingUrls.GetExperienceUrl(experience.ShortName)">
+                                        <h3 class="item-title">
+                                            @Model.GetPropertyInCorrectLang(m => experience.Description, m => experience.AltDescription)
+                                        </h3>
+                                    </a>
+                                </div>
+                                <p class="blurb subtext">@Model.GetPropertyInCorrectLang(m => experience.Message, m => experience.MessageAlt)</p>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <div class="main-action">
+                                <a href="@BrowsingUrls.GetExperienceUrl(experience.ShortName)">@EventsAndExperiences.ReadMoreAndViewShowTimes</a> <span class="right-arrow image-wrapper">&nbsp;</span>
+                            </div>
+                        </div>
+                    </div>
+                }                
+            </div>
+        </section>
+    }
+    </div>
+
+</div>
+@section Css 
+{
+    @ContentDelivery.CssBundle(CssBundles.EventsAndExperiencesPages)
+}
+
+@section Scripts
+{
+      @ContentDelivery.Script("EventsAndExperiences/EventsAndExperiences.js")
+}

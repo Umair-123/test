@@ -1,0 +1,35 @@
+﻿@import "../_Colours";
+
+.countdown {
+    color: $color-443e3b;
+    float: right;
+    font-family: calibri, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.countdown span {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.countdown em {
+    display: block;
+    margin-top: -2px;
+    margin-right: 10px;
+    color: $color-highlight;
+}
+
+.countdown em:after {
+    content: ':'
+}
+
+.countdown em,
+.countdown .time {
+    font-size: 30px;
+}
+
+.countdown a {
+    display: none;
+}

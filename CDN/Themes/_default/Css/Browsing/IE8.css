@@ -1,0 +1,11 @@
+/* IE <= 8 does not vertically center input text. Setting this breaks placeholder text on some other browsers (Safari). */
+#quick-tickets-selection .toolbar .search input {
+  line-height: 27px;
+}
+
+.loyalty-member .button-container {
+  text-align: center;
+}
+.loyalty-member .button-container .submit {
+  display: inline;
+}

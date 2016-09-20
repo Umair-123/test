@@ -1,0 +1,415 @@
+﻿@import "../_Colours";
+@import "../_LayoutDimensions";
+@import "../_Styles";
+@import "../_Images";
+@import "../_Icons";
+
+$upcoming-booking-poster-height:180px;
+$upcoming-booking-poster-width:121px;
+$upcoming-booking-width:483px;
+
+.loyalty-home {
+    margin-left:-$layout-content-padding;
+    margin-right:-$layout-content-padding;
+    margin-top:-$layout-content-padding;
+    margin-bottom:-$layout-content-padding;
+    font-size:13px;
+    margin-top:$layout-page-header-height;
+
+    .page-header-boxout {
+        padding:12px;
+        min-height:366px - 12px - 12px;
+        .manual-recognition-shop-link {
+            position:absolute;
+            bottom:20px;
+            right:20px;
+        }        
+
+        .messages {
+            position:absolute;
+            bottom:97px;
+            left:auto;
+            height:40px;
+            line-height:40px;            
+
+        }
+
+        .message-positioner {
+            @include icon("Messages","../../");     
+            background-repeat:no-repeat;      
+            position:relative;
+            margin-top:9px;
+            padding-left:50px;
+
+
+        }
+
+        .message-count {
+            position:absolute;
+            top:0;
+            left:50px;
+            border: solid 1px $color-35a0a8;
+            background-color: $color-35a0a8;
+            line-height:18px;
+            height:18px;
+            padding-left:6px;
+            padding-right:5px;
+            padding-bottom:1px;
+            border-radius:13px;
+            color:$color-ffffff;
+            font-size:17px;
+            margin:0;
+            display:inline-block;
+            z-index:300;
+            
+
+
+
+        }
+
+        .message-message {
+            margin-left:28px;
+            vertical-align:middle;
+            font-size:14px;
+            color:$color-666666;
+        }
+    }
+
+    .upcoming-bookings-rewards {
+        @extend %padded-page-component;
+        margin-bottom:30px;
+
+
+        .upcoming-bookings {
+            @extend %clearfix; 
+            .upcoming-bookings-title {
+                margin-bottom: 30px;
+            }
+
+            .booking-detail-wrapper {
+                @extend %clearfix; 
+                border: solid 1px #EAEAEA;
+                width:$upcoming-booking-width;
+                display:inline-block;
+                float:right;
+                &:first-child {
+                    float:left;
+                }
+                .film-poster {
+                    float:left;
+                    width:$upcoming-booking-poster-width;
+                    height:$upcoming-booking-poster-height;
+                    line-height:$upcoming-booking-poster-height;
+
+                }                
+
+                .booking-detail {
+                    height:$upcoming-booking-poster-height;
+                    width:$upcoming-booking-width - $upcoming-booking-poster-width;  
+                    float:left;
+                    position:relative;
+                    @extend %clearfix; 
+
+                    .censor-rating {
+                        @include rating-image(24px, 0px, 0px, 0px, 0px); 
+                        margin-top:10px;
+                        margin-left:8px;
+                        float:left;
+                    }
+                       
+                    .film-details {                                                      
+                        padding-left:40px; 
+                        padding-top:10px;                                    
+                        line-height: 1.5em; word-wrap: break-word;
+                        font-family:$font-segoe;
+
+                        .film-title,.session-time,.cinema-name {
+                            display:block;
+                            margin-bottom:2px;
+                        }
+
+                        .film-title {
+                            font-size:20px;
+                            line-height:20px;
+                            color:$color-2b2725;
+                            margin-bottom:4px;
+                        }
+                        .session-time {                            
+                            color:$color-93908f;
+                            font-size:14px;
+                        }
+                        .cinema-name {
+                         }
+                    }
+                }
+
+                .booking-detail-links {
+                    border-top:solid 1px $color-eaeaea;
+                    background-color:#F9F9f9;
+                    position:absolute;
+                    left:0px;
+                    right:0px;
+                    height:34px;
+                    bottom:0px;
+                }
+
+			    .main-action {
+                    text-align:right;
+				    line-height: 34px;
+				    vertical-align: middle;
+				    font-size: 14px;
+				    color: #666;
+				    font-family: 'Segoe UI';
+				    font-weight: bold;
+				    margin-right: 12px;
+				    padding-left: 15px;
+				    border-left: 1px solid #EAEAEA;
+
+				    a {
+					    text-decoration: underline;
+					    border: none;
+                        padding:0;                        
+				    }
+
+                    .arrow {
+                        margin-left:3px;
+                        line-height:12px;
+                        height:12px;
+                        display:inline-block;
+                        vertical-align:middle;
+                        margin-bottom:2px;
+                    }
+
+				
+			    }
+            }
+
+            .no-upcoming-bookings {
+                padding-bottom: 10px;
+            }
+        }
+
+        .rewards {
+            margin-top:30px;
+            h3 {
+                padding-bottom: 20px;
+            }
+
+            .rewards-list-with-messages {
+                min-height: 100px; max-height: 131px; overflow: auto; margin-bottom: 20px;
+            }
+
+            .rewards-list-no-messages {
+                min-height: 80px; max-height: 246px; overflow: auto; margin-bottom: 10px;
+            }
+
+            .reward-wrapper {
+                border: solid 1px #EAEAEA;
+                padding:5px;                
+                max-width:400px;
+                display:inline-block;
+                margin-right:5px;
+                margin-bottom:5px;
+
+                .reward-icon {
+                    display:inline-block;
+                    margin-top:2px;
+                    float:left;
+                    width:15px;
+                    margin-right: 5px;                    
+                }
+
+                .reward-text {
+                    max-width:350px;
+                    line-height:18px;
+                    float: left;     
+                    overflow:hidden;
+                    text-overflow:ellipsis;               
+                    vertical-align: top;
+                    text-wrap:none;
+                    white-space:nowrap;
+     
+                    
+                }
+            }
+        }
+    }
+
+    .recent-history-wrapper {     
+        .recent-history-title {
+            @extend %padded-page-component;            
+        }
+        .transaction-grid {
+            width:100%;
+        }
+        table {
+
+            tr {
+                border-bottom:solid 1px $color-eaeaea;
+                th, td {
+                    padding: 5px;
+
+                    &:first-child {
+                        padding-left:20px;
+                    }
+                    &:last-child {
+                        padding-right:20px;
+                    }
+                    
+
+                }
+
+                td {
+                    padding-top:10px;
+                    padding-bottom:10px;
+                }
+                .recent-history-cell {
+                    text-align: right;
+                }
+
+                .recent-history-cell-date {
+                    padding-left:20px;
+                    width: 200px; text-align: left;
+                }
+
+                .recent-history-cell-cinema {
+                    text-align: left;
+                }
+
+                .box-office-purchase-cell {                
+                    text-align: left;
+                    ul {
+                        li {
+                            padding-bottom:5px;
+                        }
+
+                        li:last-child {
+                            padding-bottom:0px;
+                        }
+                    }
+                }
+
+
+
+                .gift-shop-purchase-cell {
+                    text-align: left;
+					button.icon {
+                        @include icon("Gift","../../");   
+						width: 10px;
+					}
+                }
+				
+
+                 .recent-history-cell-points-used {
+                    padding-right:15px;
+                    text-align: right;
+                }
+
+                .recent-history-cell-points-earned {
+                    padding-right:15px;
+                    text-align: right;
+                }
+
+                .recent-history-cell-spend {
+                    padding-right:15px;
+                    text-align: right;
+                }
+
+                .recent-history-cell-ratings {
+                    text-align: left;                     
+                    vertical-align:middle;
+                    width:90px;
+                    .arrow {
+                        @include icon("Arrow_Right","../../");
+                        display:inline-block;
+                        background-repeat:no-repeat;
+                        width:11px;
+                        height:14px;
+                        vertical-align:middle;
+                        margin-left:4px;
+                    }
+                }
+            }
+
+            .recent-history-header {
+                border-top:solid 1px $color-eaeaea;
+                border-bottom:solid 1px $color-eaeaea;
+                background-color: #F9F9f9; text-align: left;
+
+                th {
+                    height:32px;
+                    vertical-align:middle;
+                    color:$color-2b2725;
+                    font-size:13px;
+                }
+            }
+
+            .recent-history-row {
+                background-color: white;
+            }
+
+            .recent-history-row-alt {
+                background-color: white;
+            }
+        }
+    }
+
+    .clear {
+        clear: both;
+    }
+}
+
+.order-details-modal {
+	width: 730px;
+	$line-color: $color-666666;
+	$cell-padding: 5px;
+
+	.title {
+		margin-bottom: 10px;
+		border-bottom: 1px solid $line-color;
+		padding-bottom: 5px;
+	}
+
+	table {
+		width: 100%;
+
+		.gift-header {
+			background-color: $color-eaeaea;
+			text-align: left;
+
+			td {
+				padding: $cell-padding;
+			}
+		}
+
+		.purchase-item {
+			td {
+				padding: $cell-padding;
+			}
+
+			&.alt {
+				background-color: $color-d8d8d8;
+			}
+		}
+	}
+
+	#order-total {
+		margin-top: 10px;
+		border-top: 1px solid $line-color;
+		padding-top: 10px;
+	}
+}
+
+.gift-shop-purchase {
+	display: none;
+}
+
+.has-upcoming-bookings.no-messages {
+    
+	.recent-history-wrapper {
+        
+        .recent-history-title {
+            margin-top: 0px; // reset negative margin
+        }
+	}
+}

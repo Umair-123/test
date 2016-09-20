@@ -1,0 +1,22 @@
+﻿@mixin background-image($file-name,$relative-path) {
+    background-image:url($relative-path + "images/" + $file-name);
+}
+
+@mixin rating-image($size, $padding-left, $padding-top,$padding-right,$padding-bottom) {
+    width:$size - $padding-left - $padding-right;
+    line-height:$size - $padding-top - $padding-bottom;
+    height:$size - $padding-top - $padding-bottom;
+    text-align:center;
+    padding-top:$padding-top;
+    padding-bottom:$padding-bottom;
+    padding-left:$padding-left;
+    padding-right:$padding-right;
+    text-align:center;
+    .icon {
+        max-width:$size - $padding-left - $padding-right;
+        max-height:$size - $padding-top - $padding-bottom;
+        margin-left:auto;
+        margin-right:auto;
+        vertical-align:middle;
+    }    
+}

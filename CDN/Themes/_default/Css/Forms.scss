@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    FORMS
+\*------------------------------------*/
+
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+/**
+ * Group pairs of related label/fields.
+ * Ensures consistent spacing between form items.
+ * 
+   <form>
+       <div class="form-line">
+           <label /><input />
+       </div>
+       <div class="form-line">
+           <label /><select />
+       </div>
+       <div class="form-line">
+           <label /><input />
+       </div>
+       <div class="form-line">
+           <input type="checkbox" /><label />
+       </div>
+   </form>
+ * 
+ */
+.form-line {
+    min-height: 25px;
+
+    // allow a minimum width to be set on the label (varies on each form)
+    label,.label {
+        display: inline-block;
+        font-size:13px;
+        color:#595655;
+    }
+
+    // form fields that occur after labels need to be indented from the label
+    label+input,
+    label+select {
+        margin-left: 5px;
+    }
+
+    // both textareas and their labels should appear on new lines
+    .text-area-label,
+    textarea {
+        display: block;
+    }
+
+    textarea {
+        resize: vertical;
+    }
+
+    .text-area-label {
+        margin-bottom: 10px;
+
+        // since the label is on a separate line from the text area include a semi-colon on the label
+        &:after {
+            content: ':';
+        }
+    }
+    .checkbox-list {
+        margin-right:3px;
+    }
+}
